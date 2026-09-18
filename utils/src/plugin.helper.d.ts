@@ -1,4 +1,4 @@
-import { ClassType } from '@nest-yalc-2/types/globals.d.js';
+import { ClassType } from '@node-yalc/types/globals.js';
 export interface PluginMethods extends Record<string, {
     (...args: any[]): void;
 } | undefined> {

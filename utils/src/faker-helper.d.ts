@@ -4,13 +4,13 @@ export declare class FakerHelper {
     private readonly generatedEmails;
     createPerson(): {
         gender: string;
-        firstName: string;
-        lastName: string;
-        email: string;
+        firstName: any;
+        lastName: any;
+        email: any;
     };
-    generateNewEmail(firstName: string, lastName: string, provider?: string): string;
+    generateNewEmail(firstName: string, lastName: string, provider?: string): any;
     randomFromEnum<T extends Record<string, string | number>>(inputEnum: T): T[keyof T];
     randomDecimal: (min: number, max: number, precision: number) => string;
     randomBirthDate: (start?: number, end?: number) => string;
-    randomLockDate: () => Date | undefined;
+    randomLockDate: () => any;
 }

@@ -201,7 +201,7 @@ export function beforeLogging(
 
   if (!eventName) return;
 
-  const { event } = require('@nest-yalc-2/event-manager/event.js');
+  const { event } = require('@node-yalc/event-manager/event.js');
   event(eventName, {
     event: { emitter },
     data: options?.data,

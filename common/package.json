@@ -1,0 +1,13 @@
+{
+    "name":  "@node-yalc/common",
+    "version":  "1.0.0",
+    "description":  "Common interfaces and abstractions for Yalc frameworks",
+    "main":  "src/index.ts",
+    "types":  "src/index.ts",
+    "scripts":  {
+
+                },
+    "dependencies":  {
+                         "rxjs":  "^7.8.2"
+                     }
+}

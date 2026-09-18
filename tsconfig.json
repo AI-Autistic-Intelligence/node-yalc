@@ -1,0 +1,96 @@
+{
+    "compilerOptions":  {
+                            "module":  "NodeNext",
+                            "moduleResolution":  "NodeNext",
+                            "declaration":  true,
+                            "removeComments":  true,
+                            "emitDecoratorMetadata":  true,
+                            "experimentalDecorators":  true,
+                            "importHelpers":  true,
+                            "allowSyntheticDefaultImports":  true,
+                            "strict":  true,
+                            "strictPropertyInitialization":  false,
+                            "useDefineForClassFields":  false,
+                            "skipLibCheck":  true,
+                            "allowJs":  true,
+                            "noUnusedLocals":  true,
+                            "noUnusedParameters":  true,
+                            "noImplicitReturns":  true,
+                            "target":  "es2022",
+                            "lib":  [
+                                        "es2022",
+                                        "dom"
+                                    ],
+                            "sourceMap":  true,
+                            "resolveJsonModule":  true,
+                            "rootDir":  ".",
+                            "paths":  {
+                                          "@node-yalc/interfaces":  [
+                                                                        "./interfaces/src"
+                                                                    ],
+                                          "@node-yalc/interfaces/*":  [
+                                                                          "./interfaces/src/*"
+                                                                      ],
+                                          "@node-yalc/logger":  [
+                                                                    "./logger/src"
+                                                                ],
+                                          "@node-yalc/logger/*":  [
+                                                                      "./logger/src/*"
+                                                                  ],
+                                          "@node-yalc/utils":  [
+                                                                   "./utils/src"
+                                                               ],
+                                          "@node-yalc/utils/*":  [
+                                                                     "./utils/src/*"
+                                                                 ],
+                                          "@node-yalc/types":  [
+                                                                   "./types/src"
+                                                               ],
+                                          "@node-yalc/types/*":  [
+                                                                     "./types/src/*"
+                                                                 ],
+                                          "@node-yalc/types-extends":  [
+                                                                           "./types-extends/src"
+                                                                       ],
+                                          "@node-yalc/types-extends/*":  [
+                                                                             "./types-extends/src/*"
+                                                                         ],
+                                          "@node-yalc/errors":  [
+                                                                    "./errors/src"
+                                                                ],
+                                          "@node-yalc/errors/*":  [
+                                                                      "./errors/src/*"
+                                                                  ],
+                                          "@node-yalc/event-manager":  [
+                                                                           "./event-manager/src"
+                                                                       ],
+                                          "@node-yalc/event-manager/*":  [
+                                                                             "./event-manager/src/*"
+                                                                         ],
+                                          "@node-yalc/common":  [
+                                                                    "./common/src"
+                                                                ],
+                                          "@node-yalc/common/*":  [
+                                                                      "./common/src/*"
+                                                                  ],
+                                          "@node-yalc/aws-helpers":  [
+                                                                    "./aws-helpers/src"
+                                                                ],
+                                          "@node-yalc/aws-helpers/*":  [
+                                                                    "./aws-helpers/src/*"
+                                                                ]
+                                      },
+                            "outDir":  "./dist"
+                        },
+    "include":  [
+                    "**/src/**/*.ts"
+                ],
+    "exclude":  [
+                    "**/node_modules",
+                    "**/*spec.ts",
+                    "**/__tests__",
+                    "**/__mocks__",
+                    "dist",
+                    "**/dist"
+                ]
+}

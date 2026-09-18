@@ -1,4 +1,4 @@
-import { envToArray } from '@nest-yalc-2/utils/env.helper.js';
+import { envToArray } from '@node-yalc/utils/env.helper.js';
 import { LogLevel } from './logger.type.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

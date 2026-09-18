@@ -1,7 +1,6 @@
-import { LoggerService, LogLevel } from '@nestjs/common';
-import { type EventEmitter2 } from '@nestjs/event-emitter';
-import { PluginSystem } from '@nest-yalc-2/utils/plugin.helper.js';
-import { YalcGlobalClsService } from '../../app/src/cls.module.js';
+import { LoggerService, LogLevel } from './logger.type.js';
+import { PluginSystem } from '@node-yalc/utils/plugin.helper.js';
+export type YalcGlobalClsService = any;
 export interface LogMethodOptions {
     message?: any;
     data?: any;
@@ -30,7 +29,7 @@ export interface ImprovedLoggerServiceMethods extends LoggerService {
 export declare const EVENT_LOG_DEFAULT = "EVENT_LOG_DEFAULT";
 export interface IImprovedLoggerOptions {
     event?: {
-        eventEmitter?: EventEmitter2 | false;
+        eventEmitter?: any | false;
         useFallbackEvent?: boolean;
     } | false;
     clsService?: YalcGlobalClsService;
@@ -38,9 +37,9 @@ export interface IImprovedLoggerOptions {
 }
 declare const LoggerAbstractService_base: {
     new (): {
-        plugins: import("@nest-yalc-2/utils/plugin.helper.js").Plugin<ILoggerPluginMethods<any>>[];
-        registerPlugin(plugin: import("@nest-yalc-2/utils/plugin.helper.js").Plugin<ILoggerPluginMethods<any>>): void;
-        unregisterPlugin(plugin: import("@nest-yalc-2/utils/plugin.helper.js").Plugin<ILoggerPluginMethods<any>>): void;
+        plugins: import("@node-yalc/utils/plugin.helper.js").Plugin<ILoggerPluginMethods<any>>[];
+        registerPlugin(plugin: import("@node-yalc/utils/plugin.helper.js").Plugin<ILoggerPluginMethods<any>>): void;
+        unregisterPlugin(plugin: import("@node-yalc/utils/plugin.helper.js").Plugin<ILoggerPluginMethods<any>>): void;
         invokePlugins(methodName: keyof ILoggerPluginMethods<any>, ...args: any[]): void;
     };
 };

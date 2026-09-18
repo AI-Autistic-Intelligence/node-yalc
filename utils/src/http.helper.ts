@@ -1,26 +1,6 @@
-import {
-  BadGatewayException,
-  BadRequestException,
-  ConflictException,
-  ForbiddenException,
-  GatewayTimeoutException,
-  GoneException,
-  HttpException,
-  HttpStatus,
-  InternalServerErrorException,
-  MethodNotAllowedException,
-  MisdirectedException,
-  NotAcceptableException,
-  NotFoundException,
-  NotImplementedException,
-  PayloadTooLargeException,
-  PreconditionFailedException,
-  RequestTimeoutException,
-  ServiceUnavailableException,
-  UnauthorizedException,
-  UnprocessableEntityException,
-  UnsupportedMediaTypeException,
-} from '@nestjs/common';
+
+
+import { HttpStatus } from '@node-yalc/errors/http-status.enum.js';
 import { HttpStatusCode } from 'axios';
 
 export const HttpStatusCodes: Record<string, any> = {
@@ -128,25 +108,4 @@ export const getHttpStatusDescription = (
   return httpStatusDescriptions[status] ?? fallbackDescription;
 };
 
-export const httpExceptionStatusCodes = {
-  [BadRequestException.name]: HttpStatus.BAD_REQUEST,
-  [UnauthorizedException.name]: HttpStatus.UNAUTHORIZED,
-  [ForbiddenException.name]: HttpStatus.FORBIDDEN,
-  [NotFoundException.name]: HttpStatus.NOT_FOUND,
-  [MethodNotAllowedException.name]: HttpStatus.METHOD_NOT_ALLOWED,
-  [NotAcceptableException.name]: HttpStatus.NOT_ACCEPTABLE,
-  [RequestTimeoutException.name]: HttpStatus.REQUEST_TIMEOUT,
-  [ConflictException.name]: HttpStatus.CONFLICT,
-  [GoneException.name]: HttpStatus.GONE,
-  [PreconditionFailedException.name]: HttpStatus.PRECONDITION_FAILED,
-  [PayloadTooLargeException.name]: HttpStatus.PAYLOAD_TOO_LARGE,
-  [UnsupportedMediaTypeException.name]: HttpStatus.UNSUPPORTED_MEDIA_TYPE,
-  [UnprocessableEntityException.name]: HttpStatus.UNPROCESSABLE_ENTITY,
-  [InternalServerErrorException.name]: HttpStatus.INTERNAL_SERVER_ERROR,
-  [NotImplementedException.name]: HttpStatus.NOT_IMPLEMENTED,
-  [BadGatewayException.name]: HttpStatus.BAD_GATEWAY,
-  [ServiceUnavailableException.name]: HttpStatus.SERVICE_UNAVAILABLE,
-  [GatewayTimeoutException.name]: HttpStatus.GATEWAY_TIMEOUT,
-  [HttpException.name]: HttpStatus.INTERNAL_SERVER_ERROR,
-  [MisdirectedException.name]: HttpStatus.MISDIRECTED,
-};
+

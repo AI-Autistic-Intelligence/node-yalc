@@ -1,4 +1,4 @@
-import { ClassType } from '@nest-yalc-2/types/globals.d.js';
+import { ClassType } from '@node-yalc/types/globals.js';
 
 // Check if the class is a native class (like Error, Array, etc.)
 export function isNativeClass<T = any>(
