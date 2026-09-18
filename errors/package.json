@@ -1,29 +1,27 @@
 {
-    "name":  "@node-yalc/errors",
-    "version":  "1.3.4",
-    "type":  "module",
-    "description":  "Errors",
-    "main":  "./dist/src/index.js",
-    "exports":  {
-                    ".":  "./dist/src/index.js",
-                    "./*.js":  "./dist/src/*.js",
-                    "./*":  "./dist/src/*"
-                },
-    "scripts":  {
-
-                },
-    "author":  "",
-    "license":  "MIT",
-    "types":  "./dist/src/index.d.ts",
-    "files":  [
-                  "dist"
-              ],
-    "dependencies":  {
-                         "@node-yalc/logger":  "*",
-                         "@node-yalc/utils":  "*",
-                         "axios":  "^1.15.0",
-                         "eventemitter2":  "^6.4.9",
-                         "neverthrow":  "^8.2.0",
-                         "tslib":  "^2.6.3"
-                     }
+  "name": "@node-yalc/errors",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Errors",
+  "main": "./dist/src/index.js",
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./*.js": "./dist/src/*.js",
+    "./*": "./dist/src/*"
+  },
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@node-yalc/logger": "^0.0.1",
+    "@node-yalc/utils": "^0.0.1",
+    "axios": "^1.15.0",
+    "eventemitter2": "^6.4.9",
+    "neverthrow": "^8.2.0",
+    "tslib": "^2.6.3"
+  }
 }

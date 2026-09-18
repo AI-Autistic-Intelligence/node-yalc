@@ -1,16 +1,14 @@
 {
-    "name":  "@node-yalc/types",
-    "main":  "./src/index.d.ts",
-    "types":  "./src/index.d.ts",
-    "files":  [
-                  "./src/index.d.ts",
-                  "./src/globals.d.ts",
-                  "./src/modules.d.ts"
-              ],
-    "version":  "1.5.0",
-    "description":  "Type definitions for nestjs yalc",
-    "author":  "Yehonal",
-    "scripts":  {
-
-                }
+  "name": "@node-yalc/types",
+  "main": "./src/index.d.ts",
+  "types": "./src/index.d.ts",
+  "files": [
+    "./src/index.d.ts",
+    "./src/globals.d.ts",
+    "./src/modules.d.ts"
+  ],
+  "version": "0.0.1",
+  "description": "Type definitions for nestjs yalc",
+  "author": "Yehonal",
+  "scripts": {}
 }
