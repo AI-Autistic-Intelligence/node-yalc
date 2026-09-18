@@ -65,7 +65,7 @@ sequenceDiagram
 
 ## 4. Why It Was Designed This Way
 
-| Metric | Built-in Partial<T> | DeepPartial<T> from @node-yalc/types |
+| Metric | Built-in `Partial<T>` | `DeepPartial<T>` from @node-yalc/types |
 | :--- | :--- | :--- |
 | **Nested Objects** | Only makes top-level properties optional. | Recursively makes all sub-objects and arrays optional. |
 | **Type Safety** | Requires manual casting for deep patch updates. | Automatic recursive type inference. |
