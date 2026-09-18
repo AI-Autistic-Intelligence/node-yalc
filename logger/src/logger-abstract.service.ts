@@ -53,7 +53,9 @@ export interface ILoggerPluginMethods<TClsService = any> extends Record<
 }
 
 export interface ImprovedLoggerService
-  extends ImprovedLoggerServiceMethods, PluginSystem<ILoggerPluginMethods> {}
+  extends ImprovedLoggerServiceMethods, PluginSystem<ILoggerPluginMethods> {
+  setLogLevels?(levels: LogLevel[]): void;
+}
 
 export interface ImprovedLoggerServiceMethods extends LoggerService {
   log: LogMethod;
