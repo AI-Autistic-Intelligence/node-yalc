@@ -7,7 +7,7 @@
     "./src/globals.d.ts",
     "./src/modules.d.ts"
   ],
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Type definitions for nestjs yalc",
   "author": "Yehonal",
   "scripts": {}
