@@ -1,0 +1,1 @@
+export class FerroxSentinelSecurityEngine { constructor(secretKey?: string) {} }

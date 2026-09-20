@@ -1,0 +1,1 @@
+export class ConfigManager<T = any> { constructor(engine?: any, alias?: string) {} get(key: string, defaultValue?: any): any { return defaultValue; } }
