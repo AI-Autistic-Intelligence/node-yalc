@@ -24,7 +24,7 @@ async function run() {
   for (const item of items) {
     if (item.isDirectory()) {
       const srcDir = path.join(rootDist, item.name, 'src');
-      const destDir = path.join(process.cwd(), item.name, 'dist', 'src');
+      const destDir = path.join(process.cwd(), item.name, 'dist');
       
       try {
         await fs.access(srcDir);
