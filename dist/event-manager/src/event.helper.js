@@ -3,33 +3,33 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getLogLevelByStatus = getLogLevelByStatus;
 exports.getLogLevelByError = getLogLevelByError;
 exports.isErrorEvent = isErrorEvent;
-const logger_1 = require("@node-yalc/logger");
-const utils_1 = require("@node-yalc/utils");
-const errors_1 = require("@node-yalc/errors");
-const errors_2 = require("@node-yalc/errors");
+const logger_enum_js_1 = require("../../logger/src/logger.enum.js");
+const class_helper_js_1 = require("../../utils/src/class.helper.js");
+const http_status_enum_js_1 = require("../../errors/src/http-status.enum.js");
+const error_helper_js_1 = require("../../errors/src/error.helper.js");
 function getLogLevelByStatus(statusCode) {
     let loggerLevel;
     switch (true) {
-        case statusCode >= errors_1.HttpStatus.INTERNAL_SERVER_ERROR:
-            loggerLevel = logger_1.LogLevelEnum.ERROR;
+        case statusCode >= http_status_enum_js_1.HttpStatus.INTERNAL_SERVER_ERROR:
+            loggerLevel = logger_enum_js_1.LogLevelEnum.ERROR;
             break;
-        case statusCode === errors_1.HttpStatus.TOO_MANY_REQUESTS:
-            loggerLevel = logger_1.LogLevelEnum.WARN;
+        case statusCode === http_status_enum_js_1.HttpStatus.TOO_MANY_REQUESTS:
+            loggerLevel = logger_enum_js_1.LogLevelEnum.WARN;
             break;
-        case statusCode >= errors_1.HttpStatus.BAD_REQUEST:
+        case statusCode >= http_status_enum_js_1.HttpStatus.BAD_REQUEST:
         default:
-            loggerLevel = logger_1.LogLevelEnum.LOG;
+            loggerLevel = logger_enum_js_1.LogLevelEnum.LOG;
             break;
     }
     return loggerLevel;
 }
 function getLogLevelByError(error) {
-    const statusCode = (0, errors_2.getStatusCodeFromError)(error);
+    const statusCode = (0, error_helper_js_1.getStatusCodeFromError)(error);
     if (statusCode) {
         return getLogLevelByStatus(statusCode);
     }
     let _error;
-    if ((0, utils_1.isClass)(error)) {
+    if ((0, class_helper_js_1.isClass)(error)) {
         _error = new error();
     }
     else {
@@ -38,11 +38,11 @@ function getLogLevelByError(error) {
     const httpException = _error;
     if (httpException.getStatus)
         return getLogLevelByStatus(httpException.getStatus());
-    return _error.stack ? logger_1.LogLevelEnum.ERROR : logger_1.LogLevelEnum.LOG;
+    return _error.stack ? logger_enum_js_1.LogLevelEnum.ERROR : logger_enum_js_1.LogLevelEnum.LOG;
 }
 function isErrorEvent(options) {
     if (typeof options.logger === 'object' &&
-        options.logger.level === logger_1.LogLevelEnum.ERROR) {
+        options.logger.level === logger_enum_js_1.LogLevelEnum.ERROR) {
         return true;
     }
     if (!options.errorClass) {
@@ -52,6 +52,6 @@ function isErrorEvent(options) {
         return true;
     }
     const logLevel = getLogLevelByError(options.errorClass);
-    return logLevel === logger_1.LogLevelEnum.ERROR;
+    return logLevel === logger_enum_js_1.LogLevelEnum.ERROR;
 }
 //# sourceMappingURL=event.helper.js.map

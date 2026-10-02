@@ -16,16 +16,16 @@ exports.eventDebug = eventDebug;
 exports.eventVerboseAsync = eventVerboseAsync;
 exports.eventVerbose = eventVerbose;
 const tslib_1 = require("tslib");
-const logger_1 = require("@node-yalc/logger");
-const logger_2 = require("@node-yalc/logger");
-const errors_1 = require("@node-yalc/errors");
+const logger_enum_js_1 = require("../../logger/src/logger.enum.js");
+const logger_helper_js_1 = require("../../logger/src/logger.helper.js");
+const default_error_js_1 = require("../../errors/src/default.error.js");
 const emitter_js_1 = require("./emitter.js");
 const global_emitter_js_1 = require("./global-emitter.js");
-const logger_3 = require("@node-yalc/logger");
-const utils_1 = require("@node-yalc/utils");
-const utils_2 = require("@node-yalc/utils");
+const logger_factory_js_1 = require("../../logger/src/logger.factory.js");
+const class_helper_js_1 = require("../../utils/src/class.helper.js");
+const object_helper_js_1 = require("../../utils/src/object.helper.js");
 const _ = tslib_1.__importStar(require("lodash-es"));
-const utils_3 = require("@node-yalc/utils");
+const promise_helper_js_1 = require("../../utils/src/promise.helper.js");
 function applyAwaitOption(options) {
     let event = options?.event;
     if (event !== false && event !== undefined) {
@@ -44,7 +44,7 @@ function event(eventName, options) {
         receivedData = { message: receivedData };
     }
     if (mask)
-        receivedData = (0, logger_2.maskDataInObject)(receivedData, mask);
+        receivedData = (0, logger_helper_js_1.maskDataInObject)(receivedData, mask);
     const data = { ...receivedData, eventName: formattedEventName };
     const optionalMessage = options?.logger ? options.message : undefined;
     let errorInstance;
@@ -52,11 +52,11 @@ function event(eventName, options) {
     if (isErrorOptions(options)) {
         const { errorClass: _class, logger, ...rest } = options;
         if (_class !== false && _class !== undefined) {
-            if ((0, utils_1.isClass)(_class) || _class === true) {
+            if ((0, class_helper_js_1.isClass)(_class) || _class === true) {
                 let _errorClass;
                 const errorOptions = rest;
                 if (_class === true) {
-                    _errorClass = errors_1.DefaultError;
+                    _errorClass = default_error_js_1.DefaultError;
                 }
                 else {
                     _errorClass = _class;
@@ -72,7 +72,7 @@ function event(eventName, options) {
             else {
                 errorInstance = _class;
             }
-            if ((0, errors_1.isDefaultErrorMixin)(errorInstance)) {
+            if ((0, default_error_js_1.isDefaultErrorMixin)(errorInstance)) {
                 errorInstance.mergeErrorInfo({
                     ...rest,
                     config,
@@ -84,8 +84,8 @@ function event(eventName, options) {
                 errorPayload = {
                     ...rest,
                     ...errorInstance,
-                    data: (0, utils_2.deepMergeWithoutArrayConcat)(errorInstance.data ?? {}, receivedData),
-                    response: (0, utils_2.deepMergeWithoutArrayConcat)(errorInstance.response ?? {}, options.response ?? {}),
+                    data: (0, object_helper_js_1.deepMergeWithoutArrayConcat)(errorInstance.data ?? {}, receivedData),
+                    response: (0, object_helper_js_1.deepMergeWithoutArrayConcat)(errorInstance.response ?? {}, options.response ?? {}),
                     config,
                 };
             }
@@ -98,7 +98,7 @@ function event(eventName, options) {
             : { level: logger, instance: undefined };
         const loggerConfig = {
             instance: (_instance ??
-                (0, logger_3.AppLoggerFactory)('Event')),
+                (0, logger_factory_js_1.AppLoggerFactory)('Event')),
             level: (_level ?? 'log'),
             ...rest,
         };
@@ -164,7 +164,7 @@ function event(eventName, options) {
         await Promise.all(toAwait);
         return result;
     })();
-    utils_3.globalPromiseTracker.add(promise);
+    promise_helper_js_1.globalPromiseTracker.add(promise);
     const returnedError = errorInstance;
     return returnedError ?? promise;
 }
@@ -188,13 +188,13 @@ async function eventLogAsync(eventName, options) {
     const _options = applyAwaitOption(options);
     return event(eventName, {
         ..._options,
-        logger: getLoggerOption(logger_1.LogLevelEnum.LOG, _options),
+        logger: getLoggerOption(logger_enum_js_1.LogLevelEnum.LOG, _options),
     });
 }
 function eventLog(eventName, options) {
     return event(eventName, {
         ...options,
-        logger: getLoggerOption(logger_1.LogLevelEnum.LOG, options),
+        logger: getLoggerOption(logger_enum_js_1.LogLevelEnum.LOG, options),
     });
 }
 async function eventErrorAsync(eventName, options) {
@@ -204,7 +204,7 @@ async function eventErrorAsync(eventName, options) {
 function eventError(eventName, options) {
     const _options = {
         ...(options ?? {}),
-        logger: getLoggerOption(logger_1.LogLevelEnum.ERROR, options),
+        logger: getLoggerOption(logger_enum_js_1.LogLevelEnum.ERROR, options),
         errorClass: options?.errorClass ?? true,
     };
     return event(eventName, _options);
@@ -213,39 +213,39 @@ async function eventWarnAsync(eventName, options) {
     const _options = applyAwaitOption(options);
     return event(eventName, {
         ..._options,
-        logger: getLoggerOption(logger_1.LogLevelEnum.WARN, _options),
+        logger: getLoggerOption(logger_enum_js_1.LogLevelEnum.WARN, _options),
     });
 }
 function eventWarn(eventName, options) {
     return event(eventName, {
         ...options,
-        logger: getLoggerOption(logger_1.LogLevelEnum.WARN, options),
+        logger: getLoggerOption(logger_enum_js_1.LogLevelEnum.WARN, options),
     });
 }
 async function eventDebugAsync(eventName, options) {
     const _options = applyAwaitOption(options);
     return event(eventName, {
         ..._options,
-        logger: getLoggerOption(logger_1.LogLevelEnum.DEBUG, _options),
+        logger: getLoggerOption(logger_enum_js_1.LogLevelEnum.DEBUG, _options),
     });
 }
 function eventDebug(eventName, options) {
     return event(eventName, {
         ...options,
-        logger: getLoggerOption(logger_1.LogLevelEnum.DEBUG, options),
+        logger: getLoggerOption(logger_enum_js_1.LogLevelEnum.DEBUG, options),
     });
 }
 async function eventVerboseAsync(eventName, options) {
     const _options = applyAwaitOption(options);
     return event(eventName, {
         ..._options,
-        logger: getLoggerOption(logger_1.LogLevelEnum.VERBOSE, _options),
+        logger: getLoggerOption(logger_enum_js_1.LogLevelEnum.VERBOSE, _options),
     });
 }
 function eventVerbose(eventName, options) {
     return event(eventName, {
         ...options,
-        logger: getLoggerOption(logger_1.LogLevelEnum.VERBOSE, options),
+        logger: getLoggerOption(logger_enum_js_1.LogLevelEnum.VERBOSE, options),
     });
 }
 //# sourceMappingURL=event.js.map

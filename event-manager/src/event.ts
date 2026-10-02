@@ -1,5 +1,5 @@
 import type { LogLevel } from '../../logger/src/logger.type.js';
-import { type ImprovedLoggerService } from '../../logger/src/logger.type.js';
+import { type ImprovedLoggerService } from '../../logger/src/logger-abstract.service.js';
 import { LogLevelEnum } from '../../logger/src/logger.enum.js';
 import { EventEmitter2 } from 'eventemitter2';
 import { maskDataInObject } from '../../logger/src/logger.helper.js';

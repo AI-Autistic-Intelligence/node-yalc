@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.HttpException = void 0;
 class HttpException extends Error {
     constructor(response, status, options) {
-        super();
+        super(undefined, options);
         this.response = response;
         this.status = status;
         this.options = options;

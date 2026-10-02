@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stringIsInEnumOrThrow = stringIsInEnumOrThrow;
 exports.stringIsInEnum = stringIsInEnum;
-const errors_1 = require("@node-yalc/errors");
+const error_enum_js_1 = require("../../errors/src/error.enum.js");
 function stringIsInEnumOrThrow(toCheck, enumName, message) {
     if (stringIsInEnum(toCheck, enumName)) {
         return true;
     }
-    const err = message ? message : `${errors_1.ErrorsEnum.INVALID_VALUE} ${toCheck}`;
+    const err = message ? message : `${error_enum_js_1.ErrorsEnum.INVALID_VALUE} ${toCheck}`;
     throw new Error(err);
 }
 function stringIsInEnum(toCheck, enumName) {

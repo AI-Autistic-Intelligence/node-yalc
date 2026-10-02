@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getEnvLoggerLevels = exports.getEnvLoggerLevelsByContext = void 0;
 exports.maskDataInObject = maskDataInObject;
 const tslib_1 = require("tslib");
-const utils_1 = require("@node-yalc/utils");
+const env_helper_js_1 = require("../../utils/src/env.helper.js");
 const fast_redact_1 = tslib_1.__importDefault(require("fast-redact"));
 const lodash_es_1 = require("lodash-es");
 const logger_enum_js_1 = require("./logger.enum.js");
@@ -21,13 +21,13 @@ function maskDataInObject(data, paths, trace) {
     return { ...JSON.parse(redact(data)), trace };
 }
 const getEnvLoggerLevelsByContext = (context) => {
-    return (0, utils_1.envToArray)(`NEST_LOGGER_LEVELS_${context.toUpperCase()}`);
+    return (0, env_helper_js_1.envToArray)(`NEST_LOGGER_LEVELS_${context.toUpperCase()}`);
 };
 exports.getEnvLoggerLevelsByContext = getEnvLoggerLevelsByContext;
 const getEnvLoggerLevels = (context, def = logger_enum_js_1.LOG_LEVEL_ALL) => {
     let levels = (0, exports.getEnvLoggerLevelsByContext)(context ?? logger_enum_js_1.LoggerDefContext.NEST_SYSTEM);
     if (!levels.length)
-        levels = (0, utils_1.envToArray)('NEST_LOGGER_LEVELS');
+        levels = (0, env_helper_js_1.envToArray)('NEST_LOGGER_LEVELS');
     return levels.length ? levels : def;
 };
 exports.getEnvLoggerLevels = getEnvLoggerLevels;

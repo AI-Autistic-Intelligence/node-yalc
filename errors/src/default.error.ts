@@ -1,6 +1,6 @@
 
 import { getYalcGlobalEventEmitter } from '../../event-manager/src/global-emitter.js';
-import type { ImprovedLoggerService } from '../../logger/src/logger.type.js';
+import type { ImprovedLoggerService } from '../../logger/src/logger-abstract.service.js';
 import { AppLoggerFactory } from '../../logger/src/logger.factory.js';
 import { maskDataInObject } from '../../logger/src/logger.helper.js';
 import { ClassType, Mixin } from '../../types/src/index.js';

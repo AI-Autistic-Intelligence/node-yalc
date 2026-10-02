@@ -1,4 +1,4 @@
-import { LogLevelEnum } from '@node-yalc/logger';
+import { LogLevelEnum } from '../../logger/src/logger.enum.js';
 import { IErrorEventOptions } from './event.js';
 export declare function getLogLevelByStatus(statusCode: number): "log" | "error" | "warn";
 export declare function getLogLevelByError(error: any): "log" | "error" | "warn" | LogLevelEnum.LOG | LogLevelEnum.ERROR;

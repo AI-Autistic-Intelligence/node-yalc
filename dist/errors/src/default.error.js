@@ -5,16 +5,15 @@ exports.formatCause = formatCause;
 exports.DefaultErrorBase = DefaultErrorBase;
 exports.isDefaultErrorMixin = isDefaultErrorMixin;
 exports.isDefaultErrorMixinClass = isDefaultErrorMixinClass;
-const event_manager_1 = require("@node-yalc/event-manager");
-const event_manager_2 = require("@node-yalc/event-manager");
-const logger_1 = require("@node-yalc/logger");
-const logger_2 = require("@node-yalc/logger");
-const utils_1 = require("@node-yalc/utils");
+const global_emitter_js_1 = require("../../event-manager/src/global-emitter.js");
+const logger_factory_js_1 = require("../../logger/src/logger.factory.js");
+const logger_helper_js_1 = require("../../logger/src/logger.helper.js");
+const http_helper_js_1 = require("../../utils/src/http.helper.js");
 const http_exception_js_1 = require("./http.exception.js");
 const http_status_enum_js_1 = require("./http-status.enum.js");
 const error_enum_js_1 = require("./error.enum.js");
-const utils_2 = require("@node-yalc/utils");
-const utils_3 = require("@node-yalc/utils");
+const object_helper_js_1 = require("../../utils/src/object.helper.js");
+const class_helper_js_1 = require("../../utils/src/class.helper.js");
 exports.ON_DEFAULT_ERROR_EVENT = 'onDefaultError';
 const newDefaultError = (base, options, ...args) => {
     return new ((0, exports.DefaultErrorMixin)(base))(options, ...args);
@@ -45,9 +44,20 @@ const DefaultErrorMixin = (base) => {
                 const { instance, level } = options.logger !== true
                     ? options.logger
                     : { instance: undefined, level: undefined };
+                let defaultLevel = 'log';
+                const statusCode = this.getStatus();
+                if (statusCode >= http_status_enum_js_1.HttpStatus.INTERNAL_SERVER_ERROR) {
+                    defaultLevel = 'error';
+                }
+                else if (statusCode === http_status_enum_js_1.HttpStatus.TOO_MANY_REQUESTS) {
+                    defaultLevel = 'warn';
+                }
+                else if (statusCode >= http_status_enum_js_1.HttpStatus.BAD_REQUEST) {
+                    defaultLevel = 'log';
+                }
                 this.logger = {
-                    instance: instance ?? (0, logger_1.AppLoggerFactory)('DefaultError'),
-                    level: level ?? (0, event_manager_1.getLogLevelByStatus)(this.getStatus()),
+                    instance: instance ?? (0, logger_factory_js_1.AppLoggerFactory)('DefaultError'),
+                    level: level ?? defaultLevel,
                 };
                 if (this.logger.level === 'error') {
                     this.logger.instance.error(message, this.resolvedStack, {
@@ -63,7 +73,7 @@ const DefaultErrorMixin = (base) => {
                 }
             }
             const eventEmitter = options.eventEmitter === true || options.eventEmitter === undefined
-                ? (0, event_manager_2.getYalcGlobalEventEmitter)()
+                ? (0, global_emitter_js_1.getYalcGlobalEventEmitter)()
                 : options.eventEmitter;
             if (eventEmitter !== false) {
                 this.eventName ??= exports.ON_DEFAULT_ERROR_EVENT;
@@ -81,10 +91,10 @@ const DefaultErrorMixin = (base) => {
             this.internalMessage = options.internalMessage ?? this.cause?.message;
             this.eventName = options.eventName;
             this.description =
-                options.description ?? (0, utils_1.getHttpStatusDescription)(errorCode);
+                options.description ?? (0, http_helper_js_1.getHttpStatusDescription)(errorCode);
             this.betterResponse = _AbstractDefaultError.buildResponse(this.message, this.description, errorCode, options?.response ?? super.getResponse());
             this.data = options.masks
-                ? (0, logger_2.maskDataInObject)(options.data, options.masks)
+                ? (0, logger_helper_js_1.maskDataInObject)(options.data, options.masks)
                 : options.data;
             const cause = this.cause;
             const payload = {
@@ -109,7 +119,7 @@ const DefaultErrorMixin = (base) => {
             if (eventName)
                 this.eventName = eventName;
             if (data)
-                this.data = (0, utils_2.deepMergeWithoutArrayConcat)(this.data ?? {}, data);
+                this.data = (0, object_helper_js_1.deepMergeWithoutArrayConcat)(this.data ?? {}, data);
             if (stack)
                 this.resolvedStack = stack;
             if (cause) {
@@ -205,7 +215,7 @@ const errorToDefaultError = (error, options = {}) => {
                     message: error.getResponse().toString(),
                     error: error.name,
                     statusCode: error.getStatus(),
-                    statusCodeDescription: (0, utils_1.getHttpStatusDescription)(error.getStatus()),
+                    statusCodeDescription: (0, http_helper_js_1.getHttpStatusDescription)(error.getStatus()),
                 },
                 stack: error.stack,
                 cause: error.cause,
@@ -261,7 +271,7 @@ function isDefaultErrorMixin(error) {
     return error.__DefaultErrorMixin !== undefined;
 }
 function isDefaultErrorMixinClass(error) {
-    return ((0, utils_3.isClass)(error) &&
+    return ((0, class_helper_js_1.isClass)(error) &&
         error.defaultStatusCode !== undefined);
 }
 //# sourceMappingURL=default.error.js.map

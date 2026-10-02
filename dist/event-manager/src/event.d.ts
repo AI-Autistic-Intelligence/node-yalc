@@ -1,9 +1,9 @@
-import type { LogLevel } from '@node-yalc/logger';
-import { type ImprovedLoggerService } from '@node-yalc/logger';
+import type { LogLevel } from '../../logger/src/logger.type.js';
+import { type ImprovedLoggerService } from '../../logger/src/logger-abstract.service.js';
 import { EventEmitter2 } from 'eventemitter2';
-import { DefaultError, IErrorPayload } from '@node-yalc/errors';
+import { DefaultError, IErrorPayload } from '../../errors/src/default.error.js';
 import { EventNameFormatter } from './emitter.js';
-import { ClassType, InstanceType } from '@node-yalc/types';
+import { ClassType, InstanceType } from '../../types/src/index.js';
 interface IEventEmitterOptions<TFormatter extends EventNameFormatter = EventNameFormatter> {
     emitter?: EventEmitter2;
     formatter?: TFormatter;
