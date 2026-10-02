@@ -1,4 +1,4 @@
-import { ErrorsEnum } from '@node-yalc/errors';
+import { ErrorsEnum } from '../../errors/src/error.enum.js';
 
 export function stringIsInEnumOrThrow<
   T extends Record<string, string | number>,

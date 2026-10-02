@@ -9,7 +9,7 @@ import {
   afterEach,
 } from '@jest/globals';
 
-import { runLambdaCliOperation } from '../aws-lambda.helpers.js.js';
+import { runLambdaCliOperation } from '../aws-lambda.helpers.js';
 
 describe('AWS Lambda Helper', () => {
   it('Should run a lambda cli operation', async () => {

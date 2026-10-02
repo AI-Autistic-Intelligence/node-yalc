@@ -1,11 +1,19 @@
 import * as crypto from 'crypto';
 
+/**
+ * Represents an active distributed trace in W3C Trace Context format.
+ */
 export interface TraceContext {
   traceId: string;
   spanId: string;
   sampled: boolean;
 }
 
+/**
+ * Distributed Tracing Engine.
+ * Generates, parses, and formats W3C Trace Context headers (traceparent)
+ * to correlate logs and requests across multiple microservices.
+ */
 export class TracingEngine {
   public static createTraceContext(): TraceContext {
     return {

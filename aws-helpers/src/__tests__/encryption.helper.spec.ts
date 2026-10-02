@@ -7,7 +7,7 @@ import {
 } from '@jest/globals';
 import { GetParameterCommandOutput } from '@aws-sdk/client-ssm';
 
-import * as $ from '../encryption.helper.js.js';
+import * as $ from '../encryption.helper.js';
 
 import { SSMClient } from '@aws-sdk/client-ssm';
 

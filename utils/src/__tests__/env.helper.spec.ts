@@ -9,7 +9,7 @@ import {
 } from '@jest/globals';
 
 import { envIsTrue, envToArray, isProduction } from '../env.helper.js';
-import { envTestHelper } from '@nest-yalc-2/jest';
+
 
 describe('environment helper test', () => {
   it('should convert a comma separated list to an array', () => {
@@ -47,22 +47,22 @@ describe('environment helper test', () => {
   });
 
   it('should return true if is production"', () => {
-    const env = envTestHelper(process.env);
-    env.setEnv('NODE_ENV', 'production');
+    const originalEnv = process.env.NODE_ENV;
+    process.env.NODE_ENV = 'production';
     expect(isProduction(false)).toBeTruthy();
 
-    env.setEnv('NODE_ENV', 'somethingelse');
+    process.env.NODE_ENV = 'somethingelse';
     expect(isProduction(true)).toBeTruthy();
-    env.reset();
+    process.env.NODE_ENV = originalEnv;
   });
 
   it('should return false if is not production"', () => {
-    const env = envTestHelper(process.env);
-    env.setEnv('NODE_ENV', 'pipeline');
+    const originalEnv = process.env.NODE_ENV;
+    process.env.NODE_ENV = 'pipeline';
     expect(isProduction()).toBeFalsy();
 
-    env.setEnv('NODE_ENV', 'somethingelse');
+    process.env.NODE_ENV = 'somethingelse';
     expect(isProduction(false)).toBeFalsy();
-    env.reset();
+    process.env.NODE_ENV = originalEnv;
   });
 });

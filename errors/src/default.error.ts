@@ -1,11 +1,11 @@
-import { getLogLevelByStatus } from '@node-yalc/event-manager';
-import { getYalcGlobalEventEmitter } from '@node-yalc/event-manager';
-import type { ImprovedLoggerService } from '@node-yalc/logger';
-import { AppLoggerFactory } from '@node-yalc/logger';
-import { maskDataInObject } from '@node-yalc/logger';
-import { ClassType, Mixin } from '@node-yalc/types';
-import { getHttpStatusDescription } from '@node-yalc/utils';
-import {
+
+import { getYalcGlobalEventEmitter } from '../../event-manager/src/global-emitter.js';
+import type { ImprovedLoggerService } from '../../logger/src/logger.type.js';
+import { AppLoggerFactory } from '../../logger/src/logger.factory.js';
+import { maskDataInObject } from '../../logger/src/logger.helper.js';
+import { ClassType, Mixin } from '../../types/src/index.js';
+import { getHttpStatusDescription } from '../../utils/src/http.helper.js';
+import type {
   HttpExceptionOptions,
 } from './error.class.js';
 import { HttpException } from './http.exception.js';
@@ -13,8 +13,8 @@ import { HttpStatus } from './http-status.enum.js';
 import { EventEmitter2 } from 'eventemitter2';
 type LogLevel = 'log' | 'error' | 'warn' | 'debug' | 'verbose';
 import { getHttpStatusNameByCode } from './error.enum.js';
-import { deepMergeWithoutArrayConcat } from '@node-yalc/utils';
-import { isClass } from '@node-yalc/utils';
+import { deepMergeWithoutArrayConcat } from '../../utils/src/object.helper.js';
+import { isClass } from '../../utils/src/class.helper.js';
 
 export const ON_DEFAULT_ERROR_EVENT = 'onDefaultError';
 
@@ -295,9 +295,19 @@ export const DefaultErrorMixin = <
             ? options.logger
             : { instance: undefined, level: undefined };
 
+        let defaultLevel: LogLevel = 'log';
+        const statusCode = this.getStatus();
+        if (statusCode >= HttpStatus.INTERNAL_SERVER_ERROR) {
+          defaultLevel = 'error';
+        } else if (statusCode === HttpStatus.TOO_MANY_REQUESTS) {
+          defaultLevel = 'warn';
+        } else if (statusCode >= HttpStatus.BAD_REQUEST) {
+          defaultLevel = 'log';
+        }
+
         this.logger = {
           instance: instance ?? AppLoggerFactory('DefaultError'),
-          level: level ?? getLogLevelByStatus(this.getStatus()),
+          level: level ?? defaultLevel,
         };
 
         if (this.logger.level === 'error') {

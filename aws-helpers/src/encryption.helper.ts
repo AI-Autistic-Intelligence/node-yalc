@@ -63,6 +63,14 @@ export const decryptSsmVariable = async (
   }
 };
 
+/**
+ * Bulk decrypts multiple SSM parameters and dynamically injects them into `process.env`.
+ * Designed for bootstrapping application configurations on startup (e.g. fetching database credentials).
+ *
+ * @param {Record<string, string>} envVariableToDecrypt A mapping where keys are the target `process.env` property names, and values are the SSM Parameter paths.
+ * @param {boolean} [useCache=true] Uses in-memory caching to prevent duplicate lookups.
+ * @returns {Promise<Record<string, string>>} A promise that resolves to an object containing the decrypted key-value pairs.
+ */
 export const setEnvironmentVariablesFromSsm = async (
   envVariableToDecrypt: Record<string, string>,
   useCache: boolean = true,

@@ -10,7 +10,7 @@ export class HttpException extends Error {
     status: number,
     options?: Record<string, any>,
   ) {
-    super();
+    super(undefined, options);
     this.response = response;
     this.status = status;
     this.options = options;

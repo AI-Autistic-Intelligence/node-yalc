@@ -1,8 +1,15 @@
+/**
+ * Defines a standardized structure for incoming WebSocket messages.
+ */
 export interface WebSocketMessage {
   event: string;
   payload: any;
 }
 
+/**
+ * Agnostic adapter for bidirectional WebSocket communication.
+ * Allows decoupling the socket.io or raw ws implementation from the controller logic.
+ */
 export class WebSocketTransportAdapter {
   private handlers: Map<string, (payload: any, socket: any) => void> = new Map();
 
@@ -30,6 +37,10 @@ export class WebSocketTransportAdapter {
   }
 }
 
+/**
+ * Standardized adapter for interacting with Apache Kafka or similar distributed event buses.
+ * Decouples the application from specific producer/consumer SDKs.
+ */
 export class KafkaEventBusAdapter {
   private topicHandlers: Map<string, (event: any) => Promise<void>> = new Map();
 

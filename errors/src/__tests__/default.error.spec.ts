@@ -14,9 +14,9 @@ import EventEmitter from 'events';
 import {
   BadRequestException,
   ForbiddenException,
-  HttpException,
-  HttpStatus,
 } from '../error.class.js';
+import { HttpException } from '../http.exception.js';
+import { HttpStatus } from '../http-status.enum.js';
 import { getHttpStatusDescription } from '@node-yalc/utils';
 
 describe('DefaultErrorMixin', () => {

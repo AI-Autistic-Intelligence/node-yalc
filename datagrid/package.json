@@ -1,6 +1,7 @@
 {
-  "name": "@node-yalc/datagrid",
-  "version": "0.0.2",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts"
+    "name": "@node-yalc/datagrid",
+    "version": "0.0.3",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "type": "module"
 }

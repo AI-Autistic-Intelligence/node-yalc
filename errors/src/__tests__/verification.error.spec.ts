@@ -3,7 +3,7 @@ import {
   getHttpStatusDescription,
   HttpStatusCodes,
 } from '@node-yalc/utils';
-import { HttpException } from '../error.class.js';
+import { HttpException } from '../http.exception.js';
 import { AdditionalVerificationNeededError } from '../index.js';
 
 describe('Verification error', () => {

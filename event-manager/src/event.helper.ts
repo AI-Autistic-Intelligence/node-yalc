@@ -1,10 +1,10 @@
-import { LogLevelEnum } from '@node-yalc/logger';
-import { isClass } from '@node-yalc/utils';
-import { HttpException } from '@node-yalc/errors';
-import { HttpStatus } from '@node-yalc/errors';
+import { LogLevelEnum } from '../../logger/src/logger.enum.js';
+import { isClass } from '../../utils/src/class.helper.js';
+import { HttpException } from '../../errors/src/http.exception.js';
+import { HttpStatus } from '../../errors/src/http-status.enum.js';
 import { LogLevel } from 'typeorm';
 import { IErrorEventOptions } from './event.js';
-import { getStatusCodeFromError } from '@node-yalc/errors';
+import { getStatusCodeFromError } from '../../errors/src/error.helper.js';
 
 export function getLogLevelByStatus(statusCode: number) {
   let loggerLevel: LogLevel;

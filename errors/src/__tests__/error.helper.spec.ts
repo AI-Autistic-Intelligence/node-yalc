@@ -1,6 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import { getStatusCodeFromError } from '../error.helper.js';
-import { BadRequestException, HttpStatus } from '../error.class.js';
+import { BadRequestException } from '../error.class.js';
+import { HttpStatus } from '../http-status.enum.js';
 import { BadRequestError } from '../error.class.js';
 
 describe('ErrorHelper', () => {

@@ -9,6 +9,9 @@ declare global {
   }
 }
 
+/**
+ * Utility type to strictly enforce that a specific property key `K` can NEVER exist or be used.
+ */
 type Impossible<K extends keyof any> = {
   [P in K]: never;
 };

@@ -14,7 +14,7 @@ import { type ConsoleLogger as TConsoleLogger } from '../logger-console.service.
  * Not sure why this is needed, but it is. Jest has reference errors when try to import the logger-console.service.js file
  * probably still caused by the ESM
  */
-jest.unstable_mockModule('@node-yalc/logger/logger.factory.js', async () => {
+jest.unstable_mockModule('../logger.factory.js', async () => {
   return {
     AppLoggerFactory: jest.fn(),
   };
@@ -126,10 +126,10 @@ describe('Console logger service test', () => {
   it('setLogLevels should validate levels and emit events', async () => {
     const emitter = { emit: jest.fn() } as any;
     logger.setLogLevels(LOG_LEVEL_ALL);
-    logger.error('boom', 'trace', { eventEmitter: emitter, useFallbackEvent: true });
+    logger.error('boom', 'trace', { eventEmitter: emitter, useFallbackEvent: true } as any);
     expect(emitter.emit).toHaveBeenCalled();
     emitter.emit.mockClear();
-    logger.error('skip', 'trace', { eventEmitter: emitter, event: false as any });
+    logger.error('skip', 'trace', { eventEmitter: emitter, event: false as any } as any);
     expect(emitter.emit).not.toHaveBeenCalled();
     expect(() => logger.setLogLevels(['invalid' as any])).toThrow();
   });
