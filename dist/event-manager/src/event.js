@@ -15,6 +15,7 @@ exports.eventDebugAsync = eventDebugAsync;
 exports.eventDebug = eventDebug;
 exports.eventVerboseAsync = eventVerboseAsync;
 exports.eventVerbose = eventVerbose;
+const tslib_1 = require("tslib");
 const logger_1 = require("@node-yalc/logger");
 const logger_2 = require("@node-yalc/logger");
 const errors_1 = require("@node-yalc/errors");
@@ -23,7 +24,7 @@ const global_emitter_js_1 = require("./global-emitter.js");
 const logger_3 = require("@node-yalc/logger");
 const utils_1 = require("@node-yalc/utils");
 const utils_2 = require("@node-yalc/utils");
-const _ = require("lodash-es");
+const _ = tslib_1.__importStar(require("lodash-es"));
 const utils_3 = require("@node-yalc/utils");
 function applyAwaitOption(options) {
     let event = options?.event;

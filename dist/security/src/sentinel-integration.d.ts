@@ -1,4 +1,19 @@
-import { AiPromptGuardrailEngine, RagHallucinationGroundednessEngine, ShannonEntropyEngine, PolymorphicRouteEngine, MarkovBehaviorEngine, LsassCredentialGuardEngine, SbomSupplyChainVerifierEngine } from '../../../../sentinel/dist/index';
+export declare class AiPromptGuardrailEngine {
+}
+export declare class RagHallucinationGroundednessEngine {
+}
+export declare class ShannonEntropyEngine {
+}
+export declare class PolymorphicRouteEngine {
+    secretKey?: string | undefined;
+    constructor(secretKey?: string | undefined);
+}
+export declare class MarkovBehaviorEngine {
+}
+export declare class LsassCredentialGuardEngine {
+}
+export declare class SbomSupplyChainVerifierEngine {
+}
 export declare class FerroxSentinelSecurityEngine {
     aiGuardrails: typeof AiPromptGuardrailEngine;
     ragScorer: typeof RagHallucinationGroundednessEngine;

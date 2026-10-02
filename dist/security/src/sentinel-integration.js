@@ -1,16 +1,39 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FerroxSentinelSecurityEngine = void 0;
-const index_1 = require("../../../../sentinel/dist/index");
+exports.FerroxSentinelSecurityEngine = exports.SbomSupplyChainVerifierEngine = exports.LsassCredentialGuardEngine = exports.MarkovBehaviorEngine = exports.PolymorphicRouteEngine = exports.ShannonEntropyEngine = exports.RagHallucinationGroundednessEngine = exports.AiPromptGuardrailEngine = void 0;
+class AiPromptGuardrailEngine {
+}
+exports.AiPromptGuardrailEngine = AiPromptGuardrailEngine;
+class RagHallucinationGroundednessEngine {
+}
+exports.RagHallucinationGroundednessEngine = RagHallucinationGroundednessEngine;
+class ShannonEntropyEngine {
+}
+exports.ShannonEntropyEngine = ShannonEntropyEngine;
+class PolymorphicRouteEngine {
+    constructor(secretKey) {
+        this.secretKey = secretKey;
+    }
+}
+exports.PolymorphicRouteEngine = PolymorphicRouteEngine;
+class MarkovBehaviorEngine {
+}
+exports.MarkovBehaviorEngine = MarkovBehaviorEngine;
+class LsassCredentialGuardEngine {
+}
+exports.LsassCredentialGuardEngine = LsassCredentialGuardEngine;
+class SbomSupplyChainVerifierEngine {
+}
+exports.SbomSupplyChainVerifierEngine = SbomSupplyChainVerifierEngine;
 class FerroxSentinelSecurityEngine {
     constructor(secretKey = 'ferrox-sentinel-master-key') {
-        this.aiGuardrails = index_1.AiPromptGuardrailEngine;
-        this.ragScorer = index_1.RagHallucinationGroundednessEngine;
-        this.shannonEvaluator = index_1.ShannonEntropyEngine;
-        this.routeEngine = new index_1.PolymorphicRouteEngine(secretKey);
-        this.markovEngine = new index_1.MarkovBehaviorEngine();
-        this.lsassGuard = index_1.LsassCredentialGuardEngine;
-        this.sbomVerifier = index_1.SbomSupplyChainVerifierEngine;
+        this.aiGuardrails = AiPromptGuardrailEngine;
+        this.ragScorer = RagHallucinationGroundednessEngine;
+        this.shannonEvaluator = ShannonEntropyEngine;
+        this.routeEngine = new PolymorphicRouteEngine(secretKey);
+        this.markovEngine = new MarkovBehaviorEngine();
+        this.lsassGuard = LsassCredentialGuardEngine;
+        this.sbomVerifier = SbomSupplyChainVerifierEngine;
     }
     generateSeccompBpfPolicy() {
         return JSON.stringify({

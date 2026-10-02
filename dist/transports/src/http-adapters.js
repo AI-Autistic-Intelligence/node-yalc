@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FastifyHttpAdapter = exports.ExpressHttpAdapter = void 0;
-const http = require("http");
+const tslib_1 = require("tslib");
+const http = tslib_1.__importStar(require("http"));
 class ExpressHttpAdapter {
     constructor() {
         this.type = 'express';

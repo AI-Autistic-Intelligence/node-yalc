@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.decryptAes = exports.encryptAes = void 0;
-const crypto = require("crypto");
+const tslib_1 = require("tslib");
+const crypto = tslib_1.__importStar(require("crypto"));
 const encryptAes = (toEncrypt, key) => {
     const iv = crypto.randomBytes(16);
     const cipher = crypto.createCipheriv('aes-256-ctr', Buffer.from(key, 'hex'), iv);

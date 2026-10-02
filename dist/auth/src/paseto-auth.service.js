@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PasetoAuthService = void 0;
-const crypto = require("crypto");
+const tslib_1 = require("tslib");
+const crypto = tslib_1.__importStar(require("crypto"));
 class PasetoAuthService {
     constructor(secretKeyString = 'ferrox-default-paseto-secret-32b', issuer = 'ferrox-node-auth') {
         this.secretKey = crypto.createHash('sha256').update(secretKeyString).digest();

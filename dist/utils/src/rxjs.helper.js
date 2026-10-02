@@ -3,9 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.wrapIntoObservable = wrapIntoObservable;
 exports.wrapIntoAnOperator = wrapIntoAnOperator;
 exports.switchTap = switchTap;
+const tslib_1 = require("tslib");
 const rxjs_1 = require("rxjs");
 const operators_1 = require("rxjs/operators");
-const node_util_1 = require("node:util");
+const node_util_1 = tslib_1.__importDefault(require("node:util"));
 function wrapIntoObservable(input) {
     if (input === null || input === undefined) {
         return rxjs_1.EMPTY;

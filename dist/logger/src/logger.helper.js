@@ -2,8 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getEnvLoggerLevels = exports.getEnvLoggerLevelsByContext = void 0;
 exports.maskDataInObject = maskDataInObject;
+const tslib_1 = require("tslib");
 const utils_1 = require("@node-yalc/utils");
-const fast_redact_1 = require("fast-redact");
+const fast_redact_1 = tslib_1.__importDefault(require("fast-redact"));
 const lodash_es_1 = require("lodash-es");
 const logger_enum_js_1 = require("./logger.enum.js");
 function maskDataInObject(data, paths, trace) {

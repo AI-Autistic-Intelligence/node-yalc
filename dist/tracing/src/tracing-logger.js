@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FerroxLogger = exports.TracingEngine = void 0;
-const crypto = require("crypto");
+const tslib_1 = require("tslib");
+const crypto = tslib_1.__importStar(require("crypto"));
 class TracingEngine {
     static createTraceContext() {
         return {

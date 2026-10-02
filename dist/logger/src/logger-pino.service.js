@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PinoLogger = exports.FLUSH_INTERVAL = void 0;
 exports.flush = flush;
-const pino_1 = require("pino");
+const tslib_1 = require("tslib");
+const pino_1 = tslib_1.__importDefault(require("pino"));
 const logger_abstract_service_js_1 = require("./logger-abstract.service.js");
 const logger_helper_js_1 = require("./logger.helper.js");
 const utils_1 = require("@node-yalc/utils");
