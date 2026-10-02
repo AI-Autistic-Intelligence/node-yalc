@@ -1,6 +1,6 @@
 {
     "name": "@node-yalc/event-manager",
-    "version": "0.1.4",
+    "version": "0.1.6",
     "description": "",
     "main": "./dist/index.js",
     "exports": {
@@ -13,7 +13,8 @@
     "license": "MIT",
     "types": "./dist/index.d.ts",
     "files": [
-        "dist"
+        "dist",
+        "src"
     ],
     "dependencies": {
         "@node-yalc/errors": "*",

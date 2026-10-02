@@ -1,6 +1,6 @@
 {
     "name": "@node-yalc/common",
-    "version": "0.1.4",
+    "version": "0.1.6",
     "description": "Common interfaces and abstractions for Yalc frameworks",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -8,5 +8,9 @@
     "dependencies": {
         "rxjs": "^7.8.2"
     },
-    "type": "module"
+    "type": "module",
+    "files": [
+        "dist",
+        "src"
+    ]
 }

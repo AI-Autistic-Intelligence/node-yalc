@@ -2,15 +2,15 @@
     "name": "@node-yalc/types-extends",
     "types": "./dist/index.d.ts",
     "files": [
-        "./dist/index.d.ts",
-        "./dist/globals.d.ts"
+        "dist",
+        "src"
     ],
     "exports": {
         ".": "./dist/index.d.ts",
         "./*.d.js": "./dist/*.d.ts",
         "./*": "./dist/*"
     },
-    "version": "0.1.4",
+    "version": "0.1.6",
     "description": "Type definitions to extend modules",
     "author": "Drassil",
     "dependencies": {

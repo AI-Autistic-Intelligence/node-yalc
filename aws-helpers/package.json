@@ -1,6 +1,6 @@
 {
     "name": "@node-yalc/aws-helpers",
-    "version": "0.1.4",
+    "version": "0.1.6",
     "description": "",
     "main": "./dist/index.js",
     "exports": {
@@ -15,5 +15,9 @@
         "aws-sdk": "^2.1693.0"
     },
     "types": "./dist/index.d.ts",
-    "type": "module"
+    "type": "module",
+    "files": [
+        "dist",
+        "src"
+    ]
 }

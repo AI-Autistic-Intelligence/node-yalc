@@ -3,11 +3,10 @@
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "files": [
-        "./src/index.d.ts",
-        "./src/globals.d.ts",
-        "./src/modules.d.ts"
+        "dist",
+        "src"
     ],
-    "version": "0.1.4",
+    "version": "0.1.6",
     "description": "Type definitions for nestjs yalc",
     "author": "Yehonal",
     "scripts": {},

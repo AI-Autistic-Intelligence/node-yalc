@@ -1,6 +1,6 @@
 {
     "name": "@node-yalc/logger",
-    "version": "0.1.4",
+    "version": "0.1.6",
     "description": "",
     "main": "./dist/index.js",
     "exports": {
@@ -12,5 +12,9 @@
     "author": "",
     "license": "AGPL-3.0-or-later",
     "types": "./dist/index.d.ts",
-    "type": "module"
+    "type": "module",
+    "files": [
+        "dist",
+        "src"
+    ]
 }
