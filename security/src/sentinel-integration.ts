@@ -1,7 +1,7 @@
 export class AiPromptGuardrailEngine {}
 export class RagHallucinationGroundednessEngine {}
 export class ShannonEntropyEngine {}
-export class PolymorphicRouteEngine { constructor(secretKey?: string) {} }
+export class PolymorphicRouteEngine { constructor(public secretKey?: string) {} }
 export class MarkovBehaviorEngine {}
 export class LsassCredentialGuardEngine {}
 export class SbomSupplyChainVerifierEngine {}
