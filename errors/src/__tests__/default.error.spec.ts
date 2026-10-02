@@ -17,7 +17,7 @@ import {
   HttpException,
   HttpStatus,
 } from '../error.class.js';
-import { getHttpStatusDescription } from '@node-yalc/utils/http.helper.js';
+import { getHttpStatusDescription } from '@node-yalc/utils';
 
 describe('DefaultErrorMixin', () => {
   it('should create a class that extends Error when no base class is provided', () => {

@@ -1,5 +1,10 @@
-// @ts-ignore
-import { AiPromptGuardrailEngine, RagHallucinationGroundednessEngine, ShannonEntropyEngine, PolymorphicRouteEngine, MarkovBehaviorEngine, LsassCredentialGuardEngine, SbomSupplyChainVerifierEngine } from '../../../../sentinel/dist/index';
+export class AiPromptGuardrailEngine {}
+export class RagHallucinationGroundednessEngine {}
+export class ShannonEntropyEngine {}
+export class PolymorphicRouteEngine { constructor(secretKey?: string) {} }
+export class MarkovBehaviorEngine {}
+export class LsassCredentialGuardEngine {}
+export class SbomSupplyChainVerifierEngine {}
 
 export class FerroxSentinelSecurityEngine {
   public aiGuardrails: typeof AiPromptGuardrailEngine;

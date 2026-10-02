@@ -3,9 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoggerAbstractService = exports.EVENT_LOG_DEFAULT = void 0;
 exports.beforeLogging = beforeLogging;
 const logger_enum_js_1 = require("./logger.enum.js");
-const plugin_helper_js_1 = require("@node-yalc/utils/plugin.helper.js");
+const utils_1 = require("@node-yalc/utils");
 exports.EVENT_LOG_DEFAULT = 'EVENT_LOG_DEFAULT';
-class LoggerAbstractService extends (0, plugin_helper_js_1.WithPluginSystem)() {
+class LoggerAbstractService extends (0, utils_1.WithPluginSystem)() {
     constructor(context, logLevels, methods, options = {}) {
         super();
         this.context = context;

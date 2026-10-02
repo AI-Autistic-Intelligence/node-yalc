@@ -1,4 +1,4 @@
-import { ReturnOrFunctionReturnType } from '@node-yalc/types/globals.js';
+import { ReturnOrFunctionReturnType } from '@node-yalc/types';
 
 export type ConfigTuple<K, T> = { k: K | K[]; v: T };
 

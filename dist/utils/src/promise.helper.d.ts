@@ -1,4 +1,4 @@
-import { AnyFunction } from '@node-yalc/types/globals.js';
+import { AnyFunction } from '@node-yalc/types';
 import * as pMap from 'p-map';
 export declare const PROMISE_CONCURRENCY_LIMIT = 1000;
 export declare function promiseMap<Element, NewElement>(input: Iterable<Element>, mapper: pMap.Mapper<Element, NewElement>, options?: pMap.Options): Promise<NewElement[]>;

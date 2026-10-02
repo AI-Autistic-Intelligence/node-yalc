@@ -10,7 +10,7 @@ export * from './error.helper.js';
 export * from './interval.helper.js';
 export * from './object.helper.js';
 export * from './object-mapper.helper.js';
-// export * from './promise.helper.js';
+export * from './promise.helper.js';
 export * from './returnValue.js';
 export * from './validator-helper.js';
 export * from './zlib.helper.js';
@@ -19,3 +19,6 @@ export * from './files.helper.js';
 export * from './rxjs.helper.js';
 export * from './math.helper.js';
 export * from './config-manager.helper.js';
+
+export * from './http.helper.js';
+export * from './plugin.helper.js';

@@ -1,5 +1,5 @@
 import { LoggerService, LogLevel } from './logger.type.js';
-import { PluginSystem } from '@node-yalc/utils/plugin.helper.js';
+import { PluginSystem } from '@node-yalc/utils';
 export type YalcGlobalClsService = any;
 export interface LogMethodOptions {
     message?: any;
@@ -39,9 +39,9 @@ export interface IImprovedLoggerOptions {
 declare const LoggerAbstractService_base: {
     new (...args: any[]): {
         [x: string]: any;
-        plugins: import("@node-yalc/utils/plugin.helper.js").Plugin<ILoggerPluginMethods<any>>[];
-        registerPlugin(plugin: import("@node-yalc/utils/plugin.helper.js").Plugin<ILoggerPluginMethods<any>>): void;
-        unregisterPlugin(plugin: import("@node-yalc/utils/plugin.helper.js").Plugin<ILoggerPluginMethods<any>>): void;
+        plugins: import("@node-yalc/utils").Plugin<ILoggerPluginMethods<any>>[];
+        registerPlugin(plugin: import("@node-yalc/utils").Plugin<ILoggerPluginMethods<any>>): void;
+        unregisterPlugin(plugin: import("@node-yalc/utils").Plugin<ILoggerPluginMethods<any>>): void;
         invokePlugins(methodName: keyof ILoggerPluginMethods<any>, ...args: any[]): void;
     };
 };

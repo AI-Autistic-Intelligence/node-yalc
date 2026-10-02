@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.globalPromiseTracker = exports.PromiseTracker = exports.PROMISE_CONCURRENCY_LIMIT = void 0;
 exports.promiseMap = promiseMap;
-const tslib_1 = require("tslib");
-const pMap = tslib_1.__importStar(require("p-map"));
+const pMap = require("p-map");
 exports.PROMISE_CONCURRENCY_LIMIT = 1000;
 function promiseMap(input, mapper, options) {
     return pMap.default(input, mapper, {

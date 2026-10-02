@@ -1,11 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppLoggerFactory = void 0;
-const tslib_1 = require("tslib");
 const logger_console_service_js_1 = require("./logger-console.service.js");
 const logger_pino_service_js_1 = require("./logger-pino.service.js");
 const logger_enum_js_1 = require("./logger.enum.js");
-const _ = tslib_1.__importStar(require("lodash-es"));
+const _ = require("lodash-es");
 exports.AppLoggerFactory = _.memoize((context, loggerLevels = logger_enum_js_1.LOG_LEVEL_DEFAULT, loggerType, options) => {
     let logger;
     switch (loggerType) {

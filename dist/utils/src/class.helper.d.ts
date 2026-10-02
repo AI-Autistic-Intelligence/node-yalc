@@ -1,4 +1,4 @@
-import { ClassType } from '@node-yalc/types/globals.js';
+import { ClassType } from '@node-yalc/types';
 export declare function isNativeClass<T = any>(func: any, className?: string): func is ClassType<T>;
 export declare function isES6Class<T = any>(func: any, className?: string): func is ClassType<T>;
 export declare function isClass<T = any>(func: any, className?: string): func is ClassType<T>;

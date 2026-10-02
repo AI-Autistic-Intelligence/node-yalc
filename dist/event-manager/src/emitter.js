@@ -1,11 +1,17 @@
-import { maskDataInObject } from '@node-yalc/logger/logger.helper.js';
-import { globalPromiseTracker } from '@node-yalc/utils/promise.helper.js';
-export function formatName(name, formatter) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.simpleFormatter = exports.simpleDotFormatter = exports.versionedDomainActionFormatter = void 0;
+exports.formatName = formatName;
+exports.emitEvent = emitEvent;
+exports.emitFormattedEvent = emitFormattedEvent;
+const logger_1 = require("@node-yalc/logger");
+const utils_1 = require("@node-yalc/utils");
+function formatName(name, formatter) {
     return formatter?.(...name) ?? (Array.isArray(name) ? name.join() : name);
 }
-export async function emitEvent(eventEmitter, name, payload, options) {
+async function emitEvent(eventEmitter, name, payload, options) {
     const data = options?.mask
-        ? maskDataInObject(payload, options.mask)
+        ? (0, logger_1.maskDataInObject)(payload, options.mask)
         : payload;
     const _name = formatName(name, options?.formatter);
     if (!options?.await) {
@@ -13,23 +19,26 @@ export async function emitEvent(eventEmitter, name, payload, options) {
     }
     else {
         const promise = eventEmitter.emitAsync(_name, data);
-        globalPromiseTracker.add(promise);
+        utils_1.globalPromiseTracker.add(promise);
         return promise;
     }
 }
-export function emitFormattedEvent(eventEmitter, name, payload, options) {
+function emitFormattedEvent(eventEmitter, name, payload, options) {
     return emitEvent(eventEmitter, [name], payload, {
         ...options,
-        formatter: simpleFormatter,
+        formatter: exports.simpleFormatter,
     });
 }
-export const versionedDomainActionFormatter = (version, context, action, when) => {
+const versionedDomainActionFormatter = (version, context, action, when) => {
     return `${version}.${context}.${action}.${when ?? 'onProcess'}`;
 };
-export const simpleDotFormatter = (...args) => {
+exports.versionedDomainActionFormatter = versionedDomainActionFormatter;
+const simpleDotFormatter = (...args) => {
     return args.join('.');
 };
-export const simpleFormatter = (action) => {
+exports.simpleDotFormatter = simpleDotFormatter;
+const simpleFormatter = (action) => {
     return `on${action}`;
 };
+exports.simpleFormatter = simpleFormatter;
 //# sourceMappingURL=emitter.js.map

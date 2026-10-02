@@ -1,11 +1,11 @@
 type LogLevel = 'log' | 'error' | 'warn' | 'debug' | 'verbose';
 import { type IEventOptions, type IErrorEventOptions, type IErrorEventOptionsRequired } from './event.js';
-import { type ImprovedLoggerService } from '@node-yalc/logger/logger-abstract.service.js';
+import { type ImprovedLoggerService } from '@node-yalc/logger';
 import { EventEmitter2 } from 'eventemitter2';
 import { EventNameFormatter } from './emitter.js';
-import { DefaultError } from '@node-yalc/errors/default.error.js';
-import { BadGatewayError, BadRequestError, ConflictError, ForbiddenError, GatewayTimeoutError, GoneError, InternalServerError, MethodNotAllowedError, NotAcceptableError, NotFoundError, NotImplementedError, PaymentRequiredError, ServiceUnavailableError, TooManyRequestsError, UnauthorizedError, UnprocessableEntityError, UnsupportedMediaTypeError } from '@node-yalc/errors/error.class.js';
-import type { ClassType } from '@node-yalc/types/globals.js';
+import { DefaultError } from '@node-yalc/errors';
+import { BadGatewayError, BadRequestError, ConflictError, ForbiddenError, GatewayTimeoutError, GoneError, InternalServerError, MethodNotAllowedError, NotAcceptableError, NotFoundError, NotImplementedError, PaymentRequiredError, ServiceUnavailableError, TooManyRequestsError, UnauthorizedError, UnprocessableEntityError, UnsupportedMediaTypeError } from '@node-yalc/errors';
+import type { ClassType } from '@node-yalc/types';
 import { Err } from 'neverthrow';
 import { type PromiseResult } from './event-result.types.js';
 export interface IEventServiceOptions<TFormatter extends EventNameFormatter = EventNameFormatter> {
@@ -90,7 +90,7 @@ export declare class YalcEventService<TFormatter extends EventNameFormatter = Ev
     errorGatewayTimeout(eventName: Parameters<TFormatter> | string, options?: IErrorBasedMethodOptions<TErrorOptions>): any;
     errorGatewayTimeoutResult(eventName: Parameters<TFormatter> | string, options?: IErrorBasedMethodOptions<TErrorOptions>): Err<never, GatewayTimeoutError>;
     errorGatewayTimeoutFromFn<T>(eventName: Parameters<TFormatter> | string, cb: () => PromiseLike<T> | T, options?: IErrorBasedMethodOptions<TErrorOptions>): PromiseResult<T, GatewayTimeoutError>;
-    protected getLoggerLevelByOptions(options: IErrorEventOptions<TFormatter>): "log" | "error" | "warn" | import("@node-yalc/logger/logger.enum.js").LogLevelEnum.LOG | import("@node-yalc/logger/logger.enum.js").LogLevelEnum.ERROR;
+    protected getLoggerLevelByOptions(options: IErrorEventOptions<TFormatter>): "log" | "error" | "warn" | import("@node-yalc/logger").LogLevelEnum.LOG | import("@node-yalc/logger").LogLevelEnum.ERROR;
     protected applyLoggerLevel<TOpt extends IEventOptions<TFormatter> | IErrorEventOptions<TFormatter>>(options: TOpt, level: LogLevel): TOpt;
     protected applyLoggerLevelByStatus<TOpts extends IErrorEventOptions<TFormatter>>(options: TOpts, error: DefaultError): TOpts;
     protected applyLoggerLevelByError<TOpts extends IErrorEventOptions<TFormatter> | IEventOptions<TFormatter>>(options: TOpts): TOpts;

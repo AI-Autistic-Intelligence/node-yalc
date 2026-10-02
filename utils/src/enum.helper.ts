@@ -1,4 +1,4 @@
-import { Spread } from '@node-yalc/types/globals.js';
+import { Spread } from '@node-yalc/types';
 
 /**
  * Used to check if a value is contained in a enum object

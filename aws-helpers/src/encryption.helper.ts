@@ -1,4 +1,4 @@
-import { AppLoggerFactory } from '@node-yalc/logger/logger.factory.js';
+import { AppLoggerFactory } from '@node-yalc/logger';
 import {
   GetParameterCommand,
   GetParameterCommandOutput,

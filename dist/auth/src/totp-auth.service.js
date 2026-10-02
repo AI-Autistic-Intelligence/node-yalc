@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TotpAuthService = void 0;
-const tslib_1 = require("tslib");
-const crypto = tslib_1.__importStar(require("crypto"));
+const crypto = require("crypto");
 class TotpAuthService {
     generateSecret() {
         const buffer = crypto.randomBytes(20);

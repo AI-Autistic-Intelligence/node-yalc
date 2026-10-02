@@ -1,6 +1,6 @@
 import { EventEmitter2 } from 'eventemitter2';
-import { maskDataInObject } from '@node-yalc/logger/logger.helper.js';
-import { globalPromiseTracker } from '@node-yalc/utils/promise.helper.js';
+import { maskDataInObject } from '@node-yalc/logger';
+import { globalPromiseTracker } from '@node-yalc/utils';
 export type EventNameFormatter = (...args: any[]) => string;
 
 export interface IEventEmitterOptions<TFormatter extends EventNameFormatter> {

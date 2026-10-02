@@ -1,4 +1,4 @@
-import { DefaultError } from '@node-yalc/errors/default.error.js';
+import { DefaultError } from '@node-yalc/errors';
 import { Err, Ok } from 'neverthrow';
 
 export type Result<T, E extends DefaultError = DefaultError> =

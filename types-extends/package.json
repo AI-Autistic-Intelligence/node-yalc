@@ -1,15 +1,14 @@
 {
   "name": "@node-yalc/types-extends",
-  "type": "module",
-  "types": "./dist/src/index.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
-    "./dist/src/index.d.ts",
-    "./dist/src/globals.d.ts"
+    "./dist/index.d.ts",
+    "./dist/globals.d.ts"
   ],
   "exports": {
-    ".": "./dist/src/index.d.ts",
-    "./*.d.js": "./dist/src/*.d.ts",
-    "./*": "./dist/src/*"
+    ".": "./dist/index.d.ts",
+    "./*.d.js": "./dist/*.d.ts",
+    "./*": "./dist/*"
   },
   "version": "0.1.1",
   "description": "Type definitions to extend modules",
@@ -17,5 +16,6 @@
   "dependencies": {
     "tslib": "^2.6.3"
   },
-  "scripts": {}
+  "scripts": {},
+  "main": "./dist/index.js"
 }

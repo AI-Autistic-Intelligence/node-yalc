@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setEnvironmentVariablesFromSsm = exports.decryptSsmVariable = exports.EncryptMode = exports.staticKey = void 0;
-const logger_factory_js_1 = require("@node-yalc/logger/logger.factory.js");
+const logger_1 = require("@node-yalc/logger");
 const client_ssm_1 = require("@aws-sdk/client-ssm");
 exports.staticKey = 'be088f8bb64166cc2938b1dd0c9db8fa223edd975f48462858a41f70ebee1c5f';
 var EncryptMode;
@@ -31,7 +31,7 @@ const decryptSsmVariable = async (toDecrypt, useCache = true) => {
         return data.Parameter?.Value ?? '';
     }
     catch (err) {
-        const logger = (0, logger_factory_js_1.AppLoggerFactory)('encryption.helper');
+        const logger = (0, logger_1.AppLoggerFactory)('encryption.helper');
         logger.error(`Error while decrypting ssm variable ${toDecrypt} ${JSON.stringify(err)}`);
         return '';
     }

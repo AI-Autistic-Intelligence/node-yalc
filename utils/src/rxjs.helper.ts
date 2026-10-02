@@ -1,4 +1,4 @@
-import { AnyFunction } from '@node-yalc/types/globals.js';
+import { AnyFunction } from '@node-yalc/types';
 import {
   combineLatest,
   MonoTypeOperatorFunction,

@@ -2,7 +2,7 @@ import { expect, describe, it } from '@jest/globals';
 import {
   getHttpStatusDescription,
   HttpStatusCodes,
-} from '@node-yalc/utils/http.helper.js';
+} from '@node-yalc/utils';
 import { HttpException } from '../error.class.js';
 import { AdditionalVerificationNeededError } from '../index.js';
 

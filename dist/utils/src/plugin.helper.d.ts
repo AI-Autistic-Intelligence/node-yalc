@@ -1,4 +1,4 @@
-import { ClassType } from '@node-yalc/types/globals.js';
+import { ClassType } from '@node-yalc/types';
 export interface PluginMethods extends Record<string, {
     (...args: any[]): void;
 } | undefined> {

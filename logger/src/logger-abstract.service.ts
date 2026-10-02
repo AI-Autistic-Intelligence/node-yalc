@@ -7,7 +7,7 @@ import { LogLevelEnum } from './logger.enum.js';
 import {
   PluginSystem,
   WithPluginSystem,
-} from '@node-yalc/utils/plugin.helper.js';
+} from '@node-yalc/utils';
 // Using any to avoid circular dependency with NestJS modules
 export type YalcGlobalClsService = any;
 

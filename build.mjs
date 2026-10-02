@@ -16,15 +16,19 @@ async function copyDir(src, dest) {
     }
   }
 }
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 async function run() {
-  const rootDist = path.join(process.cwd(), 'dist');
+  const rootDist = path.join(__dirname, 'dist');
   const items = await fs.readdir(rootDist, { withFileTypes: true });
 
   for (const item of items) {
     if (item.isDirectory()) {
       const srcDir = path.join(rootDist, item.name, 'src');
-      const destDir = path.join(process.cwd(), item.name, 'dist');
+      const destDir = path.join(__dirname, item.name, 'dist');
       
       try {
         await fs.access(srcDir);

@@ -12,6 +12,7 @@ tslib_1.__exportStar(require("./error.helper.js"), exports);
 tslib_1.__exportStar(require("./interval.helper.js"), exports);
 tslib_1.__exportStar(require("./object.helper.js"), exports);
 tslib_1.__exportStar(require("./object-mapper.helper.js"), exports);
+tslib_1.__exportStar(require("./promise.helper.js"), exports);
 tslib_1.__exportStar(require("./returnValue.js"), exports);
 tslib_1.__exportStar(require("./validator-helper.js"), exports);
 tslib_1.__exportStar(require("./zlib.helper.js"), exports);
@@ -20,4 +21,6 @@ tslib_1.__exportStar(require("./files.helper.js"), exports);
 tslib_1.__exportStar(require("./rxjs.helper.js"), exports);
 tslib_1.__exportStar(require("./math.helper.js"), exports);
 tslib_1.__exportStar(require("./config-manager.helper.js"), exports);
+tslib_1.__exportStar(require("./http.helper.js"), exports);
+tslib_1.__exportStar(require("./plugin.helper.js"), exports);
 //# sourceMappingURL=index.js.map

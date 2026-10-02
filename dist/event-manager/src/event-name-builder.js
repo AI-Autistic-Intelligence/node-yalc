@@ -1,5 +1,8 @@
-export const EventType = 'EventType';
-export class EventNameBuilder {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EventNameBuilder = exports.EventType = void 0;
+exports.EventType = 'EventType';
+class EventNameBuilder {
     static events(domain, actions) {
         const baseEvent = `${this.version?.base ? this.version?.base + '.' : ''}${domain}`;
         const actionsWithBaseEvent = {};
@@ -9,7 +12,7 @@ export class EventNameBuilder {
                 all: `${baseEvent}.${actionKey}.**`,
             };
             for (const [eventKey, eventValue] of Object.entries(actionValue)) {
-                if (eventValue === EventType) {
+                if (eventValue === exports.EventType) {
                     actionsWithBaseEvent[actionKey][eventKey] =
                         `${baseEvent}.${actionKey}.${eventKey}`;
                 }
@@ -23,4 +26,5 @@ export class EventNameBuilder {
         return actionsWithBaseEvent;
     }
 }
+exports.EventNameBuilder = EventNameBuilder;
 //# sourceMappingURL=event-name-builder.js.map

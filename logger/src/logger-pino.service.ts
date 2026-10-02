@@ -5,7 +5,7 @@ import {
   LoggerAbstractService,
 } from './logger-abstract.service.js';
 import { maskDataInObject } from './logger.helper.js';
-import { globalPromiseTracker } from '@node-yalc/utils/promise.helper.js';
+import { globalPromiseTracker } from '@node-yalc/utils';
 import { SonicBoom } from 'sonic-boom';
 
 let logger: Logger;

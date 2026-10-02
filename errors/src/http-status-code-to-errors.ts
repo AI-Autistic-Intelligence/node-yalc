@@ -16,7 +16,7 @@ import {
   UnprocessableEntityError,
   UnsupportedMediaTypeError,
 } from './error.class.js';
-import { HttpStatusCodes } from '@node-yalc/utils/http.helper.js';
+import { HttpStatusCodes } from '@node-yalc/utils';
 import { HttpStatus } from './http-status.enum.js';
 
 export const httpStatusCodeToErrors: {

@@ -1,5 +1,5 @@
-import type { ImprovedLoggerService } from '@node-yalc/logger/logger-abstract.service.js';
-import { ClassType, Mixin } from '@node-yalc/types/globals.js';
+import type { ImprovedLoggerService } from '@node-yalc/logger';
+import { ClassType, Mixin } from '@node-yalc/types';
 import { HttpExceptionOptions } from './error.class.js';
 import { HttpException } from './http.exception.js';
 import { HttpStatus } from './http-status.enum.js';

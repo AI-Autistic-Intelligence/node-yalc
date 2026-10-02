@@ -1,6 +1,6 @@
 
 
-import { HttpStatus } from '@node-yalc/errors/http-status.enum.js';
+import { HttpStatus } from '@node-yalc/errors';
 import { HttpStatusCode } from 'axios';
 
 export const HttpStatusCodes: Record<string, any> = {

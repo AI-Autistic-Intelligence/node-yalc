@@ -1,5 +1,5 @@
 import { err, ok } from 'neverthrow';
-import { Result } from '@node-yalc/event-manager/event-result.types.js';
+import { Result } from '@node-yalc/event-manager';
 import { errorToDefaultError, IDefaultErrorOptions } from './default.error.js';
 
 export const tryCatch = <T>(

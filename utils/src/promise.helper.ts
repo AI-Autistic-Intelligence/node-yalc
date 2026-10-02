@@ -1,4 +1,4 @@
-import { AnyFunction } from '@node-yalc/types/globals.js';
+import { AnyFunction } from '@node-yalc/types';
 import * as pMap from 'p-map';
 
 export const PROMISE_CONCURRENCY_LIMIT = 1000;

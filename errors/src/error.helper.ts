@@ -1,5 +1,5 @@
-import { ClassType } from '@node-yalc/types/globals.js';
-import { isClass } from '@node-yalc/utils/class.helper.js';
+import { ClassType } from '@node-yalc/types';
+import { isClass } from '@node-yalc/utils';
 
 import { isDefaultErrorMixinClass } from './default.error.js';
 import { httpExceptionStatusCodes } from './error.class.js';

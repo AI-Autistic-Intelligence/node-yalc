@@ -1,22 +1,22 @@
-import type { LogLevel } from '@node-yalc/logger/logger.enum.js';
-import { type ImprovedLoggerService } from '@node-yalc/logger/logger-abstract.service.js';
-import { LogLevelEnum } from '@node-yalc/logger/logger.enum.js';
+import type { LogLevel } from '@node-yalc/logger';
+import { type ImprovedLoggerService } from '@node-yalc/logger';
+import { LogLevelEnum } from '@node-yalc/logger';
 import { EventEmitter2 } from 'eventemitter2';
-import { maskDataInObject } from '@node-yalc/logger/logger.helper.js';
+import { maskDataInObject } from '@node-yalc/logger';
 import {
   DefaultError,
   ILogErrorPayload,
   IErrorPayload,
   isDefaultErrorMixin,
-} from '@node-yalc/errors/default.error.js';
+} from '@node-yalc/errors';
 import { EventNameFormatter, emitEvent, formatName } from './emitter.js';
-import { ClassType, InstanceType } from '@node-yalc/types/globals.js';
+import { ClassType, InstanceType } from '@node-yalc/types';
 import { getYalcGlobalEventEmitter } from './global-emitter.js';
-import { AppLoggerFactory } from '@node-yalc/logger/logger.factory.js';
-import { isClass } from '@node-yalc/utils/class.helper.js';
-import { deepMergeWithoutArrayConcat } from '@node-yalc/utils/object.helper.js';
+import { AppLoggerFactory } from '@node-yalc/logger';
+import { isClass } from '@node-yalc/utils';
+import { deepMergeWithoutArrayConcat } from '@node-yalc/utils';
 import * as _ from 'lodash-es';
-import { globalPromiseTracker } from '@node-yalc/utils/promise.helper.js';
+import { globalPromiseTracker } from '@node-yalc/utils';
 
 interface IEventEmitterOptions<
   TFormatter extends EventNameFormatter = EventNameFormatter,

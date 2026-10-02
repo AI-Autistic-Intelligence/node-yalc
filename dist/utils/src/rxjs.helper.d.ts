@@ -1,4 +1,4 @@
-import { AnyFunction } from '@node-yalc/types/globals.js';
+import { AnyFunction } from '@node-yalc/types';
 import { MonoTypeOperatorFunction, ObservableInput, Observable, UnaryFunction } from 'rxjs';
 export declare function wrapIntoObservable<T>(input: Promise<T> | {
     (): Promise<T>;

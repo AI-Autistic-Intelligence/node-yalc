@@ -2,11 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PinoLogger = exports.FLUSH_INTERVAL = void 0;
 exports.flush = flush;
-const tslib_1 = require("tslib");
-const pino_1 = tslib_1.__importDefault(require("pino"));
+const pino_1 = require("pino");
 const logger_abstract_service_js_1 = require("./logger-abstract.service.js");
 const logger_helper_js_1 = require("./logger.helper.js");
-const promise_helper_js_1 = require("@node-yalc/utils/promise.helper.js");
+const utils_1 = require("@node-yalc/utils");
 let logger;
 let destination;
 exports.FLUSH_INTERVAL = 10000;
@@ -64,7 +63,7 @@ class PinoLogger extends logger_abstract_service_js_1.LoggerAbstractService {
         setInterval(function () {
             logger.flush();
         }, exports.FLUSH_INTERVAL).unref();
-        promise_helper_js_1.globalPromiseTracker.addDeferred(flush);
+        utils_1.globalPromiseTracker.addDeferred(flush);
     }
     async onApplicationShutdown() {
         await flush();

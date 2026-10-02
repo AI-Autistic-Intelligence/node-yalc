@@ -17,14 +17,14 @@ import {
   type IErrorEventOptionsRequired,
   resolveLoggerOption,
 } from './event.js';
-import { type ImprovedLoggerService } from '@node-yalc/logger/logger-abstract.service.js';
+import { type ImprovedLoggerService } from '@node-yalc/logger';
 import { EventEmitter2 } from 'eventemitter2';
 import { EventNameFormatter } from './emitter.js';
 import {
   DefaultError,
   errorToDefaultError,
   formatCause,
-} from '@node-yalc/errors/default.error.js';
+} from '@node-yalc/errors';
 import {
   BadGatewayError,
   BadRequestError,
@@ -43,12 +43,12 @@ import {
   UnauthorizedError,
   UnprocessableEntityError,
   UnsupportedMediaTypeError,
-} from '@node-yalc/errors/error.class.js';
+} from '@node-yalc/errors';
 import { getLogLevelByError, getLogLevelByStatus } from './event.helper.js';
-import type { ClassType } from '@node-yalc/types/globals.js';
-import { HttpStatusCodes } from '@node-yalc/utils/http.helper.js';
-import { httpStatusCodeToErrors } from '@node-yalc/errors/http-status-code-to-errors.js';
-import { isClass } from '@node-yalc/utils/class.helper.js';
+import type { ClassType } from '@node-yalc/types';
+import { HttpStatusCodes } from '@node-yalc/utils';
+import { httpStatusCodeToErrors } from '@node-yalc/errors';
+import { isClass } from '@node-yalc/utils';
 import { err, Err, ok } from 'neverthrow';
 import { type PromiseResult } from './event-result.types.js';
 

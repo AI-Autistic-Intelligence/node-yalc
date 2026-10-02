@@ -1,2 +1,2 @@
-import { ClassType } from '@node-yalc/types/globals.js';
+import { ClassType } from '@node-yalc/types';
 export declare function getStatusCodeFromError(error: ClassType<any> | any): any;
