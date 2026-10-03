@@ -1,68 +1,64 @@
+import { WebSocketTransportAdapter, KafkaEventBusAdapter } from '../websocket-kafka';
 
-import * as Module from '../websocket-kafka';
+describe('websocket-kafka transports', () => {
+  describe('WebSocketTransportAdapter', () => {
+    it('should emit messages via socket', () => {
+      const ws = new WebSocketTransportAdapter();
+      const mockSocket = {
+        send: jest.fn(),
+      };
+      ws.emit(mockSocket, 'test_event', { foo: 'bar' });
+      expect(mockSocket.send).toHaveBeenCalledWith(JSON.stringify({ event: 'test_event', payload: { foo: 'bar' } }));
+    });
 
-describe('websocket-kafka.ts', () => {
-  it('should have exported members', () => {
-    expect(Module).toBeDefined();
+    it('should silently ignore emit if socket lacks send method', () => {
+      const ws = new WebSocketTransportAdapter();
+      ws.emit({}, 'test_event', { foo: 'bar' }); // should not throw
+    });
+
+    it('should handle incoming messages and invoke correct handler', () => {
+      const ws = new WebSocketTransportAdapter();
+      const mockHandler = jest.fn();
+      const mockSocket = {};
+      
+      ws.on('test_event', mockHandler);
+      ws.handleIncomingMessage(JSON.stringify({ event: 'test_event', payload: 'data' }), mockSocket);
+      
+      expect(mockHandler).toHaveBeenCalledWith('data', mockSocket);
+    });
+
+    it('should ignore incoming message if no handler is registered', () => {
+      const ws = new WebSocketTransportAdapter();
+      ws.handleIncomingMessage(JSON.stringify({ event: 'missing_event', payload: 'data' }), {});
+      // should not throw
+    });
+
+    it('should log error on invalid JSON payload', () => {
+      const ws = new WebSocketTransportAdapter();
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      
+      ws.handleIncomingMessage('{invalid_json', {});
+      
+      expect(consoleSpy).toHaveBeenCalled();
+      consoleSpy.mockRestore();
+    });
   });
 
-  it('should instantiate WebSocketTransportAdapter (dummy)', () => {
-    try {
-      const instance = new (Module as any).WebSocketTransportAdapter();
-      expect(instance).toBeDefined();
-    } catch (e) {
-      // ignore constructor errors due to missing arguments
-      expect(e).toBeDefined();
-    }
-  });
+  describe('KafkaEventBusAdapter', () => {
+    it('should publish to subscribed topics', async () => {
+      const kafka = new KafkaEventBusAdapter();
+      const mockHandler = jest.fn().mockResolvedValue(undefined);
+      
+      kafka.subscribe('test_topic', mockHandler);
+      await kafka.publish('test_topic', { data: 'test' });
+      
+      expect(mockHandler).toHaveBeenCalledWith({ data: 'test' });
+    });
 
-  it('should try to call methods on WebSocketTransportAdapter (dummy)', () => {
-    const proto = (Module as any).WebSocketTransportAdapter.prototype;
-    const methods = Object.getOwnPropertyNames(proto).filter(m => m !== 'constructor');
-    for (const method of methods) {
-      try {
-        const instance = new (Module as any).WebSocketTransportAdapter();
-        if (typeof instance[method] === 'function') {
-           instance[method]({}, {}, {}, {}, {});
-        }
-      } catch (e) {}
-    }
-
-    const staticMethods = Object.getOwnPropertyNames((Module as any).WebSocketTransportAdapter).filter(m => typeof (Module as any).WebSocketTransportAdapter[m] === 'function');
-    for (const method of staticMethods) {
-      try {
-        (Module as any).WebSocketTransportAdapter[method]({}, {}, {}, {}, {});
-      } catch (e) {}
-    }
-  });
-
-  it('should instantiate KafkaEventBusAdapter (dummy)', () => {
-    try {
-      const instance = new (Module as any).KafkaEventBusAdapter();
-      expect(instance).toBeDefined();
-    } catch (e) {
-      // ignore constructor errors due to missing arguments
-      expect(e).toBeDefined();
-    }
-  });
-
-  it('should try to call methods on KafkaEventBusAdapter (dummy)', () => {
-    const proto = (Module as any).KafkaEventBusAdapter.prototype;
-    const methods = Object.getOwnPropertyNames(proto).filter(m => m !== 'constructor');
-    for (const method of methods) {
-      try {
-        const instance = new (Module as any).KafkaEventBusAdapter();
-        if (typeof instance[method] === 'function') {
-           instance[method]({}, {}, {}, {}, {});
-        }
-      } catch (e) {}
-    }
-
-    const staticMethods = Object.getOwnPropertyNames((Module as any).KafkaEventBusAdapter).filter(m => typeof (Module as any).KafkaEventBusAdapter[m] === 'function');
-    for (const method of staticMethods) {
-      try {
-        (Module as any).KafkaEventBusAdapter[method]({}, {}, {}, {}, {});
-      } catch (e) {}
-    }
+    it('should silently ignore publish if no handler is subscribed', async () => {
+      const kafka = new KafkaEventBusAdapter();
+      await kafka.publish('missing_topic', { data: 'test' });
+      // should not throw
+    });
   });
 });

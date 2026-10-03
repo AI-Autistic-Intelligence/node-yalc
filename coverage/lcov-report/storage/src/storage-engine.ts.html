@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.76% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.5% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/16</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -153,26 +153,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -180,23 +176,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
@@ -220,51 +220,51 @@ export interface IStorageAdapter {
   getPresignedUrl(key: string, ttlSecs?: number): Promise&lt;string&gt;;
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >export class M</span>emoryStorageAdapter implements IStorageAdapter {
-  private <span class="cstat-no" title="statement not covered" >store: Map&lt;string, StorageObject&gt; = new Map();</span>
+export class MemoryStorageAdapter implements IStorageAdapter {
+  private store: Map&lt;string, StorageObject&gt; = new Map();
 &nbsp;
-<span class="fstat-no" title="function not covered" >  async </span>upload(key: string, content: Buffer | string, mimeType: string = <span class="branch-0 cbranch-no" title="branch not covered" >'application/octet-stream')</span>: Promise&lt;string&gt; {
-    const buf = <span class="cstat-no" title="statement not covered" >typeof content === 'string' ? Buffer.from(content) : content;</span>
-<span class="cstat-no" title="statement not covered" >    this.store.set(key, { key, content: buf, mimeType, size: buf.length });</span>
-<span class="cstat-no" title="statement not covered" >    return `memory://${key}`;</span>
+  async upload(key: string, content: Buffer | string, mimeType: string = 'application/octet-stream'): Promise&lt;string&gt; {
+    const buf = typeof content === 'string' ? Buffer.from(content) : content;
+    this.store.set(key, { key, content: buf, mimeType, size: buf.length });
+    return `memory://${key}`;
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  async </span>download(key: string): Promise&lt;Buffer&gt; {
-    const obj = <span class="cstat-no" title="statement not covered" >this.store.get(key);</span>
-<span class="cstat-no" title="statement not covered" >    if (!obj) <span class="cstat-no" title="statement not covered" >throw new Error(`Object not found in MemoryStorage: ${key}`);</span></span>
-<span class="cstat-no" title="statement not covered" >    return obj.content;</span>
+  async download(key: string): Promise&lt;Buffer&gt; {
+    const obj = this.store.get(key);
+    if (!obj) throw new Error(`Object not found in MemoryStorage: ${key}`);
+    return obj.content;
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  async </span>delete(key: string): Promise&lt;boolean&gt; {
-<span class="cstat-no" title="statement not covered" >    return this.store.delete(key);</span>
+  async delete(key: string): Promise&lt;boolean&gt; {
+    return this.store.delete(key);
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  async </span>getPresignedUrl(key: string, ttlSecs: number = <span class="branch-0 cbranch-no" title="branch not covered" >3600)</span>: Promise&lt;string&gt; {
-<span class="cstat-no" title="statement not covered" >    return `https://storage.ferrox.dev/memory/${key}?ttl=${ttlSecs}`;</span>
+  async getPresignedUrl(key: string, ttlSecs: number = 3600): Promise&lt;string&gt; {
+    return `https://storage.ferrox.dev/memory/${key}?ttl=${ttlSecs}`;
   }
 }
 &nbsp;
 export class StorageEngine {
   private adapter: IStorageAdapter;
 &nbsp;
-<span class="fstat-no" title="function not covered" >  constructor(a</span>dapter: IStorageAdapter = <span class="branch-0 cbranch-no" title="branch not covered" >new MemoryStorageAdapter())</span> {
-<span class="cstat-no" title="statement not covered" >    this.adapter = adapter;</span>
+  constructor(adapter: IStorageAdapter = new MemoryStorageAdapter()) {
+    this.adapter = adapter;
   }
 &nbsp;
-  public <span class="fstat-no" title="function not covered" >async </span>upload(key: string, content: Buffer | string, mimeType?: string): Promise&lt;string&gt; {
-<span class="cstat-no" title="statement not covered" >    return await this.adapter.upload(key, content, mimeType);</span>
+  public async upload(key: string, content: Buffer | string, mimeType?: string): Promise&lt;string&gt; {
+    return await this.adapter.upload(key, content, mimeType);
   }
 &nbsp;
-  public <span class="fstat-no" title="function not covered" >async </span>download(key: string): Promise&lt;Buffer&gt; {
-<span class="cstat-no" title="statement not covered" >    return await this.adapter.download(key);</span>
+  public async download(key: string): Promise&lt;Buffer&gt; {
+    return await this.adapter.download(key);
   }
 &nbsp;
-  public <span class="fstat-no" title="function not covered" >async </span>delete(key: string): Promise&lt;boolean&gt; {
-<span class="cstat-no" title="statement not covered" >    return await this.adapter.delete(key);</span>
+  public async delete(key: string): Promise&lt;boolean&gt; {
+    return await this.adapter.delete(key);
   }
 &nbsp;
-  public <span class="fstat-no" title="function not covered" >async </span>getPresignedUrl(key: string, ttlSecs?: number): Promise&lt;string&gt; {
-<span class="cstat-no" title="statement not covered" >    return await this.adapter.getPresignedUrl(key, ttlSecs);</span>
+  public async getPresignedUrl(key: string, ttlSecs?: number): Promise&lt;string&gt; {
+    return await this.adapter.getPresignedUrl(key, ttlSecs);
   }
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -274,7 +274,7 @@ export class StorageEngine {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-10-02T22:09:43.423Z
+                at 2026-10-03T06:29:54.886Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

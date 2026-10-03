@@ -46,6 +46,10 @@ describe('test logger helper', () => {
     expect(loggerHelper.getEnvLoggerLevels('missing', ['warn'])).toEqual([
       'debug',
     ]);
+
+    delete process.env.NEST_LOGGER_LEVELS;
+    expect(loggerHelper.getEnvLoggerLevels(undefined, ['verbose'])).toEqual(['verbose']);
+    expect(loggerHelper.getEnvLoggerLevels()).toBeDefined();
   });
 
   it('should wrap string data into object', () => {

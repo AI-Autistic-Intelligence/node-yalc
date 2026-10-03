@@ -54,6 +54,12 @@ describe('jobs-scheduler-sse', () => {
 
       expect(handler).toHaveBeenCalledTimes(2);
     });
+
+    it('should silently return if no pending jobs are found in processNext', async () => {
+      // Access the private method to simulate an extra processNext call when queue is empty
+      await (queue as any).processNext();
+      expect(queue['queue'].length).toBe(0);
+    });
   });
 
   describe('FerroxCronScheduler', () => {

@@ -179,21 +179,25 @@ describe('event.service', () => {
         const errorMethod = (service as any)[`error${errType}`];
         if (typeof errorMethod === 'function') {
           errorMethod.call(service, 'testSpecific');
+          errorMethod.call(service, 'testSpecific', { errorClass: true });
           expect(eventModule.eventError).toHaveBeenCalled();
         }
 
         const resultMethod = (service as any)[`error${errType}Result`];
         if (typeof resultMethod === 'function') {
           const res = resultMethod.call(service, 'testSpecific');
+          const res2 = resultMethod.call(service, 'testSpecific', {});
           expect(res.isErr()).toBe(true);
         }
 
         const fromFnMethod = (service as any)[`error${errType}FromFn`];
         if (typeof fromFnMethod === 'function') {
           const resOk = await fromFnMethod.call(service, 'testSpecific', () => 'ok');
+          const resOk2 = await fromFnMethod.call(service, 'testSpecific', () => 'ok', {});
           expect(resOk.isOk()).toBe(true);
 
           const resErr = await fromFnMethod.call(service, 'testSpecific', () => { throw new Error('fail'); });
+          const resErr2 = await fromFnMethod.call(service, 'testSpecific', () => { throw new Error('fail'); }, {});
           expect(resErr.isErr()).toBe(true);
         }
       });

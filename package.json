@@ -11,7 +11,21 @@
         "errors",
         "event-manager",
         "common",
-        "aws-helpers"
+        "aws-helpers",
+        "auth",
+        "config",
+        "cqrs",
+        "datagrid",
+        "guards",
+        "i18n",
+        "jobs",
+        "kernel",
+        "resilience",
+        "security",
+        "selftest",
+        "storage",
+        "tracing",
+        "transports"
     ],
     "scripts": {
         "build": "tsc && node ./build.mjs"

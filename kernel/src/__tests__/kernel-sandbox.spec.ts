@@ -1,38 +1,30 @@
+import { KernelSandboxEngine } from '../kernel-sandbox';
 
-import * as Module from '../kernel-sandbox';
+describe('KernelSandboxEngine', () => {
+  let engine: KernelSandboxEngine;
 
-describe('kernel-sandbox.ts', () => {
-  it('should have exported members', () => {
-    expect(Module).toBeDefined();
+  beforeEach(() => {
+    engine = new KernelSandboxEngine();
   });
 
-  it('should instantiate KernelSandboxEngine (dummy)', () => {
-    try {
-      const instance = new (Module as any).KernelSandboxEngine();
-      expect(instance).toBeDefined();
-    } catch (e) {
-      // ignore constructor errors due to missing arguments
-      expect(e).toBeDefined();
-    }
+  it('should generate Seccomp BPF policy', () => {
+    const policy = engine.generateSeccompBpfPolicy();
+    expect(policy).toContain('SCMP_ACT_ERRNO');
+    expect(policy).toContain('execve');
   });
 
-  it('should try to call methods on KernelSandboxEngine (dummy)', () => {
-    const proto = (Module as any).KernelSandboxEngine.prototype;
-    const methods = Object.getOwnPropertyNames(proto).filter(m => m !== 'constructor');
-    for (const method of methods) {
-      try {
-        const instance = new (Module as any).KernelSandboxEngine();
-        if (typeof instance[method] === 'function') {
-           instance[method]({}, {}, {}, {}, {});
-        }
-      } catch (e) {}
-    }
+  it('should generate Landlock policy with default paths', () => {
+    const policy = engine.generateLandlockPolicy();
+    expect(policy).toContain('/app');
+  });
 
-    const staticMethods = Object.getOwnPropertyNames((Module as any).KernelSandboxEngine).filter(m => typeof (Module as any).KernelSandboxEngine[m] === 'function');
-    for (const method of staticMethods) {
-      try {
-        (Module as any).KernelSandboxEngine[method]({}, {}, {}, {}, {});
-      } catch (e) {}
-    }
+  it('should generate Landlock policy with custom paths', () => {
+    const policy = engine.generateLandlockPolicy([{ path: '/custom', allowedAccess: ['read'] }]);
+    expect(policy).toContain('/custom');
+  });
+
+  it('should generate sysctl hardening config', () => {
+    const config = engine.generateSysctlHardeningConfig();
+    expect(config).toContain('net.ipv4.tcp_syncookies = 1');
   });
 });

@@ -1,38 +1,67 @@
+import { RbacGuard } from '../rbac.guard';
+import { PasetoAuthService } from '@node-yalc/auth';
 
-import * as Module from '../rbac.guard';
-
-describe('rbac.guard.ts', () => {
-  it('should have exported members', () => {
-    expect(Module).toBeDefined();
+describe('RbacGuard', () => {
+  let pasetoService: PasetoAuthService;
+  
+  beforeEach(() => {
+    pasetoService = new PasetoAuthService('my-secret');
   });
 
-  it('should instantiate RbacGuard (dummy)', () => {
-    try {
-      const instance = new (Module as any).RbacGuard();
-      expect(instance).toBeDefined();
-    } catch (e) {
-      // ignore constructor errors due to missing arguments
-      expect(e).toBeDefined();
-    }
+  it('should deny request if Authorization header is missing', () => {
+    const guard = new RbacGuard(pasetoService);
+    const req = { headers: {} };
+    const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
+    
+    expect(guard.canActivate(req as any, res as any)).toBe(false);
+    expect(res.status).toHaveBeenCalledWith(401);
   });
 
-  it('should try to call methods on RbacGuard (dummy)', () => {
-    const proto = (Module as any).RbacGuard.prototype;
-    const methods = Object.getOwnPropertyNames(proto).filter(m => m !== 'constructor');
-    for (const method of methods) {
-      try {
-        const instance = new (Module as any).RbacGuard();
-        if (typeof instance[method] === 'function') {
-           instance[method]({}, {}, {}, {}, {});
-        }
-      } catch (e) {}
-    }
+  it('should deny request if token verification fails', () => {
+    const guard = new RbacGuard(pasetoService);
+    const req = { headers: { authorization: 'Bearer v2.local.invalid' } };
+    const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
+    
+    expect(guard.canActivate(req as any, res as any)).toBe(false);
+    expect(res.status).toHaveBeenCalledWith(401);
+  });
 
-    const staticMethods = Object.getOwnPropertyNames((Module as any).RbacGuard).filter(m => typeof (Module as any).RbacGuard[m] === 'function');
-    for (const method of staticMethods) {
-      try {
-        (Module as any).RbacGuard[method]({}, {}, {}, {}, {});
-      } catch (e) {}
-    }
+  it('should allow request if token is valid and no roles are required', () => {
+    const token = pasetoService.generateV4LocalToken({ sub: '123' });
+    const guard = new RbacGuard(pasetoService);
+    const req = { headers: { authorization: `Bearer ${token}` } };
+    const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
+    
+    expect(guard.canActivate(req as any, res as any)).toBe(true);
+    expect((req as any).user.sub).toBe('123');
+  });
+
+  it('should allow request if user has required role', () => {
+    const token = pasetoService.generateV4LocalToken({ sub: '123', roles: ['admin', 'user'] });
+    const guard = new RbacGuard(pasetoService, ['admin']);
+    const req = { headers: { authorization: `Bearer ${token}` } };
+    const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
+    
+    expect(guard.canActivate(req as any, res as any)).toBe(true);
+  });
+
+  it('should deny request if user lacks required role', () => {
+    const token = pasetoService.generateV4LocalToken({ sub: '123', roles: ['user'] });
+    const guard = new RbacGuard(pasetoService, ['admin']);
+    const req = { headers: { authorization: `Bearer ${token}` } };
+    const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
+    
+    expect(guard.canActivate(req as any, res as any)).toBe(false);
+    expect(res.status).toHaveBeenCalledWith(403);
+  });
+
+  it('should deny request if user has no roles and role is required', () => {
+    const token = pasetoService.generateV4LocalToken({ sub: '123' });
+    const guard = new RbacGuard(pasetoService, ['admin']);
+    const req = { headers: { authorization: `Bearer ${token}` } };
+    const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
+    
+    expect(guard.canActivate(req as any, res as any)).toBe(false);
+    expect(res.status).toHaveBeenCalledWith(403);
   });
 });

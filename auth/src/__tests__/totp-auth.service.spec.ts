@@ -1,38 +1,34 @@
+import { TotpAuthService } from '../totp-auth.service';
 
-import * as Module from '../totp-auth.service';
+describe('TotpAuthService', () => {
+  let service: TotpAuthService;
 
-describe('totp-auth.service.ts', () => {
-  it('should have exported members', () => {
-    expect(Module).toBeDefined();
+  beforeEach(() => {
+    service = new TotpAuthService();
   });
 
-  it('should instantiate TotpAuthService (dummy)', () => {
-    try {
-      const instance = new (Module as any).TotpAuthService();
-      expect(instance).toBeDefined();
-    } catch (e) {
-      // ignore constructor errors due to missing arguments
-      expect(e).toBeDefined();
-    }
+  it('should generate a secret of correct length', () => {
+    const secret = service.generateSecret();
+    expect(secret.length).toBe(32);
   });
 
-  it('should try to call methods on TotpAuthService (dummy)', () => {
-    const proto = (Module as any).TotpAuthService.prototype;
-    const methods = Object.getOwnPropertyNames(proto).filter(m => m !== 'constructor');
-    for (const method of methods) {
-      try {
-        const instance = new (Module as any).TotpAuthService();
-        if (typeof instance[method] === 'function') {
-           instance[method]({}, {}, {}, {}, {});
-        }
-      } catch (e) {}
-    }
+  it('should generate an OTP Auth URI', () => {
+    const secret = service.generateSecret();
+    const uri = service.generateOtpAuthUri('test@test.com', secret, 'MyApp');
+    expect(uri).toContain('otpauth://totp/MyApp:test%40test.com');
+    expect(uri).toContain(`secret=${secret}`);
+  });
 
-    const staticMethods = Object.getOwnPropertyNames((Module as any).TotpAuthService).filter(m => typeof (Module as any).TotpAuthService[m] === 'function');
-    for (const method of staticMethods) {
-      try {
-        (Module as any).TotpAuthService[method]({}, {}, {}, {}, {});
-      } catch (e) {}
-    }
+  it('should generate a code and verify it successfully', () => {
+    const secret = service.generateSecret();
+    const currentStep = Math.floor(Date.now() / 1000 / 30);
+    const validCode = (service as any).generateCodeForStep(secret, currentStep);
+    
+    expect(service.verifyTotpCode(secret, validCode)).toBe(true);
+  });
+
+  it('should reject an invalid code', () => {
+    const secret = service.generateSecret();
+    expect(service.verifyTotpCode(secret, '000000')).toBe(false);
   });
 });

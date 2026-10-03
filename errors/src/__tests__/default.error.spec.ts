@@ -239,6 +239,26 @@ describe('DefaultError', () => {
     expect(error.getResponse().message).toBe('Default Error');
   });
 
+  it('should determine correct logger level based on status code', () => {
+    const error429 = new DefaultError('too many', {
+      errorCode: 429,
+      logger: true,
+    });
+    expect(error429.logger.level).toBe('warn');
+
+    const error400 = new DefaultError('bad request', {
+      errorCode: 400,
+      logger: true,
+    });
+    expect(error400.logger.level).toBe('log');
+
+    const error500 = new DefaultError('internal', {
+      errorCode: 500,
+      logger: { instance: null as any }, // to cover logger: { instance, level } branch
+    });
+    expect(error500.logger.level).toBe('error');
+  });
+
   it('should create an instance of Error without defaultError options', () => {
     const error = new DefaultError('internal test message', {
       description: 'this description should go in the info',

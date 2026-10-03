@@ -1,38 +1,33 @@
+import { MandatoryComplianceGuard } from '../mandatory-compliance.guard';
 
-import * as Module from '../mandatory-compliance.guard';
-
-describe('mandatory-compliance.guard.ts', () => {
-  it('should have exported members', () => {
-    expect(Module).toBeDefined();
+describe('MandatoryComplianceGuard', () => {
+  it('should inject headers and return true for normal request', () => {
+    const guard = new MandatoryComplianceGuard();
+    const req = { headers: { 'user-agent': 'Mozilla' } };
+    const res = { setHeader: jest.fn(), status: jest.fn(), json: jest.fn() };
+    
+    expect(guard.canActivate(req as any, res as any)).toBe(true);
+    expect(res.setHeader).toHaveBeenCalledWith('X-Content-Type-Options', 'nosniff');
   });
 
-  it('should instantiate MandatoryComplianceGuard (dummy)', () => {
-    try {
-      const instance = new (Module as any).MandatoryComplianceGuard();
-      expect(instance).toBeDefined();
-    } catch (e) {
-      // ignore constructor errors due to missing arguments
-      expect(e).toBeDefined();
-    }
+  it('should reject malicious user agent', () => {
+    const guard = new MandatoryComplianceGuard();
+    const req = { headers: { 'user-agent': ['malicious-scanner'] } }; // test array
+    const res = { setHeader: jest.fn(), status: jest.fn().mockReturnThis(), json: jest.fn() };
+    
+    expect(guard.canActivate(req as any, res as any)).toBe(false);
+    expect(res.status).toHaveBeenCalledWith(403);
+    expect(res.json).toHaveBeenCalledWith({
+      error: 'Forbidden',
+      message: 'Security compliance policy violation detected by Ferrox Guard',
+    });
   });
 
-  it('should try to call methods on MandatoryComplianceGuard (dummy)', () => {
-    const proto = (Module as any).MandatoryComplianceGuard.prototype;
-    const methods = Object.getOwnPropertyNames(proto).filter(m => m !== 'constructor');
-    for (const method of methods) {
-      try {
-        const instance = new (Module as any).MandatoryComplianceGuard();
-        if (typeof instance[method] === 'function') {
-           instance[method]({}, {}, {}, {}, {});
-        }
-      } catch (e) {}
-    }
-
-    const staticMethods = Object.getOwnPropertyNames((Module as any).MandatoryComplianceGuard).filter(m => typeof (Module as any).MandatoryComplianceGuard[m] === 'function');
-    for (const method of staticMethods) {
-      try {
-        (Module as any).MandatoryComplianceGuard[method]({}, {}, {}, {}, {});
-      } catch (e) {}
-    }
+  it('should handle undefined user agent', () => {
+    const guard = new MandatoryComplianceGuard();
+    const req = { headers: {} };
+    const res = { setHeader: jest.fn(), status: jest.fn(), json: jest.fn() };
+    
+    expect(guard.canActivate(req as any, res as any)).toBe(true);
   });
 });

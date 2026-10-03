@@ -1,38 +1,38 @@
+import { I18nEngine } from '../i18n-engine';
 
-import * as Module from '../i18n-engine';
-
-describe('i18n-engine.ts', () => {
-  it('should have exported members', () => {
-    expect(Module).toBeDefined();
+describe('I18nEngine', () => {
+  it('should initialize with default locale', () => {
+    const engine = new I18nEngine();
+    expect((engine as any).defaultLocale).toBe('en');
   });
 
-  it('should instantiate I18nEngine (dummy)', () => {
-    try {
-      const instance = new (Module as any).I18nEngine();
-      expect(instance).toBeDefined();
-    } catch (e) {
-      // ignore constructor errors due to missing arguments
-      expect(e).toBeDefined();
-    }
+  it('should register translations and append to existing locale', () => {
+    const engine = new I18nEngine();
+    engine.registerTranslations('en', { hello: 'Hello' });
+    engine.registerTranslations('en', { world: 'World' });
+    
+    expect(engine.translate('hello')).toBe('Hello');
+    expect(engine.translate('world')).toBe('World');
   });
 
-  it('should try to call methods on I18nEngine (dummy)', () => {
-    const proto = (Module as any).I18nEngine.prototype;
-    const methods = Object.getOwnPropertyNames(proto).filter(m => m !== 'constructor');
-    for (const method of methods) {
-      try {
-        const instance = new (Module as any).I18nEngine();
-        if (typeof instance[method] === 'function') {
-           instance[method]({}, {}, {}, {}, {});
-        }
-      } catch (e) {}
-    }
+  it('should translate with params and locales', () => {
+    const engine = new I18nEngine('en');
+    engine.registerTranslations('en', { greet: 'Hello {{ name }}' });
+    engine.registerTranslations('it', { greet: 'Ciao {{name}}' });
+    
+    expect(engine.translate('greet', { name: 'Mario' }, 'it')).toBe('Ciao Mario');
+  });
 
-    const staticMethods = Object.getOwnPropertyNames((Module as any).I18nEngine).filter(m => typeof (Module as any).I18nEngine[m] === 'function');
-    for (const method of staticMethods) {
-      try {
-        (Module as any).I18nEngine[method]({}, {}, {}, {}, {});
-      } catch (e) {}
-    }
+  it('should fallback to default locale if key is missing in target locale', () => {
+    const engine = new I18nEngine('en');
+    engine.registerTranslations('en', { welcome: 'Welcome' });
+    engine.registerTranslations('it', { other: 'Altro' });
+    
+    expect(engine.translate('welcome', {}, 'it')).toBe('Welcome');
+  });
+
+  it('should fallback to key if completely missing', () => {
+    const engine = new I18nEngine('en');
+    expect(engine.translate('unknown.key')).toBe('unknown.key');
   });
 });

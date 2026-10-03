@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1790978983530" clover="3.2.0">
-  <project timestamp="1790978983531" name="All files">
-    <metrics statements="1641" coveredstatements="1346" conditionals="727" coveredconditionals="551" methods="419" coveredmethods="358" elements="2787" coveredelements="2255" complexity="0" loc="1641" ncloc="1641" packages="22" files="85" classes="85"/>
+<coverage generated="1791008995059" clover="3.2.0">
+  <project timestamp="1791008995059" name="All files">
+    <metrics statements="1617" coveredstatements="1615" conditionals="727" coveredconditionals="693" methods="419" coveredmethods="419" elements="2763" coveredelements="2727" complexity="0" loc="1617" ncloc="1617" packages="20" files="69" classes="69"/>
     <package name="auth.src">
-      <metrics statements="58" coveredstatements="31" conditionals="15" coveredconditionals="2" methods="7" coveredmethods="7"/>
+      <metrics statements="58" coveredstatements="58" conditionals="15" coveredconditionals="14" methods="7" coveredmethods="7"/>
       <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\auth\src\index.ts">
-        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
       </file>
       <file name="paseto-auth.service.ts" path="C:\Users\nn\Desktop\code\node-yalc\auth\src\paseto-auth.service.ts">
-        <metrics statements="32" coveredstatements="15" conditionals="11" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
-        <line num="41" count="3" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
-        <line num="62" count="1" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
-        <line num="70" count="1" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
-        <line num="83" count="1" type="cond" truecount="0" falsecount="2"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="87" count="0" type="stmt"/>
-        <line num="88" count="0" type="stmt"/>
-        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="94" count="0" type="stmt"/>
-        <line num="95" count="0" type="stmt"/>
-        <line num="96" count="0" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
-        <line num="99" count="0" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="106" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="107" count="0" type="stmt"/>
-        <line num="110" count="0" type="stmt"/>
+        <metrics statements="32" coveredstatements="32" conditionals="11" coveredconditionals="11" methods="3" coveredmethods="3"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="40" count="10" type="stmt"/>
+        <line num="41" count="10" type="stmt"/>
+        <line num="53" count="6" type="stmt"/>
+        <line num="54" count="6" type="stmt"/>
+        <line num="61" count="6" type="stmt"/>
+        <line num="62" count="6" type="stmt"/>
+        <line num="65" count="6" type="stmt"/>
+        <line num="66" count="6" type="stmt"/>
+        <line num="67" count="6" type="stmt"/>
+        <line num="68" count="6" type="stmt"/>
+        <line num="70" count="6" type="stmt"/>
+        <line num="71" count="6" type="stmt"/>
+        <line num="83" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="84" count="2" type="stmt"/>
+        <line num="87" count="7" type="stmt"/>
+        <line num="88" count="7" type="stmt"/>
+        <line num="90" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="91" count="1" type="stmt"/>
+        <line num="94" count="6" type="stmt"/>
+        <line num="95" count="6" type="stmt"/>
+        <line num="96" count="6" type="stmt"/>
+        <line num="98" count="6" type="stmt"/>
+        <line num="99" count="6" type="stmt"/>
+        <line num="100" count="6" type="stmt"/>
+        <line num="101" count="6" type="stmt"/>
+        <line num="103" count="6" type="stmt"/>
+        <line num="104" count="6" type="stmt"/>
+        <line num="106" count="6" type="cond" truecount="4" falsecount="0"/>
+        <line num="107" count="1" type="stmt"/>
+        <line num="110" count="5" type="stmt"/>
       </file>
       <file name="totp-auth.service.ts" path="C:\Users\nn\Desktop\code\node-yalc\auth\src\totp-auth.service.ts">
-        <metrics statements="24" coveredstatements="16" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
+        <metrics statements="24" coveredstatements="24" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="50" count="0" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="5" type="stmt"/>
+        <line num="48" count="5" type="stmt"/>
+        <line num="49" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="1" type="stmt"/>
         <line num="54" count="1" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="68" count="8" type="stmt"/>
-        <line num="69" count="8" type="stmt"/>
-        <line num="72" count="1" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
-        <line num="81" count="0" type="stmt"/>
+        <line num="65" count="6" type="stmt"/>
+        <line num="66" count="6" type="stmt"/>
+        <line num="67" count="6" type="stmt"/>
+        <line num="68" count="48" type="stmt"/>
+        <line num="69" count="48" type="stmt"/>
+        <line num="72" count="6" type="stmt"/>
+        <line num="73" count="6" type="stmt"/>
+        <line num="75" count="6" type="stmt"/>
+        <line num="80" count="6" type="stmt"/>
+        <line num="81" count="6" type="stmt"/>
       </file>
     </package>
     <package name="aws-helpers.src">
@@ -139,123 +139,103 @@
         <line num="89" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="common.src">
-      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\common\src\index.ts">
-        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-      </file>
-    </package>
     <package name="config.src">
-      <metrics statements="15" coveredstatements="8" conditionals="11" coveredconditionals="3" methods="3" coveredmethods="3"/>
+      <metrics statements="14" coveredstatements="14" conditionals="11" coveredconditionals="11" methods="3" coveredmethods="3"/>
       <file name="config-engine.ts" path="C:\Users\nn\Desktop\code\node-yalc\config\src\config-engine.ts">
-        <metrics statements="14" coveredstatements="8" conditionals="11" coveredconditionals="3" methods="3" coveredmethods="3"/>
+        <metrics statements="14" coveredstatements="14" conditionals="11" coveredconditionals="11" methods="3" coveredmethods="3"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="40" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="41" count="0" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="32" count="7" type="stmt"/>
+        <line num="33" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="2" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
         <line num="55" count="1" type="stmt"/>
       </file>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\config\src\index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-      </file>
     </package>
     <package name="cqrs.src">
-      <metrics statements="33" coveredstatements="2" conditionals="4" coveredconditionals="0" methods="9" coveredmethods="0"/>
+      <metrics statements="32" coveredstatements="32" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="9"/>
       <file name="cqrs-saga.ts" path="C:\Users\nn\Desktop\code\node-yalc\cqrs\src\cqrs-saga.ts">
-        <metrics statements="32" coveredstatements="2" conditionals="4" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <metrics statements="32" coveredstatements="32" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="9"/>
         <line num="39" count="1" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="71" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="86" count="0" type="stmt"/>
-        <line num="87" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="88" count="0" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="71" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="86" count="2" type="stmt"/>
+        <line num="87" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
         <line num="113" count="1" type="stmt"/>
-        <line num="114" count="0" type="stmt"/>
-        <line num="122" count="0" type="stmt"/>
-        <line num="123" count="0" type="stmt"/>
-        <line num="134" count="0" type="stmt"/>
-        <line num="136" count="0" type="stmt"/>
-        <line num="137" count="0" type="stmt"/>
-        <line num="138" count="0" type="stmt"/>
-        <line num="139" count="0" type="stmt"/>
-        <line num="140" count="0" type="stmt"/>
-        <line num="142" count="0" type="stmt"/>
-        <line num="143" count="0" type="stmt"/>
-        <line num="144" count="0" type="stmt"/>
-        <line num="152" count="0" type="stmt"/>
-        <line num="162" count="0" type="stmt"/>
-        <line num="163" count="0" type="stmt"/>
-        <line num="164" count="0" type="stmt"/>
-        <line num="165" count="0" type="stmt"/>
-        <line num="167" count="0" type="stmt"/>
-      </file>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\cqrs\src\index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
+        <line num="114" count="3" type="stmt"/>
+        <line num="122" count="8" type="stmt"/>
+        <line num="123" count="8" type="stmt"/>
+        <line num="134" count="3" type="stmt"/>
+        <line num="136" count="3" type="stmt"/>
+        <line num="137" count="8" type="stmt"/>
+        <line num="138" count="8" type="stmt"/>
+        <line num="139" count="8" type="stmt"/>
+        <line num="140" count="6" type="stmt"/>
+        <line num="142" count="2" type="stmt"/>
+        <line num="143" count="2" type="stmt"/>
+        <line num="144" count="2" type="stmt"/>
+        <line num="152" count="1" type="stmt"/>
+        <line num="162" count="2" type="stmt"/>
+        <line num="163" count="4" type="stmt"/>
+        <line num="164" count="4" type="stmt"/>
+        <line num="165" count="4" type="stmt"/>
+        <line num="167" count="1" type="stmt"/>
       </file>
     </package>
     <package name="datagrid.src">
-      <metrics statements="30" coveredstatements="6" conditionals="16" coveredconditionals="4" methods="8" coveredmethods="2"/>
+      <metrics statements="29" coveredstatements="29" conditionals="16" coveredconditionals="14" methods="8" coveredmethods="8"/>
       <file name="datagrid-crud.ts" path="C:\Users\nn\Desktop\code\node-yalc\datagrid\src\datagrid-crud.ts">
-        <metrics statements="29" coveredstatements="6" conditionals="16" coveredconditionals="4" methods="8" coveredmethods="2"/>
+        <metrics statements="29" coveredstatements="29" conditionals="16" coveredconditionals="14" methods="8" coveredmethods="8"/>
         <line num="41" count="1" type="stmt"/>
-        <line num="53" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="54" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="56" count="1" type="stmt"/>
-        <line num="58" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="65" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="67" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="68" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="76" count="0" type="stmt"/>
-        <line num="78" count="0" type="stmt"/>
+        <line num="53" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="54" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="56" count="3" type="stmt"/>
+        <line num="58" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="60" count="4" type="stmt"/>
+        <line num="63" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="64" count="2" type="stmt"/>
+        <line num="65" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="66" count="2" type="stmt"/>
+        <line num="67" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="68" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="73" count="3" type="stmt"/>
+        <line num="74" count="3" type="stmt"/>
+        <line num="75" count="3" type="stmt"/>
+        <line num="76" count="3" type="stmt"/>
+        <line num="78" count="3" type="stmt"/>
         <line num="92" count="1" type="stmt"/>
         <line num="110" count="1" type="stmt"/>
-        <line num="111" count="0" type="stmt"/>
-        <line num="115" count="0" type="stmt"/>
-        <line num="121" count="0" type="stmt"/>
-        <line num="122" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="123" count="0" type="stmt"/>
-        <line num="129" count="0" type="stmt"/>
-        <line num="135" count="0" type="stmt"/>
-        <line num="136" count="0" type="stmt"/>
-      </file>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\datagrid\src\index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
+        <line num="111" count="1" type="stmt"/>
+        <line num="115" count="1" type="stmt"/>
+        <line num="121" count="2" type="stmt"/>
+        <line num="122" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="123" count="1" type="stmt"/>
+        <line num="129" count="1" type="stmt"/>
+        <line num="135" count="1" type="stmt"/>
+        <line num="136" count="1" type="stmt"/>
       </file>
     </package>
     <package name="errors.src">
-      <metrics statements="242" coveredstatements="237" conditionals="124" coveredconditionals="117" methods="32" coveredmethods="32"/>
+      <metrics statements="242" coveredstatements="242" conditionals="124" coveredconditionals="122" methods="32" coveredmethods="32"/>
       <file name="default.error.ts" path="C:\Users\nn\Desktop\code\node-yalc\errors\src\default.error.ts">
-        <metrics statements="117" coveredstatements="113" conditionals="89" coveredconditionals="84" methods="18" coveredmethods="18"/>
+        <metrics statements="117" coveredstatements="117" conditionals="89" coveredconditionals="88" methods="18" coveredmethods="18"/>
         <line num="2" count="12" type="stmt"/>
         <line num="4" count="12" type="stmt"/>
         <line num="5" count="12" type="stmt"/>
@@ -269,47 +249,47 @@
         <line num="217" count="12" type="stmt"/>
         <line num="224" count="1" type="stmt"/>
         <line num="234" count="12" type="stmt"/>
-        <line num="235" count="85" type="cond" truecount="2" falsecount="0"/>
-        <line num="236" count="75" type="stmt"/>
+        <line num="235" count="88" type="cond" truecount="2" falsecount="0"/>
+        <line num="236" count="78" type="stmt"/>
         <line num="239" count="10" type="stmt"/>
         <line num="248" count="12" type="stmt"/>
         <line num="253" count="226" type="cond" truecount="2" falsecount="0"/>
         <line num="259" count="226" type="stmt"/>
-        <line num="275" count="80" type="stmt"/>
-        <line num="286" count="80" type="stmt"/>
-        <line num="288" count="80" type="cond" truecount="2" falsecount="0"/>
-        <line num="290" count="80" type="stmt"/>
-        <line num="292" count="80" type="cond" truecount="2" falsecount="0"/>
-        <line num="294" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="298" count="7" type="stmt"/>
-        <line num="299" count="7" type="stmt"/>
-        <line num="300" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="301" count="7" type="stmt"/>
-        <line num="302" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="303" count="0" type="stmt"/>
-        <line num="304" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="305" count="0" type="stmt"/>
-        <line num="308" count="7" type="stmt"/>
-        <line num="313" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="314" count="6" type="stmt"/>
-        <line num="319" count="1" type="stmt"/>
-        <line num="327" count="80" type="cond" truecount="4" falsecount="0"/>
-        <line num="331" count="80" type="cond" truecount="2" falsecount="0"/>
-        <line num="332" count="77" type="stmt"/>
-        <line num="333" count="77" type="stmt"/>
-        <line num="334" count="77" type="stmt"/>
-        <line num="346" count="81" type="cond" truecount="2" falsecount="0"/>
-        <line num="347" count="81" type="stmt"/>
-        <line num="349" count="81" type="stmt"/>
-        <line num="350" count="81" type="cond" truecount="2" falsecount="0"/>
-        <line num="351" count="81" type="stmt"/>
-        <line num="353" count="81" type="stmt"/>
-        <line num="356" count="81" type="stmt"/>
-        <line num="363" count="81" type="cond" truecount="2" falsecount="0"/>
-        <line num="367" count="81" type="stmt"/>
-        <line num="369" count="81" type="stmt"/>
-        <line num="380" count="81" type="stmt"/>
-        <line num="381" count="81" type="stmt"/>
+        <line num="275" count="83" type="stmt"/>
+        <line num="286" count="83" type="stmt"/>
+        <line num="288" count="83" type="cond" truecount="2" falsecount="0"/>
+        <line num="290" count="83" type="stmt"/>
+        <line num="292" count="83" type="cond" truecount="2" falsecount="0"/>
+        <line num="294" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="298" count="10" type="stmt"/>
+        <line num="299" count="10" type="stmt"/>
+        <line num="300" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="301" count="8" type="stmt"/>
+        <line num="302" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="303" count="1" type="stmt"/>
+        <line num="304" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="305" count="1" type="stmt"/>
+        <line num="308" count="10" type="stmt"/>
+        <line num="313" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="314" count="7" type="stmt"/>
+        <line num="319" count="3" type="stmt"/>
+        <line num="327" count="83" type="cond" truecount="4" falsecount="0"/>
+        <line num="331" count="83" type="cond" truecount="2" falsecount="0"/>
+        <line num="332" count="80" type="stmt"/>
+        <line num="333" count="80" type="stmt"/>
+        <line num="334" count="80" type="stmt"/>
+        <line num="346" count="84" type="cond" truecount="2" falsecount="0"/>
+        <line num="347" count="84" type="stmt"/>
+        <line num="349" count="84" type="stmt"/>
+        <line num="350" count="84" type="cond" truecount="2" falsecount="0"/>
+        <line num="351" count="84" type="stmt"/>
+        <line num="353" count="84" type="stmt"/>
+        <line num="356" count="84" type="stmt"/>
+        <line num="363" count="84" type="cond" truecount="2" falsecount="0"/>
+        <line num="367" count="84" type="stmt"/>
+        <line num="369" count="84" type="stmt"/>
+        <line num="380" count="84" type="stmt"/>
+        <line num="381" count="84" type="stmt"/>
         <line num="402" count="5" type="stmt"/>
         <line num="404" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="405" count="5" type="cond" truecount="2" falsecount="0"/>
@@ -328,21 +308,21 @@
         <line num="453" count="1" type="stmt"/>
         <line num="457" count="6" type="stmt"/>
         <line num="461" count="4" type="stmt"/>
-        <line num="472" count="83" type="stmt"/>
-        <line num="473" count="83" type="cond" truecount="4" falsecount="0"/>
+        <line num="472" count="86" type="stmt"/>
+        <line num="473" count="86" type="cond" truecount="4" falsecount="0"/>
         <line num="474" count="14" type="stmt"/>
-        <line num="476" count="69" type="stmt"/>
-        <line num="482" count="83" type="stmt"/>
-        <line num="488" count="83" type="stmt"/>
+        <line num="476" count="72" type="stmt"/>
+        <line num="482" count="86" type="stmt"/>
+        <line num="488" count="86" type="stmt"/>
         <line num="497" count="226" type="stmt"/>
         <line num="520" count="12" type="stmt"/>
         <line num="523" count="213" type="cond" truecount="2" falsecount="0"/>
         <line num="524" count="213" type="stmt"/>
-        <line num="533" count="67" type="cond" truecount="2" falsecount="0"/>
+        <line num="533" count="70" type="cond" truecount="2" falsecount="0"/>
         <line num="542" count="12" type="stmt"/>
         <line num="543" count="12" type="stmt"/>
-        <line num="552" count="60" type="cond" truecount="2" falsecount="0"/>
-        <line num="553" count="60" type="stmt"/>
+        <line num="552" count="63" type="cond" truecount="2" falsecount="0"/>
+        <line num="553" count="63" type="stmt"/>
         <line num="566" count="12" type="stmt"/>
         <line num="570" count="45" type="stmt"/>
         <line num="571" count="45" type="cond" truecount="2" falsecount="0"/>
@@ -372,77 +352,16 @@
         <line num="644" count="12" type="stmt"/>
         <line num="647" count="51" type="stmt"/>
         <line num="650" count="12" type="stmt"/>
-        <line num="653" count="39" type="stmt"/>
+        <line num="653" count="61" type="stmt"/>
       </file>
       <file name="error.enum.ts" path="C:\Users\nn\Desktop\code\node-yalc\errors\src\error.enum.ts">
         <metrics statements="32" coveredstatements="32" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
-        <line num="1" count="19" type="stmt"/>
-        <line num="3" count="19" type="cond" truecount="2" falsecount="0"/>
-        <line num="5" count="19" type="stmt"/>
-        <line num="6" count="19" type="stmt"/>
-        <line num="8" count="19" type="stmt"/>
-        <line num="10" count="19" type="stmt"/>
-        <line num="12" count="19" type="stmt"/>
-        <line num="13" count="19" type="stmt"/>
-        <line num="14" count="19" type="stmt"/>
-        <line num="15" count="19" type="stmt"/>
-        <line num="16" count="19" type="stmt"/>
-        <line num="17" count="19" type="stmt"/>
-        <line num="18" count="19" type="stmt"/>
-        <line num="19" count="19" type="stmt"/>
-        <line num="20" count="19" type="stmt"/>
-        <line num="21" count="19" type="stmt"/>
-        <line num="22" count="19" type="stmt"/>
-        <line num="23" count="19" type="stmt"/>
-        <line num="26" count="19" type="stmt"/>
-        <line num="27" count="19" type="stmt"/>
-        <line num="28" count="19" type="stmt"/>
-        <line num="29" count="19" type="stmt"/>
-        <line num="30" count="19" type="stmt"/>
-        <line num="33" count="19" type="stmt"/>
-        <line num="34" count="83" type="stmt"/>
-        <line num="35" count="7386" type="stmt"/>
-        <line num="37" count="83" type="stmt"/>
-        <line num="38" count="83" type="cond" truecount="2" falsecount="0"/>
-        <line num="41" count="19" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="19" type="stmt"/>
-        <line num="43" count="19" type="stmt"/>
-        <line num="44" count="19" type="stmt"/>
-      </file>
-      <file name="error.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\errors\src\error.helper.ts">
-        <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
-        <line num="2" count="6" type="stmt"/>
-        <line num="4" count="6" type="stmt"/>
-        <line num="5" count="6" type="stmt"/>
-        <line num="11" count="6" type="stmt"/>
-        <line num="15" count="39" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="26" count="37" type="cond" truecount="2" falsecount="0"/>
-        <line num="27" count="35" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="34" count="2" type="cond" truecount="2" falsecount="0"/>
-      </file>
-      <file name="http-status-code-to-errors.ts" path="C:\Users\nn\Desktop\code\node-yalc\errors\src\http-status-code-to-errors.ts">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="7" type="stmt"/>
-        <line num="20" count="7" type="stmt"/>
-        <line num="22" count="7" type="stmt"/>
-      </file>
-      <file name="http-status.enum.ts" path="C:\Users\nn\Desktop\code\node-yalc\errors\src\http-status.enum.ts">
-        <metrics statements="49" coveredstatements="49" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="20" type="cond" truecount="2" falsecount="0"/>
-        <line num="2" count="20" type="stmt"/>
-        <line num="3" count="20" type="stmt"/>
-        <line num="4" count="20" type="stmt"/>
+        <line num="1" count="20" type="stmt"/>
+        <line num="3" count="20" type="cond" truecount="2" falsecount="0"/>
         <line num="5" count="20" type="stmt"/>
         <line num="6" count="20" type="stmt"/>
-        <line num="7" count="20" type="stmt"/>
         <line num="8" count="20" type="stmt"/>
-        <line num="9" count="20" type="stmt"/>
         <line num="10" count="20" type="stmt"/>
-        <line num="11" count="20" type="stmt"/>
         <line num="12" count="20" type="stmt"/>
         <line num="13" count="20" type="stmt"/>
         <line num="14" count="20" type="stmt"/>
@@ -455,54 +374,115 @@
         <line num="21" count="20" type="stmt"/>
         <line num="22" count="20" type="stmt"/>
         <line num="23" count="20" type="stmt"/>
-        <line num="24" count="20" type="stmt"/>
-        <line num="25" count="20" type="stmt"/>
         <line num="26" count="20" type="stmt"/>
         <line num="27" count="20" type="stmt"/>
         <line num="28" count="20" type="stmt"/>
         <line num="29" count="20" type="stmt"/>
         <line num="30" count="20" type="stmt"/>
-        <line num="31" count="20" type="stmt"/>
-        <line num="32" count="20" type="stmt"/>
         <line num="33" count="20" type="stmt"/>
-        <line num="34" count="20" type="stmt"/>
-        <line num="35" count="20" type="stmt"/>
-        <line num="36" count="20" type="stmt"/>
-        <line num="37" count="20" type="stmt"/>
-        <line num="38" count="20" type="stmt"/>
-        <line num="39" count="20" type="stmt"/>
-        <line num="40" count="20" type="stmt"/>
-        <line num="41" count="20" type="stmt"/>
+        <line num="34" count="86" type="stmt"/>
+        <line num="35" count="7634" type="stmt"/>
+        <line num="37" count="86" type="stmt"/>
+        <line num="38" count="86" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="20" type="cond" truecount="2" falsecount="0"/>
         <line num="42" count="20" type="stmt"/>
         <line num="43" count="20" type="stmt"/>
         <line num="44" count="20" type="stmt"/>
-        <line num="45" count="20" type="stmt"/>
-        <line num="46" count="20" type="stmt"/>
-        <line num="47" count="20" type="stmt"/>
-        <line num="48" count="20" type="stmt"/>
-        <line num="49" count="20" type="stmt"/>
+      </file>
+      <file name="error.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\errors\src\error.helper.ts">
+        <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="15" count="73" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="13" type="stmt"/>
+        <line num="26" count="59" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="57" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="2" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="http-status-code-to-errors.ts" path="C:\Users\nn\Desktop\code\node-yalc\errors\src\http-status-code-to-errors.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="7" type="stmt"/>
+        <line num="20" count="7" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+      </file>
+      <file name="http-status.enum.ts" path="C:\Users\nn\Desktop\code\node-yalc\errors\src\http-status.enum.ts">
+        <metrics statements="49" coveredstatements="49" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="21" type="stmt"/>
+        <line num="3" count="21" type="stmt"/>
+        <line num="4" count="21" type="stmt"/>
+        <line num="5" count="21" type="stmt"/>
+        <line num="6" count="21" type="stmt"/>
+        <line num="7" count="21" type="stmt"/>
+        <line num="8" count="21" type="stmt"/>
+        <line num="9" count="21" type="stmt"/>
+        <line num="10" count="21" type="stmt"/>
+        <line num="11" count="21" type="stmt"/>
+        <line num="12" count="21" type="stmt"/>
+        <line num="13" count="21" type="stmt"/>
+        <line num="14" count="21" type="stmt"/>
+        <line num="15" count="21" type="stmt"/>
+        <line num="16" count="21" type="stmt"/>
+        <line num="17" count="21" type="stmt"/>
+        <line num="18" count="21" type="stmt"/>
+        <line num="19" count="21" type="stmt"/>
+        <line num="20" count="21" type="stmt"/>
+        <line num="21" count="21" type="stmt"/>
+        <line num="22" count="21" type="stmt"/>
+        <line num="23" count="21" type="stmt"/>
+        <line num="24" count="21" type="stmt"/>
+        <line num="25" count="21" type="stmt"/>
+        <line num="26" count="21" type="stmt"/>
+        <line num="27" count="21" type="stmt"/>
+        <line num="28" count="21" type="stmt"/>
+        <line num="29" count="21" type="stmt"/>
+        <line num="30" count="21" type="stmt"/>
+        <line num="31" count="21" type="stmt"/>
+        <line num="32" count="21" type="stmt"/>
+        <line num="33" count="21" type="stmt"/>
+        <line num="34" count="21" type="stmt"/>
+        <line num="35" count="21" type="stmt"/>
+        <line num="36" count="21" type="stmt"/>
+        <line num="37" count="21" type="stmt"/>
+        <line num="38" count="21" type="stmt"/>
+        <line num="39" count="21" type="stmt"/>
+        <line num="40" count="21" type="stmt"/>
+        <line num="41" count="21" type="stmt"/>
+        <line num="42" count="21" type="stmt"/>
+        <line num="43" count="21" type="stmt"/>
+        <line num="44" count="21" type="stmt"/>
+        <line num="45" count="21" type="stmt"/>
+        <line num="46" count="21" type="stmt"/>
+        <line num="47" count="21" type="stmt"/>
+        <line num="48" count="21" type="stmt"/>
+        <line num="49" count="21" type="stmt"/>
       </file>
       <file name="http.exception.ts" path="C:\Users\nn\Desktop\code\node-yalc\errors\src\http.exception.ts">
-        <metrics statements="19" coveredstatements="18" conditionals="17" coveredconditionals="15" methods="6" coveredmethods="6"/>
-        <line num="3" count="12" type="stmt"/>
-        <line num="13" count="86" type="stmt"/>
-        <line num="14" count="86" type="stmt"/>
-        <line num="15" count="86" type="stmt"/>
-        <line num="16" count="86" type="stmt"/>
-        <line num="17" count="86" type="stmt"/>
-        <line num="18" count="86" type="stmt"/>
-        <line num="25" count="90" type="cond" truecount="1" falsecount="1"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="28" count="90" type="cond" truecount="4" falsecount="0"/>
-        <line num="34" count="86" type="cond" truecount="2" falsecount="0"/>
+        <metrics statements="19" coveredstatements="19" conditionals="17" coveredconditionals="16" methods="6" coveredmethods="6"/>
+        <line num="3" count="13" type="stmt"/>
+        <line num="13" count="89" type="stmt"/>
+        <line num="14" count="89" type="stmt"/>
+        <line num="15" count="89" type="stmt"/>
+        <line num="16" count="89" type="stmt"/>
+        <line num="17" count="89" type="stmt"/>
+        <line num="18" count="89" type="stmt"/>
+        <line num="25" count="95" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="94" type="cond" truecount="4" falsecount="0"/>
+        <line num="34" count="89" type="cond" truecount="2" falsecount="0"/>
         <line num="35" count="16" type="stmt"/>
-        <line num="36" count="70" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="73" type="cond" truecount="2" falsecount="0"/>
         <line num="41" count="8" type="stmt"/>
-        <line num="42" count="62" type="cond" truecount="1" falsecount="1"/>
-        <line num="43" count="62" type="stmt"/>
-        <line num="50" count="86" type="stmt"/>
-        <line num="54" count="86" type="stmt"/>
-        <line num="58" count="111" type="stmt"/>
+        <line num="42" count="65" type="cond" truecount="1" falsecount="1"/>
+        <line num="43" count="65" type="stmt"/>
+        <line num="50" count="89" type="stmt"/>
+        <line num="54" count="89" type="stmt"/>
+        <line num="58" count="117" type="stmt"/>
       </file>
       <file name="result.error.ts" path="C:\Users\nn\Desktop\code\node-yalc\errors\src\result.error.ts">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
@@ -519,7 +499,7 @@
       </file>
     </package>
     <package name="event-manager.src">
-      <metrics statements="394" coveredstatements="386" conditionals="165" coveredconditionals="155" methods="109" coveredmethods="109"/>
+      <metrics statements="388" coveredstatements="386" conditionals="165" coveredconditionals="155" methods="109" coveredmethods="109"/>
       <file name="emitter.ts" path="C:\Users\nn\Desktop\code\node-yalc\event-manager\src\emitter.ts">
         <metrics statements="20" coveredstatements="20" conditionals="10" coveredconditionals="10" methods="6" coveredmethods="6"/>
         <line num="2" count="4" type="stmt"/>
@@ -566,25 +546,25 @@
         <line num="4" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
-        <line num="11" count="50" type="cond" truecount="4" falsecount="0"/>
+        <line num="11" count="72" type="cond" truecount="4" falsecount="0"/>
         <line num="13" count="7" type="stmt"/>
         <line num="14" count="7" type="stmt"/>
-        <line num="16" count="5" type="stmt"/>
-        <line num="17" count="5" type="stmt"/>
-        <line num="20" count="38" type="stmt"/>
-        <line num="21" count="38" type="stmt"/>
-        <line num="24" count="50" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="20" count="58" type="stmt"/>
+        <line num="21" count="58" type="stmt"/>
+        <line num="24" count="72" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
-        <line num="28" count="41" type="stmt"/>
-        <line num="29" count="41" type="cond" truecount="2" falsecount="0"/>
-        <line num="30" count="37" type="stmt"/>
-        <line num="38" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="75" type="stmt"/>
+        <line num="29" count="75" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="59" type="stmt"/>
+        <line num="38" count="16" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="1" type="stmt"/>
-        <line num="41" count="3" type="stmt"/>
-        <line num="44" count="4" type="stmt"/>
-        <line num="45" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="15" type="stmt"/>
+        <line num="44" count="16" type="stmt"/>
+        <line num="45" count="16" type="cond" truecount="2" falsecount="0"/>
         <line num="46" count="2" type="stmt"/>
-        <line num="48" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="48" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="54" count="2" type="stmt"/>
         <line num="55" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="59" count="1" type="stmt"/>
@@ -618,7 +598,7 @@
         <line num="105" count="1" type="stmt"/>
         <line num="111" count="40" type="stmt"/>
         <line num="112" count="40" type="stmt"/>
-        <line num="121" count="59" type="stmt"/>
+        <line num="121" count="108" type="stmt"/>
         <line num="131" count="2" type="stmt"/>
         <line num="138" count="1" type="stmt"/>
         <line num="148" count="5" type="stmt"/>
@@ -657,148 +637,148 @@
         <line num="317" count="2" type="stmt"/>
         <line num="318" count="1" type="stmt"/>
         <line num="320" count="1" type="stmt"/>
-        <line num="331" count="1" type="stmt"/>
-        <line num="334" count="1" type="stmt"/>
-        <line num="344" count="2" type="stmt"/>
-        <line num="347" count="2" type="stmt"/>
-        <line num="358" count="2" type="stmt"/>
-        <line num="359" count="2" type="stmt"/>
-        <line num="360" count="1" type="stmt"/>
-        <line num="362" count="1" type="stmt"/>
-        <line num="373" count="3" type="stmt"/>
-        <line num="376" count="3" type="stmt"/>
-        <line num="386" count="2" type="stmt"/>
-        <line num="397" count="2" type="stmt"/>
-        <line num="398" count="2" type="stmt"/>
-        <line num="399" count="1" type="stmt"/>
-        <line num="401" count="1" type="stmt"/>
-        <line num="412" count="1" type="stmt"/>
-        <line num="415" count="1" type="stmt"/>
-        <line num="425" count="3" type="stmt"/>
-        <line num="428" count="3" type="stmt"/>
-        <line num="438" count="2" type="stmt"/>
-        <line num="449" count="2" type="stmt"/>
-        <line num="450" count="2" type="stmt"/>
-        <line num="451" count="1" type="stmt"/>
-        <line num="453" count="1" type="stmt"/>
-        <line num="464" count="1" type="stmt"/>
-        <line num="467" count="1" type="stmt"/>
-        <line num="477" count="2" type="stmt"/>
-        <line num="480" count="2" type="stmt"/>
-        <line num="491" count="2" type="stmt"/>
-        <line num="492" count="2" type="stmt"/>
-        <line num="493" count="1" type="stmt"/>
-        <line num="495" count="1" type="stmt"/>
-        <line num="506" count="3" type="stmt"/>
-        <line num="509" count="3" type="stmt"/>
-        <line num="519" count="2" type="stmt"/>
-        <line num="530" count="2" type="stmt"/>
-        <line num="531" count="2" type="stmt"/>
-        <line num="532" count="1" type="stmt"/>
-        <line num="534" count="1" type="stmt"/>
-        <line num="545" count="3" type="stmt"/>
-        <line num="548" count="3" type="stmt"/>
-        <line num="558" count="2" type="stmt"/>
-        <line num="569" count="2" type="stmt"/>
-        <line num="570" count="2" type="stmt"/>
-        <line num="571" count="1" type="stmt"/>
-        <line num="573" count="1" type="stmt"/>
-        <line num="584" count="3" type="stmt"/>
-        <line num="587" count="3" type="stmt"/>
-        <line num="597" count="2" type="stmt"/>
-        <line num="608" count="2" type="stmt"/>
-        <line num="609" count="2" type="stmt"/>
-        <line num="610" count="1" type="stmt"/>
-        <line num="612" count="1" type="stmt"/>
-        <line num="623" count="3" type="stmt"/>
-        <line num="626" count="3" type="stmt"/>
-        <line num="636" count="2" type="stmt"/>
-        <line num="647" count="2" type="stmt"/>
-        <line num="648" count="2" type="stmt"/>
-        <line num="649" count="1" type="stmt"/>
-        <line num="651" count="1" type="stmt"/>
-        <line num="662" count="3" type="stmt"/>
-        <line num="667" count="3" type="stmt"/>
-        <line num="677" count="2" type="stmt"/>
-        <line num="688" count="2" type="stmt"/>
-        <line num="689" count="2" type="stmt"/>
-        <line num="690" count="1" type="stmt"/>
-        <line num="692" count="1" type="stmt"/>
-        <line num="703" count="3" type="stmt"/>
-        <line num="708" count="3" type="stmt"/>
-        <line num="718" count="2" type="stmt"/>
-        <line num="729" count="2" type="stmt"/>
-        <line num="730" count="2" type="stmt"/>
-        <line num="731" count="1" type="stmt"/>
-        <line num="733" count="1" type="stmt"/>
-        <line num="744" count="3" type="stmt"/>
-        <line num="747" count="3" type="stmt"/>
-        <line num="757" count="2" type="stmt"/>
-        <line num="768" count="2" type="stmt"/>
-        <line num="769" count="2" type="stmt"/>
-        <line num="770" count="1" type="stmt"/>
-        <line num="772" count="1" type="stmt"/>
-        <line num="783" count="3" type="stmt"/>
-        <line num="786" count="3" type="stmt"/>
-        <line num="796" count="2" type="stmt"/>
-        <line num="807" count="2" type="stmt"/>
-        <line num="808" count="2" type="stmt"/>
-        <line num="809" count="1" type="stmt"/>
-        <line num="811" count="1" type="stmt"/>
-        <line num="822" count="3" type="stmt"/>
-        <line num="825" count="3" type="stmt"/>
-        <line num="835" count="2" type="stmt"/>
-        <line num="846" count="2" type="stmt"/>
-        <line num="847" count="2" type="stmt"/>
-        <line num="848" count="1" type="stmt"/>
-        <line num="850" count="1" type="stmt"/>
-        <line num="861" count="3" type="stmt"/>
-        <line num="864" count="3" type="stmt"/>
-        <line num="874" count="2" type="stmt"/>
-        <line num="885" count="2" type="stmt"/>
-        <line num="886" count="2" type="stmt"/>
-        <line num="887" count="1" type="stmt"/>
-        <line num="889" count="1" type="stmt"/>
-        <line num="900" count="3" type="stmt"/>
-        <line num="903" count="3" type="stmt"/>
-        <line num="913" count="2" type="stmt"/>
-        <line num="924" count="2" type="stmt"/>
-        <line num="925" count="2" type="stmt"/>
-        <line num="926" count="1" type="stmt"/>
-        <line num="928" count="1" type="stmt"/>
-        <line num="939" count="3" type="stmt"/>
-        <line num="942" count="3" type="stmt"/>
-        <line num="952" count="2" type="stmt"/>
-        <line num="963" count="2" type="stmt"/>
-        <line num="964" count="2" type="stmt"/>
-        <line num="965" count="1" type="stmt"/>
-        <line num="967" count="1" type="stmt"/>
-        <line num="972" count="34" type="stmt"/>
-        <line num="978" count="39" type="cond" truecount="1" falsecount="1"/>
-        <line num="980" count="39" type="stmt"/>
-        <line num="981" count="39" type="stmt"/>
+        <line num="331" count="2" type="stmt"/>
+        <line num="334" count="2" type="stmt"/>
+        <line num="344" count="4" type="stmt"/>
+        <line num="347" count="4" type="stmt"/>
+        <line num="358" count="4" type="stmt"/>
+        <line num="359" count="4" type="stmt"/>
+        <line num="360" count="2" type="stmt"/>
+        <line num="362" count="2" type="stmt"/>
+        <line num="373" count="6" type="stmt"/>
+        <line num="376" count="6" type="stmt"/>
+        <line num="386" count="4" type="stmt"/>
+        <line num="397" count="4" type="stmt"/>
+        <line num="398" count="4" type="stmt"/>
+        <line num="399" count="2" type="stmt"/>
+        <line num="401" count="2" type="stmt"/>
+        <line num="412" count="2" type="stmt"/>
+        <line num="415" count="2" type="stmt"/>
+        <line num="425" count="6" type="stmt"/>
+        <line num="428" count="6" type="stmt"/>
+        <line num="438" count="4" type="stmt"/>
+        <line num="449" count="4" type="stmt"/>
+        <line num="450" count="4" type="stmt"/>
+        <line num="451" count="2" type="stmt"/>
+        <line num="453" count="2" type="stmt"/>
+        <line num="464" count="2" type="stmt"/>
+        <line num="467" count="2" type="stmt"/>
+        <line num="477" count="4" type="stmt"/>
+        <line num="480" count="4" type="stmt"/>
+        <line num="491" count="4" type="stmt"/>
+        <line num="492" count="4" type="stmt"/>
+        <line num="493" count="2" type="stmt"/>
+        <line num="495" count="2" type="stmt"/>
+        <line num="506" count="6" type="stmt"/>
+        <line num="509" count="6" type="stmt"/>
+        <line num="519" count="4" type="stmt"/>
+        <line num="530" count="4" type="stmt"/>
+        <line num="531" count="4" type="stmt"/>
+        <line num="532" count="2" type="stmt"/>
+        <line num="534" count="2" type="stmt"/>
+        <line num="545" count="6" type="stmt"/>
+        <line num="548" count="6" type="stmt"/>
+        <line num="558" count="4" type="stmt"/>
+        <line num="569" count="4" type="stmt"/>
+        <line num="570" count="4" type="stmt"/>
+        <line num="571" count="2" type="stmt"/>
+        <line num="573" count="2" type="stmt"/>
+        <line num="584" count="6" type="stmt"/>
+        <line num="587" count="6" type="stmt"/>
+        <line num="597" count="4" type="stmt"/>
+        <line num="608" count="4" type="stmt"/>
+        <line num="609" count="4" type="stmt"/>
+        <line num="610" count="2" type="stmt"/>
+        <line num="612" count="2" type="stmt"/>
+        <line num="623" count="6" type="stmt"/>
+        <line num="626" count="6" type="stmt"/>
+        <line num="636" count="4" type="stmt"/>
+        <line num="647" count="4" type="stmt"/>
+        <line num="648" count="4" type="stmt"/>
+        <line num="649" count="2" type="stmt"/>
+        <line num="651" count="2" type="stmt"/>
+        <line num="662" count="6" type="stmt"/>
+        <line num="667" count="6" type="stmt"/>
+        <line num="677" count="4" type="stmt"/>
+        <line num="688" count="4" type="stmt"/>
+        <line num="689" count="4" type="stmt"/>
+        <line num="690" count="2" type="stmt"/>
+        <line num="692" count="2" type="stmt"/>
+        <line num="703" count="6" type="stmt"/>
+        <line num="708" count="6" type="stmt"/>
+        <line num="718" count="4" type="stmt"/>
+        <line num="729" count="4" type="stmt"/>
+        <line num="730" count="4" type="stmt"/>
+        <line num="731" count="2" type="stmt"/>
+        <line num="733" count="2" type="stmt"/>
+        <line num="744" count="6" type="stmt"/>
+        <line num="747" count="6" type="stmt"/>
+        <line num="757" count="4" type="stmt"/>
+        <line num="768" count="4" type="stmt"/>
+        <line num="769" count="4" type="stmt"/>
+        <line num="770" count="2" type="stmt"/>
+        <line num="772" count="2" type="stmt"/>
+        <line num="783" count="6" type="stmt"/>
+        <line num="786" count="6" type="stmt"/>
+        <line num="796" count="4" type="stmt"/>
+        <line num="807" count="4" type="stmt"/>
+        <line num="808" count="4" type="stmt"/>
+        <line num="809" count="2" type="stmt"/>
+        <line num="811" count="2" type="stmt"/>
+        <line num="822" count="6" type="stmt"/>
+        <line num="825" count="6" type="stmt"/>
+        <line num="835" count="4" type="stmt"/>
+        <line num="846" count="4" type="stmt"/>
+        <line num="847" count="4" type="stmt"/>
+        <line num="848" count="2" type="stmt"/>
+        <line num="850" count="2" type="stmt"/>
+        <line num="861" count="6" type="stmt"/>
+        <line num="864" count="6" type="stmt"/>
+        <line num="874" count="4" type="stmt"/>
+        <line num="885" count="4" type="stmt"/>
+        <line num="886" count="4" type="stmt"/>
+        <line num="887" count="2" type="stmt"/>
+        <line num="889" count="2" type="stmt"/>
+        <line num="900" count="6" type="stmt"/>
+        <line num="903" count="6" type="stmt"/>
+        <line num="913" count="4" type="stmt"/>
+        <line num="924" count="4" type="stmt"/>
+        <line num="925" count="4" type="stmt"/>
+        <line num="926" count="2" type="stmt"/>
+        <line num="928" count="2" type="stmt"/>
+        <line num="939" count="6" type="stmt"/>
+        <line num="942" count="6" type="stmt"/>
+        <line num="952" count="4" type="stmt"/>
+        <line num="963" count="4" type="stmt"/>
+        <line num="964" count="4" type="stmt"/>
+        <line num="965" count="2" type="stmt"/>
+        <line num="967" count="2" type="stmt"/>
+        <line num="972" count="68" type="stmt"/>
+        <line num="978" count="73" type="cond" truecount="1" falsecount="1"/>
+        <line num="980" count="73" type="stmt"/>
+        <line num="981" count="73" type="stmt"/>
         <line num="993" count="3" type="stmt"/>
         <line num="994" count="3" type="stmt"/>
-        <line num="1000" count="34" type="stmt"/>
-        <line num="1001" count="34" type="stmt"/>
+        <line num="1000" count="68" type="stmt"/>
+        <line num="1001" count="68" type="stmt"/>
         <line num="1011" count="1" type="stmt"/>
-        <line num="1023" count="72" type="stmt"/>
-        <line num="1026" count="72" type="cond" truecount="3" falsecount="1"/>
-        <line num="1027" count="72" type="stmt"/>
-        <line num="1037" count="72" type="cond" truecount="2" falsecount="0"/>
-        <line num="1038" count="60" type="stmt"/>
-        <line num="1042" count="60" type="cond" truecount="2" falsecount="0"/>
+        <line num="1023" count="121" type="stmt"/>
+        <line num="1026" count="121" type="cond" truecount="3" falsecount="1"/>
+        <line num="1027" count="121" type="stmt"/>
+        <line num="1037" count="121" type="cond" truecount="2" falsecount="0"/>
+        <line num="1038" count="109" type="stmt"/>
+        <line num="1042" count="109" type="cond" truecount="2" falsecount="0"/>
         <line num="1047" count="3" type="stmt"/>
         <line num="1048" count="3" type="stmt"/>
-        <line num="1049" count="57" type="cond" truecount="2" falsecount="0"/>
+        <line num="1049" count="106" type="cond" truecount="2" falsecount="0"/>
         <line num="1050" count="2" type="stmt"/>
         <line num="1051" count="2" type="stmt"/>
-        <line num="1057" count="55" type="stmt"/>
-        <line num="1061" count="72" type="stmt"/>
-        <line num="1062" count="72" type="stmt"/>
-        <line num="1074" count="72" type="stmt"/>
-        <line num="1081" count="60" type="stmt"/>
-        <line num="1082" count="60" type="stmt"/>
+        <line num="1057" count="104" type="stmt"/>
+        <line num="1061" count="121" type="stmt"/>
+        <line num="1062" count="121" type="stmt"/>
+        <line num="1074" count="121" type="stmt"/>
+        <line num="1081" count="109" type="stmt"/>
+        <line num="1082" count="109" type="stmt"/>
       </file>
       <file name="event.ts" path="C:\Users\nn\Desktop\code\node-yalc\event-manager\src\event.ts">
         <metrics statements="110" coveredstatements="108" conditionals="84" coveredconditionals="79" methods="17" coveredmethods="17"/>
@@ -813,12 +793,12 @@
         <line num="18" count="3" type="stmt"/>
         <line num="19" count="3" type="stmt"/>
         <line num="109" count="3" type="stmt"/>
-        <line num="114" count="59" type="stmt"/>
-        <line num="115" count="59" type="cond" truecount="4" falsecount="0"/>
+        <line num="114" count="108" type="stmt"/>
+        <line num="115" count="108" type="cond" truecount="4" falsecount="0"/>
         <line num="116" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="118" count="59" type="stmt"/>
+        <line num="118" count="108" type="stmt"/>
         <line num="160" count="3" type="stmt"/>
-        <line num="163" count="91" type="stmt"/>
+        <line num="163" count="140" type="stmt"/>
         <line num="166" count="3" type="stmt"/>
         <line num="174" count="16" type="cond" truecount="1" falsecount="1"/>
         <line num="175" count="16" type="stmt"/>
@@ -882,10 +862,10 @@
         <line num="369" count="0" type="stmt"/>
         <line num="372" count="10" type="stmt"/>
         <line num="375" count="3" type="stmt"/>
-        <line num="376" count="113" type="cond" truecount="2" falsecount="0"/>
-        <line num="378" count="111" type="cond" truecount="2" falsecount="0"/>
+        <line num="376" count="196" type="cond" truecount="2" falsecount="0"/>
+        <line num="378" count="194" type="cond" truecount="2" falsecount="0"/>
         <line num="379" count="1" type="stmt"/>
-        <line num="382" count="110" type="stmt"/>
+        <line num="382" count="193" type="stmt"/>
         <line num="385" count="3" type="stmt"/>
         <line num="391" count="1" type="stmt"/>
         <line num="392" count="1" type="stmt"/>
@@ -921,89 +901,71 @@
         <line num="17" count="14" type="stmt"/>
         <line num="24" count="13" type="stmt"/>
         <line num="32" count="13" type="stmt"/>
-        <line num="33" count="79" type="cond" truecount="2" falsecount="0"/>
-        <line num="35" count="79" type="stmt"/>
+        <line num="33" count="82" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="82" type="stmt"/>
         <line num="41" count="13" type="stmt"/>
         <line num="42" count="7" type="stmt"/>
       </file>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\event-manager\src\index.ts">
-        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-      </file>
     </package>
     <package name="guards.src">
-      <metrics statements="35" coveredstatements="6" conditionals="17" coveredconditionals="1" methods="4" coveredmethods="3"/>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\guards\src\index.ts">
-        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-      </file>
+      <metrics statements="33" coveredstatements="33" conditionals="17" coveredconditionals="17" methods="4" coveredmethods="4"/>
       <file name="mandatory-compliance.guard.ts" path="C:\Users\nn\Desktop\code\node-yalc\guards\src\mandatory-compliance.guard.ts">
-        <metrics statements="13" coveredstatements="2" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="13" coveredstatements="13" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="27" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="28" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
       </file>
       <file name="rbac.guard.ts" path="C:\Users\nn\Desktop\code\node-yalc\guards\src\rbac.guard.ts">
-        <metrics statements="20" coveredstatements="4" conditionals="11" coveredconditionals="1" methods="3" coveredmethods="2"/>
+        <metrics statements="20" coveredstatements="20" conditionals="11" coveredconditionals="11" methods="3" coveredmethods="3"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
+        <line num="35" count="6" type="cond" truecount="4" falsecount="0"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="44" count="5" type="stmt"/>
+        <line num="45" count="5" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
+        <line num="48" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="51" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
       </file>
     </package>
     <package name="i18n.src">
-      <metrics statements="14" coveredstatements="11" conditionals="9" coveredconditionals="6" methods="3" coveredmethods="3"/>
+      <metrics statements="13" coveredstatements="13" conditionals="9" coveredconditionals="9" methods="3" coveredmethods="3"/>
       <file name="i18n-engine.ts" path="C:\Users\nn\Desktop\code\node-yalc\i18n\src\i18n-engine.ts">
-        <metrics statements="13" coveredstatements="11" conditionals="9" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <metrics statements="13" coveredstatements="13" conditionals="9" coveredconditionals="9" methods="3" coveredmethods="3"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="15" count="3" type="stmt"/>
-        <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="46" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="48" count="1" type="cond" truecount="3" falsecount="0"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="56" count="1" type="stmt"/>
-      </file>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\i18n\src\index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="25" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="28" count="6" type="stmt"/>
+        <line num="29" count="6" type="stmt"/>
+        <line num="30" count="6" type="stmt"/>
+        <line num="46" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="48" count="5" type="cond" truecount="3" falsecount="0"/>
+        <line num="52" count="5" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="56" count="5" type="stmt"/>
       </file>
     </package>
     <package name="interfaces.src">
@@ -1024,23 +986,19 @@
       </file>
     </package>
     <package name="jobs.src">
-      <metrics statements="38" coveredstatements="37" conditionals="8" coveredconditionals="7" methods="12" coveredmethods="12"/>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\jobs\src\index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-      </file>
+      <metrics statements="37" coveredstatements="37" conditionals="8" coveredconditionals="8" methods="12" coveredmethods="12"/>
       <file name="jobs-scheduler-sse.ts" path="C:\Users\nn\Desktop\code\node-yalc\jobs\src\jobs-scheduler-sse.ts">
-        <metrics statements="37" coveredstatements="37" conditionals="8" coveredconditionals="7" methods="12" coveredmethods="12"/>
+        <metrics statements="37" coveredstatements="37" conditionals="8" coveredconditionals="8" methods="12" coveredmethods="12"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="25" count="4" type="stmt"/>
-        <line num="26" count="4" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
         <line num="29" count="3" type="stmt"/>
         <line num="33" count="5" type="stmt"/>
         <line num="39" count="5" type="stmt"/>
         <line num="40" count="5" type="stmt"/>
         <line num="41" count="5" type="stmt"/>
         <line num="45" count="6" type="stmt"/>
-        <line num="46" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="46" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="48" count="5" type="stmt"/>
         <line num="49" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="50" count="1" type="stmt"/>
@@ -1071,23 +1029,19 @@
       </file>
     </package>
     <package name="kernel.src">
-      <metrics statements="7" coveredstatements="5" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\kernel\src\index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-      </file>
+      <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="3"/>
       <file name="kernel-sandbox.ts" path="C:\Users\nn\Desktop\code\node-yalc\kernel\src\kernel-sandbox.ts">
-        <metrics statements="6" coveredstatements="5" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="3"/>
         <line num="30" count="1" type="stmt"/>
         <line num="38" count="1" type="stmt"/>
         <line num="49" count="1" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
-        <line num="76" count="0" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="76" count="2" type="stmt"/>
         <line num="94" count="1" type="stmt"/>
       </file>
     </package>
     <package name="logger.src">
-      <metrics statements="151" coveredstatements="147" conditionals="95" coveredconditionals="90" methods="45" coveredmethods="45"/>
+      <metrics statements="151" coveredstatements="151" conditionals="95" coveredconditionals="95" methods="45" coveredmethods="45"/>
       <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\logger\src\index.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="7" type="stmt"/>
@@ -1100,48 +1054,48 @@
       </file>
       <file name="logger-abstract.service.ts" path="C:\Users\nn\Desktop\code\node-yalc\logger\src\logger-abstract.service.ts">
         <metrics statements="48" coveredstatements="48" conditionals="42" coveredconditionals="42" methods="14" coveredmethods="14"/>
-        <line num="3" count="15" type="stmt"/>
-        <line num="7" count="15" type="stmt"/>
-        <line num="109" count="15" type="stmt"/>
-        <line num="143" count="15" type="stmt"/>
-        <line num="147" count="37" type="stmt"/>
-        <line num="159" count="37" type="stmt"/>
-        <line num="160" count="37" type="stmt"/>
-        <line num="161" count="37" type="stmt"/>
-        <line num="163" count="37" type="stmt"/>
-        <line num="165" count="37" type="stmt"/>
-        <line num="167" count="37" type="stmt"/>
+        <line num="3" count="16" type="stmt"/>
+        <line num="7" count="16" type="stmt"/>
+        <line num="109" count="16" type="stmt"/>
+        <line num="143" count="16" type="stmt"/>
+        <line num="147" count="40" type="stmt"/>
+        <line num="159" count="40" type="stmt"/>
+        <line num="160" count="40" type="stmt"/>
+        <line num="161" count="40" type="stmt"/>
+        <line num="163" count="40" type="stmt"/>
+        <line num="165" count="40" type="stmt"/>
+        <line num="167" count="40" type="stmt"/>
         <line num="175" count="2" type="stmt"/>
         <line num="176" count="2" type="stmt"/>
-        <line num="180" count="39" type="stmt"/>
-        <line num="181" count="39" type="stmt"/>
-        <line num="182" count="184" type="cond" truecount="2" falsecount="0"/>
+        <line num="180" count="42" type="stmt"/>
+        <line num="181" count="42" type="stmt"/>
+        <line num="182" count="196" type="cond" truecount="2" falsecount="0"/>
         <line num="183" count="1" type="stmt"/>
-        <line num="185" count="183" type="stmt"/>
-        <line num="188" count="38" type="cond" truecount="1" falsecount="0"/>
-        <line num="189" count="10" type="stmt"/>
-        <line num="190" count="10" type="cond" truecount="4" falsecount="0"/>
-        <line num="196" count="38" type="stmt"/>
-        <line num="201" count="14" type="stmt"/>
-        <line num="202" count="14" type="stmt"/>
-        <line num="204" count="14" type="cond" truecount="4" falsecount="0"/>
-        <line num="210" count="38" type="cond" truecount="1" falsecount="0"/>
-        <line num="211" count="6" type="stmt"/>
-        <line num="213" count="6" type="cond" truecount="4" falsecount="0"/>
-        <line num="219" count="38" type="cond" truecount="2" falsecount="0"/>
-        <line num="223" count="37" type="cond" truecount="1" falsecount="0"/>
+        <line num="185" count="195" type="stmt"/>
+        <line num="188" count="41" type="cond" truecount="1" falsecount="0"/>
+        <line num="189" count="11" type="stmt"/>
+        <line num="190" count="11" type="cond" truecount="4" falsecount="0"/>
+        <line num="196" count="41" type="stmt"/>
+        <line num="201" count="15" type="stmt"/>
+        <line num="202" count="15" type="stmt"/>
+        <line num="204" count="15" type="cond" truecount="4" falsecount="0"/>
+        <line num="210" count="41" type="cond" truecount="1" falsecount="0"/>
+        <line num="211" count="7" type="stmt"/>
+        <line num="213" count="7" type="cond" truecount="4" falsecount="0"/>
+        <line num="219" count="41" type="cond" truecount="2" falsecount="0"/>
+        <line num="223" count="40" type="cond" truecount="1" falsecount="0"/>
         <line num="224" count="5" type="stmt"/>
         <line num="225" count="5" type="stmt"/>
-        <line num="228" count="38" type="cond" truecount="2" falsecount="0"/>
+        <line num="228" count="41" type="cond" truecount="2" falsecount="0"/>
         <line num="232" count="35" type="cond" truecount="1" falsecount="0"/>
         <line num="233" count="5" type="stmt"/>
         <line num="234" count="5" type="stmt"/>
-        <line num="245" count="40" type="cond" truecount="2" falsecount="0"/>
-        <line num="246" count="40" type="stmt"/>
-        <line num="252" count="40" type="stmt"/>
-        <line num="256" count="15" type="stmt"/>
-        <line num="261" count="40" type="cond" truecount="2" falsecount="0"/>
-        <line num="262" count="40" type="cond" truecount="2" falsecount="0"/>
+        <line num="245" count="43" type="cond" truecount="2" falsecount="0"/>
+        <line num="246" count="43" type="stmt"/>
+        <line num="252" count="43" type="stmt"/>
+        <line num="256" count="16" type="stmt"/>
+        <line num="261" count="43" type="cond" truecount="2" falsecount="0"/>
+        <line num="262" count="43" type="cond" truecount="2" falsecount="0"/>
         <line num="264" count="2" type="cond" truecount="3" falsecount="0"/>
         <line num="265" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="266" count="2" type="cond" truecount="2" falsecount="0"/>
@@ -1151,45 +1105,45 @@
       </file>
       <file name="logger-console.service.ts" path="C:\Users\nn\Desktop\code\node-yalc\logger\src\logger-console.service.ts">
         <metrics statements="12" coveredstatements="12" conditionals="11" coveredconditionals="11" methods="8" coveredmethods="8"/>
-        <line num="3" count="15" type="stmt"/>
-        <line num="7" count="15" type="stmt"/>
-        <line num="12" count="15" type="stmt"/>
-        <line num="13" count="26" type="stmt"/>
-        <line num="14" count="115" type="stmt"/>
-        <line num="23" count="15" type="stmt"/>
-        <line num="36" count="22" type="stmt"/>
-        <line num="41" count="6" type="stmt"/>
-        <line num="51" count="11" type="stmt"/>
+        <line num="3" count="16" type="stmt"/>
+        <line num="7" count="16" type="stmt"/>
+        <line num="12" count="16" type="stmt"/>
+        <line num="13" count="29" type="stmt"/>
+        <line num="14" count="128" type="stmt"/>
+        <line num="23" count="16" type="stmt"/>
+        <line num="36" count="24" type="stmt"/>
+        <line num="41" count="7" type="stmt"/>
+        <line num="51" count="12" type="stmt"/>
         <line num="62" count="3" type="stmt"/>
-        <line num="72" count="3" type="stmt"/>
+        <line num="72" count="4" type="stmt"/>
         <line num="82" count="3" type="stmt"/>
       </file>
       <file name="logger-pino.service.ts" path="C:\Users\nn\Desktop\code\node-yalc\logger\src\logger-pino.service.ts">
         <metrics statements="30" coveredstatements="30" conditionals="15" coveredconditionals="15" methods="14" coveredmethods="14"/>
-        <line num="2" count="15" type="stmt"/>
-        <line num="3" count="15" type="stmt"/>
-        <line num="7" count="15" type="stmt"/>
-        <line num="8" count="15" type="stmt"/>
-        <line num="14" count="15" type="stmt"/>
-        <line num="20" count="15" type="stmt"/>
+        <line num="2" count="16" type="stmt"/>
+        <line num="3" count="16" type="stmt"/>
+        <line num="7" count="16" type="stmt"/>
+        <line num="8" count="16" type="stmt"/>
+        <line num="14" count="16" type="stmt"/>
+        <line num="20" count="16" type="stmt"/>
         <line num="25" count="13" type="stmt"/>
-        <line num="33" count="15" type="stmt"/>
+        <line num="33" count="16" type="stmt"/>
         <line num="38" count="3" type="stmt"/>
         <line num="48" count="2" type="stmt"/>
         <line num="59" count="2" type="stmt"/>
         <line num="69" count="2" type="stmt"/>
         <line num="79" count="2" type="stmt"/>
-        <line num="92" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="93" count="1" type="stmt"/>
-        <line num="94" count="1" type="stmt"/>
-        <line num="106" count="6" type="stmt"/>
-        <line num="109" count="12" type="stmt"/>
-        <line num="115" count="15" type="stmt"/>
-        <line num="119" count="15" type="stmt"/>
+        <line num="92" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="93" count="2" type="stmt"/>
+        <line num="94" count="2" type="stmt"/>
+        <line num="106" count="12" type="stmt"/>
+        <line num="109" count="13" type="stmt"/>
+        <line num="115" count="16" type="stmt"/>
+        <line num="119" count="16" type="stmt"/>
         <line num="120" count="1" type="stmt"/>
-        <line num="142" count="15" type="stmt"/>
+        <line num="142" count="16" type="stmt"/>
         <line num="146" count="2" type="stmt"/>
-        <line num="158" count="15" type="stmt"/>
+        <line num="158" count="16" type="stmt"/>
         <line num="159" count="3" type="stmt"/>
         <line num="160" count="3" type="stmt"/>
         <line num="161" count="3" type="stmt"/>
@@ -1199,20 +1153,20 @@
       </file>
       <file name="logger.enum.ts" path="C:\Users\nn\Desktop\code\node-yalc\logger\src\logger.enum.ts">
         <metrics statements="14" coveredstatements="14" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
-        <line num="5" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="6" count="16" type="stmt"/>
-        <line num="7" count="16" type="stmt"/>
-        <line num="8" count="16" type="stmt"/>
-        <line num="9" count="16" type="stmt"/>
-        <line num="10" count="16" type="stmt"/>
-        <line num="22" count="16" type="stmt"/>
-        <line num="33" count="16" type="stmt"/>
-        <line num="44" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="45" count="16" type="stmt"/>
-        <line num="46" count="16" type="stmt"/>
-        <line num="47" count="16" type="stmt"/>
-        <line num="53" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="54" count="16" type="stmt"/>
+        <line num="5" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="17" type="stmt"/>
+        <line num="7" count="17" type="stmt"/>
+        <line num="8" count="17" type="stmt"/>
+        <line num="9" count="17" type="stmt"/>
+        <line num="10" count="17" type="stmt"/>
+        <line num="22" count="17" type="stmt"/>
+        <line num="33" count="17" type="stmt"/>
+        <line num="44" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="17" type="stmt"/>
+        <line num="46" count="17" type="stmt"/>
+        <line num="47" count="17" type="stmt"/>
+        <line num="53" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="54" count="17" type="stmt"/>
       </file>
       <file name="logger.event.ts" path="C:\Users\nn\Desktop\code\node-yalc\logger\src\logger.event.ts">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -1228,109 +1182,101 @@
         <line num="10" count="7" type="stmt"/>
       </file>
       <file name="logger.factory.ts" path="C:\Users\nn\Desktop\code\node-yalc\logger\src\logger.factory.ts">
-        <metrics statements="14" coveredstatements="10" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="1" count="14" type="stmt"/>
-        <line num="2" count="14" type="stmt"/>
-        <line num="4" count="14" type="stmt"/>
-        <line num="10" count="14" type="stmt"/>
-        <line num="24" count="14" type="stmt"/>
-        <line num="37" count="2" type="cond" truecount="1" falsecount="2"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="45" count="2" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
-        <line num="59" count="7" type="stmt"/>
+        <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="1" count="15" type="stmt"/>
+        <line num="2" count="15" type="stmt"/>
+        <line num="4" count="15" type="stmt"/>
+        <line num="10" count="15" type="stmt"/>
+        <line num="24" count="15" type="stmt"/>
+        <line num="37" count="5" type="cond" truecount="3" falsecount="0"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="49" count="5" type="stmt"/>
+        <line num="59" count="13" type="stmt"/>
       </file>
       <file name="logger.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\logger\src\logger.helper.ts">
-        <metrics statements="16" coveredstatements="16" conditionals="15" coveredconditionals="12" methods="3" coveredmethods="3"/>
-        <line num="1" count="15" type="stmt"/>
-        <line num="5" count="15" type="stmt"/>
-        <line num="6" count="15" type="stmt"/>
-        <line num="7" count="15" type="stmt"/>
-        <line num="18" count="15" type="stmt"/>
-        <line num="19" count="42" type="cond" truecount="2" falsecount="0"/>
-        <line num="21" count="42" type="cond" truecount="6" falsecount="0"/>
-        <line num="25" count="29" type="stmt"/>
+        <metrics statements="16" coveredstatements="16" conditionals="15" coveredconditionals="15" methods="3" coveredmethods="3"/>
+        <line num="1" count="16" type="stmt"/>
+        <line num="5" count="16" type="stmt"/>
+        <line num="6" count="16" type="stmt"/>
+        <line num="7" count="16" type="stmt"/>
+        <line num="18" count="16" type="stmt"/>
+        <line num="19" count="45" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="45" type="cond" truecount="6" falsecount="0"/>
+        <line num="25" count="32" type="stmt"/>
         <line num="28" count="13" type="stmt"/>
         <line num="32" count="13" type="stmt"/>
-        <line num="42" count="15" type="stmt"/>
-        <line num="43" count="3" type="stmt"/>
-        <line num="54" count="15" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
-        <line num="62" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="64" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="42" count="16" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="54" count="16" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="62" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="64" count="4" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="resilience.src">
-      <metrics statements="52" coveredstatements="3" conditionals="21" coveredconditionals="0" methods="11" coveredmethods="0"/>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\resilience\src\index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-      </file>
+      <metrics statements="51" coveredstatements="51" conditionals="21" coveredconditionals="21" methods="11" coveredmethods="11"/>
       <file name="resilience.ts" path="C:\Users\nn\Desktop\code\node-yalc\resilience\src\resilience.ts">
-        <metrics statements="51" coveredstatements="3" conditionals="21" coveredconditionals="0" methods="11" coveredmethods="0"/>
+        <metrics statements="51" coveredstatements="51" conditionals="21" coveredconditionals="21" methods="11" coveredmethods="11"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="61" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="73" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
-        <line num="83" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="42" count="8" type="stmt"/>
+        <line num="44" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="48" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="53" count="6" type="stmt"/>
+        <line num="54" count="6" type="stmt"/>
+        <line num="55" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="60" count="4" type="stmt"/>
+        <line num="61" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="62" count="3" type="stmt"/>
+        <line num="71" count="4" type="stmt"/>
+        <line num="72" count="4" type="stmt"/>
+        <line num="73" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="2" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="91" count="5" type="stmt"/>
         <line num="99" count="1" type="stmt"/>
-        <line num="112" count="0" type="stmt"/>
-        <line num="113" count="0" type="stmt"/>
-        <line num="114" count="0" type="stmt"/>
-        <line num="115" count="0" type="stmt"/>
-        <line num="125" count="0" type="stmt"/>
-        <line num="126" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="127" count="0" type="stmt"/>
-        <line num="128" count="0" type="stmt"/>
-        <line num="130" count="0" type="stmt"/>
-        <line num="138" count="0" type="stmt"/>
-        <line num="139" count="0" type="stmt"/>
-        <line num="140" count="0" type="stmt"/>
-        <line num="141" count="0" type="stmt"/>
+        <line num="112" count="3" type="stmt"/>
+        <line num="113" count="3" type="stmt"/>
+        <line num="114" count="3" type="stmt"/>
+        <line num="115" count="3" type="stmt"/>
+        <line num="125" count="8" type="stmt"/>
+        <line num="126" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="127" count="5" type="stmt"/>
+        <line num="128" count="5" type="stmt"/>
+        <line num="130" count="3" type="stmt"/>
+        <line num="138" count="8" type="stmt"/>
+        <line num="139" count="8" type="stmt"/>
+        <line num="140" count="8" type="stmt"/>
+        <line num="141" count="8" type="stmt"/>
         <line num="151" count="1" type="stmt"/>
-        <line num="152" count="0" type="stmt"/>
-        <line num="163" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="164" count="0" type="stmt"/>
-        <line num="167" count="0" type="stmt"/>
-        <line num="168" count="0" type="stmt"/>
-        <line num="169" count="0" type="stmt"/>
-        <line num="171" count="0" type="stmt"/>
-        <line num="175" count="0" type="stmt"/>
-        <line num="176" count="0" type="stmt"/>
+        <line num="152" count="2" type="stmt"/>
+        <line num="163" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="164" count="2" type="stmt"/>
+        <line num="167" count="3" type="stmt"/>
+        <line num="168" count="3" type="stmt"/>
+        <line num="169" count="3" type="stmt"/>
+        <line num="171" count="3" type="stmt"/>
+        <line num="175" count="3" type="stmt"/>
+        <line num="176" count="3" type="stmt"/>
       </file>
     </package>
     <package name="security.src">
-      <metrics statements="19" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="4"/>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\security\src\index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-      </file>
+      <metrics statements="18" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="4"/>
       <file name="sentinel-integration.ts" path="C:\Users\nn\Desktop\code\node-yalc\security\src\sentinel-integration.ts">
         <metrics statements="18" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="4"/>
         <line num="4" count="1" type="stmt"/>
@@ -1354,11 +1300,7 @@
       </file>
     </package>
     <package name="selftest.src">
-      <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\selftest\src\index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-      </file>
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="selftest-engine.ts" path="C:\Users\nn\Desktop\code\node-yalc\selftest\src\selftest-engine.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="31" count="1" type="stmt"/>
@@ -1370,192 +1312,172 @@
       </file>
     </package>
     <package name="storage.src">
-      <metrics statements="17" coveredstatements="2" conditionals="7" coveredconditionals="0" methods="10" coveredmethods="0"/>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\storage\src\index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-      </file>
+      <metrics statements="16" coveredstatements="16" conditionals="7" coveredconditionals="7" methods="10" coveredmethods="10"/>
       <file name="storage-engine.ts" path="C:\Users\nn\Desktop\code\node-yalc\storage\src\storage-engine.ts">
-        <metrics statements="16" coveredstatements="2" conditionals="7" coveredconditionals="0" methods="10" coveredmethods="0"/>
+        <metrics statements="16" coveredstatements="16" conditionals="7" coveredconditionals="7" methods="10" coveredmethods="10"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="26" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="33" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
         <line num="46" count="1" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="58" count="3" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
       </file>
     </package>
     <package name="tracing.src">
-      <metrics statements="18" coveredstatements="12" conditionals="12" coveredconditionals="4" methods="8" coveredmethods="8"/>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\tracing\src\index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-      </file>
+      <metrics statements="17" coveredstatements="17" conditionals="12" coveredconditionals="11" methods="8" coveredmethods="8"/>
       <file name="tracing-logger.ts" path="C:\Users\nn\Desktop\code\node-yalc\tracing\src\tracing-logger.ts">
-        <metrics statements="17" coveredstatements="12" conditionals="12" coveredconditionals="4" methods="8" coveredmethods="8"/>
+        <metrics statements="17" coveredstatements="17" conditionals="12" coveredconditionals="11" methods="8" coveredmethods="8"/>
         <line num="1" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="27" count="1" type="cond" truecount="2" falsecount="2"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="42" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="27" count="6" type="cond" truecount="4" falsecount="0"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="31" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="42" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="46" count="1" type="stmt"/>
-        <line num="50" count="5" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
         <line num="54" count="1" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
-        <line num="66" count="4" type="stmt"/>
-        <line num="73" count="4" type="stmt"/>
+        <line num="66" count="3" type="stmt"/>
+        <line num="73" count="3" type="stmt"/>
       </file>
     </package>
     <package name="transports.src">
-      <metrics statements="101" coveredstatements="22" conditionals="64" coveredconditionals="4" methods="37" coveredmethods="13"/>
+      <metrics statements="99" coveredstatements="99" conditionals="64" coveredconditionals="46" methods="37" coveredmethods="37"/>
       <file name="http-adapters.ts" path="C:\Users\nn\Desktop\code\node-yalc\transports\src\http-adapters.ts">
-        <metrics statements="81" coveredstatements="9" conditionals="56" coveredconditionals="0" methods="30" coveredmethods="6"/>
+        <metrics statements="81" coveredstatements="81" conditionals="56" coveredconditionals="38" methods="30" coveredmethods="30"/>
         <line num="1" count="1" type="stmt"/>
         <line num="87" count="1" type="stmt"/>
         <line num="88" count="1" type="stmt"/>
         <line num="89" count="1" type="stmt"/>
-        <line num="93" count="1" type="stmt"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="102" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="103" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="106" count="0" type="stmt"/>
-        <line num="107" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="108" count="0" type="stmt"/>
-        <line num="109" count="0" type="stmt"/>
-        <line num="110" count="0" type="stmt"/>
-        <line num="112" count="0" type="stmt"/>
-        <line num="113" count="0" type="stmt"/>
-        <line num="114" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="116" count="0" type="stmt"/>
-        <line num="120" count="0" type="cond" truecount="0" falsecount="3"/>
-        <line num="122" count="0" type="stmt"/>
-        <line num="132" count="0" type="stmt"/>
-        <line num="136" count="0" type="stmt"/>
-        <line num="140" count="0" type="stmt"/>
-        <line num="141" count="0" type="stmt"/>
-        <line num="144" count="0" type="stmt"/>
-        <line num="145" count="0" type="stmt"/>
-        <line num="148" count="0" type="stmt"/>
-        <line num="152" count="0" type="stmt"/>
-        <line num="155" count="0" type="stmt"/>
-        <line num="156" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="161" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="162" count="0" type="stmt"/>
-        <line num="163" count="0" type="stmt"/>
-        <line num="164" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="165" count="0" type="stmt"/>
-        <line num="168" count="0" type="stmt"/>
-        <line num="174" count="0" type="stmt"/>
-        <line num="181" count="0" type="stmt"/>
-        <line num="182" count="0" type="stmt"/>
-        <line num="187" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="188" count="0" type="stmt"/>
+        <line num="93" count="4" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="102" count="6" type="cond" truecount="2" falsecount="2"/>
+        <line num="103" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="104" count="6" type="stmt"/>
+        <line num="106" count="6" type="stmt"/>
+        <line num="107" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="108" count="2" type="stmt"/>
+        <line num="109" count="2" type="stmt"/>
+        <line num="110" count="2" type="stmt"/>
+        <line num="112" count="2" type="stmt"/>
+        <line num="113" count="2" type="stmt"/>
+        <line num="114" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="120" count="16" type="cond" truecount="3" falsecount="0"/>
+        <line num="122" count="6" type="stmt"/>
+        <line num="132" count="6" type="stmt"/>
+        <line num="136" count="6" type="stmt"/>
+        <line num="140" count="4" type="stmt"/>
+        <line num="141" count="4" type="stmt"/>
+        <line num="144" count="2" type="stmt"/>
+        <line num="145" count="2" type="stmt"/>
+        <line num="148" count="5" type="stmt"/>
+        <line num="152" count="5" type="stmt"/>
+        <line num="155" count="1" type="stmt"/>
+        <line num="156" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="161" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="162" count="5" type="stmt"/>
+        <line num="163" count="5" type="stmt"/>
+        <line num="164" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="165" count="3" type="stmt"/>
+        <line num="168" count="1" type="stmt"/>
+        <line num="174" count="1" type="stmt"/>
+        <line num="181" count="1" type="stmt"/>
+        <line num="182" count="1" type="stmt"/>
+        <line num="187" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="188" count="1" type="stmt"/>
         <line num="197" count="1" type="stmt"/>
         <line num="198" count="1" type="stmt"/>
         <line num="199" count="1" type="stmt"/>
-        <line num="203" count="1" type="stmt"/>
-        <line num="211" count="0" type="stmt"/>
-        <line num="212" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="213" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="214" count="0" type="stmt"/>
-        <line num="216" count="0" type="stmt"/>
-        <line num="217" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="218" count="0" type="stmt"/>
-        <line num="219" count="0" type="stmt"/>
-        <line num="220" count="0" type="stmt"/>
-        <line num="222" count="0" type="stmt"/>
-        <line num="223" count="0" type="stmt"/>
-        <line num="224" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="226" count="0" type="stmt"/>
-        <line num="230" count="0" type="cond" truecount="0" falsecount="3"/>
-        <line num="232" count="0" type="stmt"/>
-        <line num="242" count="0" type="stmt"/>
-        <line num="246" count="0" type="stmt"/>
-        <line num="250" count="0" type="stmt"/>
-        <line num="251" count="0" type="stmt"/>
-        <line num="254" count="0" type="stmt"/>
-        <line num="255" count="0" type="stmt"/>
-        <line num="258" count="0" type="stmt"/>
-        <line num="262" count="0" type="stmt"/>
-        <line num="265" count="0" type="stmt"/>
-        <line num="266" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="271" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="272" count="0" type="stmt"/>
-        <line num="273" count="0" type="stmt"/>
-        <line num="274" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="275" count="0" type="stmt"/>
-        <line num="278" count="0" type="stmt"/>
-        <line num="284" count="0" type="stmt"/>
-        <line num="291" count="0" type="stmt"/>
-        <line num="292" count="0" type="stmt"/>
-        <line num="297" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="298" count="0" type="stmt"/>
-      </file>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\transports\src\index.ts">
-        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
+        <line num="203" count="4" type="stmt"/>
+        <line num="211" count="1" type="stmt"/>
+        <line num="212" count="6" type="cond" truecount="2" falsecount="2"/>
+        <line num="213" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="214" count="6" type="stmt"/>
+        <line num="216" count="6" type="stmt"/>
+        <line num="217" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="218" count="2" type="stmt"/>
+        <line num="219" count="2" type="stmt"/>
+        <line num="220" count="2" type="stmt"/>
+        <line num="222" count="2" type="stmt"/>
+        <line num="223" count="2" type="stmt"/>
+        <line num="224" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="226" count="1" type="stmt"/>
+        <line num="230" count="16" type="cond" truecount="3" falsecount="0"/>
+        <line num="232" count="6" type="stmt"/>
+        <line num="242" count="6" type="stmt"/>
+        <line num="246" count="6" type="stmt"/>
+        <line num="250" count="4" type="stmt"/>
+        <line num="251" count="4" type="stmt"/>
+        <line num="254" count="2" type="stmt"/>
+        <line num="255" count="2" type="stmt"/>
+        <line num="258" count="5" type="stmt"/>
+        <line num="262" count="5" type="stmt"/>
+        <line num="265" count="1" type="stmt"/>
+        <line num="266" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="271" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="272" count="5" type="stmt"/>
+        <line num="273" count="5" type="stmt"/>
+        <line num="274" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="275" count="3" type="stmt"/>
+        <line num="278" count="1" type="stmt"/>
+        <line num="284" count="1" type="stmt"/>
+        <line num="291" count="1" type="stmt"/>
+        <line num="292" count="1" type="stmt"/>
+        <line num="297" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="298" count="1" type="stmt"/>
       </file>
       <file name="websocket-kafka.ts" path="C:\Users\nn\Desktop\code\node-yalc\transports\src\websocket-kafka.ts">
-        <metrics statements="18" coveredstatements="13" conditionals="8" coveredconditionals="4" methods="7" coveredmethods="7"/>
+        <metrics statements="18" coveredstatements="18" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="cond" truecount="3" falsecount="1"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="32" count="0" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
-        <line num="45" count="3" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
         <line num="48" count="1" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="53" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="54" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="types.src">
-      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\types\src\index.ts">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="53" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="54" count="1" type="stmt"/>
       </file>
     </package>
     <package name="utils.src">
       <metrics statements="347" coveredstatements="347" conditionals="135" coveredconditionals="135" methods="97" coveredmethods="97"/>
       <file name="class.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\class.helper.ts">
         <metrics statements="6" coveredstatements="6" conditionals="9" coveredconditionals="9" methods="3" coveredmethods="3"/>
-        <line num="11" count="16" type="stmt"/>
-        <line num="15" count="148" type="stmt"/>
-        <line num="30" count="16" type="stmt"/>
-        <line num="34" count="18" type="stmt"/>
-        <line num="51" count="16" type="stmt"/>
-        <line num="55" count="148" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="17" type="stmt"/>
+        <line num="15" count="248" type="stmt"/>
+        <line num="30" count="17" type="stmt"/>
+        <line num="34" count="42" type="stmt"/>
+        <line num="51" count="17" type="stmt"/>
+        <line num="55" count="248" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="command.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\command.helper.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="7" count="17" type="stmt"/>
+        <line num="7" count="18" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
@@ -1564,16 +1486,16 @@
       </file>
       <file name="config-manager.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\config-manager.helper.ts">
         <metrics statements="34" coveredstatements="34" conditionals="11" coveredconditionals="11" methods="9" coveredmethods="9"/>
-        <line num="6" count="17" type="stmt"/>
+        <line num="6" count="18" type="stmt"/>
         <line num="7" count="15" type="stmt"/>
         <line num="8" count="15" type="stmt"/>
         <line num="9" count="20" type="cond" truecount="2" falsecount="0"/>
         <line num="10" count="2" type="stmt"/>
         <line num="12" count="18" type="stmt"/>
-        <line num="16" count="17" type="stmt"/>
+        <line num="16" count="18" type="stmt"/>
         <line num="17" count="35" type="cond" truecount="2" falsecount="0"/>
-        <line num="19" count="17" type="stmt"/>
-        <line num="30" count="17" type="stmt"/>
+        <line num="19" count="18" type="stmt"/>
+        <line num="30" count="18" type="stmt"/>
         <line num="35" count="13" type="stmt"/>
         <line num="37" count="13" type="stmt"/>
         <line num="40" count="12" type="cond" truecount="2" falsecount="0"/>
@@ -1589,26 +1511,26 @@
         <line num="67" count="13" type="cond" truecount="2" falsecount="0"/>
         <line num="68" count="7" type="stmt"/>
         <line num="72" count="5" type="stmt"/>
-        <line num="80" count="17" type="cond" truecount="1" falsecount="0"/>
+        <line num="80" count="18" type="cond" truecount="1" falsecount="0"/>
         <line num="81" count="3" type="stmt"/>
         <line num="85" count="3" type="stmt"/>
-        <line num="93" count="17" type="stmt"/>
+        <line num="93" count="18" type="stmt"/>
         <line num="98" count="2" type="stmt"/>
         <line num="99" count="2" type="stmt"/>
-        <line num="107" count="17" type="stmt"/>
+        <line num="107" count="18" type="stmt"/>
         <line num="112" count="2" type="stmt"/>
         <line num="116" count="2" type="stmt"/>
       </file>
       <file name="custom-validator.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\custom-validator.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="17" type="stmt"/>
-        <line num="3" count="17" type="stmt"/>
+        <line num="1" count="18" type="stmt"/>
+        <line num="3" count="18" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
       </file>
       <file name="data-structure.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\data-structure.helper.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="17" type="stmt"/>
+        <line num="1" count="18" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
@@ -1617,7 +1539,7 @@
       </file>
       <file name="date.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\date.helper.ts">
         <metrics statements="23" coveredstatements="23" conditionals="4" coveredconditionals="4" methods="7" coveredmethods="7"/>
-        <line num="1" count="17" type="stmt"/>
+        <line num="1" count="18" type="stmt"/>
         <line num="7" count="4" type="stmt"/>
         <line num="8" count="4" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
@@ -1643,14 +1565,14 @@
       </file>
       <file name="encryption.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\encryption.helper.ts">
         <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="1" count="17" type="stmt"/>
-        <line num="3" count="17" type="stmt"/>
+        <line num="1" count="18" type="stmt"/>
+        <line num="3" count="18" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
-        <line num="15" count="17" type="stmt"/>
+        <line num="15" count="18" type="stmt"/>
         <line num="16" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="17" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
@@ -1662,34 +1584,34 @@
       </file>
       <file name="enum.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\enum.helper.ts">
         <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
-        <line num="9" count="17" type="stmt"/>
+        <line num="9" count="18" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
-        <line num="21" count="17" type="stmt"/>
+        <line num="21" count="18" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
         <line num="23" count="2" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="27" count="17" type="stmt"/>
+        <line num="27" count="18" type="stmt"/>
         <line num="31" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="32" count="4" type="stmt"/>
         <line num="33" count="2" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="env.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\env.helper.ts">
         <metrics statements="11" coveredstatements="11" conditionals="13" coveredconditionals="13" methods="5" coveredmethods="5"/>
-        <line num="5" count="18" type="stmt"/>
-        <line num="7" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="6" type="stmt"/>
+        <line num="5" count="19" type="stmt"/>
+        <line num="7" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="10" type="stmt"/>
         <line num="10" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="18" type="stmt"/>
+        <line num="14" count="19" type="stmt"/>
         <line num="15" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="17" count="3" type="stmt"/>
         <line num="18" count="3" type="cond" truecount="3" falsecount="0"/>
-        <line num="27" count="18" type="cond" truecount="1" falsecount="0"/>
+        <line num="27" count="19" type="cond" truecount="1" falsecount="0"/>
         <line num="28" count="4" type="stmt"/>
         <line num="32" count="5" type="stmt"/>
       </file>
       <file name="error.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\error.helper.ts">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="6" count="17" type="stmt"/>
+        <line num="6" count="18" type="stmt"/>
         <line num="7" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
@@ -1737,57 +1659,57 @@
       </file>
       <file name="files.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\files.helper.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="17" type="stmt"/>
-        <line num="2" count="17" type="stmt"/>
-        <line num="9" count="17" type="stmt"/>
+        <line num="1" count="18" type="stmt"/>
+        <line num="2" count="18" type="stmt"/>
+        <line num="9" count="18" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
-        <line num="18" count="17" type="stmt"/>
+        <line num="18" count="18" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
       </file>
       <file name="http.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\http.helper.ts">
         <metrics statements="6" coveredstatements="6" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="3" count="17" type="stmt"/>
-        <line num="4" count="17" type="stmt"/>
-        <line num="6" count="17" type="stmt"/>
-        <line num="16" count="17" type="stmt"/>
-        <line num="104" count="17" type="stmt"/>
-        <line num="108" count="89" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="18" type="stmt"/>
+        <line num="4" count="18" type="stmt"/>
+        <line num="6" count="18" type="stmt"/>
+        <line num="16" count="18" type="stmt"/>
+        <line num="104" count="18" type="stmt"/>
+        <line num="108" count="92" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="index.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\index.ts">
         <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="16" type="stmt"/>
-        <line num="2" count="16" type="stmt"/>
-        <line num="3" count="16" type="stmt"/>
-        <line num="4" count="16" type="stmt"/>
-        <line num="5" count="16" type="stmt"/>
-        <line num="6" count="16" type="stmt"/>
-        <line num="7" count="16" type="stmt"/>
-        <line num="8" count="16" type="stmt"/>
-        <line num="10" count="16" type="stmt"/>
-        <line num="11" count="16" type="stmt"/>
-        <line num="12" count="16" type="stmt"/>
-        <line num="13" count="16" type="stmt"/>
-        <line num="14" count="16" type="stmt"/>
-        <line num="15" count="16" type="stmt"/>
-        <line num="16" count="16" type="stmt"/>
-        <line num="17" count="16" type="stmt"/>
-        <line num="18" count="16" type="stmt"/>
-        <line num="19" count="16" type="stmt"/>
-        <line num="20" count="16" type="stmt"/>
-        <line num="21" count="16" type="stmt"/>
-        <line num="23" count="16" type="stmt"/>
-        <line num="24" count="16" type="stmt"/>
+        <line num="1" count="17" type="stmt"/>
+        <line num="2" count="17" type="stmt"/>
+        <line num="3" count="17" type="stmt"/>
+        <line num="4" count="17" type="stmt"/>
+        <line num="5" count="17" type="stmt"/>
+        <line num="6" count="17" type="stmt"/>
+        <line num="7" count="17" type="stmt"/>
+        <line num="8" count="17" type="stmt"/>
+        <line num="10" count="17" type="stmt"/>
+        <line num="11" count="17" type="stmt"/>
+        <line num="12" count="17" type="stmt"/>
+        <line num="13" count="17" type="stmt"/>
+        <line num="14" count="17" type="stmt"/>
+        <line num="15" count="17" type="stmt"/>
+        <line num="16" count="17" type="stmt"/>
+        <line num="17" count="17" type="stmt"/>
+        <line num="18" count="17" type="stmt"/>
+        <line num="19" count="17" type="stmt"/>
+        <line num="20" count="17" type="stmt"/>
+        <line num="21" count="17" type="stmt"/>
+        <line num="23" count="17" type="stmt"/>
+        <line num="24" count="17" type="stmt"/>
       </file>
       <file name="interval.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\interval.helper.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="1" count="17" type="stmt"/>
+        <line num="1" count="18" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
       </file>
       <file name="math.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\math.helper.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="17" type="stmt"/>
+        <line num="1" count="18" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
       </file>
@@ -1798,7 +1720,7 @@
         <line num="59" count="3" type="stmt"/>
         <line num="62" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="64" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="75" count="17" type="stmt"/>
+        <line num="75" count="18" type="stmt"/>
         <line num="85" count="7" type="stmt"/>
         <line num="86" count="7" type="stmt"/>
         <line num="87" count="16" type="cond" truecount="2" falsecount="0"/>
@@ -1822,11 +1744,11 @@
       </file>
       <file name="object.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\object.helper.ts">
         <metrics statements="51" coveredstatements="51" conditionals="31" coveredconditionals="31" methods="10" coveredmethods="10"/>
-        <line num="19" count="17" type="stmt"/>
+        <line num="19" count="18" type="stmt"/>
         <line num="20" count="81" type="cond" truecount="2" falsecount="0"/>
-        <line num="28" count="17" type="stmt"/>
+        <line num="28" count="18" type="stmt"/>
         <line num="29" count="13" type="stmt"/>
-        <line num="44" count="17" type="stmt"/>
+        <line num="44" count="18" type="stmt"/>
         <line num="50" count="19" type="cond" truecount="2" falsecount="0"/>
         <line num="51" count="1" type="stmt"/>
         <line num="54" count="18" type="stmt"/>
@@ -1845,11 +1767,11 @@
         <line num="77" count="2" type="stmt"/>
         <line num="79" count="11" type="stmt"/>
         <line num="88" count="18" type="stmt"/>
-        <line num="97" count="17" type="stmt"/>
+        <line num="97" count="18" type="stmt"/>
         <line num="101" count="6" type="stmt"/>
-        <line num="110" count="17" type="stmt"/>
+        <line num="110" count="18" type="stmt"/>
         <line num="114" count="7" type="stmt"/>
-        <line num="127" count="17" type="stmt"/>
+        <line num="127" count="18" type="stmt"/>
         <line num="132" count="3" type="stmt"/>
         <line num="133" count="3" type="stmt"/>
         <line num="134" count="3" type="stmt"/>
@@ -1859,14 +1781,14 @@
         <line num="138" count="2" type="stmt"/>
         <line num="141" count="3" type="stmt"/>
         <line num="143" count="3" type="stmt"/>
-        <line num="146" count="17" type="stmt"/>
+        <line num="146" count="18" type="stmt"/>
         <line num="147" count="2" type="stmt"/>
         <line num="148" count="4" type="stmt"/>
         <line num="151" count="2" type="stmt"/>
         <line num="152" count="3" type="stmt"/>
-        <line num="155" count="17" type="stmt"/>
-        <line num="157" count="17" type="stmt"/>
-        <line num="161" count="17" type="stmt"/>
+        <line num="155" count="18" type="stmt"/>
+        <line num="157" count="18" type="stmt"/>
+        <line num="161" count="18" type="stmt"/>
         <line num="164" count="3" type="stmt"/>
         <line num="165" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="166" count="2" type="stmt"/>
@@ -1876,48 +1798,48 @@
       </file>
       <file name="plugin.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\plugin.helper.ts">
         <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="6" coveredmethods="6"/>
-        <line num="20" count="17" type="stmt"/>
-        <line num="24" count="43" type="stmt"/>
+        <line num="20" count="18" type="stmt"/>
+        <line num="24" count="46" type="stmt"/>
         <line num="27" count="5" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
-        <line num="35" count="42" type="stmt"/>
+        <line num="35" count="45" type="stmt"/>
         <line num="36" count="3" type="stmt"/>
-        <line num="41" count="21" type="stmt"/>
+        <line num="41" count="22" type="stmt"/>
       </file>
       <file name="promise.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\promise.helper.ts">
         <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="10" coveredmethods="10"/>
-        <line num="2" count="17" type="stmt"/>
-        <line num="4" count="17" type="stmt"/>
-        <line num="15" count="17" type="stmt"/>
+        <line num="2" count="18" type="stmt"/>
+        <line num="4" count="18" type="stmt"/>
+        <line num="15" count="18" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
-        <line num="29" count="17" type="stmt"/>
-        <line num="30" count="20" type="stmt"/>
-        <line num="31" count="20" type="stmt"/>
+        <line num="29" count="18" type="stmt"/>
+        <line num="30" count="21" type="stmt"/>
+        <line num="31" count="21" type="stmt"/>
         <line num="34" count="20" type="stmt"/>
         <line num="35" count="20" type="stmt"/>
         <line num="36" count="20" type="stmt"/>
-        <line num="47" count="16" type="stmt"/>
+        <line num="47" count="17" type="stmt"/>
         <line num="52" count="21" type="stmt"/>
         <line num="56" count="3" type="stmt"/>
         <line num="58" count="2" type="stmt"/>
-        <line num="65" count="17" type="stmt"/>
+        <line num="65" count="18" type="stmt"/>
       </file>
       <file name="returnValue.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\returnValue.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
-        <line num="7" count="17" type="stmt"/>
+        <line num="7" count="18" type="stmt"/>
         <line num="8" count="6" type="stmt"/>
-        <line num="11" count="17" type="stmt"/>
+        <line num="11" count="18" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="20" count="17" type="stmt"/>
+        <line num="20" count="18" type="stmt"/>
         <line num="23" count="2" type="stmt"/>
-        <line num="26" count="17" type="stmt"/>
+        <line num="26" count="18" type="stmt"/>
       </file>
       <file name="rxjs.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\rxjs.helper.ts">
         <metrics statements="20" coveredstatements="20" conditionals="12" coveredconditionals="12" methods="6" coveredmethods="6"/>
-        <line num="2" count="17" type="stmt"/>
-        <line num="13" count="17" type="stmt"/>
-        <line num="14" count="17" type="stmt"/>
-        <line num="27" count="17" type="stmt"/>
+        <line num="2" count="18" type="stmt"/>
+        <line num="13" count="18" type="stmt"/>
+        <line num="14" count="18" type="stmt"/>
+        <line num="27" count="18" type="stmt"/>
         <line num="30" count="4" type="cond" truecount="4" falsecount="0"/>
         <line num="31" count="1" type="stmt"/>
         <line num="34" count="3" type="cond" truecount="2" falsecount="0"/>
@@ -1925,11 +1847,11 @@
         <line num="38" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="1" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
-        <line num="45" count="17" type="stmt"/>
+        <line num="45" count="18" type="stmt"/>
         <line num="48" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="49" count="1" type="stmt"/>
         <line num="52" count="1" type="stmt"/>
-        <line num="59" count="17" type="stmt"/>
+        <line num="59" count="18" type="stmt"/>
         <line num="62" count="3" type="stmt"/>
         <line num="63" count="3" type="stmt"/>
         <line num="65" count="3" type="stmt"/>
@@ -1937,13 +1859,13 @@
       </file>
       <file name="validator-helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\validator-helper.ts">
         <metrics statements="11" coveredstatements="11" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
-        <line num="1" count="18" type="stmt"/>
-        <line num="3" count="18" type="stmt"/>
+        <line num="1" count="19" type="stmt"/>
+        <line num="3" count="19" type="stmt"/>
         <line num="6" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="7" count="1" type="stmt"/>
         <line num="9" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="10" count="2" type="stmt"/>
-        <line num="13" count="18" type="stmt"/>
+        <line num="13" count="19" type="stmt"/>
         <line num="17" count="9" type="stmt"/>
         <line num="18" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="22" count="5" type="stmt"/>
@@ -1951,13 +1873,13 @@
       </file>
       <file name="zlib.helper.ts" path="C:\Users\nn\Desktop\code\node-yalc\utils\src\zlib.helper.ts">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="17" type="stmt"/>
-        <line num="3" count="17" type="stmt"/>
+        <line num="1" count="18" type="stmt"/>
+        <line num="3" count="18" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="12" count="17" type="stmt"/>
+        <line num="12" count="18" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="15" count="1" type="stmt"/>

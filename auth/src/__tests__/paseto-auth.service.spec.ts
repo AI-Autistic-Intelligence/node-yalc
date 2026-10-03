@@ -1,38 +1,32 @@
+import { PasetoAuthService } from '../paseto-auth.service';
 
-import * as Module from '../paseto-auth.service';
-
-describe('paseto-auth.service.ts', () => {
-  it('should have exported members', () => {
-    expect(Module).toBeDefined();
+describe('PasetoAuthService', () => {
+  it('should generate and verify a valid token', () => {
+    const service = new PasetoAuthService('my-secret-key');
+    const token = service.generateV4LocalToken({ sub: 'user123', roles: ['admin'] });
+    
+    expect(token).toMatch(/^v4\.local\./);
+    
+    const payload = service.verifyV4LocalToken(token);
+    expect(payload.sub).toBe('user123');
+    expect(payload.roles).toEqual(['admin']);
+    expect(payload.iss).toBe('ferrox-node-auth');
   });
 
-  it('should instantiate PasetoAuthService (dummy)', () => {
-    try {
-      const instance = new (Module as any).PasetoAuthService();
-      expect(instance).toBeDefined();
-    } catch (e) {
-      // ignore constructor errors due to missing arguments
-      expect(e).toBeDefined();
-    }
+  it('should throw error for invalid token prefix', () => {
+    const service = new PasetoAuthService();
+    expect(() => service.verifyV4LocalToken('v2.local.abcde')).toThrow('Invalid PASETO token format');
   });
 
-  it('should try to call methods on PasetoAuthService (dummy)', () => {
-    const proto = (Module as any).PasetoAuthService.prototype;
-    const methods = Object.getOwnPropertyNames(proto).filter(m => m !== 'constructor');
-    for (const method of methods) {
-      try {
-        const instance = new (Module as any).PasetoAuthService();
-        if (typeof instance[method] === 'function') {
-           instance[method]({}, {}, {}, {}, {});
-        }
-      } catch (e) {}
-    }
+  it('should throw error for corrupted token buffer', () => {
+    const service = new PasetoAuthService();
+    // 10 bytes in base64 is less than 40
+    expect(() => service.verifyV4LocalToken('v4.local.YWJjZGVmZ2hpag==')).toThrow('Corrupted PASETO token buffer');
+  });
 
-    const staticMethods = Object.getOwnPropertyNames((Module as any).PasetoAuthService).filter(m => typeof (Module as any).PasetoAuthService[m] === 'function');
-    for (const method of staticMethods) {
-      try {
-        (Module as any).PasetoAuthService[method]({}, {}, {}, {}, {});
-      } catch (e) {}
-    }
+  it('should throw error for expired token', () => {
+    const service = new PasetoAuthService();
+    const token = service.generateV4LocalToken({ sub: 'test' }, -100); // expired 100 seconds ago
+    expect(() => service.verifyV4LocalToken(token)).toThrow('PASETO token has expired');
   });
 });
