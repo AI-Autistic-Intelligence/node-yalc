@@ -10,7 +10,6 @@ import type {
 } from './error.class.js';
 import { HttpException } from './http.exception.js';
 import { HttpStatus } from './http-status.enum.js';
-import { EventEmitter2 } from 'eventemitter2';
 type LogLevel = 'log' | 'error' | 'warn' | 'debug' | 'verbose';
 import { getHttpStatusNameByCode } from './error.enum.js';
 import { deepMergeWithoutArrayConcat } from '../../utils/src/object.helper.js';
@@ -108,7 +107,7 @@ export interface IAbstractDefaultError
     Omit<HttpException, 'cause' | 'message'>,
     Omit<IErrorEventPayload, 'response'> {
   logger?: loggerOptionType;
-  eventEmitter?: EventEmitter2;
+  eventEmitter?: import('eventemitter2').EventEmitter2;
   getResponse(): IBetterResponseInterface;
   getInternalMessage(): string | undefined;
   getDescription(): string | undefined;
@@ -155,7 +154,7 @@ export interface IAbstractDefaultErrorOptions extends ISharedErrorProperties {
    * If set to false, will not emit any event.
    * If set to an EventEmitter2 instance, will use that instance.
    */
-  eventEmitter?: EventEmitter2 | boolean;
+  eventEmitter?: import('eventemitter2').EventEmitter2 | boolean;
   /**
    * Specify an event name that will be used when emitting an event
    * with the eventEmitter when it's not set to false.
@@ -277,7 +276,7 @@ export const DefaultErrorMixin = <
     protected eventPayload!: IErrorEventPayload;
     protected betterResponse!: IBetterResponseInterface;
     public readonly logger?: Required<loggerOptionType>;
-    public readonly eventEmitter?: EventEmitter2;
+    public readonly eventEmitter?: import('eventemitter2').EventEmitter2;
 
     constructor(
       options: IAbstractDefaultErrorOptions,

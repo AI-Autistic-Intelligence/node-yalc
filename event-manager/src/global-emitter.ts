@@ -1,6 +1,6 @@
 import { EventEmitter2 } from 'eventemitter2';
 
-let eventEmitter: EventEmitter2;
+let eventEmitter: import('eventemitter2').EventEmitter2;
 
 /**
  * Creates a new instance of EventEmitter2 configured for the Ferrox framework.
@@ -38,6 +38,6 @@ export function getYalcGlobalEventEmitter() {
 /**
  * Do not use this function unless you know what you are doing.
  */
-export function setYalcGlobalEventEmitter(_eventEmitter: EventEmitter2) {
+export function setYalcGlobalEventEmitter(_eventEmitter: import('eventemitter2').EventEmitter2) {
   eventEmitter = _eventEmitter;
 }

@@ -1,4 +1,5 @@
-import { EventEmitter2 } from 'eventemitter2';
+import EventEmitter2Import from 'eventemitter2';
+const EventEmitter2 = EventEmitter2Import.EventEmitter2 || EventEmitter2Import as any;
 import { LogLevelEnum } from '@node-yalc/logger';
 import { DefaultError, isDefaultErrorMixin } from '@node-yalc/errors';
 import * as eventModule from '../event';

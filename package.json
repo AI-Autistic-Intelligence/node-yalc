@@ -38,7 +38,8 @@
     "selftest",
     "storage",
     "tracing",
-    "transports"
+    "transports",
+    "database"
   ],
   "scripts": {
     "build": "tsc && node ./build.mjs",

@@ -1,4 +1,3 @@
-import { EventEmitter2 } from 'eventemitter2';
 import { maskDataInObject } from '@node-yalc/logger';
 import { globalPromiseTracker } from '@node-yalc/utils';
 export type EventNameFormatter = (...args: any[]) => string;
@@ -17,7 +16,7 @@ export function formatName<TFormatter extends EventNameFormatter>(
 }
 
 export async function emitEvent<TFormatter extends EventNameFormatter>(
-  eventEmitter: EventEmitter2,
+  eventEmitter: import('eventemitter2').EventEmitter2,
   name: Parameters<TFormatter> | string,
   payload: any,
   options?: IEventEmitterOptions<TFormatter>,
@@ -40,7 +39,7 @@ export async function emitEvent<TFormatter extends EventNameFormatter>(
 }
 
 export function emitFormattedEvent(
-  eventEmitter: EventEmitter2,
+  eventEmitter: import('eventemitter2').EventEmitter2,
   name: string,
   payload: any,
   options?: IEventEmitterOptions<SimpleFormatter>,

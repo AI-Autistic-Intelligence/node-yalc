@@ -1,7 +1,6 @@
 import type { LogLevel } from '../../logger/src/logger.type.js';
 import { type ImprovedLoggerService } from '../../logger/src/logger-abstract.service.js';
 import { LogLevelEnum } from '../../logger/src/logger.enum.js';
-import { EventEmitter2 } from 'eventemitter2';
 import { maskDataInObject } from '../../logger/src/logger.helper.js';
 import {
   DefaultError,
@@ -21,7 +20,7 @@ import { globalPromiseTracker } from '../../utils/src/promise.helper.js';
 interface IEventEmitterOptions<
   TFormatter extends EventNameFormatter = EventNameFormatter,
 > {
-  emitter?: EventEmitter2;
+  emitter?: import('eventemitter2').EventEmitter2;
   formatter?: TFormatter;
   await?: boolean;
 }

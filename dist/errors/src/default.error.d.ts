@@ -3,7 +3,6 @@ import { ClassType, Mixin } from '../../types/src/index.js';
 import type { HttpExceptionOptions } from './error.class.js';
 import { HttpException } from './http.exception.js';
 import { HttpStatus } from './http-status.enum.js';
-import { EventEmitter2 } from 'eventemitter2';
 type LogLevel = 'log' | 'error' | 'warn' | 'debug' | 'verbose';
 export declare const ON_DEFAULT_ERROR_EVENT = "onDefaultError";
 export interface ISharedErrorProperties {
@@ -37,7 +36,7 @@ type loggerOptionType = {
 } | false;
 export interface IAbstractDefaultError extends Omit<HttpException, 'cause' | 'message'>, Omit<IErrorEventPayload, 'response'> {
     logger?: loggerOptionType;
-    eventEmitter?: EventEmitter2;
+    eventEmitter?: import('eventemitter2').EventEmitter2;
     getResponse(): IBetterResponseInterface;
     getInternalMessage(): string | undefined;
     getDescription(): string | undefined;
@@ -56,7 +55,7 @@ export interface IAbstractDefaultErrorConstructor<TErrorClass extends ClassType<
 export interface IAbstractDefaultErrorOptions extends ISharedErrorProperties {
     masks?: string[];
     logger?: loggerOptionType | boolean;
-    eventEmitter?: EventEmitter2 | boolean;
+    eventEmitter?: import('eventemitter2').EventEmitter2 | boolean;
     eventName?: string;
     stack?: string;
 }

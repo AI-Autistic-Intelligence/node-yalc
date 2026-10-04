@@ -18,7 +18,6 @@ import {
   resolveLoggerOption,
 } from './event.js';
 import { type ImprovedLoggerService } from '@node-yalc/logger';
-import { EventEmitter2 } from 'eventemitter2';
 import { EventNameFormatter } from './emitter.js';
 import {
   DefaultError,
@@ -93,7 +92,7 @@ export class YalcEventService<
 > {
   constructor(
     protected readonly loggerService: ImprovedLoggerService,
-    protected readonly eventEmitter: EventEmitter2,
+    protected readonly eventEmitter: import('eventemitter2').EventEmitter2,
     protected options?: any,
   ) {}
 
@@ -101,7 +100,7 @@ export class YalcEventService<
     return this.loggerService;
   }
 
-  get emitter(): EventEmitter2 {
+  get emitter(): import('eventemitter2').EventEmitter2 {
     return this.eventEmitter;
   }
 

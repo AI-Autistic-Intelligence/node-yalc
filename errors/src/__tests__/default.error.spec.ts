@@ -9,7 +9,8 @@ import {
   errorToDefaultError,
   isDefaultErrorMixinClass,
 } from '../default.error.js';
-import { EventEmitter2 } from 'eventemitter2';
+import EventEmitter2Import from 'eventemitter2';
+const EventEmitter2 = EventEmitter2Import.EventEmitter2 || EventEmitter2Import as any;
 import EventEmitter from 'events';
 import {
   BadRequestException,

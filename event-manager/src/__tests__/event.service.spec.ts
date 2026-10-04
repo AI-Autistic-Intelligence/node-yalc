@@ -1,5 +1,6 @@
 import { YalcEventService, injectTrace } from '../event.service';
-import { EventEmitter2 } from 'eventemitter2';
+import EventEmitter2Import from 'eventemitter2';
+const EventEmitter2 = EventEmitter2Import.EventEmitter2 || EventEmitter2Import as any;
 import * as eventModule from '../event';
 import { DefaultError } from '@node-yalc/errors';
 

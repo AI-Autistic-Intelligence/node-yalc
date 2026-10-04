@@ -1,7 +1,6 @@
 type LogLevel = 'log' | 'error' | 'warn' | 'debug' | 'verbose';
 import { type IEventOptions, type IErrorEventOptions, type IErrorEventOptionsRequired } from './event.js';
 import { type ImprovedLoggerService } from '@node-yalc/logger';
-import { EventEmitter2 } from 'eventemitter2';
 import { EventNameFormatter } from './emitter.js';
 import { DefaultError } from '@node-yalc/errors';
 import { BadGatewayError, BadRequestError, ConflictError, ForbiddenError, GatewayTimeoutError, GoneError, InternalServerError, MethodNotAllowedError, NotAcceptableError, NotFoundError, NotImplementedError, PaymentRequiredError, ServiceUnavailableError, TooManyRequestsError, UnauthorizedError, UnprocessableEntityError, UnsupportedMediaTypeError } from '@node-yalc/errors';
@@ -15,11 +14,11 @@ export type IErrorBasedMethodOptions<TErrorOptions> = Omit<TErrorOptions, 'error
 export declare function injectTrace<T extends IEventOptions>(options?: T): T | undefined;
 export declare class YalcEventService<TFormatter extends EventNameFormatter = EventNameFormatter, TEventOptions extends IEventOptions<TFormatter> = IEventOptions<TFormatter>, TErrorOptions extends IErrorEventOptions<TFormatter> = IErrorEventOptions<TFormatter>> {
     protected readonly loggerService: ImprovedLoggerService;
-    protected readonly eventEmitter: EventEmitter2;
+    protected readonly eventEmitter: import('eventemitter2').EventEmitter2;
     protected options?: any;
-    constructor(loggerService: ImprovedLoggerService, eventEmitter: EventEmitter2, options?: any);
+    constructor(loggerService: ImprovedLoggerService, eventEmitter: import('eventemitter2').EventEmitter2, options?: any);
     get logger(): ImprovedLoggerService;
-    get emitter(): EventEmitter2;
+    get emitter(): import('eventemitter2').EventEmitter2;
     emit: (eventName: Parameters<TFormatter> | string, options?: TEventOptions) => any;
     emitAsync: (eventName: Parameters<TFormatter> | string, options?: TEventOptions) => Promise<any>;
     protected _error<TOpts extends IErrorEventOptions<TFormatter>>(eventName: Parameters<TFormatter> | string, options?: TOpts): any;
