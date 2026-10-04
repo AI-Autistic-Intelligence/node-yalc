@@ -30,5 +30,8 @@
   "dependencies": {
     "typeorm": "^0.3.28",
     "typeorm-seeding": "^1.6.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

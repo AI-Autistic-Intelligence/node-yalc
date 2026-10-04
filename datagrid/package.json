@@ -25,5 +25,8 @@
       "types": "./dist/*.d.ts",
       "default": "./dist/*"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
