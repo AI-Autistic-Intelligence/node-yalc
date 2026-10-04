@@ -9,7 +9,7 @@
     ".": "./dist/index.js",
     "./*": "./dist/*"
   },
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Type definitions to extend modules",
   "author": "Autistic_Intelligence",
   "dependencies": {
@@ -19,8 +19,9 @@
   "main": "./dist/index.js",
   "type": "module",
   "keywords": [
-    "yalc",
     "node",
-    "nestjs"
+    "yalc",
+    "typescript",
+    "types extends"
   ]
 }

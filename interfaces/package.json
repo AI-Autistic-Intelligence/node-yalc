@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/interfaces",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Yalc Node module",
   "main": "./dist/index.js",
   "exports": {
@@ -19,8 +19,10 @@
     "src"
   ],
   "keywords": [
-    "yalc",
     "node",
-    "nestjs"
+    "yalc",
+    "typescript",
+    "interfaces",
+    "types"
   ]
 }
