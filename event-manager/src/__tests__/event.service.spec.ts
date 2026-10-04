@@ -131,6 +131,21 @@ describe('event.service', () => {
       expect(res.isErr()).toBe(true);
     });
 
+    it('should handle unknown http codes in errorHttp by defaulting to InternalServerError', () => {
+      service.errorHttp('testUnknownHttp', 999);
+      expect(eventModule.eventError).toHaveBeenCalled();
+    });
+
+    it('should handle unknown http codes in errorHttpResult', () => {
+      const res = service.errorHttpResult('testUnknownHttpResult', 999);
+      expect(res.isErr()).toBe(true);
+    });
+
+    it('should respect logger: false when passed to errorHttp', () => {
+      service.errorHttp('testHttpLoggerFalse', 400, { logger: false } as any);
+      expect(eventModule.eventError).toHaveBeenCalled();
+    });
+
     it('should call errorForward properly', () => {
       const error = new DefaultError('test', { eventName: 'test' });
       service.errorForward('testForward', error);

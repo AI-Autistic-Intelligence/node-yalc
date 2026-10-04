@@ -3,6 +3,7 @@ import { StorageEngine, MemoryStorageAdapter } from '../storage-engine';
 describe('StorageEngine and MemoryStorageAdapter', () => {
   it('should upload, download, and delete correctly', async () => {
     const engine = new StorageEngine();
+    new MemoryStorageAdapter();
     
     // Upload string
     const url = await engine.upload('test.txt', 'hello world');

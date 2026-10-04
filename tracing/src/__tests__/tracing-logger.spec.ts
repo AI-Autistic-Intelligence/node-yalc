@@ -59,6 +59,8 @@ describe('FerroxLogger', () => {
   it('should log info, warn, error', () => {
     const logSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
     const logger = new FerroxLogger('test-service');
+    const defaultLogger = new FerroxLogger();
+    defaultLogger.info('default logger info');
 
     logger.info('info msg');
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining('"level":"INFO"'));

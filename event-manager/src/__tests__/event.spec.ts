@@ -150,6 +150,14 @@ describe('event', () => {
       expect(err).toBe(customError);
     });
 
+    it('should instantiate errorClass when passed as a class type', () => {
+      class MyCustomError extends DefaultError {
+        constructor(message: string, options?: any) { super(message, options); }
+      }
+      const err = eventModule.event('testErrorClassType', { errorClass: MyCustomError });
+      expect(err).toBeInstanceOf(MyCustomError);
+    });
+
     it('should merge data into custom error instances that are not DefaultError', () => {
       const customError = new Error('Custom') as any;
       eventModule.event('testErrorMerge', { errorClass: customError, data: { foo: 'bar' } });
@@ -167,13 +175,23 @@ describe('event', () => {
       expect(emitter.emit).toHaveBeenCalledWith('alias2', expect.any(Object));
     });
 
+    it('should handle calling event without options', () => {
+      eventModule.event('noOptionsEvent');
+      expect(emitter.emit).toHaveBeenCalledWith('noOptionsEvent', expect.any(Object));
+    });
+
     it('getLoggerOption should resolve boolean false to false', () => {
       expect(eventModule.getLoggerOption(LogLevelEnum.LOG, { logger: false })).toBe(false);
+    });
+
+    it('getLoggerOption should resolve string logger to object with level', () => {
+      expect(eventModule.getLoggerOption(LogLevelEnum.LOG, { logger: 'error' })).toEqual({ level: 'error' });
     });
 
     it('resolveLoggerOption should resolve string to level', () => {
       expect(eventModule.resolveLoggerOption('error')).toEqual({ level: 'error' });
       expect(eventModule.resolveLoggerOption(false)).toBe(false);
+      expect(eventModule.resolveLoggerOption({ level: 'info' })).toEqual({ level: 'info' });
     });
   });
 });

@@ -66,6 +66,14 @@ describe('http-adapters', () => {
 
       adapter.registerRoute({
         method: 'GET',
+        path: '/error-empty',
+        handler: async () => {
+          throw 'Empty string error';
+        }
+      });
+
+      adapter.registerRoute({
+        method: 'GET',
         path: '/manual',
         handler: async (req: any, res: any) => {
           res.send('manual-string');
@@ -73,6 +81,20 @@ describe('http-adapters', () => {
         }
       });
 
+      adapter.registerRoute({
+        method: 'GET',
+        path: '/manual-obj',
+        handler: async (req: any, res: any) => {
+          res.send({ manual: 'object' });
+          return undefined;
+        }
+      });
+
+      // Test listen without host to trigger default parameter
+      const emptyAdapter = new AdapterClass();
+      await emptyAdapter.listen(0);
+      await emptyAdapter.close();
+      
       adapter.use('/', jest.fn());
 
       await adapter.listen(0, '127.0.0.1');
@@ -88,8 +110,17 @@ describe('http-adapters', () => {
       expect(res.statusCode).toBe(201);
       expect(JSON.parse(res.body)).toEqual({ echo: 'me' });
 
+      // POST empty body
+      res = await sendReq(port, 'POST', '/echo');
+      expect(res.statusCode).toBe(201);
+      expect(JSON.parse(res.body)).toBeNull();
+
       // Error handling
       res = await sendReq(port, 'GET', '/error');
+      expect(res.statusCode).toBe(500);
+
+      // Error handling (no err.message)
+      res = await sendReq(port, 'GET', '/error-empty');
       expect(res.statusCode).toBe(500);
 
       // Not found
@@ -101,6 +132,10 @@ describe('http-adapters', () => {
       expect(res.statusCode).toBe(200);
       expect(res.body).toBe('manual-string');
 
+      res = await sendReq(port, 'GET', '/manual-obj');
+      expect(res.statusCode).toBe(200);
+      expect(JSON.parse(res.body)).toEqual({ manual: 'object' });
+
       // Invalid JSON body
       const rawReq = new Promise((resolve) => {
         const req = http.request({ hostname: '127.0.0.1', port, path: '/echo', method: 'POST' }, (r) => {
@@ -111,6 +146,31 @@ describe('http-adapters', () => {
       });
       const invalidRes = await rawReq;
       expect(invalidRes).toBe('"{invalid-json"');
+
+      // Test manual request without URL or host
+      const serverInstance = (adapter as any).server as http.Server;
+      const requestListener = serverInstance.listeners('request')[0] as (req: any, res: any) => void;
+      
+      const mockReq = {
+        method: undefined, // Test fallback to GET
+        headers: {}, // No host
+        on: jest.fn(),
+      } as any;
+      const mockRes = {
+        writeHead: jest.fn(),
+        end: jest.fn(),
+        writableEnded: false,
+      } as any;
+      
+      await requestListener(mockReq, mockRes);
+      
+      const mockReq2 = {
+        method: 'GET',
+        url: '', // Falsy URL
+        headers: {},
+        on: jest.fn(),
+      } as any;
+      await requestListener(mockReq2, mockRes);
     });
   };
 

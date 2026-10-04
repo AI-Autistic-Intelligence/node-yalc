@@ -9,6 +9,12 @@ describe('FerroxDataGridEngine', () => {
     expect(res.data).toEqual([{ id: 2, name: 'Banana' }]);
     expect(res.total).toBe(1);
 
+    // Test fallback page and pageSize
+    const resFallback = FerroxDataGridEngine.paginate(data, { page: 0, pageSize: 0 });
+    expect(resFallback.data.length).toBe(4);
+    expect(resFallback.page).toBe(1);
+    expect(resFallback.pageSize).toBe(10);
+
     // Test sort asc
     const resSort = FerroxDataGridEngine.paginate(data, { page: 1, pageSize: 10, sortField: 'name', sortOrder: 'ASC' });
     expect(resSort.data[0].name).toBe('Apple');
