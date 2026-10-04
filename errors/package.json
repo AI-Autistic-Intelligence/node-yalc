@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/errors",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Errors",
   "main": "./dist/index.js",
   "exports": {

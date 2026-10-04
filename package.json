@@ -1,6 +1,19 @@
 {
   "name": "node-yalc",
-  "version": "0.1.5",
+  "version": "0.1.6",
+  "author": "Autistic_Intelligence",
+  "description": "A set of agnostic node packages extracted from nestjs-yalc.",
+  "keywords": [
+    "node",
+    "utilities",
+    "typescript",
+    "framework",
+    "event-manager",
+    "errors",
+    "logger",
+    "config",
+    "security"
+  ],
   "private": true,
   "workspaces": [
     "types",
@@ -28,7 +41,9 @@
     "transports"
   ],
   "scripts": {
-    "build": "tsc && node ./build.mjs"
+    "build": "tsc && node ./build.mjs",
+    "test": "jest",
+    "test:cov": "jest --coverage"
   },
   "dependencies": {
     "@apollo/federation": "^0.38.1",

@@ -36,7 +36,7 @@ describe('event', () => {
 
   beforeEach(() => {
     emitter = new EventEmitter2();
-    jest.spyOn(globalEmitterModule, 'getYalcGlobalEventEmitter').mockReturnValue(emitter);
+    globalEmitterModule.setYalcGlobalEventEmitter(emitter);
     jest.spyOn(emitter, 'emit');
     jest.spyOn(emitter, 'emitAsync');
     jest.clearAllMocks();

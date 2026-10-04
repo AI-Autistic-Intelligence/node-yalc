@@ -9,7 +9,7 @@
     ".": "./dist/index.js",
     "./*": "./dist/*"
   },
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Type definitions to extend modules",
   "author": "Autistic_Intelligence",
   "dependencies": {
