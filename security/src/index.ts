@@ -1,1 +1,1 @@
-export * from './sentinel-integration';
+export * from './sentinel-integration.js';

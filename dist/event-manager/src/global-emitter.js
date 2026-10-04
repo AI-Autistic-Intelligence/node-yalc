@@ -1,25 +1,19 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.yalcStaticEventEmitter = exports.createGlobalEventEmitter = void 0;
-exports.getYalcGlobalEventEmitter = getYalcGlobalEventEmitter;
-exports.setYalcGlobalEventEmitter = setYalcGlobalEventEmitter;
-const eventemitter2_1 = require("eventemitter2");
+import { EventEmitter2 } from 'eventemitter2';
 let eventEmitter;
-const createGlobalEventEmitter = () => {
-    eventEmitter = new eventemitter2_1.EventEmitter2({
+export const createGlobalEventEmitter = () => {
+    eventEmitter = new EventEmitter2({
         maxListeners: 1000,
         wildcard: true,
     });
     return eventEmitter;
 };
-exports.createGlobalEventEmitter = createGlobalEventEmitter;
-exports.yalcStaticEventEmitter = (0, exports.createGlobalEventEmitter)();
-function getYalcGlobalEventEmitter() {
+export const yalcStaticEventEmitter = createGlobalEventEmitter();
+export function getYalcGlobalEventEmitter() {
     if (!eventEmitter)
-        eventEmitter = exports.yalcStaticEventEmitter;
+        eventEmitter = yalcStaticEventEmitter;
     return eventEmitter;
 }
-function setYalcGlobalEventEmitter(_eventEmitter) {
+export function setYalcGlobalEventEmitter(_eventEmitter) {
     eventEmitter = _eventEmitter;
 }
 //# sourceMappingURL=global-emitter.js.map

@@ -1,2 +1,2 @@
-export * from './mandatory-compliance.guard';
-export * from './rbac.guard';
+export * from './mandatory-compliance.guard.js';
+export * from './rbac.guard.js';

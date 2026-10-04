@@ -1,9 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TotpAuthService = void 0;
-const tslib_1 = require("tslib");
-const crypto = tslib_1.__importStar(require("crypto"));
-class TotpAuthService {
+import * as crypto from 'crypto';
+export class TotpAuthService {
     generateSecret() {
         const buffer = crypto.randomBytes(20);
         return buffer.toString('hex').substring(0, 32).toUpperCase();
@@ -41,5 +37,4 @@ class TotpAuthService {
         return otp.padStart(6, '0');
     }
 }
-exports.TotpAuthService = TotpAuthService;
 //# sourceMappingURL=totp-auth.service.js.map

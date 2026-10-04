@@ -1,1 +1,1 @@
-export * from './tracing-logger';
+export * from './tracing-logger.js';

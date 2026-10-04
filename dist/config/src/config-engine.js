@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ConfigEngine = void 0;
-class ConfigEngine {
+export class ConfigEngine {
     constructor(defaults = {}) {
         this.configStore = new Map();
         for (const [k, v] of Object.entries(defaults)) {
@@ -28,5 +25,4 @@ class ConfigEngine {
         this.configStore.set(key, value);
     }
 }
-exports.ConfigEngine = ConfigEngine;
 //# sourceMappingURL=config-engine.js.map

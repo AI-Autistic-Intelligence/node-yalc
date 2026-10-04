@@ -1,1 +1,1 @@
-export * from './jobs-scheduler-sse';
+export * from './jobs-scheduler-sse.js';

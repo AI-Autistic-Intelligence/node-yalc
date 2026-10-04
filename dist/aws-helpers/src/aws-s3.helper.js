@@ -1,10 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getFileFromS3 = void 0;
-const tslib_1 = require("tslib");
-const aws = tslib_1.__importStar(require("aws-sdk"));
+import * as aws from 'aws-sdk';
 const URL_EXPIRATION_TIME = 60;
-const getFileFromS3 = async (filePath, bucket) => {
+export const getFileFromS3 = async (filePath, bucket) => {
     const s3 = new aws.S3({
         region: process.env.S3_REGION,
     });
@@ -21,5 +17,4 @@ const getFileFromS3 = async (filePath, bucket) => {
         });
     });
 };
-exports.getFileFromS3 = getFileFromS3;
 //# sourceMappingURL=aws-s3.helper.js.map

@@ -1,16 +1,26 @@
 {
-    "name": "@node-yalc/common",
-    "version": "0.1.7",
-    "description": "Common interfaces and abstractions for Yalc frameworks",
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "scripts": {},
-    "dependencies": {
-        "rxjs": "^7.8.2"
-    },
-    "type": "module",
-    "files": [
-        "dist",
-        "src"
-    ]
+  "name": "@node-yalc/common",
+  "version": "0.1.8",
+  "description": "Common interfaces and abstractions for Yalc frameworks",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {},
+  "dependencies": {
+    "rxjs": "^7.8.2"
+  },
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "author": "Autistic_Intelligence",
+  "keywords": [
+    "yalc",
+    "node",
+    "nestjs"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*"
+  }
 }

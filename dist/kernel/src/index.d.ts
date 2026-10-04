@@ -1,1 +1,1 @@
-export * from './kernel-sandbox';
+export * from './kernel-sandbox.js';

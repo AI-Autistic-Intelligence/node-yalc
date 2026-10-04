@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./aws.interface.js"), exports);
-tslib_1.__exportStar(require("./aws-lambda.helpers.js"), exports);
-tslib_1.__exportStar(require("./encryption.helper.js"), exports);
+export * from './aws.interface.js';
+export * from './aws-lambda.helpers.js';
+export * from './encryption.helper.js';
 //# sourceMappingURL=index.js.map

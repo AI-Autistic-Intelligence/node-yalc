@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.MandatoryComplianceGuard = void 0;
-class MandatoryComplianceGuard {
+export class MandatoryComplianceGuard {
     canActivate(req, res) {
         res.setHeader('X-Content-Type-Options', 'nosniff');
         res.setHeader('X-Frame-Options', 'DENY');
@@ -21,5 +18,4 @@ class MandatoryComplianceGuard {
         return true;
     }
 }
-exports.MandatoryComplianceGuard = MandatoryComplianceGuard;
 //# sourceMappingURL=mandatory-compliance.guard.js.map

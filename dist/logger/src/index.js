@@ -1,11 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./logger.enum.js"), exports);
-tslib_1.__exportStar(require("./logger.event.js"), exports);
-tslib_1.__exportStar(require("./logger.factory.js"), exports);
-tslib_1.__exportStar(require("./logger.helper.js"), exports);
-tslib_1.__exportStar(require("./logger-abstract.service.js"), exports);
-tslib_1.__exportStar(require("./logger-console.service.js"), exports);
-tslib_1.__exportStar(require("./logger-pino.service.js"), exports);
+export * from './logger.enum.js';
+export * from './logger.event.js';
+export * from './logger.factory.js';
+export * from './logger.helper.js';
+export * from './logger-abstract.service.js';
+export * from './logger-console.service.js';
+export * from './logger-pino.service.js';
 //# sourceMappingURL=index.js.map

@@ -1,11 +1,22 @@
 {
-    "name": "@node-yalc/kernel",
-    "version": "0.0.4",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "type": "module",
-    "files": [
-        "dist",
-        "src"
-    ]
+  "name": "@node-yalc/kernel",
+  "version": "0.0.5",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "author": "Autistic_Intelligence",
+  "description": "Yalc Node module",
+  "keywords": [
+    "yalc",
+    "node",
+    "nestjs"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*"
+  }
 }

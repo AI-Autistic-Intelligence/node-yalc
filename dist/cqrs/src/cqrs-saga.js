@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.SagaOrchestrator = exports.CqrsEngine = void 0;
-class CqrsEngine {
+export class CqrsEngine {
     constructor() {
         this.commandHandlers = new Map();
         this.queryHandlers = new Map();
@@ -27,8 +24,7 @@ class CqrsEngine {
         return await handler(query);
     }
 }
-exports.CqrsEngine = CqrsEngine;
-class SagaOrchestrator {
+export class SagaOrchestrator {
     constructor() {
         this.steps = [];
     }
@@ -68,5 +64,4 @@ class SagaOrchestrator {
         }
     }
 }
-exports.SagaOrchestrator = SagaOrchestrator;
 //# sourceMappingURL=cqrs-saga.js.map

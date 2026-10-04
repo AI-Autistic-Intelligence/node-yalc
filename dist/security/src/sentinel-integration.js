@@ -1,31 +1,21 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.FerroxSentinelSecurityEngine = exports.SbomSupplyChainVerifierEngine = exports.LsassCredentialGuardEngine = exports.MarkovBehaviorEngine = exports.PolymorphicRouteEngine = exports.ShannonEntropyEngine = exports.RagHallucinationGroundednessEngine = exports.AiPromptGuardrailEngine = void 0;
-class AiPromptGuardrailEngine {
+export class AiPromptGuardrailEngine {
 }
-exports.AiPromptGuardrailEngine = AiPromptGuardrailEngine;
-class RagHallucinationGroundednessEngine {
+export class RagHallucinationGroundednessEngine {
 }
-exports.RagHallucinationGroundednessEngine = RagHallucinationGroundednessEngine;
-class ShannonEntropyEngine {
+export class ShannonEntropyEngine {
 }
-exports.ShannonEntropyEngine = ShannonEntropyEngine;
-class PolymorphicRouteEngine {
+export class PolymorphicRouteEngine {
     constructor(secretKey) {
         this.secretKey = secretKey;
     }
 }
-exports.PolymorphicRouteEngine = PolymorphicRouteEngine;
-class MarkovBehaviorEngine {
+export class MarkovBehaviorEngine {
 }
-exports.MarkovBehaviorEngine = MarkovBehaviorEngine;
-class LsassCredentialGuardEngine {
+export class LsassCredentialGuardEngine {
 }
-exports.LsassCredentialGuardEngine = LsassCredentialGuardEngine;
-class SbomSupplyChainVerifierEngine {
+export class SbomSupplyChainVerifierEngine {
 }
-exports.SbomSupplyChainVerifierEngine = SbomSupplyChainVerifierEngine;
-class FerroxSentinelSecurityEngine {
+export class FerroxSentinelSecurityEngine {
     constructor(secretKey = 'ferrox-sentinel-master-key') {
         this.aiGuardrails = AiPromptGuardrailEngine;
         this.ragScorer = RagHallucinationGroundednessEngine;
@@ -62,5 +52,4 @@ class FerroxSentinelSecurityEngine {
         ].join('\n');
     }
 }
-exports.FerroxSentinelSecurityEngine = FerroxSentinelSecurityEngine;
 //# sourceMappingURL=sentinel-integration.js.map

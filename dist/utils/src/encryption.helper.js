@@ -1,17 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.decryptAes = exports.encryptAes = void 0;
-const tslib_1 = require("tslib");
-const crypto = tslib_1.__importStar(require("crypto"));
-const encryptAes = (toEncrypt, key) => {
+import * as crypto from 'crypto';
+export const encryptAes = (toEncrypt, key) => {
     const iv = crypto.randomBytes(16);
     const cipher = crypto.createCipheriv('aes-256-ctr', Buffer.from(key, 'hex'), iv);
     let encrypted = cipher.update(toEncrypt, 'utf8', 'hex');
     encrypted += cipher.final('hex');
     return iv.toString('hex') + ':' + encrypted;
 };
-exports.encryptAes = encryptAes;
-const decryptAes = (toDecrypt, key) => {
+export const decryptAes = (toDecrypt, key) => {
     if (toDecrypt === '') {
         return '';
     }
@@ -22,5 +17,4 @@ const decryptAes = (toDecrypt, key) => {
     decrypted += decipher.final('utf8');
     return decrypted;
 };
-exports.decryptAes = decryptAes;
 //# sourceMappingURL=encryption.helper.js.map

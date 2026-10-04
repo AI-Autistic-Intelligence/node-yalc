@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.objectMapper = objectMapper;
 function setMappedProperty(mapProperty, inputObject, outputObject, propertyName, outputKey) {
     let options;
     if (mapProperty === true) {
@@ -15,7 +12,7 @@ function setMappedProperty(mapProperty, inputObject, outputObject, propertyName,
         ? options.transformer(inputObject, propertyName)
         : inputObject[propertyName];
 }
-function objectMapper(inputObject, mapper, options = {}) {
+export function objectMapper(inputObject, mapper, options = {}) {
     const outputObject = {};
     for (const propertyName in inputObject) {
         if (propertyName === '$transformer') {

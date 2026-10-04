@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExceptionContextEnum = exports.getHttpStatusNameByCode = exports.ErrorsEnum = void 0;
-const http_status_enum_js_1 = require("./http-status.enum.js");
-var ErrorsEnum;
+import { HttpStatus } from './http-status.enum.js';
+export var ErrorsEnum;
 (function (ErrorsEnum) {
     ErrorsEnum["BAD_REQUEST"] = "Bad request";
     ErrorsEnum["INVALID_VALUE"] = "Invalid value";
@@ -25,17 +22,16 @@ var ErrorsEnum;
     ErrorsEnum["BAD_GATEWAY"] = "Bad gateway";
     ErrorsEnum["SERVICE_UNAVAILABLE"] = "Service unavailable";
     ErrorsEnum["GATEWAY_TIMEOUT"] = "Gateway timeout";
-})(ErrorsEnum || (exports.ErrorsEnum = ErrorsEnum = {}));
-const getHttpStatusNameByCode = (code) => {
-    const httpStatusEnumName = Object.entries(http_status_enum_js_1.HttpStatus).find(([, value]) => value === code)?.[0];
+})(ErrorsEnum || (ErrorsEnum = {}));
+export const getHttpStatusNameByCode = (code) => {
+    const httpStatusEnumName = Object.entries(HttpStatus).find(([, value]) => value === code)?.[0];
     const enumValue = ErrorsEnum[httpStatusEnumName];
     return enumValue ?? 'Unknown';
 };
-exports.getHttpStatusNameByCode = getHttpStatusNameByCode;
-var ExceptionContextEnum;
+export var ExceptionContextEnum;
 (function (ExceptionContextEnum) {
     ExceptionContextEnum["DATABASE"] = "DatabaseException";
     ExceptionContextEnum["HTTP"] = "HttpException";
     ExceptionContextEnum["SYSTEM"] = "SystemException";
-})(ExceptionContextEnum || (exports.ExceptionContextEnum = ExceptionContextEnum = {}));
+})(ExceptionContextEnum || (ExceptionContextEnum = {}));
 //# sourceMappingURL=error.enum.js.map

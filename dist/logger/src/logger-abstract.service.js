@@ -1,11 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LoggerAbstractService = exports.EVENT_LOG_DEFAULT = void 0;
-exports.beforeLogging = beforeLogging;
-const logger_enum_js_1 = require("./logger.enum.js");
-const plugin_helper_js_1 = require("../../utils/src/plugin.helper.js");
-exports.EVENT_LOG_DEFAULT = 'EVENT_LOG_DEFAULT';
-class LoggerAbstractService extends (0, plugin_helper_js_1.WithPluginSystem)() {
+import { LogLevelEnum } from './logger.enum.js';
+import { WithPluginSystem, } from '../../utils/src/plugin.helper.js';
+export const EVENT_LOG_DEFAULT = 'EVENT_LOG_DEFAULT';
+export class LoggerAbstractService extends WithPluginSystem() {
     constructor(context, logLevels, methods, options = {}) {
         super();
         this.context = context;
@@ -22,43 +18,43 @@ class LoggerAbstractService extends (0, plugin_helper_js_1.WithPluginSystem)() {
     initializeLogger() {
         const enabledLevels = {};
         this.logLevels?.forEach((level) => {
-            if (!(level.toUpperCase() in logger_enum_js_1.LogLevelEnum))
+            if (!(level.toUpperCase() in LogLevelEnum))
                 throw new Error(`ERROR: Logger Level: ${level} is not supported!`);
             enabledLevels[level] = true;
         });
         this.log = (message, options = {}) => {
             void this.beforeLogging(message, options);
-            (enabledLevels[logger_enum_js_1.LogLevelEnum.LOG] === true &&
-                this.methods[logger_enum_js_1.LogLevelEnum.LOG]
-                ? this.methods[logger_enum_js_1.LogLevelEnum.LOG]
+            (enabledLevels[LogLevelEnum.LOG] === true &&
+                this.methods[LogLevelEnum.LOG]
+                ? this.methods[LogLevelEnum.LOG]
                 : () => { })(message, options);
         };
         this.error = (message, stack, options = {}) => {
             options.stack = stack;
             void this.beforeLogging(message, options);
-            (enabledLevels[logger_enum_js_1.LogLevelEnum.ERROR] === true &&
-                this.methods[logger_enum_js_1.LogLevelEnum.ERROR]
-                ? this.methods[logger_enum_js_1.LogLevelEnum.ERROR]
+            (enabledLevels[LogLevelEnum.ERROR] === true &&
+                this.methods[LogLevelEnum.ERROR]
+                ? this.methods[LogLevelEnum.ERROR]
                 : () => { })(message, stack, options);
         };
         this.warn = (message, options = {}) => {
             void this.beforeLogging(message, options);
-            (enabledLevels[logger_enum_js_1.LogLevelEnum.WARN] === true &&
-                this.methods[logger_enum_js_1.LogLevelEnum.WARN]
-                ? this.methods[logger_enum_js_1.LogLevelEnum.WARN]
+            (enabledLevels[LogLevelEnum.WARN] === true &&
+                this.methods[LogLevelEnum.WARN]
+                ? this.methods[LogLevelEnum.WARN]
                 : () => { })(message, options);
         };
-        if (enabledLevels[logger_enum_js_1.LogLevelEnum.DEBUG] === true &&
-            this.methods[logger_enum_js_1.LogLevelEnum.DEBUG])
+        if (enabledLevels[LogLevelEnum.DEBUG] === true &&
+            this.methods[LogLevelEnum.DEBUG])
             this.debug = (message, options = {}) => {
                 void this.beforeLogging(message, options);
-                this.methods[logger_enum_js_1.LogLevelEnum.DEBUG](message, options);
+                this.methods[LogLevelEnum.DEBUG](message, options);
             };
-        if (enabledLevels[logger_enum_js_1.LogLevelEnum.VERBOSE] === true &&
-            this.methods[logger_enum_js_1.LogLevelEnum.VERBOSE])
+        if (enabledLevels[LogLevelEnum.VERBOSE] === true &&
+            this.methods[LogLevelEnum.VERBOSE])
             this.verbose = (message, options = {}) => {
                 void this.beforeLogging(message, options);
-                this.methods[logger_enum_js_1.LogLevelEnum.VERBOSE](message, options);
+                this.methods[LogLevelEnum.VERBOSE](message, options);
             };
     }
     beforeLogging(message, options) {
@@ -67,13 +63,12 @@ class LoggerAbstractService extends (0, plugin_helper_js_1.WithPluginSystem)() {
         return beforeLogging(message, options);
     }
 }
-exports.LoggerAbstractService = LoggerAbstractService;
-function beforeLogging(message, options = {}) {
+export function beforeLogging(message, options = {}) {
     const emitter = options && options.eventEmitter;
     if (!emitter)
         return;
     const useFallbackEvent = (options && options.useFallbackEvent) ?? false;
-    const defaultEventName = useFallbackEvent ? exports.EVENT_LOG_DEFAULT : false;
+    const defaultEventName = useFallbackEvent ? EVENT_LOG_DEFAULT : false;
     const eventName = options.event ?? defaultEventName;
     if (!eventName)
         return;

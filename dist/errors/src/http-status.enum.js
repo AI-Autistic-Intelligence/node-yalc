@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.HttpStatus = void 0;
-var HttpStatus;
+export var HttpStatus;
 (function (HttpStatus) {
     HttpStatus[HttpStatus["CONTINUE"] = 100] = "CONTINUE";
     HttpStatus[HttpStatus["SWITCHING_PROTOCOLS"] = 101] = "SWITCHING_PROTOCOLS";
@@ -51,5 +48,5 @@ var HttpStatus;
     HttpStatus[HttpStatus["SERVICE_UNAVAILABLE"] = 503] = "SERVICE_UNAVAILABLE";
     HttpStatus[HttpStatus["GATEWAY_TIMEOUT"] = 504] = "GATEWAY_TIMEOUT";
     HttpStatus[HttpStatus["HTTP_VERSION_NOT_SUPPORTED"] = 505] = "HTTP_VERSION_NOT_SUPPORTED";
-})(HttpStatus || (exports.HttpStatus = HttpStatus = {}));
+})(HttpStatus || (HttpStatus = {}));
 //# sourceMappingURL=http-status.enum.js.map

@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Singleflight = exports.RateLimiter = exports.CircuitBreaker = void 0;
-class CircuitBreaker {
+export class CircuitBreaker {
     constructor(failureThreshold = 5, recoveryTimeMs = 10000) {
         this.state = 'CLOSED';
         this.failureCount = 0;
@@ -50,8 +47,7 @@ class CircuitBreaker {
         return this.state;
     }
 }
-exports.CircuitBreaker = CircuitBreaker;
-class RateLimiter {
+export class RateLimiter {
     constructor(capacity = 100, refillRatePerSec = 10) {
         this.capacity = capacity;
         this.refillRatePerSec = refillRatePerSec;
@@ -73,8 +69,7 @@ class RateLimiter {
         this.lastRefillTimestamp = now;
     }
 }
-exports.RateLimiter = RateLimiter;
-class Singleflight {
+export class Singleflight {
     constructor() {
         this.inFlightCalls = new Map();
     }
@@ -94,5 +89,4 @@ class Singleflight {
         return promise;
     }
 }
-exports.Singleflight = Singleflight;
 //# sourceMappingURL=resilience.js.map

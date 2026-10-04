@@ -1,15 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.YalcEventService = void 0;
-exports.injectTrace = injectTrace;
-const event_js_1 = require("./event.js");
-const errors_1 = require("@node-yalc/errors");
-const errors_2 = require("@node-yalc/errors");
-const event_helper_js_1 = require("./event.helper.js");
-const errors_3 = require("@node-yalc/errors");
-const utils_1 = require("@node-yalc/utils");
-const neverthrow_1 = require("neverthrow");
-function injectTrace(options) {
+import { eventLogAsync, eventDebugAsync, eventErrorAsync, eventVerboseAsync, eventWarnAsync, eventDebug, eventError, eventLog, eventVerbose, eventWarn, applyAwaitOption, isErrorOptions, resolveLoggerOption, } from './event.js';
+import { errorToDefaultError, formatCause, } from '@node-yalc/errors';
+import { BadGatewayError, BadRequestError, ConflictError, ForbiddenError, GatewayTimeoutError, GoneError, InternalServerError, MethodNotAllowedError, NotAcceptableError, NotFoundError, NotImplementedError, PaymentRequiredError, ServiceUnavailableError, TooManyRequestsError, UnauthorizedError, UnprocessableEntityError, UnsupportedMediaTypeError, } from '@node-yalc/errors';
+import { getLogLevelByError, getLogLevelByStatus } from './event.helper.js';
+import { httpStatusCodeToErrors } from '@node-yalc/errors';
+import { isClass } from '@node-yalc/utils';
+import { err, ok } from 'neverthrow';
+export function injectTrace(options) {
     if (typeof options !== 'object' || options === null) {
         options = {};
     }
@@ -21,7 +17,7 @@ function injectTrace(options) {
     }
     return options;
 }
-class YalcEventService {
+export class YalcEventService {
     constructor(loggerService, eventEmitter, options) {
         this.loggerService = loggerService;
         this.eventEmitter = eventEmitter;
@@ -36,13 +32,13 @@ class YalcEventService {
         return this.eventEmitter;
     }
     _error(eventName, options) {
-        return (0, event_js_1.eventError)(eventName, this.buildOptions(options));
+        return eventError(eventName, this.buildOptions(options));
     }
     async logAsync(eventName, options) {
-        return (0, event_js_1.eventLogAsync)(eventName, this.buildOptions(options));
+        return eventLogAsync(eventName, this.buildOptions(options));
     }
     async _errorAsync(eventName, options) {
-        return (0, event_js_1.eventErrorAsync)(eventName, this.buildOptions(options));
+        return eventErrorAsync(eventName, this.buildOptions(options));
     }
     error(eventName, options) {
         options = injectTrace(options);
@@ -50,12 +46,12 @@ class YalcEventService {
         return this._error(eventName, this.buildErrorOptions(options));
     }
     errorResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.error(eventName, options));
+        return err(this.error(eventName, options));
     }
     async errorFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorResult(eventName, this.applyCause(error, options));
@@ -67,40 +63,40 @@ class YalcEventService {
         return this._errorAsync(eventName, this.buildErrorOptions(options));
     }
     async warnAsync(eventName, options) {
-        return (0, event_js_1.eventWarnAsync)(eventName, this.buildOptions(options));
+        return eventWarnAsync(eventName, this.buildOptions(options));
     }
     async debugAsync(eventName, options) {
-        return (0, event_js_1.eventDebugAsync)(eventName, this.buildOptions(options));
+        return eventDebugAsync(eventName, this.buildOptions(options));
     }
     async verboseAsync(eventName, options) {
-        return (0, event_js_1.eventVerboseAsync)(eventName, this.buildOptions(options));
+        return eventVerboseAsync(eventName, this.buildOptions(options));
     }
     log(eventName, options) {
-        return (0, event_js_1.eventLog)(eventName, this.buildOptions(options));
+        return eventLog(eventName, this.buildOptions(options));
     }
     warn(eventName, options) {
-        return (0, event_js_1.eventWarn)(eventName, this.buildOptions(options));
+        return eventWarn(eventName, this.buildOptions(options));
     }
     debug(eventName, options) {
-        return (0, event_js_1.eventDebug)(eventName, this.buildOptions(options));
+        return eventDebug(eventName, this.buildOptions(options));
     }
     verbose(eventName, options) {
-        return (0, event_js_1.eventVerbose)(eventName, this.buildOptions(options));
+        return eventVerbose(eventName, this.buildOptions(options));
     }
     errorHttp(eventName, errorCode, options) {
         const httpCode = errorCode;
-        const selectedError = errors_3.httpStatusCodeToErrors[httpCode] ?? errors_2.InternalServerError;
-        const mergedOptions = this.applyLoggerLevel((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, selectedError)), (0, event_helper_js_1.getLogLevelByStatus)(errorCode));
+        const selectedError = httpStatusCodeToErrors[httpCode] ?? InternalServerError;
+        const mergedOptions = this.applyLoggerLevel(applyAwaitOption(this.buildErrorOptions(options, selectedError)), getLogLevelByStatus(errorCode));
         return this._error(eventName, mergedOptions);
     }
     errorHttpResult(eventName, errorCode, options) {
         const httpCode = errorCode;
-        const selectedError = errors_3.httpStatusCodeToErrors[httpCode] ?? errors_2.InternalServerError;
-        const mergedOptions = this.applyLoggerLevel((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, selectedError)), (0, event_helper_js_1.getLogLevelByStatus)(errorCode));
-        return (0, neverthrow_1.err)(this._error(eventName, mergedOptions));
+        const selectedError = httpStatusCodeToErrors[httpCode] ?? InternalServerError;
+        const mergedOptions = this.applyLoggerLevel(applyAwaitOption(this.buildErrorOptions(options, selectedError)), getLogLevelByStatus(errorCode));
+        return err(this._error(eventName, mergedOptions));
     }
     errorForward(eventName, error, options) {
-        const rebasedError = (0, errors_1.errorToDefaultError)(error);
+        const rebasedError = errorToDefaultError(error);
         let mergedOptions = this.buildErrorOptions(options, rebasedError);
         if (mergedOptions.logger === undefined) {
             mergedOptions = this.applyLoggerLevelByStatus(mergedOptions, rebasedError);
@@ -110,286 +106,286 @@ class YalcEventService {
         });
     }
     errorForwardResult(eventName, error, options) {
-        return (0, neverthrow_1.err)(this.errorForward(eventName, error, options));
+        return err(this.errorForward(eventName, error, options));
     }
     async errorForwardFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorForwardResult(eventName, error, options);
         }
     }
     errorBadRequest(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.BadRequestError)));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, BadRequestError)));
         return this._error(eventName, mergedOptions);
     }
     errorBadRequestResult(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.BadRequestError)));
-        return (0, neverthrow_1.err)(this._error(eventName, mergedOptions));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, BadRequestError)));
+        return err(this._error(eventName, mergedOptions));
     }
     async errorBadRequestFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorBadRequestResult(eventName, options);
         }
     }
     errorUnauthorized(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.UnauthorizedError)));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, UnauthorizedError)));
         return this._error(eventName, mergedOptions);
     }
     errorUnauthorizedResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorUnauthorized(eventName, options));
+        return err(this.errorUnauthorized(eventName, options));
     }
     async errorUnauthorizedFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorUnauthorizedResult(eventName, options);
         }
     }
     errorPaymentRequired(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.PaymentRequiredError)));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, PaymentRequiredError)));
         return this._error(eventName, mergedOptions);
     }
     errorForbidden(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.ForbiddenError)));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, ForbiddenError)));
         return this._error(eventName, mergedOptions);
     }
     errorForbiddenResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorForbidden(eventName, options));
+        return err(this.errorForbidden(eventName, options));
     }
     async errorForbiddenFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorForbiddenResult(eventName, options);
         }
     }
     errorNotFound(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.NotFoundError)));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, NotFoundError)));
         return this._error(eventName, mergedOptions);
     }
     errorNotFoundResult(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.NotFoundError)));
-        return (0, neverthrow_1.err)(this._error(eventName, mergedOptions));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, NotFoundError)));
+        return err(this._error(eventName, mergedOptions));
     }
     async errorNotFoundFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorNotFoundResult(eventName, options);
         }
     }
     errorMethodNotAllowed(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.MethodNotAllowedError)));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, MethodNotAllowedError)));
         return this._error(eventName, mergedOptions);
     }
     errorMethodNotAllowedResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorMethodNotAllowed(eventName, options));
+        return err(this.errorMethodNotAllowed(eventName, options));
     }
     async errorMethodNotAllowedFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorMethodNotAllowedResult(eventName, options);
         }
     }
     errorNotAcceptable(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.NotAcceptableError)));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, NotAcceptableError)));
         return this._error(eventName, mergedOptions);
     }
     errorNotAcceptableResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorNotAcceptable(eventName, options));
+        return err(this.errorNotAcceptable(eventName, options));
     }
     async errorNotAcceptableFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorNotAcceptableResult(eventName, options);
         }
     }
     errorConflict(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.ConflictError)));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, ConflictError)));
         return this._error(eventName, mergedOptions);
     }
     errorConflictResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorConflict(eventName, options));
+        return err(this.errorConflict(eventName, options));
     }
     async errorConflictFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorConflictResult(eventName, options);
         }
     }
     errorGone(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.GoneError)));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, GoneError)));
         return this._error(eventName, mergedOptions);
     }
     errorGoneResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorGone(eventName, options));
+        return err(this.errorGone(eventName, options));
     }
     async errorGoneFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorGoneResult(eventName, options);
         }
     }
     errorUnsupportedMediaType(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.UnsupportedMediaTypeError)));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, UnsupportedMediaTypeError)));
         return this._error(eventName, mergedOptions);
     }
     errorUnsupportedMediaTypeResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorUnsupportedMediaType(eventName, options));
+        return err(this.errorUnsupportedMediaType(eventName, options));
     }
     async errorUnsupportedMediaTypeFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorUnsupportedMediaTypeResult(eventName, options);
         }
     }
     errorUnprocessableEntity(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.UnprocessableEntityError)));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, UnprocessableEntityError)));
         return this._error(eventName, mergedOptions);
     }
     errorUnprocessableEntityResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorUnprocessableEntity(eventName, options));
+        return err(this.errorUnprocessableEntity(eventName, options));
     }
     async errorUnprocessableEntityFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorUnprocessableEntityResult(eventName, options);
         }
     }
     errorTooManyRequests(eventName, options) {
-        const mergedOptions = this.applyLoggerLevelByError((0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.TooManyRequestsError)));
+        const mergedOptions = this.applyLoggerLevelByError(applyAwaitOption(this.buildErrorOptions(options, TooManyRequestsError)));
         return this._error(eventName, mergedOptions);
     }
     errorTooManyRequestsResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorTooManyRequests(eventName, options));
+        return err(this.errorTooManyRequests(eventName, options));
     }
     async errorTooManyRequestsFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorTooManyRequestsResult(eventName, options);
         }
     }
     errorInternalServerError(eventName, options) {
-        const mergedOptions = (0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.InternalServerError));
+        const mergedOptions = applyAwaitOption(this.buildErrorOptions(options, InternalServerError));
         return this._error(eventName, mergedOptions);
     }
     errorInternalServerErrorResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorInternalServerError(eventName, options));
+        return err(this.errorInternalServerError(eventName, options));
     }
     async errorInternalServerErrorFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorInternalServerErrorResult(eventName, options);
         }
     }
     errorNotImplemented(eventName, options) {
-        const mergedOptions = (0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.NotImplementedError));
+        const mergedOptions = applyAwaitOption(this.buildErrorOptions(options, NotImplementedError));
         return this._error(eventName, mergedOptions);
     }
     errorNotImplementedResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorNotImplemented(eventName, options));
+        return err(this.errorNotImplemented(eventName, options));
     }
     async errorNotImplementedFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorNotImplementedResult(eventName, options);
         }
     }
     errorBadGateway(eventName, options) {
-        const mergedOptions = (0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.BadGatewayError));
+        const mergedOptions = applyAwaitOption(this.buildErrorOptions(options, BadGatewayError));
         return this._error(eventName, mergedOptions);
     }
     errorBadGatewayResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorBadGateway(eventName, options));
+        return err(this.errorBadGateway(eventName, options));
     }
     async errorBadGatewayFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorBadGatewayResult(eventName, options);
         }
     }
     errorServiceUnavailable(eventName, options) {
-        const mergedOptions = (0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.ServiceUnavailableError));
+        const mergedOptions = applyAwaitOption(this.buildErrorOptions(options, ServiceUnavailableError));
         return this._error(eventName, mergedOptions);
     }
     errorServiceUnavailableResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorServiceUnavailable(eventName, options));
+        return err(this.errorServiceUnavailable(eventName, options));
     }
     async errorServiceUnavailableFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorServiceUnavailableResult(eventName, options);
         }
     }
     errorGatewayTimeout(eventName, options) {
-        const mergedOptions = (0, event_js_1.applyAwaitOption)(this.buildErrorOptions(options, errors_2.GatewayTimeoutError));
+        const mergedOptions = applyAwaitOption(this.buildErrorOptions(options, GatewayTimeoutError));
         return this._error(eventName, mergedOptions);
     }
     errorGatewayTimeoutResult(eventName, options) {
-        return (0, neverthrow_1.err)(this.errorGatewayTimeout(eventName, options));
+        return err(this.errorGatewayTimeout(eventName, options));
     }
     async errorGatewayTimeoutFromFn(eventName, cb, options) {
         try {
             const result = await cb();
-            return (0, neverthrow_1.ok)(result);
+            return ok(result);
         }
         catch (error) {
             return this.errorGatewayTimeoutResult(eventName, options);
         }
     }
     getLoggerLevelByOptions(options) {
-        return (0, event_helper_js_1.getLogLevelByError)(options.errorClass);
+        return getLogLevelByError(options.errorClass);
     }
     applyLoggerLevel(options, level) {
         if (options?.logger === false)
             return options;
-        const loggerOption = (0, event_js_1.resolveLoggerOption)(options?.logger);
+        const loggerOption = resolveLoggerOption(options?.logger);
         return {
             ...options,
             logger: {
@@ -399,7 +395,7 @@ class YalcEventService {
         };
     }
     applyLoggerLevelByStatus(options, error) {
-        const level = (0, event_helper_js_1.getLogLevelByStatus)(error.getStatus());
+        const level = getLogLevelByStatus(error.getStatus());
         return this.applyLoggerLevel(options, level);
     }
     applyLoggerLevelByError(options) {
@@ -425,23 +421,23 @@ class YalcEventService {
                         formatter: _options?.event?.formatter ?? this.options?.formatter,
                     };
         }
-        if ((0, event_js_1.isErrorOptions)(_options)) {
+        if (isErrorOptions(_options)) {
             const _errorOptions = _options;
             if (_errorOptions.errorClass &&
                 _errorOptions.errorClass !== true &&
-                !(0, utils_1.isClass)(_errorOptions.errorClass)) {
-                const error = (0, errors_1.errorToDefaultError)(_errorOptions.errorClass);
+                !isClass(_errorOptions.errorClass)) {
+                const error = errorToDefaultError(_errorOptions.errorClass);
                 _errorOptions.stack ??= error.stack;
             }
             else if (_errorOptions.cause) {
-                const cause = (0, errors_1.formatCause)(_errorOptions.cause);
+                const cause = formatCause(_errorOptions.cause);
                 _errorOptions.stack ??= cause?.stack;
             }
             else {
                 _errorOptions.stack ??= new Error().stack;
             }
         }
-        const loggerOption = (0, event_js_1.resolveLoggerOption)(_options?.logger);
+        const loggerOption = resolveLoggerOption(_options?.logger);
         const res = {
             ..._options,
             event,
@@ -459,5 +455,4 @@ class YalcEventService {
         return options;
     }
 }
-exports.YalcEventService = YalcEventService;
 //# sourceMappingURL=event.service.js.map

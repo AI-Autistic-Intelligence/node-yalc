@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LoggerEvent = void 0;
-var LoggerEvent;
+export var LoggerEvent;
 (function (LoggerEvent) {
     LoggerEvent["QUERY_ERROR"] = "logger.query_error";
     LoggerEvent["QUERY_LOG"] = "logger.query_log";
@@ -12,5 +9,5 @@ var LoggerEvent;
     LoggerEvent["INFO"] = "logger.info";
     LoggerEvent["DEBUG"] = "logger.debug";
     LoggerEvent["LOG"] = "logger.log";
-})(LoggerEvent || (exports.LoggerEvent = LoggerEvent = {}));
+})(LoggerEvent || (LoggerEvent = {}));
 //# sourceMappingURL=logger.event.js.map

@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.KafkaEventBusAdapter = exports.WebSocketTransportAdapter = void 0;
-class WebSocketTransportAdapter {
+export class WebSocketTransportAdapter {
     constructor() {
         this.handlers = new Map();
     }
@@ -27,8 +24,7 @@ class WebSocketTransportAdapter {
         }
     }
 }
-exports.WebSocketTransportAdapter = WebSocketTransportAdapter;
-class KafkaEventBusAdapter {
+export class KafkaEventBusAdapter {
     constructor() {
         this.topicHandlers = new Map();
     }
@@ -42,5 +38,4 @@ class KafkaEventBusAdapter {
         }
     }
 }
-exports.KafkaEventBusAdapter = KafkaEventBusAdapter;
 //# sourceMappingURL=websocket-kafka.js.map

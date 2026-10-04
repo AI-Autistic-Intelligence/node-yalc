@@ -1,8 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ConfigValueManager = void 0;
-exports.checkForDuplicateKeys = checkForDuplicateKeys;
-function checkForDuplicateKeys(keys) {
+export function checkForDuplicateKeys(keys) {
     const keySet = new Set();
     for (const key of keys) {
         if (keySet.has(key)) {
@@ -12,7 +8,7 @@ function checkForDuplicateKeys(keys) {
     }
 }
 const normalizeKeys = (keyOrKeys) => Array.isArray(keyOrKeys) ? keyOrKeys : [keyOrKeys];
-class ConfigValueManager {
+export class ConfigValueManager {
     static { this.value = (currentKey, configurations, defaultValue) => {
         const foundKeys = new Set();
         const normalizeReturnValue = (returnValue) => {
@@ -56,5 +52,4 @@ class ConfigValueManager {
         return this.value(currentKey, _tuple, value);
     }; }
 }
-exports.ConfigValueManager = ConfigValueManager;
 //# sourceMappingURL=config-manager.helper.js.map

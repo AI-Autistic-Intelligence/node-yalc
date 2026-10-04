@@ -1,20 +1,26 @@
 {
-    "name": "@node-yalc/interfaces",
-    "version": "0.1.7",
-    "description": "",
-    "main": "./dist/index.js",
-    "exports": {
-        "./": "./dist/"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "AGPL-3.0-or-later",
-    "types": "./dist/index.d.ts",
-    "type": "module",
-    "files": [
-        "dist",
-        "src"
-    ]
+  "name": "@node-yalc/interfaces",
+  "version": "0.1.8",
+  "description": "Yalc Node module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Autistic_Intelligence",
+  "license": "AGPL-3.0-or-later",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "yalc",
+    "node",
+    "nestjs"
+  ]
 }

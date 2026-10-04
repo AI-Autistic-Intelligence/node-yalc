@@ -1,9 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.FastifyHttpAdapter = exports.ExpressHttpAdapter = void 0;
-const tslib_1 = require("tslib");
-const http = tslib_1.__importStar(require("http"));
-class ExpressHttpAdapter {
+import * as http from 'http';
+export class ExpressHttpAdapter {
     constructor() {
         this.type = 'express';
         this.routes = [];
@@ -100,8 +96,7 @@ class ExpressHttpAdapter {
         }
     }
 }
-exports.ExpressHttpAdapter = ExpressHttpAdapter;
-class FastifyHttpAdapter {
+export class FastifyHttpAdapter {
     constructor() {
         this.type = 'fastify';
         this.routes = [];
@@ -198,5 +193,4 @@ class FastifyHttpAdapter {
         }
     }
 }
-exports.FastifyHttpAdapter = FastifyHttpAdapter;
 //# sourceMappingURL=http-adapters.js.map

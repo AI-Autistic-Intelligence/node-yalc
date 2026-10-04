@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./maps.interface.js"), exports);
-tslib_1.__exportStar(require("./queryparams.interface.js"), exports);
+export * from './maps.interface.js';
+export * from './queryparams.interface.js';
+export * from './nestjs.type.js';
 //# sourceMappingURL=index.js.map

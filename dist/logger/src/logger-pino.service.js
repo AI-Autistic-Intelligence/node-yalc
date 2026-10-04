@@ -1,16 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.PinoLogger = exports.FLUSH_INTERVAL = void 0;
-exports.flush = flush;
-const tslib_1 = require("tslib");
-const pino_1 = tslib_1.__importDefault(require("pino"));
-const logger_abstract_service_js_1 = require("./logger-abstract.service.js");
-const logger_helper_js_1 = require("./logger.helper.js");
-const utils_1 = require("@node-yalc/utils");
+import pino from 'pino';
+import { LoggerAbstractService, } from './logger-abstract.service.js';
+import { maskDataInObject } from './logger.helper.js';
+import { globalPromiseTracker } from '@node-yalc/utils';
 let logger;
 let destination;
-exports.FLUSH_INTERVAL = 10000;
-class PinoLogger extends logger_abstract_service_js_1.LoggerAbstractService {
+export const FLUSH_INTERVAL = 10000;
+export class PinoLogger extends LoggerAbstractService {
     getLogger() {
         return logger;
     }
@@ -18,40 +13,40 @@ class PinoLogger extends logger_abstract_service_js_1.LoggerAbstractService {
         super(context, logLevels, {
             log: (message, options) => logger.info({
                 context: options?.context ?? context,
-                ...(0, logger_helper_js_1.maskDataInObject)(options?.data, options?.masks),
+                ...maskDataInObject(options?.data, options?.masks),
                 config: options?.config,
                 trace: options?.stack,
             }, message),
             error: (message, trace, options) => {
                 logger.error({
                     context: options?.context ?? context,
-                    ...(0, logger_helper_js_1.maskDataInObject)(options?.data, options?.masks),
+                    ...maskDataInObject(options?.data, options?.masks),
                     config: options?.config,
                     trace,
                 }, message);
             },
             debug: (message, options) => logger.debug({
                 context: options?.context ?? context,
-                ...(0, logger_helper_js_1.maskDataInObject)(options?.data, options?.masks),
+                ...maskDataInObject(options?.data, options?.masks),
                 config: options?.config,
                 trace: options?.stack,
             }, message),
             warn: (message, options) => logger.warn({
                 context: options?.context ?? context,
-                ...(0, logger_helper_js_1.maskDataInObject)(options?.data, options?.masks),
+                ...maskDataInObject(options?.data, options?.masks),
                 config: options?.config,
                 trace: options?.stack,
             }, message),
             verbose: (message, options) => logger.trace({
                 context: options?.context ?? context,
-                ...(0, logger_helper_js_1.maskDataInObject)(options?.data, options?.masks),
+                ...maskDataInObject(options?.data, options?.masks),
                 config: options?.config,
                 trace: options?.stack,
             }, message),
         }, options);
         if (!logger) {
-            destination = pino_1.default.destination({ sync: false });
-            logger = (0, pino_1.default)({
+            destination = pino.destination({ sync: false });
+            logger = pino({
                 formatters: {
                     level: (label) => {
                         return { level: label };
@@ -63,15 +58,14 @@ class PinoLogger extends logger_abstract_service_js_1.LoggerAbstractService {
         logger.level = 'trace';
         setInterval(function () {
             logger.flush();
-        }, exports.FLUSH_INTERVAL).unref();
-        utils_1.globalPromiseTracker.addDeferred(flush);
+        }, FLUSH_INTERVAL).unref();
+        globalPromiseTracker.addDeferred(flush);
     }
     async onApplicationShutdown() {
         await flush();
     }
 }
-exports.PinoLogger = PinoLogger;
-function flush() {
+export function flush() {
     destination?.flushSync();
     return new Promise((resolve, reject) => {
         logger.flush((err) => {

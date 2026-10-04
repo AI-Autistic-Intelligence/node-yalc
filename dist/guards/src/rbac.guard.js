@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RbacGuard = void 0;
-class RbacGuard {
+export class RbacGuard {
     constructor(pasetoService, requiredRoles = []) {
         this.pasetoService = pasetoService;
         this.requiredRoles = requiredRoles;
@@ -41,5 +38,4 @@ class RbacGuard {
         }
     }
 }
-exports.RbacGuard = RbacGuard;
 //# sourceMappingURL=rbac.guard.js.map

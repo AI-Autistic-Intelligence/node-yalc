@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.StorageEngine = exports.MemoryStorageAdapter = void 0;
-class MemoryStorageAdapter {
+export class MemoryStorageAdapter {
     constructor() {
         this.store = new Map();
     }
@@ -23,8 +20,7 @@ class MemoryStorageAdapter {
         return `https://storage.ferrox.dev/memory/${key}?ttl=${ttlSecs}`;
     }
 }
-exports.MemoryStorageAdapter = MemoryStorageAdapter;
-class StorageEngine {
+export class StorageEngine {
     constructor(adapter = new MemoryStorageAdapter()) {
         this.adapter = adapter;
     }
@@ -41,5 +37,4 @@ class StorageEngine {
         return await this.adapter.getPresignedUrl(key, ttlSecs);
     }
 }
-exports.StorageEngine = StorageEngine;
 //# sourceMappingURL=storage-engine.js.map

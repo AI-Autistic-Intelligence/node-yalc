@@ -1,1 +1,1 @@
-export * from './config-engine';
+export * from './config-engine.js';

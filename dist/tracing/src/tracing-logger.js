@@ -1,9 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.FerroxLogger = exports.TracingEngine = void 0;
-const tslib_1 = require("tslib");
-const crypto = tslib_1.__importStar(require("crypto"));
-class TracingEngine {
+import * as crypto from 'crypto';
+export class TracingEngine {
     static createTraceContext() {
         return {
             traceId: crypto.randomBytes(16).toString('hex'),
@@ -29,8 +25,7 @@ class TracingEngine {
         return `00-${ctx.traceId}-${ctx.spanId}-${ctx.sampled ? '01' : '00'}`;
     }
 }
-exports.TracingEngine = TracingEngine;
-class FerroxLogger {
+export class FerroxLogger {
     constructor(serviceName = 'ferrox-node-app') {
         this.serviceName = serviceName;
     }
@@ -54,5 +49,4 @@ class FerroxLogger {
         console.log(JSON.stringify(entry));
     }
 }
-exports.FerroxLogger = FerroxLogger;
 //# sourceMappingURL=tracing-logger.js.map

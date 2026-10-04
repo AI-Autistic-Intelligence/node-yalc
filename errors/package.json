@@ -1,28 +1,32 @@
 {
-    "name": "@node-yalc/errors",
-    "version": "0.1.7",
-    "description": "Errors",
-    "main": "./dist/index.js",
-    "exports": {
-        ".": "./dist/index.js",
-        "./*.js": "./dist/*.js",
-        "./*": "./dist/*"
-    },
-    "scripts": {},
-    "author": "",
-    "license": "MIT",
-    "types": "./dist/index.d.ts",
-    "files": [
-        "dist",
-        "src"
-    ],
-    "dependencies": {
-        "@node-yalc/logger": "*",
-        "@node-yalc/utils": "*",
-        "axios": "^1.15.0",
-        "eventemitter2": "^6.4.9",
-        "neverthrow": "^8.2.0",
-        "tslib": "^2.6.3"
-    },
-    "type": "module"
+  "name": "@node-yalc/errors",
+  "version": "0.1.9",
+  "description": "Errors",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*"
+  },
+  "scripts": {},
+  "author": "Autistic_Intelligence",
+  "license": "MIT",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {
+    "@node-yalc/logger": "*",
+    "@node-yalc/utils": "*",
+    "axios": "^1.15.0",
+    "eventemitter2": "^6.4.9",
+    "neverthrow": "^8.2.0",
+    "tslib": "^2.6.3"
+  },
+  "type": "module",
+  "keywords": [
+    "yalc",
+    "node",
+    "nestjs"
+  ]
 }

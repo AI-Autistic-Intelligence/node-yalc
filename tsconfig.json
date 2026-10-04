@@ -1,125 +1,181 @@
 {
-    "compilerOptions":  {
-                            "module":  "CommonJS",
-                            "moduleResolution":  "node",
-                            "ignoreDeprecations": "6.0",
-                            "declaration":  true,
-                            "removeComments":  true,
-                            "emitDecoratorMetadata":  true,
-                            "experimentalDecorators":  true,
-                            "importHelpers":  true,
-                            "allowSyntheticDefaultImports":  true,
-                            "strict":  true,
-                            "strictPropertyInitialization":  false,
-                            "useDefineForClassFields":  false,
-                            "skipLibCheck":  true,
-                            "allowJs":  true,
-                            "noUnusedLocals":  true,
-                            "noUnusedParameters":  true,
-                            "noImplicitReturns":  true,
-                            "target":  "es2022",
-                            "lib":  [
-                                        "es2022",
-                                        "dom"
-                                    ],
-                            "sourceMap":  true,
-                            "resolveJsonModule":  true,
-                            "rootDir":  ".",
-                            "paths":  {
-                                          "@node-yalc/interfaces":  [
-                                                                        "./interfaces/src"
-                                                                    ],
-                                          "@node-yalc/interfaces/*":  [
-                                                                          "./interfaces/src/*"
-                                                                      ],
-                                          "@node-yalc/logger":  [
-                                                                    "./logger/src"
-                                                                ],
-                                          "@node-yalc/logger/*":  [
-                                                                      "./logger/src/*"
-                                                                  ],
-                                          "@node-yalc/utils":  [
-                                                                   "./utils/src"
-                                                               ],
-                                          "@node-yalc/utils/*":  [
-                                                                     "./utils/src/*"
-                                                                 ],
-                                          "@node-yalc/types":  [
-                                                                   "./types/src"
-                                                               ],
-                                          "@node-yalc/types/*":  [
-                                                                     "./types/src/*"
-                                                                 ],
-                                          "@node-yalc/types-extends":  [
-                                                                           "./types-extends/src"
-                                                                       ],
-                                          "@node-yalc/types-extends/*":  [
-                                                                             "./types-extends/src/*"
-                                                                         ],
-                                          "@node-yalc/errors":  [
-                                                                    "./errors/src"
-                                                                ],
-                                          "@node-yalc/errors/*":  [
-                                                                      "./errors/src/*"
-                                                                  ],
-                                          "@node-yalc/event-manager":  [
-                                                                           "./event-manager/src"
-                                                                       ],
-                                          "@node-yalc/event-manager/*":  [
-                                                                             "./event-manager/src/*"
-                                                                         ],
-                                          "@node-yalc/common":  [
-                                                                    "./common/src"
-                                                                ],
-                                          "@node-yalc/common/*":  [
-                                                                      "./common/src/*"
-                                                                  ],
-                                          "@node-yalc/aws-helpers":  [
-                                                                    "./aws-helpers/src"
-                                                                ],
-                                          "@node-yalc/aws-helpers/*":  [
-                                                                    "./aws-helpers/src/*"
-                                                                ],
-                                          "@node-yalc/auth": ["./auth/src"],
-                                          "@node-yalc/auth/*": ["./auth/src/*"],
-                                          "@node-yalc/config": ["./config/src"],
-                                          "@node-yalc/config/*": ["./config/src/*"],
-                                          "@node-yalc/cqrs": ["./cqrs/src"],
-                                          "@node-yalc/cqrs/*": ["./cqrs/src/*"],
-                                          "@node-yalc/datagrid": ["./datagrid/src"],
-                                          "@node-yalc/datagrid/*": ["./datagrid/src/*"],
-                                          "@node-yalc/guards": ["./guards/src"],
-                                          "@node-yalc/guards/*": ["./guards/src/*"],
-                                          "@node-yalc/i18n": ["./i18n/src"],
-                                          "@node-yalc/i18n/*": ["./i18n/src/*"],
-                                          "@node-yalc/jobs": ["./jobs/src"],
-                                          "@node-yalc/jobs/*": ["./jobs/src/*"],
-                                          "@node-yalc/kernel": ["./kernel/src"],
-                                          "@node-yalc/kernel/*": ["./kernel/src/*"],
-                                          "@node-yalc/resilience": ["./resilience/src"],
-                                          "@node-yalc/resilience/*": ["./resilience/src/*"],
-                                          "@node-yalc/security": ["./security/src"],
-                                          "@node-yalc/security/*": ["./security/src/*"],
-                                          "@node-yalc/selftest": ["./selftest/src"],
-                                          "@node-yalc/selftest/*": ["./selftest/src/*"],
-                                          "@node-yalc/storage": ["./storage/src"],
-                                          "@node-yalc/storage/*": ["./storage/src/*"],
-                                          "@node-yalc/tracing": ["./tracing/src"],
-                                          "@node-yalc/tracing/*": ["./tracing/src/*"],
-                                          "@node-yalc/transports": ["./transports/src"],
-                                          "@node-yalc/transports/*": ["./transports/src/*"]
-                                      },
-                            "outDir":  "./dist"
-                        },
-    "include":  [
-                    "**/src/**/*.ts"
-                ],
-    "exclude":  [
-                    "**/node_modules",
-                    "**/*spec.ts",
-                    "**/__tests__",
-                    "**/__mocks__",
-                    "dist",
-                    "**/dist"
-                ]
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "ignoreDeprecations": "6.0",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "useDefineForClassFields": false,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "target": "es2022",
+    "lib": [
+      "es2022",
+      "dom"
+    ],
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "paths": {
+      "@node-yalc/interfaces": [
+        "./interfaces/src/index.js"
+      ],
+      "@node-yalc/interfaces/*": [
+        "./interfaces/src/*"
+      ],
+      "@node-yalc/logger": [
+        "./logger/src/index.js"
+      ],
+      "@node-yalc/logger/*": [
+        "./logger/src/*"
+      ],
+      "@node-yalc/utils": [
+        "./utils/src/index.js"
+      ],
+      "@node-yalc/utils/*": [
+        "./utils/src/*"
+      ],
+      "@node-yalc/types": [
+        "./types/src/index.js"
+      ],
+      "@node-yalc/types/*": [
+        "./types/src/*"
+      ],
+      "@node-yalc/types-extends": [
+        "./types-extends/src/index.js"
+      ],
+      "@node-yalc/types-extends/*": [
+        "./types-extends/src/*"
+      ],
+      "@node-yalc/errors": [
+        "./errors/src/index.js"
+      ],
+      "@node-yalc/errors/*": [
+        "./errors/src/*"
+      ],
+      "@node-yalc/event-manager": [
+        "./event-manager/src/index.js"
+      ],
+      "@node-yalc/event-manager/*": [
+        "./event-manager/src/*"
+      ],
+      "@node-yalc/common": [
+        "./common/src/index.js"
+      ],
+      "@node-yalc/common/*": [
+        "./common/src/*"
+      ],
+      "@node-yalc/aws-helpers": [
+        "./aws-helpers/src/index.js"
+      ],
+      "@node-yalc/aws-helpers/*": [
+        "./aws-helpers/src/*"
+      ],
+      "@node-yalc/auth": [
+        "./auth/src/index.js"
+      ],
+      "@node-yalc/auth/*": [
+        "./auth/src/*"
+      ],
+      "@node-yalc/config": [
+        "./config/src/index.js"
+      ],
+      "@node-yalc/config/*": [
+        "./config/src/*"
+      ],
+      "@node-yalc/cqrs": [
+        "./cqrs/src/index.js"
+      ],
+      "@node-yalc/cqrs/*": [
+        "./cqrs/src/*"
+      ],
+      "@node-yalc/datagrid": [
+        "./datagrid/src/index.js"
+      ],
+      "@node-yalc/datagrid/*": [
+        "./datagrid/src/*"
+      ],
+      "@node-yalc/guards": [
+        "./guards/src/index.js"
+      ],
+      "@node-yalc/guards/*": [
+        "./guards/src/*"
+      ],
+      "@node-yalc/i18n": [
+        "./i18n/src/index.js"
+      ],
+      "@node-yalc/i18n/*": [
+        "./i18n/src/*"
+      ],
+      "@node-yalc/jobs": [
+        "./jobs/src/index.js"
+      ],
+      "@node-yalc/jobs/*": [
+        "./jobs/src/*"
+      ],
+      "@node-yalc/kernel": [
+        "./kernel/src/index.js"
+      ],
+      "@node-yalc/kernel/*": [
+        "./kernel/src/*"
+      ],
+      "@node-yalc/resilience": [
+        "./resilience/src/index.js"
+      ],
+      "@node-yalc/resilience/*": [
+        "./resilience/src/*"
+      ],
+      "@node-yalc/security": [
+        "./security/src/index.js"
+      ],
+      "@node-yalc/security/*": [
+        "./security/src/*"
+      ],
+      "@node-yalc/selftest": [
+        "./selftest/src/index.js"
+      ],
+      "@node-yalc/selftest/*": [
+        "./selftest/src/*"
+      ],
+      "@node-yalc/storage": [
+        "./storage/src/index.js"
+      ],
+      "@node-yalc/storage/*": [
+        "./storage/src/*"
+      ],
+      "@node-yalc/tracing": [
+        "./tracing/src/index.js"
+      ],
+      "@node-yalc/tracing/*": [
+        "./tracing/src/*"
+      ],
+      "@node-yalc/transports": [
+        "./transports/src/index.js"
+      ],
+      "@node-yalc/transports/*": [
+        "./transports/src/*"
+      ]
+    },
+    "outDir": "./dist"
+  },
+  "include": [
+    "**/src/**/*.ts"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/*spec.ts",
+    "**/__tests__",
+    "**/__mocks__",
+    "dist",
+    "**/dist"
+  ]
 }

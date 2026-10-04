@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.runLambdaCliOperation = runLambdaCliOperation;
-async function runLambdaCliOperation(method, message) {
+export async function runLambdaCliOperation(method, message) {
     try {
         await method();
     }

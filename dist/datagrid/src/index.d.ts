@@ -1,1 +1,1 @@
-export * from './datagrid-crud';
+export * from './datagrid-crud.js';

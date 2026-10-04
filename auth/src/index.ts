@@ -1,2 +1,2 @@
-export * from './paseto-auth.service';
-export * from './totp-auth.service';
+export * from './paseto-auth.service.js';
+export * from './totp-auth.service.js';

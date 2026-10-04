@@ -1,5 +1,2 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./storage-engine"), exports);
+export * from './storage-engine.js';
 //# sourceMappingURL=index.js.map

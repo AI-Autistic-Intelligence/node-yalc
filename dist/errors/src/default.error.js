@@ -1,25 +1,17 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.errorToDefaultError = exports.DefaultError = exports.DefaultErrorMixin = exports.newDefaultError = exports.ON_DEFAULT_ERROR_EVENT = void 0;
-exports.formatCause = formatCause;
-exports.DefaultErrorBase = DefaultErrorBase;
-exports.isDefaultErrorMixin = isDefaultErrorMixin;
-exports.isDefaultErrorMixinClass = isDefaultErrorMixinClass;
-const global_emitter_js_1 = require("../../event-manager/src/global-emitter.js");
-const logger_factory_js_1 = require("../../logger/src/logger.factory.js");
-const logger_helper_js_1 = require("../../logger/src/logger.helper.js");
-const http_helper_js_1 = require("../../utils/src/http.helper.js");
-const http_exception_js_1 = require("./http.exception.js");
-const http_status_enum_js_1 = require("./http-status.enum.js");
-const error_enum_js_1 = require("./error.enum.js");
-const object_helper_js_1 = require("../../utils/src/object.helper.js");
-const class_helper_js_1 = require("../../utils/src/class.helper.js");
-exports.ON_DEFAULT_ERROR_EVENT = 'onDefaultError';
-const newDefaultError = (base, options, ...args) => {
-    return new ((0, exports.DefaultErrorMixin)(base))(options, ...args);
+import { getYalcGlobalEventEmitter } from '../../event-manager/src/global-emitter.js';
+import { AppLoggerFactory } from '../../logger/src/logger.factory.js';
+import { maskDataInObject } from '../../logger/src/logger.helper.js';
+import { getHttpStatusDescription } from '../../utils/src/http.helper.js';
+import { HttpException } from './http.exception.js';
+import { HttpStatus } from './http-status.enum.js';
+import { getHttpStatusNameByCode } from './error.enum.js';
+import { deepMergeWithoutArrayConcat } from '../../utils/src/object.helper.js';
+import { isClass } from '../../utils/src/class.helper.js';
+export const ON_DEFAULT_ERROR_EVENT = 'onDefaultError';
+export const newDefaultError = (base, options, ...args) => {
+    return new (DefaultErrorMixin(base))(options, ...args);
 };
-exports.newDefaultError = newDefaultError;
-function formatCause(error) {
+export function formatCause(error) {
     if (!error) {
         return undefined;
     }
@@ -31,10 +23,10 @@ function formatCause(error) {
         cause: undefined,
     };
 }
-const DefaultErrorMixin = (base) => {
-    const BaseClass = base ?? http_exception_js_1.HttpException;
+export const DefaultErrorMixin = (base) => {
+    const BaseClass = base ?? HttpException;
     class _AbstractDefaultError extends BaseClass {
-        static { this.defaultStatusCode = http_status_enum_js_1.HttpStatus.INTERNAL_SERVER_ERROR; }
+        static { this.defaultStatusCode = HttpStatus.INTERNAL_SERVER_ERROR; }
         constructor(options, ...args) {
             super(...args);
             this.__DefaultErrorMixin = Object.freeze(true);
@@ -46,17 +38,17 @@ const DefaultErrorMixin = (base) => {
                     : { instance: undefined, level: undefined };
                 let defaultLevel = 'log';
                 const statusCode = this.getStatus();
-                if (statusCode >= http_status_enum_js_1.HttpStatus.INTERNAL_SERVER_ERROR) {
+                if (statusCode >= HttpStatus.INTERNAL_SERVER_ERROR) {
                     defaultLevel = 'error';
                 }
-                else if (statusCode === http_status_enum_js_1.HttpStatus.TOO_MANY_REQUESTS) {
+                else if (statusCode === HttpStatus.TOO_MANY_REQUESTS) {
                     defaultLevel = 'warn';
                 }
-                else if (statusCode >= http_status_enum_js_1.HttpStatus.BAD_REQUEST) {
+                else if (statusCode >= HttpStatus.BAD_REQUEST) {
                     defaultLevel = 'log';
                 }
                 this.logger = {
-                    instance: instance ?? (0, logger_factory_js_1.AppLoggerFactory)('DefaultError'),
+                    instance: instance ?? AppLoggerFactory('DefaultError'),
                     level: level ?? defaultLevel,
                 };
                 if (this.logger.level === 'error') {
@@ -73,10 +65,10 @@ const DefaultErrorMixin = (base) => {
                 }
             }
             const eventEmitter = options.eventEmitter === true || options.eventEmitter === undefined
-                ? (0, global_emitter_js_1.getYalcGlobalEventEmitter)()
+                ? getYalcGlobalEventEmitter()
                 : options.eventEmitter;
             if (eventEmitter !== false) {
-                this.eventName ??= exports.ON_DEFAULT_ERROR_EVENT;
+                this.eventName ??= ON_DEFAULT_ERROR_EVENT;
                 this.eventEmitter = eventEmitter;
                 this.eventEmitter.emit(this.eventName, {
                     ...this.eventPayload,
@@ -91,10 +83,10 @@ const DefaultErrorMixin = (base) => {
             this.internalMessage = options.internalMessage ?? this.cause?.message;
             this.eventName = options.eventName;
             this.description =
-                options.description ?? (0, http_helper_js_1.getHttpStatusDescription)(errorCode);
+                options.description ?? getHttpStatusDescription(errorCode);
             this.betterResponse = _AbstractDefaultError.buildResponse(this.message, this.description, errorCode, options?.response ?? super.getResponse());
             this.data = options.masks
-                ? (0, logger_helper_js_1.maskDataInObject)(options.data, options.masks)
+                ? maskDataInObject(options.data, options.masks)
                 : options.data;
             const cause = this.cause;
             const payload = {
@@ -119,7 +111,7 @@ const DefaultErrorMixin = (base) => {
             if (eventName)
                 this.eventName = eventName;
             if (data)
-                this.data = (0, object_helper_js_1.deepMergeWithoutArrayConcat)(this.data ?? {}, data);
+                this.data = deepMergeWithoutArrayConcat(this.data ?? {}, data);
             if (stack)
                 this.resolvedStack = stack;
             if (cause) {
@@ -168,7 +160,7 @@ const DefaultErrorMixin = (base) => {
             else {
                 responseObj = response;
             }
-            const baseBody = http_exception_js_1.HttpException.createBody(message, (0, error_enum_js_1.getHttpStatusNameByCode)(statusCode), statusCode);
+            const baseBody = HttpException.createBody(message, getHttpStatusNameByCode(statusCode), statusCode);
             return {
                 statusCodeDescription: codeDescription,
                 ...baseBody,
@@ -179,27 +171,25 @@ const DefaultErrorMixin = (base) => {
     }
     return _AbstractDefaultError;
 };
-exports.DefaultErrorMixin = DefaultErrorMixin;
-function DefaultErrorBase(base) {
-    return class extends (0, exports.DefaultErrorMixin)(base ?? http_exception_js_1.HttpException) {
-        static { this.defaultStatusCode = http_status_enum_js_1.HttpStatus.INTERNAL_SERVER_ERROR; }
+export function DefaultErrorBase(base) {
+    return class extends DefaultErrorMixin(base ?? HttpException) {
+        static { this.defaultStatusCode = HttpStatus.INTERNAL_SERVER_ERROR; }
         constructor(internalMessage, options, ...args) {
             super({ ...(options ?? {}), internalMessage }, ...args);
         }
     };
 }
-class DefaultError extends DefaultErrorBase(http_exception_js_1.HttpException) {
-    static { this.defaultStatusCode = http_status_enum_js_1.HttpStatus.INTERNAL_SERVER_ERROR; }
+export class DefaultError extends DefaultErrorBase(HttpException) {
+    static { this.defaultStatusCode = HttpStatus.INTERNAL_SERVER_ERROR; }
     constructor(internalMessage, options) {
         const { description, cause, response, errorCode, ...defaultOptions } = options ?? {};
-        super(internalMessage, { ...defaultOptions, description }, response ?? {}, errorCode ?? http_status_enum_js_1.HttpStatus.INTERNAL_SERVER_ERROR, {
+        super(internalMessage, { ...defaultOptions, description }, response ?? {}, errorCode ?? HttpStatus.INTERNAL_SERVER_ERROR, {
             description,
             cause,
         });
     }
 }
-exports.DefaultError = DefaultError;
-const errorToDefaultError = (error, options = {}) => {
+export const errorToDefaultError = (error, options = {}) => {
     try {
         if (isDefaultErrorMixin(error)) {
             return error;
@@ -207,7 +197,7 @@ const errorToDefaultError = (error, options = {}) => {
     }
     catch (e) { }
     try {
-        if (error instanceof http_exception_js_1.HttpException) {
+        if (error instanceof HttpException) {
             JSON.stringify(error.cause);
             return new DefaultError(error.message, {
                 errorCode: error.getStatus(),
@@ -215,7 +205,7 @@ const errorToDefaultError = (error, options = {}) => {
                     message: error.getResponse().toString(),
                     error: error.name,
                     statusCode: error.getStatus(),
-                    statusCodeDescription: (0, http_helper_js_1.getHttpStatusDescription)(error.getStatus()),
+                    statusCodeDescription: getHttpStatusDescription(error.getStatus()),
                 },
                 stack: error.stack,
                 cause: error.cause,
@@ -266,12 +256,11 @@ const errorToDefaultError = (error, options = {}) => {
         ...options,
     });
 };
-exports.errorToDefaultError = errorToDefaultError;
-function isDefaultErrorMixin(error) {
+export function isDefaultErrorMixin(error) {
     return error.__DefaultErrorMixin !== undefined;
 }
-function isDefaultErrorMixinClass(error) {
-    return ((0, class_helper_js_1.isClass)(error) &&
+export function isDefaultErrorMixinClass(error) {
+    return (isClass(error) &&
         error.defaultStatusCode !== undefined);
 }
 //# sourceMappingURL=default.error.js.map

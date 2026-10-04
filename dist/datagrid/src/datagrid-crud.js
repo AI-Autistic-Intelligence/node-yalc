@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.FerroxCrudGenerator = exports.FerroxDataGridEngine = void 0;
-class FerroxDataGridEngine {
+export class FerroxDataGridEngine {
     static paginate(items, request) {
         const page = Math.max(1, request.page || 1);
         const pageSize = Math.max(1, request.pageSize || 10);
@@ -34,8 +31,7 @@ class FerroxDataGridEngine {
         };
     }
 }
-exports.FerroxDataGridEngine = FerroxDataGridEngine;
-class FerroxCrudGenerator {
+export class FerroxCrudGenerator {
     static createCrudRoutes(entityName, repository) {
         const basePath = `/api/v1/${entityName.toLowerCase()}s`;
         return [
@@ -70,5 +66,4 @@ class FerroxCrudGenerator {
         ];
     }
 }
-exports.FerroxCrudGenerator = FerroxCrudGenerator;
 //# sourceMappingURL=datagrid-crud.js.map

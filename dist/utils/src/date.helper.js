@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.DateHelper = void 0;
-class DateHelper {
+export class DateHelper {
     static getWeekEdgeDates() {
         const currentDate = Date.now();
         const weekInMs = 1000 * 60 * 60 * 24 * 7;
@@ -43,5 +40,4 @@ class DateHelper {
             .replace(/\./g, '');
     }
 }
-exports.DateHelper = DateHelper;
 //# sourceMappingURL=date.helper.js.map

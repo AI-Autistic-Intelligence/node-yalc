@@ -1,1 +1,1 @@
-export * from './cqrs-saga';
+export * from './cqrs-saga.js';

@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.commandWithErrors = void 0;
-const commandWithErrors = (command) => {
+export const commandWithErrors = (command) => {
     return async (...args) => {
         try {
             await command(...args);
@@ -12,5 +9,4 @@ const commandWithErrors = (command) => {
         }
     };
 };
-exports.commandWithErrors = commandWithErrors;
 //# sourceMappingURL=command.helper.js.map

@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-tslib_1.__exportStar(require("./event.service.js"), exports);
-tslib_1.__exportStar(require("./emitter.js"), exports);
-tslib_1.__exportStar(require("./event.js"), exports);
-tslib_1.__exportStar(require("./global-emitter.js"), exports);
-tslib_1.__exportStar(require("./event-result.types.js"), exports);
-tslib_1.__exportStar(require("./event.helper.js"), exports);
+export * from './event.service.js';
+export * from './emitter.js';
+export * from './event.js';
+export * from './global-emitter.js';
+export * from './event-result.types.js';
+export * from './event.helper.js';
 //# sourceMappingURL=index.js.map

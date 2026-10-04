@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.WithPluginSystem = WithPluginSystem;
 class DefaultBase {
 }
-function WithPluginSystem(Base = DefaultBase) {
+export function WithPluginSystem(Base = DefaultBase) {
     class PluginSystemWrapper extends Base {
         constructor() {
             super(...arguments);

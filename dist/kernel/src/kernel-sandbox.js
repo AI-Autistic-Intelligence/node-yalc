@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.KernelSandboxEngine = void 0;
-class KernelSandboxEngine {
+export class KernelSandboxEngine {
     generateSeccompBpfPolicy() {
         const rules = [
             { name: 'read', action: 'SCMP_ACT_ALLOW' },
@@ -54,5 +51,4 @@ class KernelSandboxEngine {
         ].join('\n');
     }
 }
-exports.KernelSandboxEngine = KernelSandboxEngine;
 //# sourceMappingURL=kernel-sandbox.js.map

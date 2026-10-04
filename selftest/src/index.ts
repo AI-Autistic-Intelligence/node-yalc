@@ -1,1 +1,1 @@
-export * from './selftest-engine';
+export * from './selftest-engine.js';

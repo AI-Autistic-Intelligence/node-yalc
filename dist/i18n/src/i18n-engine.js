@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.I18nEngine = void 0;
-class I18nEngine {
+export class I18nEngine {
     constructor(defaultLocale = 'en') {
         this.translations = new Map();
         this.defaultLocale = defaultLocale;
@@ -26,5 +23,4 @@ class I18nEngine {
         return template;
     }
 }
-exports.I18nEngine = I18nEngine;
 //# sourceMappingURL=i18n-engine.js.map

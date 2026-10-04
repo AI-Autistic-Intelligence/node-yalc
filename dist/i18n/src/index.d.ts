@@ -1,1 +1,1 @@
-export * from './i18n-engine';
+export * from './i18n-engine.js';

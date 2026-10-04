@@ -1,14 +1,23 @@
 {
-    "name": "@node-yalc/types",
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "files": [
-        "dist",
-        "src"
-    ],
-    "version": "0.1.7",
-    "description": "Type definitions for nestjs yalc",
-    "author": "Yehonal",
-    "scripts": {},
-    "type": "module"
+  "name": "@node-yalc/types",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "version": "0.1.8",
+  "description": "Type definitions for nestjs yalc",
+  "author": "Autistic_Intelligence",
+  "scripts": {},
+  "type": "module",
+  "keywords": [
+    "yalc",
+    "node",
+    "nestjs"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*"
+  }
 }

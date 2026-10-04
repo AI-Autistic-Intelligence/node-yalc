@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.FerroxSelfTestEngine = void 0;
-class FerroxSelfTestEngine {
+export class FerroxSelfTestEngine {
     runDiagnosticAudit() {
         const results = [
             {
@@ -67,5 +64,4 @@ class FerroxSelfTestEngine {
         };
     }
 }
-exports.FerroxSelfTestEngine = FerroxSelfTestEngine;
 //# sourceMappingURL=selftest-engine.js.map
