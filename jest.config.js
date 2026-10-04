@@ -12,7 +12,7 @@ const aliasMapper = pathsToModuleNameMapper(paths, { prefix: '<rootDir>/' });
 
 module.exports = {
   testEnvironment: 'node',
-  transformIgnorePatterns: ['node_modules/(?!(p-map|lodash-es|@faker-js)/)'],
+  transformIgnorePatterns: ['node_modules/(?!.*(?:p-map|lodash-es|@faker-js))'],
   moduleNameMapper: {
     ...aliasMapper,
     '^(\\.{1,2}/.*)\\.js$': '$1',

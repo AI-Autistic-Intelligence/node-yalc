@@ -1,0 +1,25 @@
+packages:
+  - types
+  - interfaces
+  - types-extends
+  - logger
+  - utils
+  - errors
+  - event-manager
+  - common
+  - aws-helpers
+  - auth
+  - config
+  - cqrs
+  - datagrid
+  - guards
+  - i18n
+  - jobs
+  - kernel
+  - resilience
+  - security
+  - selftest
+  - storage
+  - tracing
+  - transports
+  - database
