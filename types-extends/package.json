@@ -6,10 +6,16 @@
     "src"
   ],
   "exports": {
-    ".": "./dist/index.js",
-    "./*": "./dist/*"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*"
+    }
   },
-  "version": "0.1.10",
+  "version": "0.1.7",
   "description": "Type definitions to extend modules",
   "author": "Autistic_Intelligence",
   "dependencies": {
@@ -20,8 +26,8 @@
   "type": "module",
   "keywords": [
     "node",
-    "yalc",
+    "utilities",
     "typescript",
-    "types extends"
+    "types-extends"
   ]
 }

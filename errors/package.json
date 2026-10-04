@@ -1,11 +1,17 @@
 {
   "name": "@node-yalc/errors",
-  "version": "0.1.11",
+  "version": "0.1.7",
   "description": "Errors",
   "main": "./dist/index.js",
   "exports": {
-    ".": "./dist/index.js",
-    "./*": "./dist/*"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*"
+    }
   },
   "scripts": {},
   "author": "Autistic_Intelligence",
@@ -26,10 +32,8 @@
   "type": "module",
   "keywords": [
     "node",
-    "yalc",
+    "utilities",
     "typescript",
-    "errors",
-    "error-handling",
-    "exceptions"
+    "errors"
   ]
 }

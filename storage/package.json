@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/storage",
-  "version": "0.0.7",
+  "version": "0.1.7",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -12,14 +12,18 @@
   "description": "Yalc Node module",
   "keywords": [
     "node",
-    "yalc",
+    "utilities",
     "typescript",
-    "storage",
-    "s3",
-    "files"
+    "storage"
   ],
   "exports": {
-    ".": "./dist/index.js",
-    "./*": "./dist/*"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*"
+    }
   }
 }

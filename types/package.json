@@ -6,19 +6,25 @@
     "dist",
     "src"
   ],
-  "version": "0.1.10",
+  "version": "0.1.7",
   "description": "Type definitions for nestjs yalc",
   "author": "Autistic_Intelligence",
   "scripts": {},
   "type": "module",
   "keywords": [
     "node",
-    "yalc",
+    "utilities",
     "typescript",
     "types"
   ],
   "exports": {
-    ".": "./dist/index.js",
-    "./*": "./dist/*"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*"
+    }
   }
 }
