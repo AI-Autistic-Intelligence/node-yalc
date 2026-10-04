@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/common",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Common interfaces and abstractions for Yalc frameworks",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
