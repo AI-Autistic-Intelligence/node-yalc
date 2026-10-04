@@ -14,7 +14,7 @@
     "config",
     "security"
   ],
-  "private": true,
+  "private": false,
   "workspaces": [
     "types",
     "interfaces",
