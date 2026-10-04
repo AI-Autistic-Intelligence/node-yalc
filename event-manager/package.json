@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/event-manager",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Yalc Node module",
   "main": "./dist/index.js",
   "exports": {
@@ -22,10 +22,10 @@
     "src"
   ],
   "dependencies": {
-    "@node-yalc/errors": "*",
-    "@node-yalc/logger": "*",
-    "@node-yalc/types": "*",
-    "@node-yalc/utils": "*",
+    "@node-yalc/errors": "workspace:*",
+    "@node-yalc/logger": "workspace:*",
+    "@node-yalc/types": "workspace:*",
+    "@node-yalc/utils": "workspace:*",
     "eventemitter2": "^6.4.9",
     "neverthrow": "^8.2.0"
   },
