@@ -15,11 +15,11 @@
       "default": "./dist/*"
     }
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Type definitions to extend modules",
   "author": "Autistic_Intelligence",
   "dependencies": {
-    "tslib": "^2.6.3"
+    "tslib": "^2.8.1"
   },
   "scripts": {},
   "main": "./dist/index.js",

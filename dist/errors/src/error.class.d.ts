@@ -3,6 +3,10 @@ import { HttpStatus } from './http-status.enum.js';
 import { IDefaultErrorBaseOptions } from './default.error.js';
 export declare function createHttpException(status: number): {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -10,18 +14,18 @@ export declare function createHttpException(status: number): {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 declare const BadRequestException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -29,20 +33,20 @@ declare const BadRequestException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class BadRequestException extends BadRequestException_base {
 }
 declare const UnauthorizedException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -50,20 +54,20 @@ declare const UnauthorizedException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class UnauthorizedException extends UnauthorizedException_base {
 }
 declare const ForbiddenException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -71,20 +75,20 @@ declare const ForbiddenException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class ForbiddenException extends ForbiddenException_base {
 }
 declare const NotFoundException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -92,20 +96,20 @@ declare const NotFoundException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class NotFoundException extends NotFoundException_base {
 }
 declare const ConflictException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -113,20 +117,20 @@ declare const ConflictException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class ConflictException extends ConflictException_base {
 }
 declare const InternalServerErrorException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -134,20 +138,20 @@ declare const InternalServerErrorException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class InternalServerErrorException extends InternalServerErrorException_base {
 }
 declare const MethodNotAllowedException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -155,20 +159,20 @@ declare const MethodNotAllowedException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class MethodNotAllowedException extends MethodNotAllowedException_base {
 }
 declare const NotAcceptableException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -176,20 +180,20 @@ declare const NotAcceptableException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class NotAcceptableException extends NotAcceptableException_base {
 }
 declare const GoneException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -197,20 +201,20 @@ declare const GoneException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class GoneException extends GoneException_base {
 }
 declare const UnsupportedMediaTypeException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -218,20 +222,20 @@ declare const UnsupportedMediaTypeException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class UnsupportedMediaTypeException extends UnsupportedMediaTypeException_base {
 }
 declare const UnprocessableEntityException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -239,20 +243,20 @@ declare const UnprocessableEntityException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class UnprocessableEntityException extends UnprocessableEntityException_base {
 }
 declare const NotImplementedException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -260,20 +264,20 @@ declare const NotImplementedException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class NotImplementedException extends NotImplementedException_base {
 }
 declare const BadGatewayException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -281,20 +285,20 @@ declare const BadGatewayException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class BadGatewayException extends BadGatewayException_base {
 }
 declare const ServiceUnavailableException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -302,20 +306,20 @@ declare const ServiceUnavailableException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class ServiceUnavailableException extends ServiceUnavailableException_base {
 }
 declare const GatewayTimeoutException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -323,20 +327,20 @@ declare const GatewayTimeoutException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class GatewayTimeoutException extends GatewayTimeoutException_base {
 }
 declare const MisdirectedException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -344,20 +348,20 @@ declare const MisdirectedException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class MisdirectedException extends MisdirectedException_base {
 }
 declare const PayloadTooLargeException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -365,20 +369,20 @@ declare const PayloadTooLargeException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class PayloadTooLargeException extends PayloadTooLargeException_base {
 }
 declare const PreconditionFailedException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -386,20 +390,20 @@ declare const PreconditionFailedException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class PreconditionFailedException extends PreconditionFailedException_base {
 }
 declare const RequestTimeoutException_base: {
     new (objectOrError?: string | object | any, descriptionOrOptions?: string | HttpExceptionOptions): {
+        name: string;
+        message: string;
+        stack?: string;
+        cause?: unknown;
         readonly response: string | Record<string, any>;
         readonly status: number;
         readonly options?: Record<string, any>;
@@ -407,15 +411,11 @@ declare const RequestTimeoutException_base: {
         initName(): void;
         getResponse(): string | object;
         getStatus(): number;
-        name: string;
-        message: string;
-        stack?: string;
-        cause?: unknown;
     };
-    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
     captureStackTrace(targetObject: object, constructorOpt?: Function): void;
     prepareStackTrace(err: Error, stackTraces: NodeJS.CallSite[]): any;
     stackTraceLimit: number;
+    createBody(objectOrError: object | string, description?: string, statusCode?: number): object;
 };
 export declare class RequestTimeoutException extends RequestTimeoutException_base {
 }

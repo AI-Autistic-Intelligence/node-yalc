@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/errors",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Errors",
   "main": "./dist/index.js",
   "exports": {
@@ -24,10 +24,10 @@
   "dependencies": {
     "@node-yalc/logger": "*",
     "@node-yalc/utils": "*",
-    "axios": "^1.15.0",
+    "axios": "^1.20.0",
     "eventemitter2": "^6.4.9",
     "neverthrow": "^8.2.0",
-    "tslib": "^2.6.3"
+    "tslib": "^2.8.1"
   },
   "type": "module",
   "keywords": [

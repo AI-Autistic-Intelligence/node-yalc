@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/event-manager",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Yalc Node module",
   "main": "./dist/index.js",
   "exports": {
@@ -30,8 +30,8 @@
     "neverthrow": "^8.2.0"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
-    "typescript": "^5.0.0"
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
   },
   "type": "module",
   "keywords": [

@@ -16,8 +16,8 @@ export declare function injectTrace<T extends IEventOptions>(options?: T): T | u
 export declare class YalcEventService<TFormatter extends EventNameFormatter = EventNameFormatter, TEventOptions extends IEventOptions<TFormatter> = IEventOptions<TFormatter>, TErrorOptions extends IErrorEventOptions<TFormatter> = IErrorEventOptions<TFormatter>> {
     protected readonly loggerService: ImprovedLoggerService;
     protected readonly eventEmitter: EventEmitter2;
-    protected options?: any | undefined;
-    constructor(loggerService: ImprovedLoggerService, eventEmitter: EventEmitter2, options?: any | undefined);
+    protected options?: any;
+    constructor(loggerService: ImprovedLoggerService, eventEmitter: EventEmitter2, options?: any);
     get logger(): ImprovedLoggerService;
     get emitter(): EventEmitter2;
     emit: (eventName: Parameters<TFormatter> | string, options?: TEventOptions) => any;
@@ -90,7 +90,7 @@ export declare class YalcEventService<TFormatter extends EventNameFormatter = Ev
     errorGatewayTimeout(eventName: Parameters<TFormatter> | string, options?: IErrorBasedMethodOptions<TErrorOptions>): any;
     errorGatewayTimeoutResult(eventName: Parameters<TFormatter> | string, options?: IErrorBasedMethodOptions<TErrorOptions>): Err<never, GatewayTimeoutError>;
     errorGatewayTimeoutFromFn<T>(eventName: Parameters<TFormatter> | string, cb: () => PromiseLike<T> | T, options?: IErrorBasedMethodOptions<TErrorOptions>): PromiseResult<T, GatewayTimeoutError>;
-    protected getLoggerLevelByOptions(options: IErrorEventOptions<TFormatter>): "log" | "error" | "warn" | import("@node-yalc/logger").LogLevelEnum.LOG | import("@node-yalc/logger").LogLevelEnum.ERROR;
+    protected getLoggerLevelByOptions(options: IErrorEventOptions<TFormatter>): "error" | "log" | "warn" | import("@node-yalc/logger").LogLevelEnum.LOG | import("@node-yalc/logger").LogLevelEnum.ERROR;
     protected applyLoggerLevel<TOpt extends IEventOptions<TFormatter> | IErrorEventOptions<TFormatter>>(options: TOpt, level: LogLevel): TOpt;
     protected applyLoggerLevelByStatus<TOpts extends IErrorEventOptions<TFormatter>>(options: TOpts, error: DefaultError): TOpts;
     protected applyLoggerLevelByError<TOpts extends IErrorEventOptions<TFormatter> | IEventOptions<TFormatter>>(options: TOpts): TOpts;

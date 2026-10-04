@@ -1,5 +1,5 @@
 export type EventType = 'EventType';
-export declare const EventType: "EventType";
+export declare const EventType: 'EventType';
 export interface IUtilsProperties {
     base: string;
     all: string;

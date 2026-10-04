@@ -24,19 +24,19 @@ export declare class FerroxCrudGenerator {
         create: (item: Partial<T>) => Promise<T> | T;
         delete: (id: any) => Promise<boolean> | boolean;
     }): ({
-        method: "GET";
+        method: 'GET';
         path: string;
         handler: () => Promise<T[]>;
     } | {
-        method: "GET";
+        method: 'GET';
         path: string;
         handler: (req: any) => Promise<T>;
     } | {
-        method: "POST";
+        method: 'POST';
         path: string;
         handler: (req: any) => Promise<T>;
     } | {
-        method: "DELETE";
+        method: 'DELETE';
         path: string;
         handler: (req: any) => Promise<{
             success: boolean;
