@@ -157,4 +157,4 @@ Inspect the structured JSON log output:
 
 ## 7. Next Steps
 
-- Explore deep package documentation for [aws-helpers](packages/aws-helpers.md), [logger](packages/logger.md), and [utils](packages/utils.md).
+- Explore deep package documentation for aws-helpers, logger, and utils.
