@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/aws-helpers",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "Yalc Node module",
   "main": "./dist/index.js",
   "exports": {
