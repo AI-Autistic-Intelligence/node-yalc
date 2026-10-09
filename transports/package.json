@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/transports",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",

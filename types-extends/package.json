@@ -15,7 +15,7 @@
       "default": "./dist/*"
     }
   },
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Type definitions to extend modules",
   "author": "Autistic_Intelligence",
   "dependencies": {
