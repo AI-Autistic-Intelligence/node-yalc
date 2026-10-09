@@ -1,21 +1,7 @@
-<div align="center">
-  <h1>@node-yalc/jobs</h1>
-  <p><em>Yalc Node module</em></p>
-  
-  [![npm version](https://badge.fury.io/js/%40node-yalc%2Fjobs.svg)](https://badge.fury.io/js/%40node-yalc%2Fjobs)
-  [![License](https://img.shields.io/npm/l/%40node-yalc%2Fjobs.svg)](https://github.com/AI-Autistic-Intelligence)
-</div>
-
-## 🚀 Installation
-
-```bash
-npm install @node-yalc/jobs
-# or
-yarn add @node-yalc/jobs
-# or
-pnpm add @node-yalc/jobs
-```
-
+---
+id: jobs
+title: "@node-yalc/jobs"
+sidebar_position: 8
 ---
 
 # ⏱️ Background Jobs & SSE (`@node-yalc/jobs`)
@@ -134,11 +120,3 @@ export function sseStatusEndpoint(req, res) {
 > [!TIP]
 > **Pro-Tip: Graceful Shutdowns**
 > When your Node server receives a `SIGTERM`, ensure you block the process exit until the `queue` array is entirely empty to prevent terminating jobs mid-execution.
-
-
----
-## 📚 Ecosystem Documentation
-
-This module is a core component of the Ferrox enterprise microservice architecture. 
-
-👉 **[Read the Full Documentation on Ferrox-Rust.dev](https://ferrox-rust.dev/docs/node-yalc/fundamentals/jobs)**

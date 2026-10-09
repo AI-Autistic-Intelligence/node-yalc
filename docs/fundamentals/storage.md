@@ -1,21 +1,7 @@
-<div align="center">
-  <h1>@node-yalc/storage</h1>
-  <p><em>Yalc Node module</em></p>
-  
-  [![npm version](https://badge.fury.io/js/%40node-yalc%2Fstorage.svg)](https://badge.fury.io/js/%40node-yalc%2Fstorage)
-  [![License](https://img.shields.io/npm/l/%40node-yalc%2Fstorage.svg)](https://github.com/AI-Autistic-Intelligence)
-</div>
-
-## 🚀 Installation
-
-```bash
-npm install @node-yalc/storage
-# or
-yarn add @node-yalc/storage
-# or
-pnpm add @node-yalc/storage
-```
-
+---
+id: storage
+title: "@node-yalc/storage"
+sidebar_position: 9
 ---
 
 # 🗄️ Universal Storage Engine (`@node-yalc/storage`)
@@ -114,11 +100,3 @@ export async function downloadFile(req, res) {
 > [!TIP]
 > **Pro-Tip: Pre-Signed URLs for Private Assets**
 > Always keep your Cloud Buckets strictly private. If a user needs to view a PDF receipt, use `getPresignedUrl('receipt.pdf', 300)` to generate a URL that naturally expires in 5 minutes, preventing authorized users from sharing permanent links to private data.
-
-
----
-## 📚 Ecosystem Documentation
-
-This module is a core component of the Ferrox enterprise microservice architecture. 
-
-👉 **[Read the Full Documentation on Ferrox-Rust.dev](https://ferrox-rust.dev/docs/node-yalc/fundamentals/storage)**

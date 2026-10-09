@@ -1,21 +1,7 @@
-<div align="center">
-  <h1>@node-yalc/tracing</h1>
-  <p><em>Yalc Node module</em></p>
-  
-  [![npm version](https://badge.fury.io/js/%40node-yalc%2Ftracing.svg)](https://badge.fury.io/js/%40node-yalc%2Ftracing)
-  [![License](https://img.shields.io/npm/l/%40node-yalc%2Ftracing.svg)](https://github.com/AI-Autistic-Intelligence)
-</div>
-
-## 🚀 Installation
-
-```bash
-npm install @node-yalc/tracing
-# or
-yarn add @node-yalc/tracing
-# or
-pnpm add @node-yalc/tracing
-```
-
+---
+id: tracing
+title: "@node-yalc/tracing"
+sidebar_position: 2
 ---
 
 # 🔍 Distributed Tracing & Logging (`@node-yalc/tracing`)
@@ -129,11 +115,3 @@ async function callInventoryService(req) {
 > [!TIP]
 > **Pro-Tip: AsyncLocalStorage Integration**
 > Manually passing `req.traceContext` down through 10 layers of nested functions is tedious. Instead, leverage Node's `AsyncLocalStorage` in your middleware to store the `TraceContext`. You can then retrieve the `traceId` anywhere in the call stack globally, automatically injecting it into every database call or outgoing HTTP request.
-
-
----
-## 📚 Ecosystem Documentation
-
-This module is a core component of the Ferrox enterprise microservice architecture. 
-
-👉 **[Read the Full Documentation on Ferrox-Rust.dev](https://ferrox-rust.dev/docs/node-yalc/observability/tracing)**

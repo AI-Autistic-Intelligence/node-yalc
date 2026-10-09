@@ -1,21 +1,7 @@
-<div align="center">
-  <h1>@node-yalc/selftest</h1>
-  <p><em>Yalc Node module</em></p>
-  
-  [![npm version](https://badge.fury.io/js/%40node-yalc%2Fselftest.svg)](https://badge.fury.io/js/%40node-yalc%2Fselftest)
-  [![License](https://img.shields.io/npm/l/%40node-yalc%2Fselftest.svg)](https://github.com/AI-Autistic-Intelligence)
-</div>
-
-## 🚀 Installation
-
-```bash
-npm install @node-yalc/selftest
-# or
-yarn add @node-yalc/selftest
-# or
-pnpm add @node-yalc/selftest
-```
-
+---
+id: selftest
+title: "@node-yalc/selftest"
+sidebar_position: 5
 ---
 
 # 🩺 Diagnostics & Red-Team Audit (`@node-yalc/selftest`)
@@ -119,11 +105,3 @@ export function securityHealthEndpoint(req, res) {
 > [!TIP]
 > **Pro-Tip: Integrating with CI/CD Pipelines**
 > Write a Jest test suite that instantiates `FerroxSelfTestEngine` and asserts `expect(overallScore).toBe(100)`. This guarantees that nobody accidentally disables a critical security module during a pull request, as the CI build will fail automatically.
-
-
----
-## 📚 Ecosystem Documentation
-
-This module is a core component of the Ferrox enterprise microservice architecture. 
-
-👉 **[Read the Full Documentation on Ferrox-Rust.dev](https://ferrox-rust.dev/docs/node-yalc/security/selftest)**

@@ -1,21 +1,7 @@
-<div align="center">
-  <h1>@node-yalc/guards</h1>
-  <p><em>Yalc Node module</em></p>
-  
-  [![npm version](https://badge.fury.io/js/%40node-yalc%2Fguards.svg)](https://badge.fury.io/js/%40node-yalc%2Fguards)
-  [![License](https://img.shields.io/npm/l/%40node-yalc%2Fguards.svg)](https://github.com/AI-Autistic-Intelligence)
-</div>
-
-## 🚀 Installation
-
-```bash
-npm install @node-yalc/guards
-# or
-yarn add @node-yalc/guards
-# or
-pnpm add @node-yalc/guards
-```
-
+---
+id: guards
+title: "@node-yalc/guards"
+sidebar_position: 2
 ---
 
 # 🛡️ Application Security Guards (`@node-yalc/guards`)
@@ -140,11 +126,3 @@ export function adminRouteHandler(req: any, res: any) {
 > [!TIP]
 > **Pro-Tip: Integrating with NestJS-YALC**
 > In the `nestjs-yalc` monorepo, these pure Guards are extended by wrapping them inside NestJS's `@Injectable()` `CanActivate` interfaces. This allows you to leverage Nest's `@SetMetadata('roles', ['admin'])` reflector to dynamically pass `requiredRoles` to the `RbacGuard` engine constructor at runtime.
-
-
----
-## 📚 Ecosystem Documentation
-
-This module is a core component of the Ferrox enterprise microservice architecture. 
-
-👉 **[Read the Full Documentation on Ferrox-Rust.dev](https://ferrox-rust.dev/docs/node-yalc/security/guards)**

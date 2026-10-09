@@ -1,21 +1,7 @@
-<div align="center">
-  <h1>@node-yalc/cqrs</h1>
-  <p><em>Yalc Node module</em></p>
-  
-  [![npm version](https://badge.fury.io/js/%40node-yalc%2Fcqrs.svg)](https://badge.fury.io/js/%40node-yalc%2Fcqrs)
-  [![License](https://img.shields.io/npm/l/%40node-yalc%2Fcqrs.svg)](https://github.com/AI-Autistic-Intelligence)
-</div>
-
-## 🚀 Installation
-
-```bash
-npm install @node-yalc/cqrs
-# or
-yarn add @node-yalc/cqrs
-# or
-pnpm add @node-yalc/cqrs
-```
-
+---
+id: cqrs
+title: "@node-yalc/cqrs"
+sidebar_position: 2
 ---
 
 # 🏗️ CQRS & Saga Engine (`@node-yalc/cqrs`)
@@ -154,11 +140,3 @@ if (!result.success) {
 > [!TIP]
 > **Pro-Tip: CQRS in NestJS**
 > While this package provides the pure TS logic, when working within NestJS apps, you can easily wrap the `CqrsEngine` in a global Provider and inject it into your controllers, allowing you to use this fast, lightweight implementation instead of the bloated default NestJS CQRS module.
-
-
----
-## 📚 Ecosystem Documentation
-
-This module is a core component of the Ferrox enterprise microservice architecture. 
-
-👉 **[Read the Full Documentation on Ferrox-Rust.dev](https://ferrox-rust.dev/docs/node-yalc/architectures/cqrs)**

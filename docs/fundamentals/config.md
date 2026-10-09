@@ -1,21 +1,7 @@
-<div align="center">
-  <h1>@node-yalc/config</h1>
-  <p><em>Yalc Node module</em></p>
-  
-  [![npm version](https://badge.fury.io/js/%40node-yalc%2Fconfig.svg)](https://badge.fury.io/js/%40node-yalc%2Fconfig)
-  [![License](https://img.shields.io/npm/l/%40node-yalc%2Fconfig.svg)](https://github.com/AI-Autistic-Intelligence)
-</div>
-
-## 🚀 Installation
-
-```bash
-npm install @node-yalc/config
-# or
-yarn add @node-yalc/config
-# or
-pnpm add @node-yalc/config
-```
-
+---
+id: config
+title: "@node-yalc/config"
+sidebar_position: 5
 ---
 
 # ⚙️ Configuration Management (`@node-yalc/config`)
@@ -135,11 +121,3 @@ describe('MyService', () => {
 > [!TIP]
 > **Pro-Tip: Typings with Interfaces**
 > When retrieving highly nested or specific configuration interfaces, pass the interface type to `.get<MyConfigInterface>('APP_CONFIG')` to ensure your editor retains full intellisense auto-completion on the returned object from the memory store.
-
-
----
-## 📚 Ecosystem Documentation
-
-This module is a core component of the Ferrox enterprise microservice architecture. 
-
-👉 **[Read the Full Documentation on Ferrox-Rust.dev](https://ferrox-rust.dev/docs/node-yalc/fundamentals/config)**
