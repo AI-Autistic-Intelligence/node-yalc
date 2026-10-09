@@ -83,3 +83,14 @@ logger.info('User authenticated successfully', {
 
 > [!TIP]
 > **Local Development Formatting**: In local development, pipe JSON output into `pino-pretty` (`node app.js | npx pino-pretty`) for colorized logs without impacting production performance.
+
+
+---
+
+## 🔗 Cross-References
+
+To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
+
+- [Database & TypeORM](../../../nestjs-yalc/docs/databases/database.md)
+- [Event Manager](../architectures/event-manager.md)
+- [Observability & Logger](../../../nestjs-yalc/docs/observability/logger.md)

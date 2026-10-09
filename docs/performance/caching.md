@@ -90,3 +90,12 @@ async function getUserProfile(userId: string) {
 > [!TIP]
 > **Pro-Tip: Stale-While-Revalidate**
 > Enable the `staleWhileRevalidate` option on the `CacheManager`. This allows the system to serve slightly expired data to the user instantly, while silently refreshing the cache in the background, ensuring 0ms perceived latency!
+
+
+---
+
+## 🔗 Cross-References
+
+To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
+
+- [Database & TypeORM](../../../nestjs-yalc/docs/databases/database.md)

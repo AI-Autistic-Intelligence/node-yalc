@@ -83,3 +83,12 @@ await eventBus.publish('user.created', {
 
 > [!TIP]
 > **Domain Event Immutability**: Always freeze domain event payload objects before publishing (`Object.freeze(payload)`) to guarantee that subscribers cannot mutate the payload received by peer subscribers.
+
+
+---
+
+## 🔗 Cross-References
+
+To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
+
+- [Node-YALC Errors](../fundamentals/errors.md)

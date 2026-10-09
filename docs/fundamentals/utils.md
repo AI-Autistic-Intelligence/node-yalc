@@ -86,3 +86,14 @@ processUserQueue().catch(console.error);
 
 > [!TIP]
 > **Database Pool Sizing**: Set `concurrency` to match your database connection pool size (e.g. `concurrency: 10` for a Postgres connection pool of 10 connections) to maximize I/O throughput without queue wait times.
+
+
+---
+
+## 🔗 Cross-References
+
+To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
+
+- [Database & TypeORM](../../../nestjs-yalc/docs/databases/database.md)
+- [Event Manager](../architectures/event-manager.md)
+- [Node-YALC Errors](errors.md)

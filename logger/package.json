@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/logger",
-  "version": "0.3.0",
+  "version": "0.3.5",
   "description": "Yalc Node module",
   "main": "./dist/index.js",
   "exports": {

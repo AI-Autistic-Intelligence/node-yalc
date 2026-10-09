@@ -158,3 +158,14 @@ Inspect the structured JSON log output:
 ## 7. Next Steps
 
 - Explore deep package documentation for aws-helpers, logger, and utils.
+
+
+---
+
+## 🔗 Cross-References
+
+To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
+
+- [Database & TypeORM](../../../nestjs-yalc/docs/databases/database.md)
+- [Node-YALC Errors](../fundamentals/errors.md)
+- [Observability & Logger](../../../nestjs-yalc/docs/observability/logger.md)

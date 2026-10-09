@@ -1,7 +1,21 @@
----
-id: auth
-title: Authentication Utilities
-sidebar_position: 1
+<div align="center">
+  <h1>@node-yalc/auth</h1>
+  <p><em>Yalc Node module</em></p>
+  
+  [![npm version](https://badge.fury.io/js/%40node-yalc%2Fauth.svg)](https://badge.fury.io/js/%40node-yalc%2Fauth)
+  [![License](https://img.shields.io/npm/l/%40node-yalc%2Fauth.svg)](https://github.com/AI-Autistic-Intelligence)
+</div>
+
+## 🚀 Installation
+
+```bash
+npm install @node-yalc/auth
+# or
+yarn add @node-yalc/auth
+# or
+pnpm add @node-yalc/auth
+```
+
 ---
 
 # 🛡️ Authentication Utilities (`@yalc/security/auth`)
@@ -104,4 +118,12 @@ export async function authMiddleware(req: IncomingMessage, res: ServerResponse) 
 
 To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
 
-- [Node-YALC Errors](../fundamentals/errors.md)
+- [Node-YALC Errors](https://ferrox-rust.dev/docs/node-yalc/fundamentals/errors)
+
+
+---
+## 📚 Ecosystem Documentation
+
+This module is a core component of the Ferrox enterprise microservice architecture. 
+
+👉 **[Read the Full Documentation on Ferrox-Rust.dev](https://ferrox-rust.dev/docs/node-yalc/security/auth)**

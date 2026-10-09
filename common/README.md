@@ -1,7 +1,21 @@
----
-id: common
-title: Common Core Constants, Enumerations & Value Objects
-sidebar_position: 8
+<div align="center">
+  <h1>@node-yalc/common</h1>
+  <p><em>Common interfaces and abstractions for Yalc frameworks</em></p>
+  
+  [![npm version](https://badge.fury.io/js/%40node-yalc%2Fcommon.svg)](https://badge.fury.io/js/%40node-yalc%2Fcommon)
+  [![License](https://img.shields.io/npm/l/%40node-yalc%2Fcommon.svg)](https://github.com/AI-Autistic-Intelligence)
+</div>
+
+## 🚀 Installation
+
+```bash
+npm install @node-yalc/common
+# or
+yarn add @node-yalc/common
+# or
+pnpm add @node-yalc/common
+```
+
 ---
 
 # Common Core Constants, Enumerations & Value Objects
@@ -128,4 +142,12 @@ console.log(total.toCents()); // 5999
 
 To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
 
-- [Observability & Logger](../../../nestjs-yalc/docs/observability/logger.md)
+- [Observability & Logger](https://ferrox-rust.dev/docs/node-yalc/nestjs-yalc/docs/observability/logger)
+
+
+---
+## 📚 Ecosystem Documentation
+
+This module is a core component of the Ferrox enterprise microservice architecture. 
+
+👉 **[Read the Full Documentation on Ferrox-Rust.dev](https://ferrox-rust.dev/docs/node-yalc/fundamentals/common)**

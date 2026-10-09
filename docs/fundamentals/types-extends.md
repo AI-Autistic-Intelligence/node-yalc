@@ -12,7 +12,7 @@ The `@node-yalc/types-extends` package provides module augmentation, third-party
 
 ## 1. What It Is & Architectural Purpose
 
-Node.js microservices heavily rely on third-party frameworks (Express, Fastify, TypeORM, Pino, KafkaJS). However, attaching custom context variables—such as `req.user`, `req.correlationId`, `req.tenantId`, or custom TypeORM query builder methods—causes TypeScript compilation errors unless global module declarations are augmented properly.
+Node.js microservices heavily rely on third-party frameworks (Express, Fastify, TypeORM, Pino, KafkaJS). However, attaching custom context variables - such as `req.user`, `req.correlationId`, `req.tenantId`, or custom TypeORM query builder methods - causes TypeScript compilation errors unless global module declarations are augmented properly.
 
 `@node-yalc/types-extends` centralizes these global module ambient declarations and class mixins. It seamlessly injects YALC metadata into standard framework types across the entire workspace.
 
@@ -138,3 +138,13 @@ console.log(entity.createdAt); // Date instance
 > [!TIP]
 > **Pro-Tip 1: tsconfig Include Binding**
 > Include `@node-yalc/types-extends` directly in your root `tsconfig.json` `types` array to ensure global augmentations apply everywhere without manual imports.
+
+
+---
+
+## 🔗 Cross-References
+
+To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
+
+- [Database & TypeORM](../../../nestjs-yalc/docs/databases/database.md)
+- [Observability & Logger](../../../nestjs-yalc/docs/observability/logger.md)

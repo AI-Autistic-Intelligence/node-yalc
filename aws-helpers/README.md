@@ -1,9 +1,126 @@
-# @nest-yalc-2/aws-helpers
+<div align="center">
+  <h1>@node-yalc/aws-helpers</h1>
+  <p><em>Yalc Node module</em></p>
+  
+  [![npm version](https://badge.fury.io/js/%40node-yalc%2Faws-helpers.svg)](https://badge.fury.io/js/%40node-yalc%2Faws-helpers)
+  [![License](https://img.shields.io/npm/l/%40node-yalc%2Faws-helpers.svg)](https://github.com/AI-Autistic-Intelligence)
+</div>
 
-@nest-yalc-2/aws-helpers package for NestJS YALC framework.
+## 🚀 Installation
 
-## Installation
+```bash
+npm install @node-yalc/aws-helpers
+# or
+yarn add @node-yalc/aws-helpers
+# or
+pnpm add @node-yalc/aws-helpers
+```
 
-\ash
-npm install @nest-yalc-2/aws-helpers
-\\n
+---
+
+# ☁️ AWS SDK v3 Utilities (`@node-yalc/aws-helpers`)
+
+## 💡 1. What It Is & Architectural Purpose
+`@node-yalc/aws-helpers` provides high-performance, modular wrappers around the official **AWS SDK v3 for JavaScript/TypeScript**. Its architectural purpose is to streamline interaction with AWS cloud services - such as **Amazon S3**, **AWS SSM Parameter Store**, and **AWS Lambda** - while providing native retry policies, exponential backoff, secret masking, and zero framework lock-in.
+
+---
+
+## ⚙️ 2. What It Does & Key Features
+- **S3 Bucket Operations (`YalcS3Client`)**: Streaming file uploads, signed URL generation, and multipart transfer orchestration.
+- **SSM Parameter Store Client (`YalcSSMStore`)**: Secure parameter fetching with automatic in-memory TTL caching and decryption of `SecureString` parameters.
+- **Lambda Event Adapters**: Normalization of API Gateway v1/v2 and Application Load Balancer (ALB) event objects.
+
+---
+
+## 🔬 3. How It Works Under the Hood
+
+```mermaid
+flowchart TD
+    AppCall["YalcSSMStore.getParameter('/prod/db/secret')"]
+    MemoryCache["In-Memory Cache Check (TTL 300s)"]
+    AWSCall["AWS SSM GetParameterCommand (SDK v3)"]
+    DecryptedVal["Decrypt SecureString KMS"]
+
+    AppCall --> MemoryCache
+    MemoryCache -->|Cache Hit| ReturnVal["Return Cached String"]
+    MemoryCache -->|Cache Miss| AWSCall
+    AWSCall --> DecryptedVal
+    DecryptedVal --> CacheSet["Update TTL Cache"]
+    CacheSet --> ReturnVal
+```
+
+---
+
+## 🧠 4. Why It Was Designed This Way (Modular SDK v3 vs Legacy SDK v2)
+
+| Aspect | ☁️ `@node-yalc/aws-helpers` (SDK v3) | 🐢 Legacy AWS SDK v2 |
+|---|---|---|
+| **Bundle Footprint** | **Tree-shakeable (Imports only required clients)** | Monolithic ~15MB SDK Bundle |
+| **Secret Protection** | **In-Memory Encrypted TTL Caching** | Raw Uncached SSM Calls |
+| **Retry & Backoff** | **Exponential Backoff with Full Jitter** | Basic Retries |
+
+---
+
+## 🚀 5. Practical Usage Guide & Extended Code Examples
+
+```typescript
+import { YalcS3Client, YalcSSMStore } from '@node-yalc/aws-helpers';
+
+async function executeCloudOperations() {
+  // 1. Fetch Secure Database Password from AWS SSM Parameter Store with 5-minute caching
+  const dbPassword = await YalcSSMStore.getParameter('/prod/database/password', {
+    decrypt: true,
+    cacheTtlSeconds: 300
+  });
+
+  console.log('Successfully retrieved SSM parameter (Masked):', dbPassword.substring(0, 3) + '***');
+
+  // 2. Upload Document Buffer to Amazon S3
+  const s3 = new YalcS3Client({ region: 'eu-west-1' });
+  const fileBuffer = Buffer.from('PDF Report Content');
+
+  const uploadResult = await s3.uploadFile({
+    bucket: 'acme-enterprise-reports',
+    key: '2026/quarterly_report.pdf',
+    body: fileBuffer,
+    contentType: 'application/pdf'
+  });
+
+  console.log('S3 Upload Successful. File ETag:', uploadResult.ETag);
+}
+
+executeCloudOperations().catch(console.error);
+```
+
+---
+
+## ⚠️ 6. Anti-Patterns: How NOT to Use It
+
+1. ❌ **DO NOT fetch SSM parameters on every HTTP request without caching**: Making uncached AWS SSM API calls inside high-frequency request paths will hit AWS API Rate Limits (ThrottlingException). Always use `cacheTtlSeconds`.
+
+---
+
+## 💡 7. Pro-Tips & Best Practices
+
+> [!TIP]
+> **AWS IAM Role Authentication**: Omit explicit AWS credentials in client initializations when deploying to AWS ECS, EKS, or Lambda - the helper automatically assumes the IAM Instance Role.
+
+
+---
+
+## 🔗 Cross-References
+
+To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
+
+- [Caching Strategy](https://ferrox-rust.dev/docs/node-yalc/performance/caching)
+- [Database & TypeORM](https://ferrox-rust.dev/docs/node-yalc/nestjs-yalc/docs/databases/database)
+- [Event Manager](https://ferrox-rust.dev/docs/node-yalc/architectures/event-manager)
+- [Node-YALC Errors](https://ferrox-rust.dev/docs/node-yalc/fundamentals/errors)
+
+
+---
+## 📚 Ecosystem Documentation
+
+This module is a core component of the Ferrox enterprise microservice architecture. 
+
+👉 **[Read the Full Documentation on Ferrox-Rust.dev](https://ferrox-rust.dev/docs/node-yalc/integrations/aws-helpers)**

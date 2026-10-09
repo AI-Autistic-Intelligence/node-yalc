@@ -153,3 +153,16 @@ export function createRegistrationEvent(
 > [!TIP]
 > **Pro-Tip 1: Re-exporting from Shared Libraries**
 > Re-export `@node-yalc/interfaces` from your monorepo's shared SDKs to ensure frontend clients share identical response types.
+
+
+---
+
+## 🔗 Cross-References
+
+To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
+
+- [Event Manager](../architectures/event-manager.md)
+- [GraphQL Transport Module](../../../nestjs-yalc/docs/transports/graphql.md)
+- [Kafka Integration](../../../nestjs-yalc/docs/integrations/kafka.md)
+- [Node-YALC Errors](../fundamentals/errors.md)
+- [Observability & Logger](../../../nestjs-yalc/docs/observability/logger.md)

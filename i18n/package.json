@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/i18n",
-  "version": "0.2.4",
+  "version": "0.2.9",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",

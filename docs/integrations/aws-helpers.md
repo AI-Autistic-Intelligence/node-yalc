@@ -7,7 +7,7 @@ sidebar_position: 7
 # ☁️ AWS SDK v3 Utilities (`@node-yalc/aws-helpers`)
 
 ## 💡 1. What It Is & Architectural Purpose
-`@node-yalc/aws-helpers` provides high-performance, modular wrappers around the official **AWS SDK v3 for JavaScript/TypeScript**. Its architectural purpose is to streamline interaction with AWS cloud services—such as **Amazon S3**, **AWS SSM Parameter Store**, and **AWS Lambda**—while providing native retry policies, exponential backoff, secret masking, and zero framework lock-in.
+`@node-yalc/aws-helpers` provides high-performance, modular wrappers around the official **AWS SDK v3 for JavaScript/TypeScript**. Its architectural purpose is to streamline interaction with AWS cloud services - such as **Amazon S3**, **AWS SSM Parameter Store**, and **AWS Lambda** - while providing native retry policies, exponential backoff, secret masking, and zero framework lock-in.
 
 ---
 
@@ -89,4 +89,16 @@ executeCloudOperations().catch(console.error);
 ## 💡 7. Pro-Tips & Best Practices
 
 > [!TIP]
-> **AWS IAM Role Authentication**: Omit explicit AWS credentials in client initializations when deploying to AWS ECS, EKS, or Lambda—the helper automatically assumes the IAM Instance Role.
+> **AWS IAM Role Authentication**: Omit explicit AWS credentials in client initializations when deploying to AWS ECS, EKS, or Lambda - the helper automatically assumes the IAM Instance Role.
+
+
+---
+
+## 🔗 Cross-References
+
+To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
+
+- [Caching Strategy](../performance/caching.md)
+- [Database & TypeORM](../../../nestjs-yalc/docs/databases/database.md)
+- [Event Manager](../architectures/event-manager.md)
+- [Node-YALC Errors](../fundamentals/errors.md)

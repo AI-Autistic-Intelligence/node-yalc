@@ -84,3 +84,16 @@ sequenceDiagram
 
 - Proceed to the [Quickstart Guide](quickstart.md) to integrate `@node-yalc` into your Node.js application.
 - Browse detailed package documentation in the **Workspace Packages** sidebar section.
+
+
+---
+
+## 🔗 Cross-References
+
+To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
+
+- [Caching Strategy](../performance/caching.md)
+- [Event Manager](../architectures/event-manager.md)
+- [Node-YALC Errors](../fundamentals/errors.md)
+- [Observability & Logger](../../../nestjs-yalc/docs/observability/logger.md)
+- [Sentinel Security Guards](../../../nestjs-yalc/docs/security/sentinel.md)

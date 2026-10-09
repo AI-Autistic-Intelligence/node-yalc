@@ -95,3 +95,13 @@ bootstrap();
 > [!TIP]
 > **Pro-Tip: Connection Pooling with PgBouncer**
 > When running hundreds of microservice instances, configure Prisma to connect through PgBouncer by using the `pgbouncer=true` parameter in your database URL. The `PrismaConnectionManager` handles this transparently.
+
+
+---
+
+## 🔗 Cross-References
+
+To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
+
+- [Database & TypeORM](../../../nestjs-yalc/docs/databases/database.md)
+- [Observability & Logger](../../../nestjs-yalc/docs/observability/logger.md)

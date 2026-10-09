@@ -149,3 +149,13 @@ export function processInput(input: unknown): string {
 > **Pro-Tip 1: Filtering Arrays safely**
 > Use `isDefined` with Array.filter() to narrow `(T | null)[]` to `T[]` without losing type safety:
 > `const validItems = items.filter(isDefined);`
+
+
+---
+
+## 🔗 Cross-References
+
+To see how this module integrates with the rest of the Ferrox architecture, refer to the following documentation:
+
+- [Node-YALC Errors](errors.md)
+- [Sentinel Security Guards](../../../nestjs-yalc/docs/security/sentinel.md)
