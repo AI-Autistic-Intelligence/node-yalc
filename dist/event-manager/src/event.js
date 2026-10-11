@@ -29,6 +29,11 @@ export function event(eventName, options) {
         receivedData = maskDataInObject(receivedData, mask);
     const data = { ...receivedData, eventName: formattedEventName };
     const optionalMessage = options?.logger ? options.message : undefined;
+    /**
+     *
+     * ERROR
+     *
+     */
     let errorInstance;
     let errorPayload = null;
     if (isErrorOptions(options)) {
@@ -43,6 +48,9 @@ export function event(eventName, options) {
                 else {
                     _errorClass = _class;
                 }
+                /**
+                 * We build the message here.
+                 */
                 const message = optionalMessage ?? formattedEventName;
                 errorInstance = new _errorClass(message, {
                     eventName: formattedEventName,
@@ -73,6 +81,12 @@ export function event(eventName, options) {
             }
         }
     }
+    /**
+     *
+     * LOGGER
+     *
+     * We build the logger function here unless the logger is false
+     */
     let logLevel = undefined;
     if (logger !== false) {
         const { instance: _instance, level: _level, ...rest } = logger && typeof logger !== 'string'
@@ -105,6 +119,12 @@ export function event(eventName, options) {
             });
         }
     }
+    /**
+     *
+     * EVENT
+     *
+     * We emit the event here unless the event is false
+     */
     let result;
     const toAwait = [];
     if (event !== false) {

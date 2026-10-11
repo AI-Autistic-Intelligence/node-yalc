@@ -5,6 +5,10 @@ import { globalPromiseTracker } from '@node-yalc/utils';
 let logger;
 let destination;
 export const FLUSH_INTERVAL = 10000;
+/**
+ * High-performance Logger implementation using `pino` under the hood.
+ * Pino is heavily optimized for speed and low overhead in production environments, writing JSON-formatted logs asynchronously.
+ */
 export class PinoLogger extends LoggerAbstractService {
     getLogger() {
         return logger;
@@ -47,6 +51,14 @@ export class PinoLogger extends LoggerAbstractService {
         if (!logger) {
             destination = pino.destination({ sync: false });
             logger = pino({
+                // base: {
+                //   memorySize: process.env.AWS_LAMBDA_FUNCTION_MEMORY_SIZE,
+                //   region: process.env.AWS_REGION,
+                //   runtime: process.env.AWS_EXECUTION_ENV,
+                //   version: process.env.AWS_LAMBDA_FUNCTION_VERSION,
+                // },
+                // name: process.env.AWS_LAMBDA_FUNCTION_NAME,
+                // level: process.env.LOG_LEVEL || 'info',
                 formatters: {
                     level: (label) => {
                         return { level: label };
@@ -55,16 +67,44 @@ export class PinoLogger extends LoggerAbstractService {
                 timestamp: () => `,"timestamp":"${new Date().toISOString()}"`,
             }, destination);
         }
-        logger.level = 'trace';
+        logger.level = 'trace'; // enable all. Levels are handled by the Service.
+        // asynchronously flush every 10 seconds to keep the buffer empty
+        // in periods of low activity
         setInterval(function () {
             logger.flush();
         }, FLUSH_INTERVAL).unref();
+        // TODO: remove it if it's not needed anymore (https://github.com/pinojs/pino/pull/1240/files)
+        // use pino.final to create a special logger that
+        // guarantees final tick writes
+        // const handler = pino.destination(
+        //   logger,
+        //   (err: String, finalLogger: Logger, evt: String) => {
+        //     finalLogger.info(`${evt} caught`);
+        //     if (err) finalLogger.error(err, 'error caused exit');
+        //     process.exit(err ? 1 : 0);
+        //   },
+        // );
+        // // catch all the ways node might exit
+        // process.on('beforeExit', () => handler(null, 'beforeExit'));
+        // process.on('exit', () => handler(null, 'exit'));
+        // process.on('uncaughtException', (err) => handler(err, 'uncaughtException'));
+        // process.on('SIGINT', () => handler(null, 'SIGINT'));
+        // process.on('SIGQUIT', () => handler(null, 'SIGQUIT'));
+        // process.on('SIGTERM', () => handler(null, 'SIGTERM'));
         globalPromiseTracker.addDeferred(flush);
     }
     async onApplicationShutdown() {
         await flush();
     }
 }
+/**
+ * Synchronously and asynchronously flushes the Pino logger buffer.
+ * We keep this function outside of the class such that we do not rely
+ * on the class instance that might be destroyed before the flush is called.
+ * Essential for ensuring logs are written to disk/stdout before the process exits (e.g. in AWS Lambda or graceful shutdown).
+ *
+ * @returns A promise that resolves when the flush operation is complete.
+ */
 export function flush() {
     destination?.flushSync();
     return new Promise((resolve, reject) => {

@@ -1,3 +1,4 @@
+// no imports
 export class HttpException extends Error {
     constructor(response, status, options) {
         super(undefined, options);

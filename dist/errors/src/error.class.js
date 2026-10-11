@@ -1,8 +1,10 @@
+/* istanbul ignore file */
 import { HttpException } from './http.exception.js';
 import { HttpStatus } from './http-status.enum.js';
 import { ErrorsEnum } from './error.enum.js';
 import { DefaultErrorBase } from './default.error.js';
 import { HttpStatusCode } from 'axios';
+// Map NestJS common exceptions to HttpException
 export function createHttpException(status) {
     return class extends HttpException {
         constructor(objectOrError, descriptionOrOptions) {
@@ -92,108 +94,163 @@ function buildArgsHttpException(errorName, internalMessage, options, errorCode) 
         typeof args[3] === 'string' ? { description: args[3] } : args[3],
     ];
 }
+/**
+ * Use when the request could not be understood or was missing required parameters.
+ */
 export class BadRequestError extends DefaultErrorBase(BadRequestException) {
     static { this.defaultStatusCode = HttpStatus.BAD_REQUEST; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.BAD_REQUEST, internalMessage, options));
     }
 }
+/**
+ * Use when authentication failed or the user does not have permissions for the desired action.
+ */
 export class UnauthorizedError extends DefaultErrorBase(UnauthorizedException) {
     static { this.defaultStatusCode = HttpStatus.UNAUTHORIZED; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.UNAUTHORIZED, internalMessage, options));
     }
 }
+/**
+ * Use when the authenticated user does not have access to the requested resource.
+ */
 export class ForbiddenError extends DefaultErrorBase(ForbiddenException) {
     static { this.defaultStatusCode = HttpStatus.FORBIDDEN; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.FORBIDDEN, internalMessage, options));
     }
 }
+/**
+ * Use when the requested resource could not be found.
+ */
 export class NotFoundError extends DefaultErrorBase(NotFoundException) {
     static { this.defaultStatusCode = HttpStatus.NOT_FOUND; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.NOT_FOUND, internalMessage, options));
     }
 }
+/**
+ * Use when the request could not be completed due to a conflict with the current state of the target resource.
+ */
 export class ConflictError extends DefaultErrorBase(ConflictException) {
     static { this.defaultStatusCode = HttpStatus.CONFLICT; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.CONFLICT, internalMessage, options));
     }
 }
+/**
+ * Use when an unexpected error occurred on the server side.
+ */
 export class InternalServerError extends DefaultErrorBase(InternalServerErrorException) {
     static { this.defaultStatusCode = HttpStatus.INTERNAL_SERVER_ERROR; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.INTERNAL_SERVER_ERROR, internalMessage, options));
     }
 }
+// The following classes are based on HTTP statuses not covered by NestJS built-in exceptions
+/**
+ * Reserved for future use; its utilization is not common.
+ */
 export class PaymentRequiredError extends DefaultErrorBase(HttpException) {
     static { this.defaultStatusCode = HttpStatus.PAYMENT_REQUIRED; }
     constructor(internalMessage, options) {
         super(...buildArgsHttpException(ErrorsEnum.PAYMENT_REQUIRED, internalMessage, options, PaymentRequiredError.defaultStatusCode));
     }
 }
+/**
+ * Use when an unsupported HTTP method was used for the request.
+ */
 export class MethodNotAllowedError extends DefaultErrorBase(MethodNotAllowedException) {
     static { this.defaultStatusCode = HttpStatus.METHOD_NOT_ALLOWED; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.METHOD_NOT_ALLOWED, internalMessage, options));
     }
 }
+/**
+ * Use when the server cannot produce a response matching the list of acceptable values defined in the request's headers.
+ */
 export class NotAcceptableError extends DefaultErrorBase(NotAcceptableException) {
     static { this.defaultStatusCode = HttpStatus.NOT_ACCEPTABLE; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.NOT_ACCEPTABLE, internalMessage, options));
     }
 }
+/**
+ * Use when the requested resource has been permanently deleted and will not be available again.
+ */
 export class GoneError extends DefaultErrorBase(GoneException) {
     static { this.defaultStatusCode = HttpStatus.GONE; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.GONE, internalMessage, options));
     }
 }
+/**
+ * Use when the request entity has a media type which the server or resource does not support.
+ */
 export class UnsupportedMediaTypeError extends DefaultErrorBase(UnsupportedMediaTypeException) {
     static { this.defaultStatusCode = HttpStatus.UNSUPPORTED_MEDIA_TYPE; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.UNSUPPORTED_MEDIA_TYPE, internalMessage, options));
     }
 }
+/**
+ * Use when the server understands the content type of the request entity, but was unable to process the contained instructions.
+ */
 export class UnprocessableEntityError extends DefaultErrorBase(UnprocessableEntityException) {
     static { this.defaultStatusCode = HttpStatus.UNPROCESSABLE_ENTITY; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.UNPROCESSABLE_ENTITY, internalMessage, options));
     }
 }
+/**
+ * Use when the user has sent too many requests in a given amount of time ("rate limiting").
+ */
 export class TooManyRequestsError extends DefaultErrorBase(HttpException) {
     static { this.defaultStatusCode = HttpStatus.TOO_MANY_REQUESTS; }
     constructor(internalMessage, options) {
         super(...buildArgsHttpException(ErrorsEnum.TOO_MANY_REQUESTS, internalMessage, options, HttpStatus.TOO_MANY_REQUESTS));
     }
 }
+/**
+ * Use when the server does not support the functionality required to fulfill the request.
+ */
 export class NotImplementedError extends DefaultErrorBase(NotImplementedException) {
     static { this.defaultStatusCode = HttpStatus.NOT_IMPLEMENTED; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.NOT_IMPLEMENTED, internalMessage, options));
     }
 }
+/**
+ * Use when the server, while acting as a gateway or proxy, received an invalid response from the upstream server.
+ */
 export class BadGatewayError extends DefaultErrorBase(BadGatewayException) {
     static { this.defaultStatusCode = HttpStatus.BAD_GATEWAY; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.BAD_GATEWAY, internalMessage, options));
     }
 }
+/**
+ * Use when the server is currently unavailable (because it is overloaded or down for maintenance).
+ */
 export class ServiceUnavailableError extends DefaultErrorBase(ServiceUnavailableException) {
     static { this.defaultStatusCode = HttpStatus.SERVICE_UNAVAILABLE; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.SERVICE_UNAVAILABLE, internalMessage, options));
     }
 }
+/**
+ * Use when the server, while acting as a gateway or proxy, did not receive a timely response from the upstream server or some other auxiliary server.
+ */
 export class GatewayTimeoutError extends DefaultErrorBase(GatewayTimeoutException) {
     static { this.defaultStatusCode = HttpStatus.GATEWAY_TIMEOUT; }
     constructor(internalMessage, options) {
         super(...buildArgs(ErrorsEnum.GATEWAY_TIMEOUT, internalMessage, options));
     }
 }
+/**
+ * Custom
+ */
 export class AdditionalVerificationNeededError extends DefaultErrorBase(HttpException) {
     static { this.defaultStatusCode = HttpStatusCode.UnavailableForLegalReasons; }
     constructor(internalMessage, options) {

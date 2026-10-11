@@ -1,11 +1,26 @@
 import { LoggerAbstractService, } from './logger-abstract.service.js';
 import { maskDataInObject } from './logger.helper.js';
+/**
+ * Utility to filter out undefined arguments before passing them to the console.
+ */
 const logOnlyDefined = (...args) => {
     return args.filter(function (element) {
         return element !== undefined;
     });
 };
+/**
+ * Standard Console implementation of the LoggerAbstractService.
+ * Directs all logs to the native Node.js `console` methods (log, error, debug, warn, info).
+ * Automatically masks sensitive data defined in the `masks` option before printing.
+ */
 export class ConsoleLogger extends LoggerAbstractService {
+    /**
+     * Initializes the ConsoleLogger with native console method mappings.
+     *
+     * @param context The default logging context (e.g. the service name).
+     * @param logLevels Array of enabled log levels.
+     * @param options Additional logger options including masking and event configurations.
+     */
     constructor(context, logLevels, options = {}) {
         super(context, logLevels, {
             log: (message, options, ...rest) => console.log(...logOnlyDefined(`[${options?.context ?? context}]`, message, maskDataInObject(options?.data, options?.masks, options?.stack), options?.config, ...rest)),

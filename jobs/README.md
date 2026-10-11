@@ -16,7 +16,7 @@ yarn add @node-yalc/jobs
 pnpm add @node-yalc/jobs
 ```
 
----
+<hr/>
 
 # ⏱️ Background Jobs & SSE (`@node-yalc/jobs`)
 
@@ -26,7 +26,7 @@ The `@node-yalc/jobs` module provides a suite of lightweight, in-memory task man
 2. **Cron Schedulers** for recurrent, interval-based polling.
 3. **Server-Sent Events (SSE)** helpers to stream the real-time status of these background jobs back to a frontend client.
 
----
+<hr/>
 
 ## ⚙️ 2. Comprehensive Taxonomy & Key Features
 
@@ -36,7 +36,7 @@ The `@node-yalc/jobs` module provides a suite of lightweight, in-memory task man
 | **`FerroxCronScheduler`** | In-memory recurrent timer registry. | Fetching exchange rates every 5 minutes or cleaning up temporary database tables nightly. |
 | **`FerroxSseStream`** | HTTP Server-Sent Event abstraction. | Opening an SSE connection so the frontend can receive live updates on job progress (e.g. `PROCESSING` -> `COMPLETED`). |
 
----
+<hr/>
 
 ## 🔬 3. How It Works Under the Hood
 
@@ -60,7 +60,7 @@ flowchart TD
 ```
 This guarantees the HTTP response is dispatched to the client instantly, while the V8 engine picks up the job on the next tick of the Event Loop.
 
----
+<hr/>
 
 ## 🧠 4. Why It Was Designed This Way (Rationale)
 
@@ -68,7 +68,7 @@ Not every microservice needs the immense infrastructure overhead of a Redis clus
 
 If scaling requirements eventually outgrow a single server instance, the strict interface contracts (`name`, `payload`, `status`) make it trivial to refactor the `enqueue()` method to push messages to RabbitMQ instead of the local array.
 
----
+<hr/>
 
 ## 🚀 5. Practical Usage Guide & Extended Code Examples
 
@@ -115,7 +115,7 @@ export function sseStatusEndpoint(req, res) {
 }
 ```
 
----
+<hr/>
 
 ## ⚠️ 6. Anti-Patterns: How NOT to Use It
 
@@ -127,7 +127,7 @@ export function sseStatusEndpoint(req, res) {
 > **Anti-Pattern 2: Missing Memory Bounds**
 > The `FerroxJobQueue` retains jobs in a local array. If you enqueue 1,000,000 jobs per minute but the worker only processes 10, the array will grow infinitely until the Node process crashes with an Out Of Memory (OOM) error.
 
----
+<hr/>
 
 ## 💡 7. Pro-Tips & Best Practices
 
@@ -136,7 +136,7 @@ export function sseStatusEndpoint(req, res) {
 > When your Node server receives a `SIGTERM`, ensure you block the process exit until the `queue` array is entirely empty to prevent terminating jobs mid-execution.
 
 
----
+<hr/>
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 

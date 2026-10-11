@@ -14,42 +14,42 @@ export interface LoggerService {
    * @param message The primary message to log.
    * @param optionalParams Additional parameters or contextual data.
    */
-  log(message: any, ...optionalParams: any[]): any;
+  log<T = unknown>(message: T, ...optionalParams: unknown[]): void;
 
   /**
    * Logs an error message indicating a failure or exception.
    * @param message The error message or Error object.
    * @param optionalParams Additional parameters or contextual data (e.g. stack trace).
    */
-  error(message: any, ...optionalParams: any[]): any;
+  error<T = unknown>(message: T, ...optionalParams: unknown[]): void;
 
   /**
    * Logs a warning message indicating a potential issue that isn't immediately fatal.
    * @param message The warning message.
    * @param optionalParams Additional parameters or contextual data.
    */
-  warn(message: any, ...optionalParams: any[]): any;
+  warn<T = unknown>(message: T, ...optionalParams: unknown[]): void;
 
   /**
    * Logs a debug message, useful for detailed system state analysis during development.
    * @param message The debug message.
    * @param optionalParams Additional parameters or contextual data.
    */
-  debug?(message: any, ...optionalParams: any[]): any;
+  debug?<T = unknown>(message: T, ...optionalParams: unknown[]): void;
 
   /**
    * Logs a verbose message for extremely detailed system tracing.
    * @param message The verbose message.
    * @param optionalParams Additional parameters or contextual data.
    */
-  verbose?(message: any, ...optionalParams: any[]): any;
+  verbose?<T = unknown>(message: T, ...optionalParams: unknown[]): void;
 
   /**
    * Logs a fatal system event, typically indicating a critical failure requiring immediate attention.
    * @param message The fatal error message.
    * @param optionalParams Additional parameters or contextual data.
    */
-  fatal?(message: any, ...optionalParams: any[]): any;
+  fatal?<T = unknown>(message: T, ...optionalParams: unknown[]): void;
 }
 
 /**

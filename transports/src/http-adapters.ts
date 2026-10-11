@@ -17,7 +17,7 @@ export interface FerroxHttpRequest {
   /** The HTTP headers parsed as a dictionary */
   headers: Record<string, string | string[] | undefined>;
   /** The parsed JSON body or raw payload */
-  body: any;
+  body: unknown;
   /** Parsed URL query parameters */
   query: Record<string, string | string[] | undefined>;
   /** Path parameters extracted by the router */
@@ -39,9 +39,9 @@ export interface FerroxHttpResponse {
   /** Sets an HTTP header and returns this instance for chaining */
   setHeader(name: string, value: string | string[]): FerroxHttpResponse;
   /** Serializes the provided data as JSON and sends the response */
-  json(body: any): void;
+  json<T = unknown>(body: T): void;
   /** Sends a raw string or object payload */
-  send(body: any): void;
+  send<T = unknown>(body: T): void;
   /** A reference to the underlying native Node.js ServerResponse */
   raw: http.ServerResponse;
 }
@@ -49,7 +49,7 @@ export interface FerroxHttpResponse {
 /**
  * Type alias for an agnostic route handler function.
  */
-export type FerroxRouteHandler = (req: FerroxHttpRequest, res: FerroxHttpResponse) => Promise<any> | any;
+export type FerroxRouteHandler = (req: FerroxHttpRequest, res: FerroxHttpResponse) => Promise<unknown> | unknown;
 
 /**
  * Defines a mapped route that the adapter needs to register.
@@ -73,7 +73,7 @@ export interface IFerroxHttpAdapter {
   /** Registers a standard route definition on the underlying router */
   registerRoute(route: FerroxRouteDefinition): void;
   /** Binds a generic middleware handler to a specified path */
-  use(path: string, handler: any): void;
+  use(path: string, handler: unknown): void;
   /** Binds the HTTP server to a port and host */
   listen(port: number, host?: string): Promise<http.Server>;
   /** Gracefully terminates all active connections and closes the server */
@@ -93,7 +93,7 @@ export class ExpressHttpAdapter implements IFerroxHttpAdapter {
     this.routes.push(route);
   }
 
-  use(_path: string, _handler: any): void {
+  use(_path: string, _handler: unknown): void {
     // Basic middleware placeholder
   }
 
@@ -103,7 +103,7 @@ export class ExpressHttpAdapter implements IFerroxHttpAdapter {
       const method = req.method || 'GET';
       const pathname = url.pathname;
 
-      let body: any = null;
+      let body: unknown = null;
       if (['POST', 'PUT', 'PATCH'].includes(method)) {
         const buffers: Buffer[] = [];
         for await (const chunk of req) {
@@ -144,14 +144,14 @@ export class ExpressHttpAdapter implements IFerroxHttpAdapter {
           this.headers[name] = value;
           return this;
         },
-        json(data: any) {
+        json<T = unknown>(data: T) {
           res.writeHead(this.statusCode, {
             'Content-Type': 'application/json; charset=utf-8',
             ...this.headers,
           });
           res.end(JSON.stringify(data));
         },
-        send(data: any) {
+        send<T = unknown>(data: T) {
           res.writeHead(this.statusCode, this.headers);
           res.end(typeof data === 'string' ? data : JSON.stringify(data));
         },
@@ -164,10 +164,11 @@ export class ExpressHttpAdapter implements IFerroxHttpAdapter {
           if (result !== undefined && !res.writableEnded) {
             ferroxRes.json(result);
           }
-        } catch (err: any) {
+        } catch (err: unknown) {
+          const error = err as Error;
           ferroxRes.status(500).json({
             error: 'Internal Server Error',
-            message: err.message || 'An unexpected error occurred in Ferrox handler',
+            message: error.message || 'An unexpected error occurred in Ferrox handler',
           });
         }
       } else {
@@ -203,7 +204,7 @@ export class FastifyHttpAdapter implements IFerroxHttpAdapter {
     this.routes.push(route);
   }
 
-  use(_path: string, _handler: any): void {
+  use(_path: string, _handler: unknown): void {
     // Basic middleware placeholder
   }
 
@@ -213,7 +214,7 @@ export class FastifyHttpAdapter implements IFerroxHttpAdapter {
       const method = req.method || 'GET';
       const pathname = url.pathname;
 
-      let body: any = null;
+      let body: unknown = null;
       if (['POST', 'PUT', 'PATCH'].includes(method)) {
         const buffers: Buffer[] = [];
         for await (const chunk of req) {
@@ -254,14 +255,14 @@ export class FastifyHttpAdapter implements IFerroxHttpAdapter {
           this.headers[name] = value;
           return this;
         },
-        json(data: any) {
+        json<T = unknown>(data: T) {
           res.writeHead(this.statusCode, {
             'Content-Type': 'application/json; charset=utf-8',
             ...this.headers,
           });
           res.end(JSON.stringify(data));
         },
-        send(data: any) {
+        send<T = unknown>(data: T) {
           res.writeHead(this.statusCode, this.headers);
           res.end(typeof data === 'string' ? data : JSON.stringify(data));
         },
@@ -274,10 +275,11 @@ export class FastifyHttpAdapter implements IFerroxHttpAdapter {
           if (result !== undefined && !res.writableEnded) {
             ferroxRes.json(result);
           }
-        } catch (err: any) {
+        } catch (err: unknown) {
+          const error = err as Error;
           ferroxRes.status(500).json({
             error: 'Internal Server Error',
-            message: err.message || 'An unexpected error occurred in Ferrox handler',
+            message: error.message || 'An unexpected error occurred in Ferrox handler',
           });
         }
       } else {

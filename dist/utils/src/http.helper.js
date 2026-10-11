@@ -15,10 +15,16 @@ const httpStatusDescriptions = {
     [HttpStatus.NO_CONTENT]: '204: Request succeeded with no content to send.',
     [HttpStatus.RESET_CONTENT]: '205: Client should reset document view.',
     [HttpStatus.PARTIAL_CONTENT]: '206: Partial resource returned due to range header.',
+    // [HttpStatus.MULTI_STATUS]: '207: Multiple status responses for request.',
+    // [HttpStatus.ALREADY_REPORTED]:
+    //   '208: Resource state already sent in earlier request.',
+    // [HttpStatus.IM_USED]: '226: Request fulfilled and resource modified.',
+    // [HttpStatus.MULTIPLE_CHOICES]: '300: Multiple options for the resource.',
     [HttpStatus.MOVED_PERMANENTLY]: '301: Resource moved permanently.',
     [HttpStatus.FOUND]: '302: Resource temporarily moved, use given URI.',
     [HttpStatus.SEE_OTHER]: '303: Response found elsewhere, use GET for that.',
     [HttpStatus.NOT_MODIFIED]: '304: Resource not modified since last request.',
+    // [HttpStatus.USE_PROXY]: '305: Must access resource via specified proxy.',
     [HttpStatus.TEMPORARY_REDIRECT]: '307: Resource temporarily moved, but use same method.',
     [HttpStatus.PERMANENT_REDIRECT]: '308: Resource moved permanently, use same method.',
     [HttpStatus.BAD_REQUEST]: "400: Server couldn't understand request due to invalid syntax.",
@@ -40,10 +46,17 @@ const httpStatusDescriptions = {
     [HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE]: '416: Range specified is invalid.',
     [HttpStatus.EXPECTATION_FAILED]: "417: Server can't meet request expectation.",
     [HttpStatus.I_AM_A_TEAPOT]: "418: I'm a teapot (April Fools joke).",
+    // [HttpStatus.MISDIRECTED_REQUEST]:
+    //   "421: Request misdirected, can't produce response.",
     [HttpStatus.UNPROCESSABLE_ENTITY]: '422: Request understandable, but semantically wrong.',
+    // [HttpStatus.LOCKED]: "423: Resource you're accessing is locked.",
     [HttpStatus.FAILED_DEPENDENCY]: "424: Request failed due to server's previous request.",
+    // [HttpStatus.TOO_EARLY]: '425: Request might be replayed.',
+    // [HttpStatus.UPGRADE_REQUIRED]:
+    //   '426: Client should switch to another protocol.',
     [HttpStatus.PRECONDITION_REQUIRED]: '428: Precondition required for request.',
     [HttpStatus.TOO_MANY_REQUESTS]: '429: Too many requests from this client.',
+    // [HttpStatus.REQUEST_HEADER_FIELDS_TOO_LARGE]: '431: Headers too long.',
     [HttpStatusCode.UnavailableForLegalReasons]: '451: Unavailable due to legal reasons.',
     [HttpStatus.INTERNAL_SERVER_ERROR]: "500: Server faced an error and can't provide response.",
     [HttpStatus.NOT_IMPLEMENTED]: "501: Server doesn't support functionality needed.",
@@ -51,6 +64,15 @@ const httpStatusDescriptions = {
     [HttpStatus.SERVICE_UNAVAILABLE]: '503: Server not ready to handle request.',
     [HttpStatus.GATEWAY_TIMEOUT]: "504: Server didn't get response from another server.",
     [HttpStatus.HTTP_VERSION_NOT_SUPPORTED]: "505: Server doesn't support HTTP protocol version.",
+    // [HttpStatus.VARIANT_ALSO_NEGOTIATES]:
+    //   '506: Server has internal configuration error.',
+    // [HttpStatus.INSUFFICIENT_STORAGE]:
+    //   "507: Server can't store the representation.",
+    // [HttpStatus.LOOP_DETECTED]:
+    //   '508: Server detected an infinite loop while processing.',
+    // [HttpStatus.NOT_EXTENDED]: '510: Further extensions needed for request.',
+    // [HttpStatus.NETWORK_AUTHENTICATION_REQUIRED]:
+    //   '511: Client needs to authenticate for network access.',
 };
 export const getHttpStatusDescription = (status, fallbackDescription = 'Unknown status code') => {
     return httpStatusDescriptions[status] ?? fallbackDescription;

@@ -1,4 +1,8 @@
 export class DateHelper {
+    /**
+     * Function that returns interface of startDate being current date and endDate being 1 week earlier
+     * @returns
+     */
     static getWeekEdgeDates() {
         const currentDate = Date.now();
         const weekInMs = 1000 * 60 * 60 * 24 * 7;
@@ -12,6 +16,11 @@ export class DateHelper {
         const queryEndDate = `${endDate.getFullYear()}-${endDateMonth}-${endDateDay}`;
         return { startDate: queryStartDate, endDate: queryEndDate };
     }
+    /**
+     *
+     * @param num number of day or month
+     * @returns formatted number, like 3rd month (number 3 passed) returns string '03'
+     */
     static formatMonth(month) {
         const fixedMonth = month + 1;
         return fixedMonth < 10 ? `0${fixedMonth}` : `${fixedMonth}`;

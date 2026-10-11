@@ -1,3 +1,9 @@
+/**
+ * Used to check if a value is contained in a enum object
+ * @param enumObj
+ * @param value
+ * @returns `boolean`
+ */
 export const belongsToEnum = (enumObj, value) => {
     return Object.values(enumObj).includes(value);
 };

@@ -9,7 +9,7 @@ import { maskDataInObject } from './logger.helper.js';
 /**
  * Utility to filter out undefined arguments before passing them to the console.
  */
-const logOnlyDefined = (...args: any[]) => {
+const logOnlyDefined = (...args: unknown[]) => {
   return args.filter(function (element) {
     return element !== undefined;
   });

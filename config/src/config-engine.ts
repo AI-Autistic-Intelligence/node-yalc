@@ -13,7 +13,7 @@ export class ConfigEngine {
    *
    * @param defaults An object containing default configuration keys and values.
    */
-  constructor(defaults: Record<string, any> = {}) {
+  constructor(defaults: Record<string, unknown> = {}) {
     for (const [k, v] of Object.entries(defaults)) {
       this.configStore.set(k, v);
     }

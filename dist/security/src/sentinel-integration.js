@@ -1,21 +1,56 @@
+/**
+ * Evaluates AI prompts to prevent Prompt Injection, Jailbreaking, and unauthorized commands.
+ */
 export class AiPromptGuardrailEngine {
 }
+/**
+ * Validates RAG (Retrieval-Augmented Generation) outputs to detect and block hallucinations or non-grounded facts.
+ */
 export class RagHallucinationGroundednessEngine {
 }
+/**
+ * Analyzes payloads using Shannon Entropy to detect obfuscated attacks or encrypted payloads.
+ */
 export class ShannonEntropyEngine {
 }
+/**
+ * Polymorphic Route Engine encrypts and mutates API routes at runtime to prevent automated scraping and deterministic attacks.
+ */
 export class PolymorphicRouteEngine {
+    /**
+     * @param secretKey The symmetric key used for polymorphic route mutation.
+     */
     constructor(secretKey) {
         this.secretKey = secretKey;
     }
 }
+/**
+ * Uses Markov Chains to baseline normal API behavior and detect anomalous sequences of API calls.
+ */
 export class MarkovBehaviorEngine {
 }
+/**
+ * Protects against credential dumping (e.g. LSASS memory dumping) and credential stuffing attacks.
+ */
 export class LsassCredentialGuardEngine {
 }
+/**
+ * Verifies Software Bill of Materials (SBOM) and supply chain integrity for incoming dependencies or artifacts.
+ */
 export class SbomSupplyChainVerifierEngine {
 }
+/**
+ * Ferrox Sentinel Security Engine.
+ *
+ * An advanced, multi-layered security kernel providing deep packet inspection,
+ * AI threat protection, and zero-trust sandboxing. It intercepts malicious requests
+ * before they reach the core router.
+ */
 export class FerroxSentinelSecurityEngine {
+    /**
+     * Initializes the Sentinel Engine and its sub-modules.
+     * @param secretKey A master key used for cryptographic security features (e.g., polymorphic routes).
+     */
     constructor(secretKey = 'ferrox-sentinel-master-key') {
         this.aiGuardrails = AiPromptGuardrailEngine;
         this.ragScorer = RagHallucinationGroundednessEngine;
@@ -25,6 +60,12 @@ export class FerroxSentinelSecurityEngine {
         this.lsassGuard = LsassCredentialGuardEngine;
         this.sbomVerifier = SbomSupplyChainVerifierEngine;
     }
+    /**
+     * Generates a Linux Seccomp BPF policy for server kernel sandboxing.
+     * Blocks potentially dangerous syscalls (e.g. ptrace, execve) at the kernel level.
+     *
+     * @returns {string} The JSON-formatted Seccomp BPF policy.
+     */
     generateSeccompBpfPolicy() {
         return JSON.stringify({
             defaultAction: 'SCMP_ACT_ERRNO',
@@ -39,6 +80,12 @@ export class FerroxSentinelSecurityEngine {
             ],
         }, null, 2);
     }
+    /**
+     * Generates Linux kernel sysctl security hardening configurations.
+     * Enables protections such as SYN cookies, reverse path filtering, and dmesg restriction.
+     *
+     * @returns {string} The formatted `sysctl.conf` string.
+     */
     generateSysctlHardeningConfig() {
         return [
             '# Ferrox Kernel Hardening Configuration v0.6.0',

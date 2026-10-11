@@ -1,4 +1,15 @@
+/**
+ * The Kernel Sandbox Engine provides zero-trust security configuration generators
+ * for hardening the underlying Linux OS or Docker container running the Ferrox Framework.
+ * It prevents Remote Code Execution (RCE) from escalating into container breakouts.
+ */
 export class KernelSandboxEngine {
+    /**
+     * Generates a Linux Seccomp BPF (Berkeley Packet Filter) profile JSON.
+     * This profile explicitly blocks dangerous syscalls like `execve` (shell execution) and `ptrace` (memory reading).
+     *
+     * @returns {string} The JSON stringified Seccomp profile (compatible with Docker/Kubernetes).
+     */
     generateSeccompBpfPolicy() {
         const rules = [
             { name: 'read', action: 'SCMP_ACT_ALLOW' },
@@ -16,6 +27,13 @@ export class KernelSandboxEngine {
             syscalls: rules,
         }, null, 2);
     }
+    /**
+       * Generates a Linux Landlock LSM configuration.
+       * Landlock allows unprivileged processes to create secure filesystem sandboxes dynamically.
+       *
+       * @param {LandlockPathRule[]} [paths=[]] Additional custom filesystem rules to append to the default strict sandbox.
+       * @returns {string} The JSON stringified Landlock ruleset.
+       */
     generateLandlockPolicy(paths = []) {
         const defaultPaths = [
             { path: '/app', allowedAccess: ['read', 'write'] },
@@ -30,6 +48,12 @@ export class KernelSandboxEngine {
             rules: defaultPaths,
         }, null, 2);
     }
+    /**
+       * Generates a standard `/etc/sysctl.d/` configuration file.
+       * Enables kernel-level protections against SYN floods, IP spoofing, symlink attacks, and restricts dmesg/ptrace access.
+       *
+       * @returns {string} The raw configuration file contents.
+       */
     generateSysctlHardeningConfig() {
         return [
             '# ====================================================================',

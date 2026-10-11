@@ -5,9 +5,9 @@
  * @returns
  */
 export const commandWithErrors = (
-  command: (...args: any[]) => Promise<any>,
+  command: (...args: unknown[]) => Promise<any>,
 ) => {
-  return async (...args: any[]) => {
+  return async (...args: unknown[]) => {
     try {
       await command(...args);
     } catch (e) {

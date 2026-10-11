@@ -42,7 +42,7 @@ export class PinoLogger
               config: options?.config,
               trace: options?.stack,
             },
-            message,
+            message as string,
           ),
         error: (message, trace, options) => {
           logger.error(
@@ -52,7 +52,7 @@ export class PinoLogger
               config: options?.config,
               trace,
             },
-            message,
+            message as string,
           );
         },
         debug: (message, options) =>
@@ -63,7 +63,7 @@ export class PinoLogger
               config: options?.config,
               trace: options?.stack,
             },
-            message,
+            message as string,
           ),
         warn: (message, options) =>
           logger.warn(
@@ -73,7 +73,7 @@ export class PinoLogger
               config: options?.config,
               trace: options?.stack,
             },
-            message,
+            message as string,
           ),
         verbose: (message, options) =>
           logger.trace(
@@ -83,7 +83,7 @@ export class PinoLogger
               config: options?.config,
               trace: options?.stack,
             },
-            message,
+            message as string,
           ),
       },
       options,

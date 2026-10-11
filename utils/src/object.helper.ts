@@ -1,13 +1,13 @@
 interface IIsObject {
-  (item: any): boolean;
+  (item: unknown): boolean;
 }
 
 interface IObject {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 interface IDeepMerge {
-  (target: IObject, ...sources: Array<IObject>): IObject;
+  <T extends IObject, U extends IObject>(target: T, ...sources: Array<U>): T & U;
 }
 
 /**
@@ -16,7 +16,7 @@ interface IDeepMerge {
  * @param val - The item that needs to be checked
  * @return {Boolean} Whether or not @item is an object
  */
-export const isObject: IIsObject = (val: any): val is Record<string, any> => {
+export const isObject: IIsObject = (val: unknown): val is Record<string, unknown> => {
   return val === Object(val) && !Array.isArray(val);
 };
 
@@ -25,7 +25,7 @@ export const isObject: IIsObject = (val: any): val is Record<string, any> => {
  * @param val - The item that needs to be checked
  * @returns
  */
-export function isObjectStrict(val: any): val is Record<string, any> {
+export function isObjectStrict(val: unknown): val is Record<string, unknown> {
   return (
     isObject(val) &&
     !Array.isArray(val) &&
@@ -57,7 +57,7 @@ export const _deepMerge = (
     const len: number = sources.length;
 
     for (let i = 0; i < len; i += 1) {
-      const elm: any = sources[i];
+      const elm: Record<string, unknown> = sources[i] as Record<string, unknown>;
 
       if (isObject(elm)) {
         for (const key in elm) {
@@ -66,7 +66,7 @@ export const _deepMerge = (
               if (!result[key] || !isObject(result[key])) {
                 result[key] = {};
               }
-              _deepMerge(isArrayConcat, result[key], elm[key]);
+              _deepMerge(isArrayConcat, result[key] as IObject, elm[key] as IObject);
             } else {
               if (
                 isArrayConcat &&
@@ -94,11 +94,11 @@ export const _deepMerge = (
  * @param sources - The source(s) that will be used to update the @target object
  * @returns The final merged object
  */
-export const deepMerge: IDeepMerge = (
-  target: IObject,
-  ...sources: Array<IObject>
-): IObject => {
-  return _deepMerge(true, target, ...sources);
+export const deepMerge: IDeepMerge = <T extends IObject, U extends IObject>(
+  target: T,
+  ...sources: Array<U>
+): T & U => {
+  return _deepMerge(true, target, ...sources) as T & U;
 };
 
 /**
@@ -107,11 +107,11 @@ export const deepMerge: IDeepMerge = (
  * @param sources - The source(s) that will be used to update the @target object
  * @returns The final merged object
  */
-export const deepMergeWithoutArrayConcat: IDeepMerge = (
-  target: IObject,
-  ...sources: Array<IObject>
-): IObject => {
-  return _deepMerge(false, target, ...sources);
+export const deepMergeWithoutArrayConcat: IDeepMerge = <T extends IObject, U extends IObject>(
+  target: T,
+  ...sources: Array<U>
+): T & U => {
+  return _deepMerge(false, target, ...sources) as T & U;
 };
 
 /**
@@ -124,18 +124,18 @@ export const deepMergeWithoutArrayConcat: IDeepMerge = (
  * @param value the value to set
  * @returns the patched object
  */
-export function objectSetProp(
-  obj: Record<any, any>,
+export function objectSetProp<T = unknown>(
+  obj: Record<string, unknown>,
   path: string,
-  value: any,
-): Record<any, any> {
-  let schema = obj; // a moving reference to internal objects within obj
+  value: T,
+): Record<string, unknown> {
+  let schema = obj as Record<string, unknown>; // a moving reference to internal objects within obj
   const pList = path.split('.');
   const len = pList.length;
   for (let i = 0; i < len - 1; i++) {
     const elem = pList[i];
     if (!schema[elem]) schema[elem] = {};
-    schema = schema[elem];
+    schema = schema[elem] as Record<string, unknown>;
   }
 
   schema[pList[len - 1]] = value;
@@ -143,10 +143,10 @@ export function objectSetProp(
   return obj;
 }
 
-export function objectsHaveSameKeys(...objects: any[]) {
+export function objectsHaveSameKeys(...objects: Record<string, unknown>[]) {
   const allKeys = objects.reduce(
-    (keys, object) => keys.concat(Object.keys(object)),
-    [],
+    (keys: string[], object: Record<string, unknown>) => keys.concat(Object.keys(object)),
+    [] as string[],
   );
   const union = new Set(allKeys);
   return objects.every((object) => union.size === Object.keys(object).length);

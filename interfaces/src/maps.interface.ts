@@ -11,7 +11,7 @@ export const isFieldMapper = (object: any): object is IFieldMapper => {
 };
 
 export const isFieldMapperProperty = (
-  object: Record<string, any>,
+  object: Record<string, unknown>,
 ): object is FieldMapperProperty => {
   return object && !!object.dst;
 };

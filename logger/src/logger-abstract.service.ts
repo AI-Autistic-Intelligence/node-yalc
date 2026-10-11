@@ -52,13 +52,13 @@ export interface LogMethodOptions {
 /**
  * Standard log method signature.
  */
-export type LogMethod = (message: any, options?: LogMethodOptions) => void;
+export type LogMethod = <T>(message: T, options?: LogMethodOptions) => void;
 
 /**
  * Standard error log method signature, explicitly including a stack trace parameter.
  */
-export type LogMethodError = (
-  message: any,
+export type LogMethodError = <T>(
+  message: T,
   stack?: string,
   options?: LogMethodOptions,
 ) => void;
@@ -185,7 +185,7 @@ export abstract class LoggerAbstractService
       enabledLevels[level] = true;
     });
 
-    this.log = (message: any, options: LogMethodOptions = {}) => {
+    this.log = <T>(message: T, options: LogMethodOptions = {}) => {
       void this.beforeLogging(message, options);
       (enabledLevels[LogLevelEnum.LOG] === true &&
         this.methods[LogLevelEnum.LOG]
@@ -193,8 +193,8 @@ export abstract class LoggerAbstractService
         : () => {})(message, options);
     };
 
-    this.error = (
-      message: any,
+    this.error = <T>(
+      message: T,
       stack?: string,
       options: LogMethodOptions = {},
     ) => {
@@ -207,7 +207,7 @@ export abstract class LoggerAbstractService
         : () => {})(message, stack, options);
     };
 
-    this.warn = (message: any, options: LogMethodOptions = {}) => {
+    this.warn = <T>(message: T, options: LogMethodOptions = {}) => {
       void this.beforeLogging(message, options);
 
       (enabledLevels[LogLevelEnum.WARN] === true &&
@@ -220,7 +220,7 @@ export abstract class LoggerAbstractService
       enabledLevels[LogLevelEnum.DEBUG] === true &&
       this.methods[LogLevelEnum.DEBUG]
     )
-      this.debug = (message: any, options: LogMethodOptions = {}) => {
+      this.debug = <T>(message: T, options: LogMethodOptions = {}) => {
         void this.beforeLogging(message, options);
         this.methods[LogLevelEnum.DEBUG]!(message, options);
       };
@@ -229,7 +229,7 @@ export abstract class LoggerAbstractService
       enabledLevels[LogLevelEnum.VERBOSE] === true &&
       this.methods[LogLevelEnum.VERBOSE]
     )
-      this.verbose = (message: any, options: LogMethodOptions = {}) => {
+      this.verbose = <T>(message: T, options: LogMethodOptions = {}) => {
         void this.beforeLogging(message, options);
         this.methods[LogLevelEnum.VERBOSE]!(message, options);
       };
@@ -241,7 +241,7 @@ export abstract class LoggerAbstractService
   debug?: LogMethod | undefined;
   verbose?: LogMethod;
 
-  beforeLogging(message: any, options: LogMethodOptions) {
+  beforeLogging<T>(message: T, options: LogMethodOptions) {
     this.options.event = this.options.event ?? {};
     this.invokePlugins(
       'onBeforeLogging',
@@ -253,8 +253,8 @@ export abstract class LoggerAbstractService
   }
 }
 
-export function beforeLogging(
-  message: any,
+export function beforeLogging<T>(
+  message: T,
   /* istanbul ignore next */
   options: LogMethodOptions & IImprovedLoggerOptions['event'] = {},
 ) {

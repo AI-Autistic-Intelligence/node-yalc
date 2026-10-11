@@ -1,4 +1,6 @@
 import { faker } from '@faker-js/faker';
+// TODO: Probably we can use the internal faker of typeorm-seeding to create uniqueness, like we do here
+// (mentioned in https://github.com/w3tecch/typeorm-seeding/issues/98#issuecomment-849585576)
 export const DEF_FAKER_MAX_RETRIES = 1500;
 export const DEF_FAKER_MAX_TIME = 250;
 export class FakerHelper {
@@ -9,14 +11,21 @@ export class FakerHelper {
                 .float({ multipleOf: precision, min: min, max: max })
                 .toString();
         };
+        // Creates a random birthdate for people between 18-82 years of age.
+        // Date is returned in format YYYY-MM-DD
         this.randomBirthDate = (start = 18, end = 100) => {
             const birthDate = faker.date.past({ years: end - start });
             birthDate.setUTCFullYear(birthDate.getUTCFullYear() - start);
+            // const [mm, dd, yyyy] = birthDate.format('yyyy-MM-dd').toLocaleString().split(',')[0].split('/');
             const yyyy = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(birthDate);
             const mm = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(birthDate);
             const dd = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(birthDate);
             return `${yyyy}-${mm}-${dd}`;
         };
+        // Returns one of three values:
+        // * a date in the past (expired lock)
+        // * a date in the future (locked till then)
+        // * null (db)/undefined (in code) (no locks)
         this.randomLockDate = () => {
             const random = faker.number.int(2);
             if (random === 0) {
@@ -30,6 +39,8 @@ export class FakerHelper {
             }
         };
     }
+    // We could also create a new email from the same person,
+    // however we assume when this function is called we actually want a different person.
     createPerson() {
         const gender = faker.number.int(1) === 0 ? 'male' : 'female';
         const firstName = faker.person.firstName(gender);

@@ -16,7 +16,7 @@ export interface PasetoPayload {
   /** The issuer of the token (e.g., 'ferrox-node-auth'). */
   iss?: string;
   /** Additional custom claims. */
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**

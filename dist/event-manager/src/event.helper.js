@@ -23,6 +23,10 @@ export function getLogLevelByError(error) {
     if (statusCode) {
         return getLogLevelByStatus(statusCode);
     }
+    /**
+     * This is a fallback to handle edge cases but it's slower since
+     * it creates an instance of the error class and should not happen
+     */
     let _error;
     if (isClass(error)) {
         _error = new error();
@@ -35,6 +39,9 @@ export function getLogLevelByError(error) {
         return getLogLevelByStatus(httpException.getStatus());
     return _error.stack ? LogLevelEnum.ERROR : LogLevelEnum.LOG;
 }
+/**
+ * Check if the event will trigger an error log
+ */
 export function isErrorEvent(options) {
     if (typeof options.logger === 'object' &&
         options.logger.level === LogLevelEnum.ERROR) {

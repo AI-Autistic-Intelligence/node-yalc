@@ -1,4 +1,9 @@
 import * as crypto from 'crypto';
+/**
+ * Distributed Tracing Engine.
+ * Generates, parses, and formats W3C Trace Context headers (traceparent)
+ * to correlate logs and requests across multiple microservices.
+ */
 export class TracingEngine {
     static createTraceContext() {
         return {

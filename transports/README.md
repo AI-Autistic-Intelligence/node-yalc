@@ -16,11 +16,11 @@ yarn add @node-yalc/transports
 pnpm add @node-yalc/transports
 ```
 
----
+<hr/>
 
 **@node-yalc/transports** is a core module adhering to the 7-Layer Ferrox Architecture. Technical documentation is currently being upscaled.
 
----
+<hr/>
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 

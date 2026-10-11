@@ -1,4 +1,10 @@
 import { Spread } from '@node-yalc/types';
+/**
+ * Used to check if a value is contained in a enum object
+ * @param enumObj
+ * @param value
+ * @returns `boolean`
+ */
 export declare const belongsToEnum: <T extends Record<string, string | number>>(enumObj: T, value: string | number) => boolean;
 type Merge<T extends readonly any[]> = T extends readonly [infer H, ...infer R] ? Spread<H, Merge<R>> : {};
 export declare const mergeEnums: <T extends any[]>(...enums: T) => Merge<T>;

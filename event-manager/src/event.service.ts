@@ -16,6 +16,7 @@ import {
   isErrorOptions,
   type IErrorEventOptionsRequired,
   resolveLoggerOption,
+  type EventReturnType,
 } from './event.js';
 import { type ImprovedLoggerService } from '@node-yalc/logger';
 import { EventNameFormatter } from './emitter.js';
@@ -126,8 +127,8 @@ export class YalcEventService<
   public async logAsync(
     eventName: Parameters<TFormatter> | string,
     options?: TEventOptions,
-  ): Promise<any> {
-    return eventLogAsync(eventName, this.buildOptions(options));
+  ): Promise<EventReturnType<TEventOptions>> {
+    return eventLogAsync<TFormatter, TEventOptions>(eventName, this.buildOptions(options)) as Promise<EventReturnType<TEventOptions>>;
   }
 
   protected async _errorAsync<TOpts extends IErrorEventOptions<TFormatter>>(
@@ -187,50 +188,50 @@ export class YalcEventService<
   public async warnAsync(
     eventName: Parameters<TFormatter> | string,
     options?: TEventOptions,
-  ): Promise<any> {
-    return eventWarnAsync(eventName, this.buildOptions(options));
+  ): Promise<EventReturnType<TEventOptions>> {
+    return eventWarnAsync<TFormatter, TEventOptions>(eventName, this.buildOptions(options)) as Promise<EventReturnType<TEventOptions>>;
   }
 
   public async debugAsync(
     eventName: Parameters<TFormatter> | string,
     options?: TEventOptions,
-  ): Promise<any> {
-    return eventDebugAsync(eventName, this.buildOptions(options));
+  ): Promise<EventReturnType<TEventOptions>> {
+    return eventDebugAsync<TFormatter, TEventOptions>(eventName, this.buildOptions(options)) as Promise<EventReturnType<TEventOptions>>;
   }
 
   public async verboseAsync(
     eventName: Parameters<TFormatter> | string,
     options?: TEventOptions,
-  ): Promise<any> {
-    return eventVerboseAsync(eventName, this.buildOptions(options));
+  ): Promise<EventReturnType<TEventOptions>> {
+    return eventVerboseAsync<TFormatter, TEventOptions>(eventName, this.buildOptions(options)) as Promise<EventReturnType<TEventOptions>>;
   }
 
   public log(
     eventName: Parameters<TFormatter> | string,
     options?: TEventOptions,
-  ): any {
-    return eventLog(eventName, this.buildOptions(options));
+  ): EventReturnType<TEventOptions> {
+    return eventLog<TFormatter, TEventOptions>(eventName, this.buildOptions(options)) as EventReturnType<TEventOptions>;
   }
 
   public warn(
     eventName: Parameters<TFormatter> | string,
     options?: TEventOptions,
-  ): any {
-    return eventWarn(eventName, this.buildOptions(options));
+  ): EventReturnType<TEventOptions> {
+    return eventWarn<TFormatter, TEventOptions>(eventName, this.buildOptions(options)) as EventReturnType<TEventOptions>;
   }
 
   public debug(
     eventName: Parameters<TFormatter> | string,
     options?: TEventOptions,
-  ): any {
-    return eventDebug(eventName, this.buildOptions(options));
+  ): EventReturnType<TEventOptions> {
+    return eventDebug<TFormatter, TEventOptions>(eventName, this.buildOptions(options)) as EventReturnType<TEventOptions>;
   }
 
   public verbose(
     eventName: Parameters<TFormatter> | string,
     options?: TEventOptions,
-  ): any {
-    return eventVerbose(eventName, this.buildOptions(options));
+  ): EventReturnType<TEventOptions> {
+    return eventVerbose<TFormatter, TEventOptions>(eventName, this.buildOptions(options)) as EventReturnType<TEventOptions>;
   }
 
   /**
@@ -240,7 +241,7 @@ export class YalcEventService<
     eventName: Parameters<TFormatter> | string,
     errorCode: number,
     options?: TErrorOptions,
-  ): any {
+  ): DefaultError {
     const httpCode: HttpStatusCodes = errorCode;
     const selectedError =
       httpStatusCodeToErrors[httpCode] ?? InternalServerError;
@@ -934,11 +935,11 @@ export class YalcEventService<
   public errorGatewayTimeout(
     eventName: Parameters<TFormatter> | string,
     options?: IErrorBasedMethodOptions<TErrorOptions>,
-  ): any {
+  ): GatewayTimeoutError {
     const mergedOptions = applyAwaitOption(
       this.buildErrorOptions(options, GatewayTimeoutError),
     );
-    return this._error(eventName, mergedOptions);
+    return this._error(eventName, mergedOptions) as GatewayTimeoutError;
   }
 
   /**

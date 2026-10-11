@@ -6,18 +6,30 @@ declare global {
         }
     }
 }
+/**
+ * Utility type to strictly enforce that a specific property key `K` can NEVER exist or be used.
+ */
 type Impossible<K extends keyof any> = {
     [P in K]: never;
 };
+/**
+ * Remove extra properties from an interface
+ */
 export type NoExtraProperties<T, U extends T = T> = U & Impossible<Exclude<keyof U, keyof T>>;
+/**
+ * Check if a type A is exactly B
+ */
 export type CompareStrict<A, B> = A extends B ? (B extends A ? A : never) : never;
+/**
+ * You can use it to create a type that has exactly the properties of an interface
+ */
 export type Exact<T, U extends T> = {
     [Key in keyof U]: Key extends keyof T ? U[Key] extends object ? Exact<T[Key], U[Key]> : U[Key] : never;
 };
 export type StaticInterface<TClass extends IStaticInterface & {
-    new (...args: any[]): TClass;
+    new (...args: unknown[]): TClass;
 }, IStaticInterface> = InstanceType<TClass>;
-export type InstanceType<T> = T extends new (...args: any[]) => infer R ? R : never;
+export type InstanceType<T> = T extends new (...args: unknown[]) => infer R ? R : never;
 export declare type ClassType<TClass = any, TArgs extends any[] = any[]> = {
     new (...args: TArgs): TClass;
 };
@@ -43,7 +55,7 @@ type CommonKeys<T, U> = {
     [K in keyof T & keyof U]: T[K] extends U[K] ? K : never;
 }[keyof T & keyof U];
 export type Intersect<T, U> = Pick<T, CommonKeys<T, U>>;
-export type ReturnOrFunctionReturnType<T> = T extends (...input: any[]) => infer R ? R : T;
+export type ReturnOrFunctionReturnType<T> = T extends (...input: unknown[]) => infer R ? R : T;
 export type HTTPMethods = 'DELETE' | 'delete' | 'GET' | 'get' | 'HEAD' | 'head' | 'PATCH' | 'patch' | 'POST' | 'post' | 'PUT' | 'put' | 'OPTIONS' | 'options';
 export type Writeable<T> = {
     -readonly [P in keyof T]: T[P];

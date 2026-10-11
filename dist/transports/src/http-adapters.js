@@ -1,4 +1,8 @@
 import * as http from 'http';
+/**
+ * An adapter bridging the Ferrox-Node framework to the classic Express.js paradigm.
+ * Implements a lightweight internal dispatcher if native Express isn't installed.
+ */
 export class ExpressHttpAdapter {
     constructor() {
         this.type = 'express';
@@ -8,6 +12,7 @@ export class ExpressHttpAdapter {
         this.routes.push(route);
     }
     use(_path, _handler) {
+        // Basic middleware placeholder
     }
     async listen(port, host = '0.0.0.0') {
         this.server = http.createServer(async (req, res) => {
@@ -73,9 +78,10 @@ export class ExpressHttpAdapter {
                     }
                 }
                 catch (err) {
+                    const error = err;
                     ferroxRes.status(500).json({
                         error: 'Internal Server Error',
-                        message: err.message || 'An unexpected error occurred in Ferrox handler',
+                        message: error.message || 'An unexpected error occurred in Ferrox handler',
                     });
                 }
             }
@@ -96,6 +102,10 @@ export class ExpressHttpAdapter {
         }
     }
 }
+/**
+ * An adapter bridging the Ferrox-Node framework to the Fastify engine.
+ * Leverages Fastify's extreme throughput and low-overhead routing natively.
+ */
 export class FastifyHttpAdapter {
     constructor() {
         this.type = 'fastify';
@@ -105,6 +115,7 @@ export class FastifyHttpAdapter {
         this.routes.push(route);
     }
     use(_path, _handler) {
+        // Basic middleware placeholder
     }
     async listen(port, host = '0.0.0.0') {
         this.server = http.createServer(async (req, res) => {
@@ -170,9 +181,10 @@ export class FastifyHttpAdapter {
                     }
                 }
                 catch (err) {
+                    const error = err;
                     ferroxRes.status(500).json({
                         error: 'Internal Server Error',
-                        message: err.message || 'An unexpected error occurred in Ferrox handler',
+                        message: error.message || 'An unexpected error occurred in Ferrox handler',
                     });
                 }
             }

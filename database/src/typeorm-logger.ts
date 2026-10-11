@@ -15,8 +15,8 @@ export class TypeORMLogger implements Logger {
    */
   logQuery(
     query: string,
-    parameters?: any[] /*, queryRunner?: QueryRunner*/,
-  ): any {
+    parameters?: unknown[] /*, queryRunner?: QueryRunner*/,
+  ): void {
     if (!this.isLoggerEnabled) return;
 
     /* istanbul ignore next */
@@ -33,9 +33,9 @@ export class TypeORMLogger implements Logger {
   logQueryError(
     error: string | Error,
     query: string,
-    parameters?: any[],
+    parameters?: unknown[],
     // queryRunner?: QueryRunner,
-  ): any {
+  ): void {
     if (!this.isLoggerEnabled) return;
 
     /* istanbul ignore next */
@@ -53,9 +53,9 @@ export class TypeORMLogger implements Logger {
   logQuerySlow(
     time: number,
     query: string,
-    parameters?: any[],
+    parameters?: unknown[],
     // queryRunner?: QueryRunner,
-  ): any {
+  ): void {
     if (!this.isLoggerEnabled) return;
 
     /* istanbul ignore next */
@@ -71,7 +71,7 @@ export class TypeORMLogger implements Logger {
   /**
    * Logs events from the schema build process.
    */
-  logSchemaBuild(message: string /* , queryRunner?: QueryRunner */): any {
+  logSchemaBuild(message: string /* , queryRunner?: QueryRunner */): void {
     if (!this.isLoggerEnabled) return;
 
     /* istanbul ignore next */
@@ -82,7 +82,7 @@ export class TypeORMLogger implements Logger {
   /**
    * Logs events from the migrations run process.
    */
-  logMigration(message: string /* , queryRunner?: QueryRunner */): any {
+  logMigration(message: string /* , queryRunner?: QueryRunner */): void {
     if (!this.isLoggerEnabled) return;
 
     /* istanbul ignore next */
@@ -96,28 +96,28 @@ export class TypeORMLogger implements Logger {
    */
   log(
     level: 'log' | 'info' | 'warn',
-    message: any,
+    message: unknown,
     // queryRunner?: QueryRunner,
-  ): any {
+  ): void {
     if (!this.isLoggerEnabled) return;
 
     switch (level) {
       case 'log':
         /* istanbul ignore next */
         this.event.log?.(LoggerEvent.LOG, {
-          message,
+          message: message as string,
         });
         break;
       case 'info':
         /* istanbul ignore next */
         this.event.verbose?.(LoggerEvent.INFO, {
-          message,
+          message: message as string,
         });
         break;
       case 'warn':
         /* istanbul ignore next */
         this.event.warn?.(LoggerEvent.WARN, {
-          message,
+          message: message as string,
         });
         break;
     }

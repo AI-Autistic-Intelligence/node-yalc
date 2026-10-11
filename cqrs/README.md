@@ -16,14 +16,14 @@ yarn add @node-yalc/cqrs
 pnpm add @node-yalc/cqrs
 ```
 
----
+<hr/>
 
 # 🏗️ CQRS & Saga Engine (`@node-yalc/cqrs`)
 
 ## 💡 1. What It Is & Architectural Purpose
 The `@node-yalc/cqrs` module provides a lightweight, pure TypeScript implementation of the **Command Query Responsibility Segregation (CQRS)** pattern and **Distributed Sagas**. It serves as an architectural orchestrator that rigorously separates mutating operations (Commands) from data-retrieval operations (Queries). Additionally, it provides a built-in `SagaOrchestrator` to manage complex, multi-step distributed transactions via the Saga pattern (Compensation/Rollback).
 
----
+<hr/>
 
 ## ⚙️ 2. Comprehensive Taxonomy & Key Features
 
@@ -34,7 +34,7 @@ The `@node-yalc/cqrs` module provides a lightweight, pure TypeScript implementat
 | **`SagaOrchestrator`** | Distributed transaction manager. | Orchestrating payments across Microservices (e.g., Deduct Funds -> Reserve Item), with automatic backwards rollbacks on failure. |
 | **`SagaStep`** | Contract containing `action` and `compensation`. | Defining the forward action and its exact reverse rollback action. |
 
----
+<hr/>
 
 ## 🔬 3. How It Works Under the Hood
 
@@ -70,7 +70,7 @@ sequenceDiagram
     end
 ```
 
----
+<hr/>
 
 ## 🧠 4. Why It Was Designed This Way (Rationale)
 
@@ -78,7 +78,7 @@ Most CQRS/Saga implementations (like `@nestjs/cqrs` or temporal.io) are incredib
 
 By keeping the `SagaOrchestrator` pure, you can run distributed transactions inside an AWS Lambda, a Fastify route, or a background worker without needing the entire NestJS DI container or a running Kafka cluster, retaining maximum architectural flexibility.
 
----
+<hr/>
 
 ## 🚀 5. Practical Usage Guide & Extended Code Examples
 
@@ -135,7 +135,7 @@ if (!result.success) {
 }
 ```
 
----
+<hr/>
 
 ## ⚠️ 6. Anti-Patterns: How NOT to Use It
 
@@ -147,7 +147,7 @@ if (!result.success) {
 > **Anti-Pattern 2: Failing Compensations**
 > Ensure your `compensation` functions inside a `SagaStep` are highly resilient and ideally idempotent. If a compensation function throws an error, the orchestrator will log it but cannot recover the broken state, requiring manual engineering intervention.
 
----
+<hr/>
 
 ## 💡 7. Pro-Tips & Best Practices
 
@@ -156,7 +156,7 @@ if (!result.success) {
 > While this package provides the pure TS logic, when working within NestJS apps, you can easily wrap the `CqrsEngine` in a global Provider and inject it into your controllers, allowing you to use this fast, lightweight implementation instead of the bloated default NestJS CQRS module.
 
 
----
+<hr/>
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 

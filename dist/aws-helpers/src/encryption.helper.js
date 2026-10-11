@@ -1,11 +1,18 @@
 import { AppLoggerFactory } from '@node-yalc/logger';
 import { GetParameterCommand, SSMClient, } from '@aws-sdk/client-ssm';
+/**
+ *  Used for everything locally, must still be passed since sometimes we want to use other keys
+ * (think encryptionKey on for example user identity document)
+ * @todo put this in a config file
+ */
 export const staticKey = 'be088f8bb64166cc2938b1dd0c9db8fa223edd975f48462858a41f70ebee1c5f';
 export var EncryptMode;
 (function (EncryptMode) {
     EncryptMode[EncryptMode["AWS"] = 0] = "AWS";
     EncryptMode[EncryptMode["LOCAL"] = 1] = "LOCAL";
 })(EncryptMode || (EncryptMode = {}));
+// return reject to prevent further func execution (although promise result won't change after reject/resolve)
+// also guarantees typescript safety
 const cachedSsmVariables = new Map();
 export const decryptSsmVariable = async (toDecrypt, useCache = true) => {
     if (useCache) {
@@ -33,11 +40,20 @@ export const decryptSsmVariable = async (toDecrypt, useCache = true) => {
         return '';
     }
 };
+/**
+ * Bulk decrypts multiple SSM parameters and dynamically injects them into `process.env`.
+ * Designed for bootstrapping application configurations on startup (e.g. fetching database credentials).
+ *
+ * @param {Record<string, string>} envVariableToDecrypt A mapping where keys are the target `process.env` property names, and values are the SSM Parameter paths.
+ * @param {boolean} [useCache=true] Uses in-memory caching to prevent duplicate lookups.
+ * @returns {Promise<Record<string, string>>} A promise that resolves to an object containing the decrypted key-value pairs.
+ */
 export const setEnvironmentVariablesFromSsm = async (envVariableToDecrypt, useCache = true) => {
     const ssmVars = {};
     const promises = Object.entries(envVariableToDecrypt).map(async ([envVar, ssmVar]) => {
         const value = await decryptSsmVariable(ssmVar, useCache);
         process.env[envVar] = ssmVars[envVar] = value;
+        // Logger.debug(`Process env: ${envVar} set to ${process.env[envVar]}`);
     });
     await Promise.all(promises);
     return ssmVars;

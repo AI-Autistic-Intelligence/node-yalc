@@ -8,6 +8,13 @@ import { getHttpStatusNameByCode } from './error.enum.js';
 import { deepMergeWithoutArrayConcat } from '../../utils/src/object.helper.js';
 import { isClass } from '../../utils/src/class.helper.js';
 export const ON_DEFAULT_ERROR_EVENT = 'onDefaultError';
+/**
+ * This is a convenience function to create a new DefaultError class instance that extends the provided base class.
+ * @param base
+ * @param options
+ * @param args
+ * @returns
+ */
 export const newDefaultError = (base, options, ...args) => {
     return new (DefaultErrorMixin(base))(options, ...args);
 };
@@ -102,6 +109,9 @@ export const DefaultErrorMixin = (base) => {
             this.resolvedStack = stack;
             this.eventPayload = payload;
         }
+        /**
+         * Deep merge the error info with the provided info.
+         */
         mergeErrorInfo(info) {
             const { internalMessage, description, eventName, data, stack, cause, response, ...rest } = info;
             if (internalMessage)
@@ -160,6 +170,10 @@ export const DefaultErrorMixin = (base) => {
             else {
                 responseObj = response;
             }
+            /**
+             * We know that passing a string as the first argument
+             * it returns an object with the message, error and the statusCode.
+             */
             const baseBody = HttpException.createBody(message, getHttpStatusNameByCode(statusCode), statusCode);
             return {
                 statusCodeDescription: codeDescription,
@@ -171,17 +185,34 @@ export const DefaultErrorMixin = (base) => {
     }
     return _AbstractDefaultError;
 };
+/**
+ *
+ * Can be used to create new HttpException classes that extend the DefaultError class.
+ *
+ */
 export function DefaultErrorBase(base) {
     return class extends DefaultErrorMixin(base ?? HttpException) {
         static { this.defaultStatusCode = HttpStatus.INTERNAL_SERVER_ERROR; }
-        constructor(internalMessage, options, ...args) {
+        constructor(internalMessage, 
+        /**
+         * These are the DefaultError extended options.
+         */
+        options, ...args) {
             super({ ...(options ?? {}), internalMessage }, ...args);
         }
     };
 }
+/**
+ * Default error that can be triggered without the base class
+ * It extends the HttpException class and the IAbstractDefaultError interface.
+ */
 export class DefaultError extends DefaultErrorBase(HttpException) {
     static { this.defaultStatusCode = HttpStatus.INTERNAL_SERVER_ERROR; }
-    constructor(internalMessage, options) {
+    constructor(internalMessage, 
+    /**
+     * These are the DefaultError extended options.
+     */
+    options) {
         const { description, cause, response, errorCode, ...defaultOptions } = options ?? {};
         super(internalMessage, { ...defaultOptions, description }, response ?? {}, errorCode ?? HttpStatus.INTERNAL_SERVER_ERROR, {
             description,
@@ -194,10 +225,12 @@ export const errorToDefaultError = (error, options = {}) => {
         if (isDefaultErrorMixin(error)) {
             return error;
         }
+        // eslint-disable-next-line no-empty
     }
     catch (e) { }
     try {
         if (error instanceof HttpException) {
+            // Test if it can be safely stringified
             JSON.stringify(error.cause);
             return new DefaultError(error.message, {
                 errorCode: error.getStatus(),
@@ -212,6 +245,7 @@ export const errorToDefaultError = (error, options = {}) => {
                 ...options,
             });
         }
+        // eslint-disable-next-line no-empty
     }
     catch (e) { }
     let name;
@@ -236,15 +270,19 @@ export const errorToDefaultError = (error, options = {}) => {
     }
     let stack;
     try {
+        // Test if it can be safely stringified
         JSON.stringify(error.stack);
         stack = error.stack;
+        // eslint-disable-next-line no-empty
     }
     catch (e) { }
     let cause;
     try {
         const errorCause = error.cause;
+        // Test if it can be safely stringified
         JSON.stringify(errorCause);
         cause = errorCause;
+        // eslint-disable-next-line no-empty
     }
     catch (e) { }
     return new DefaultError(message, {

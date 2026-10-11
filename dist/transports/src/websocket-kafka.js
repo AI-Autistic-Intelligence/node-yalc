@@ -1,3 +1,7 @@
+/**
+ * Agnostic adapter for bidirectional WebSocket communication.
+ * Allows decoupling the socket.io or raw ws implementation from the controller logic.
+ */
 export class WebSocketTransportAdapter {
     constructor() {
         this.handlers = new Map();
@@ -24,6 +28,10 @@ export class WebSocketTransportAdapter {
         }
     }
 }
+/**
+ * Standardized adapter for interacting with Apache Kafka or similar distributed event buses.
+ * Decouples the application from specific producer/consumer SDKs.
+ */
 export class KafkaEventBusAdapter {
     constructor() {
         this.topicHandlers = new Map();

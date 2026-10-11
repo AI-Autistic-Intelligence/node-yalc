@@ -1,3 +1,8 @@
+/**
+ * In-memory Job Queue manager.
+ * Ideal for lightweight background processing that doesn't strictly require Redis/RabbitMQ.
+ * Processes jobs asynchronously via Node's event loop (`setImmediate`).
+ */
 export class FerroxJobQueue {
     constructor() {
         this.queue = [];
@@ -38,10 +43,22 @@ export class FerroxJobQueue {
         }
     }
 }
+/**
+ * In-memory Cron task scheduler.
+ * Runs recurring background jobs at specified intervals.
+ */
 export class FerroxCronScheduler {
     constructor() {
         this.tasks = new Map();
     }
+    /**
+     * Registers and starts a recurring task.
+     * If a task with the same name already exists, it stops the old one and overwrites it.
+     *
+     * @param {string} name A unique identifier for the cron task.
+     * @param {number} intervalMs The execution interval in milliseconds.
+     * @param {() => Promise<void> | void} task The asynchronous task to execute.
+     */
     scheduleTask(name, intervalMs, task) {
         if (this.tasks.has(name)) {
             clearInterval(this.tasks.get(name));
@@ -63,7 +80,16 @@ export class FerroxCronScheduler {
         }
     }
 }
+/**
+ * Helper class for establishing Server-Sent Events (SSE) connections.
+ * SSE is ideal for streaming one-way updates (like job progress) from the server to the client.
+ */
 export class FerroxSseStream {
+    /**
+     * Configures the HTTP response to keep the connection open and stream events.
+     *
+     * @param {http.ServerResponse} res The raw Node.js HTTP Response object.
+     */
     static initSseResponse(res) {
         res.writeHead(200, {
             'Content-Type': 'text/event-stream',

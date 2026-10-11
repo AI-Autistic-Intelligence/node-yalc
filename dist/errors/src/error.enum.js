@@ -1,6 +1,7 @@
 import { HttpStatus } from './http-status.enum.js';
 export var ErrorsEnum;
 (function (ErrorsEnum) {
+    // 400 Client Errors
     ErrorsEnum["BAD_REQUEST"] = "Bad request";
     ErrorsEnum["INVALID_VALUE"] = "Invalid value";
     ErrorsEnum["UNAUTHORIZED"] = "Unauthorized";
@@ -17,6 +18,7 @@ export var ErrorsEnum;
     ErrorsEnum["UNPROCESSABLE_ENTITY"] = "Unprocessable entity";
     ErrorsEnum["UNAVAILABLE_FOR_LEGAL_REASONS"] = "Unavailable for legal reasons";
     ErrorsEnum["TOO_MANY_REQUESTS"] = "Too many requests";
+    // 500 Server Errors
     ErrorsEnum["INTERNAL_SERVER_ERROR"] = "Internal server error";
     ErrorsEnum["NOT_IMPLEMENTED"] = "Not implemented";
     ErrorsEnum["BAD_GATEWAY"] = "Bad gateway";

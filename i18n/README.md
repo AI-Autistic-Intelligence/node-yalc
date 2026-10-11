@@ -16,14 +16,14 @@ yarn add @node-yalc/i18n
 pnpm add @node-yalc/i18n
 ```
 
----
+<hr/>
 
 # 🌍 Internationalization (`@node-yalc/i18n`)
 
 ## 💡 1. What It Is & Architectural Purpose
 The `@node-yalc/i18n` module provides a highly optimized, dependency-free Internationalization (i18n) Engine. Its core architectural purpose is to manage multi-language translation dictionaries in-memory and perform lightning-fast string interpolations (using the `{{ param }}` syntax) for dynamic user-facing messages, emails, and localized errors across the ecosystem.
 
----
+<hr/>
 
 ## ⚙️ 2. Comprehensive Taxonomy & Key Features
 
@@ -33,7 +33,7 @@ The `@node-yalc/i18n` module provides a highly optimized, dependency-free Intern
 | **`.registerTranslations()`** | Loads flat key-value records into a namespace. | Bootstrapping localized datasets upon microservice startup. |
 | **`.translate()`** | Resolves and interpolates the string. | Used inside Controllers, Error Filters, or Email templates to inject variables into localized strings. |
 
----
+<hr/>
 
 ## 🔬 3. How It Works Under the Hood
 
@@ -56,13 +56,13 @@ flowchart TD
 
 Once the base string is found (e.g., `Ciao {{ name }}, hai {{ unread }} messaggi`), the engine executes a fast global Regex replacement against the provided `params` dictionary to inject dynamic variables.
 
----
+<hr/>
 
 ## 🧠 4. Why It Was Designed This Way (Rationale)
 
 Most developers use robust libraries like `i18next`. While excellent for React/Vue frontends, they are excessively bloated for backend microservices that only need to translate a few error messages or email templates. By utilizing native ES6 `Map` objects and a simple regex engine, `@node-yalc/i18n` guarantees nanosecond-level lookups and minimal memory overhead, strictly adhering to the Ferrox framework's performance ethos.
 
----
+<hr/>
 
 ## 🚀 5. Practical Usage Guide & Extended Code Examples
 
@@ -102,7 +102,7 @@ const missing = i18n.translate('MISSING_KEY', {}, 'es');
 console.log(missing); // "MISSING_KEY"
 ```
 
----
+<hr/>
 
 ## ⚠️ 6. Anti-Patterns: How NOT to Use It
 
@@ -110,7 +110,7 @@ console.log(missing); // "MISSING_KEY"
 > **Anti-Pattern 1: Deeply Nested JSON Objects**
 > The `registerTranslations` method expects a **flat** `Record<string, string>`. Do not pass deeply nested JSON trees (e.g., `{ errors: { validation: { required: '...' } } }`). You must flatten your JSON files (e.g., `'errors.validation.required'`) before passing them to the engine to maximize memory lookup speed.
 
----
+<hr/>
 
 ## 💡 7. Pro-Tips & Best Practices
 
@@ -119,7 +119,7 @@ console.log(missing); // "MISSING_KEY"
 > When integrating this inside a web framework, intercept the `Accept-Language` HTTP header via middleware, normalize it (e.g., taking the first 2 characters like `it`), and inject it into the request context (or `AsyncLocalStorage`) so your services can call `.translate()` without manually passing the locale string down the call stack.
 
 
----
+<hr/>
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 

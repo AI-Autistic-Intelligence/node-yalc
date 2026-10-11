@@ -8,6 +8,9 @@ export declare function returnValue<T>(value: T): {
 export declare function returnAsyncValue<T>(value: T): {
     (): Promise<T>;
 };
+/**
+ * Helper function for typeorm decorators
+ */
 export declare const returnProperty: <T>(property: keyof T) => {
     (relationEntity: T): T[keyof T];
 };

@@ -42,7 +42,7 @@ export class I18nEngine {
    * @param {string} [locale] The target locale. If omitted, uses the defaultLocale.
    * @returns {string} The fully interpolated string.
    */
-  public translate(key: string, params: Record<string, any> = {}, locale?: string): string {
+  public translate(key: string, params: Record<string, unknown> = {}, locale?: string): string {
     const targetLocale = locale || this.defaultLocale;
     let template =
       this.translations.get(targetLocale)?.get(key) ||

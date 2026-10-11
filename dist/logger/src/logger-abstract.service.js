@@ -1,8 +1,27 @@
 import { LogLevelEnum } from './logger.enum.js';
+// Removed event import to break circular dependency
+// export type EventEmitter2 = any;
+// Removed event import to break circular dependency
 import { WithPluginSystem, } from '../../utils/src/plugin.helper.js';
 export const EVENT_LOG_DEFAULT = 'EVENT_LOG_DEFAULT';
+/**
+ * Abstract base class for all Logger implementations in the Ferrox-Node framework.
+ * Handles the common plumbing: plugin invocation, log level filtering, and event emission.
+ * Subclasses only need to provide the actual I/O logic for writing strings via `this.methods`.
+ */
 export class LoggerAbstractService extends WithPluginSystem() {
-    constructor(context, logLevels, methods, options = {}) {
+    /**
+     * Bootstraps the abstract logger.
+     * Dynamically builds the runtime logging methods based on the requested log levels.
+     *
+     * @param context The default context string (e.g. class name) attached to logs.
+     * @param logLevels The array of log levels to enable. Logs outside these levels are no-ops.
+     * @param methods The actual I/O implementations provided by the subclass.
+     * @param options Global logger configuration options.
+     */
+    constructor(context, logLevels, methods, 
+    /* istanbul ignore next */
+    options = {}) {
         super();
         this.context = context;
         this.logLevels = logLevels;
@@ -11,6 +30,10 @@ export class LoggerAbstractService extends WithPluginSystem() {
         this.isImprovedLoggerService = true;
         this.initializeLogger();
     }
+    /**
+     * Modifies the active log levels and re-initializes the internal routing.
+     * @param levels The new log levels array.
+     */
     setLogLevels(levels) {
         this.logLevels = levels;
         this.initializeLogger();
@@ -63,7 +86,9 @@ export class LoggerAbstractService extends WithPluginSystem() {
         return beforeLogging(message, options);
     }
 }
-export function beforeLogging(message, options = {}) {
+export function beforeLogging(message, 
+/* istanbul ignore next */
+options = {}) {
     const emitter = options && options.eventEmitter;
     if (!emitter)
         return;

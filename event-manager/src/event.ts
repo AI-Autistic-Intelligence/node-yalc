@@ -31,7 +31,7 @@ export interface IEventAliasOptions {
 }
 
 export interface IDataInfo {
-  [key: string]: any;
+  [key: string]: unknown;
   /**
    * We know that eventName is always added to the data object
    */
@@ -117,7 +117,7 @@ export function applyAwaitOption<
   return { ...options, event } as TOpts;
 }
 
-type ReturnType<T> = T extends { errorClass: false }
+export type EventReturnType<T> = T extends { errorClass: false }
   ? boolean | any[] | undefined
   : Error | DefaultError;
 
@@ -132,7 +132,7 @@ type PickError<
     : never
 >;
 
-type eventErrorReturnType<
+export type eventErrorEventReturnType<
   TFormatter extends EventNameFormatter = EventNameFormatter,
   TOpt extends IErrorEventOptions<TFormatter> = IErrorEventOptions<TFormatter>,
 > = TOpt extends {
@@ -145,7 +145,7 @@ type eventErrorReturnType<
     ? Promise<PickError<TFormatter, TOpt>>
     : PickError<TFormatter, TOpt>;
 
-type eventErrorReturnTypeAsync<
+export type eventErrorEventReturnTypeAsync<
   TFormatter extends EventNameFormatter = EventNameFormatter,
   TOpt extends IErrorEventOptions<TFormatter> = IErrorEventOptions<TFormatter>,
 > = Promise<
@@ -169,7 +169,7 @@ export function event<
 >(
   eventName: Parameters<TFormatter> | string,
   options?: TOption,
-): Promise<ReturnType<TOption>> | ReturnType<TOption> {
+): Promise<EventReturnType<TOption>> | EventReturnType<TOption> {
   const { data: _data, event, logger, mask, stack, config } = options ?? {};
   let receivedData = _data;
 
@@ -217,9 +217,9 @@ export function event<
           ...errorOptions,
           eventEmitter: false,
           logger: false,
-        }) as ReturnType<TOption>;
+        }) as EventReturnType<TOption>;
       } else {
-        errorInstance = _class as ReturnType<TOption>;
+        errorInstance = _class as EventReturnType<TOption>;
       }
 
       if (isDefaultErrorMixin(errorInstance)) {
@@ -228,7 +228,7 @@ export function event<
           config,
           data: receivedData,
         });
-        errorPayload = errorInstance.getEventPayload();
+        errorPayload = errorInstance.getEventPayload() as ILogErrorPayload;
       } else {
         errorPayload = {
           ...rest,
@@ -352,7 +352,7 @@ export function event<
 
   const promise = (async () => {
     await Promise.all(toAwait);
-    return result as Promise<ReturnType<TOption>>;
+    return result as Promise<EventReturnType<TOption>>;
   })();
 
   globalPromiseTracker.add(promise);
@@ -383,27 +383,29 @@ export function resolveLoggerOption(logger: IEventOptions['logger']) {
 
 export async function eventLogAsync<
   TFormatter extends EventNameFormatter = EventNameFormatter,
+  TOption extends IEventOptions<TFormatter> = IEventOptions<TFormatter>,
 >(
   eventName: Parameters<TFormatter> | string,
-  options?: IEventOptions<TFormatter>,
-): Promise<any> {
-  const _options = applyAwaitOption<TFormatter>(options);
+  options?: TOption,
+): Promise<EventReturnType<TOption>> {
+  const _options = applyAwaitOption<TFormatter, TOption>(options);
   return event(eventName, {
     ..._options,
     logger: getLoggerOption(LogLevelEnum.LOG, _options),
-  });
+  }) as Promise<EventReturnType<TOption>>;
 }
 
 export function eventLog<
   TFormatter extends EventNameFormatter = EventNameFormatter,
+  TOption extends IEventOptions<TFormatter> = IEventOptions<TFormatter>,
 >(
   eventName: Parameters<TFormatter> | string,
-  options?: IEventOptions<TFormatter>,
-): any {
+  options?: TOption,
+): EventReturnType<TOption> {
   return event(eventName, {
     ...options,
     logger: getLoggerOption(LogLevelEnum.LOG, options),
-  });
+  }) as EventReturnType<TOption>;
 }
 
 export async function eventErrorAsync<
@@ -412,12 +414,12 @@ export async function eventErrorAsync<
 >(
   eventName: Parameters<TFormatter> | string,
   options?: TOption,
-): eventErrorReturnTypeAsync<TFormatter, TOption> {
+): eventErrorEventReturnTypeAsync<TFormatter, TOption> {
   const _options = applyAwaitOption<TFormatter, TOption>(options);
   return eventError<TFormatter, TOption>(
     eventName,
     _options,
-  ) as unknown as eventErrorReturnTypeAsync<TFormatter, TOption>;
+  ) as unknown as eventErrorEventReturnTypeAsync<TFormatter, TOption>;
 }
 
 export function eventError<
@@ -427,7 +429,7 @@ export function eventError<
 >(
   eventName: Parameters<TFormatter> | string,
   options?: TOption,
-): eventErrorReturnType<TFormatter, TOption> {
+): eventErrorEventReturnType<TFormatter, TOption> {
   const _options: IErrorEventOptionsRequired<TFormatter> = {
     ...(options ?? {}),
     logger: getLoggerOption(LogLevelEnum.ERROR, options),
@@ -436,80 +438,86 @@ export function eventError<
   return event<TFormatter>(
     eventName,
     _options,
-  ) as unknown as eventErrorReturnType<TFormatter, TOption>;
+  ) as unknown as eventErrorEventReturnType<TFormatter, TOption>;
 }
 
 export async function eventWarnAsync<
   TFormatter extends EventNameFormatter = EventNameFormatter,
+  TOption extends IEventOptions<TFormatter> = IEventOptions<TFormatter>,
 >(
   eventName: Parameters<TFormatter> | string,
-  options?: IEventOptions<TFormatter>,
-): Promise<any> {
-  const _options = applyAwaitOption<TFormatter>(options);
+  options?: TOption,
+): Promise<EventReturnType<TOption>> {
+  const _options = applyAwaitOption<TFormatter, TOption>(options);
   return event(eventName, {
     ..._options,
     logger: getLoggerOption(LogLevelEnum.WARN, _options),
-  });
+  }) as Promise<EventReturnType<TOption>>;
 }
 
 export function eventWarn<
   TFormatter extends EventNameFormatter = EventNameFormatter,
+  TOption extends IEventOptions<TFormatter> = IEventOptions<TFormatter>,
 >(
   eventName: Parameters<TFormatter> | string,
-  options?: IEventOptions<TFormatter>,
-): any {
+  options?: TOption,
+): EventReturnType<TOption> {
   return event(eventName, {
     ...options,
     logger: getLoggerOption(LogLevelEnum.WARN, options),
-  });
+  }) as EventReturnType<TOption>;
 }
 
 export async function eventDebugAsync<
   TFormatter extends EventNameFormatter = EventNameFormatter,
+  TOption extends IEventOptions<TFormatter> = IEventOptions<TFormatter>,
 >(
   eventName: Parameters<TFormatter> | string,
-  options?: IEventOptions<TFormatter>,
-): Promise<any> {
-  const _options = applyAwaitOption<TFormatter>(options);
+  options?: TOption,
+): Promise<EventReturnType<TOption>> {
+  const _options = applyAwaitOption<TFormatter, TOption>(options);
   return event(eventName, {
     ..._options,
     logger: getLoggerOption(LogLevelEnum.DEBUG, _options),
-  });
+  }) as Promise<EventReturnType<TOption>>;
 }
 
 export function eventDebug<
   TFormatter extends EventNameFormatter = EventNameFormatter,
+  TOption extends IEventOptions<TFormatter> = IEventOptions<TFormatter>,
 >(
   eventName: Parameters<TFormatter> | string,
-  options?: IEventOptions<TFormatter>,
-): any {
+  options?: TOption,
+): EventReturnType<TOption> {
   return event(eventName, {
     ...options,
     logger: getLoggerOption(LogLevelEnum.DEBUG, options),
-  });
+  }) as EventReturnType<TOption>;
 }
 
 export async function eventVerboseAsync<
   TFormatter extends EventNameFormatter = EventNameFormatter,
+  TOption extends IEventOptions<TFormatter> = IEventOptions<TFormatter>,
 >(
   eventName: Parameters<TFormatter> | string,
-  options?: IEventOptions<TFormatter>,
-): Promise<any> {
-  const _options = applyAwaitOption<TFormatter>(options);
+  options?: TOption,
+): Promise<EventReturnType<TOption>> {
+  const _options = applyAwaitOption<TFormatter, TOption>(options);
   return event(eventName, {
     ..._options,
     logger: getLoggerOption(LogLevelEnum.VERBOSE, _options),
-  });
+  }) as Promise<EventReturnType<TOption>>;
 }
 
 export function eventVerbose<
   TFormatter extends EventNameFormatter = EventNameFormatter,
+  TOption extends IEventOptions<TFormatter> = IEventOptions<TFormatter>,
 >(
   eventName: Parameters<TFormatter> | string,
-  options?: IEventOptions<TFormatter>,
-): any {
+  options?: TOption,
+): EventReturnType<TOption> {
   return event(eventName, {
     ...options,
     logger: getLoggerOption(LogLevelEnum.VERBOSE, options),
-  });
+  }) as EventReturnType<TOption>;
 }

@@ -39,12 +39,12 @@ export type Exact<T, U extends T> = {
 
 export type StaticInterface<
   TClass extends IStaticInterface & {
-    new (...args: any[]): TClass;
+    new (...args: unknown[]): TClass;
   },
   IStaticInterface,
 > = InstanceType<TClass>;
 
-export type InstanceType<T> = T extends new (...args: any[]) => infer R
+export type InstanceType<T> = T extends new (...args: unknown[]) => infer R
   ? R
   : never;
 
@@ -97,7 +97,7 @@ type CommonKeys<T, U> = {
 // This utility type creates a new type with only the common properties
 export type Intersect<T, U> = Pick<T, CommonKeys<T, U>>;
 
-export type ReturnOrFunctionReturnType<T> = T extends (...input: any[]) => infer R
+export type ReturnOrFunctionReturnType<T> = T extends (...input: unknown[]) => infer R
   ? R
   : T;
 

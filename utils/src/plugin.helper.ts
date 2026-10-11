@@ -4,7 +4,7 @@ class DefaultBase {}
 
 export interface PluginMethods extends Record<
   string,
-  { (...args: any[]): void } | undefined
+  { (...args: unknown[]): void } | undefined
 > {}
 
 export interface Plugin<T extends PluginMethods> {
@@ -14,7 +14,7 @@ export interface Plugin<T extends PluginMethods> {
 export interface PluginSystem<T extends PluginMethods> {
   registerPlugin(plugin: Plugin<T>): void;
   unregisterPlugin(plugin: Plugin<T>): void;
-  invokePlugins(methodName: keyof T, ...args: any[]): void;
+  invokePlugins(methodName: keyof T, ...args: unknown[]): void;
 }
 
 export function WithPluginSystem<U extends PluginMethods>(
@@ -31,7 +31,7 @@ export function WithPluginSystem<U extends PluginMethods>(
       this.plugins = this.plugins.filter((p) => p !== plugin);
     }
 
-    invokePlugins(methodName: keyof U, ...args: any[]) {
+    invokePlugins(methodName: keyof U, ...args: unknown[]) {
       for (const plugin of this.plugins) {
         plugin.pluginMethods[methodName]?.(...args);
       }

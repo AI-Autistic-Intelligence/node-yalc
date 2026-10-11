@@ -50,19 +50,19 @@ export class FerroxLogger {
     this.serviceName = serviceName;
   }
 
-  public info(message: string, meta: Record<string, any> = {}): void {
+  public info(message: string, meta: Record<string, unknown> = {}): void {
     this.log('INFO', message, meta);
   }
 
-  public warn(message: string, meta: Record<string, any> = {}): void {
+  public warn(message: string, meta: Record<string, unknown> = {}): void {
     this.log('WARN', message, meta);
   }
 
-  public error(message: string, meta: Record<string, any> = {}): void {
+  public error(message: string, meta: Record<string, unknown> = {}): void {
     this.log('ERROR', message, meta);
   }
 
-  private log(level: string, message: string, meta: Record<string, any>): void {
+  private log(level: string, message: string, meta: Record<string, unknown>): void {
     const entry = {
       timestamp: new Date().toISOString(),
       service: this.serviceName,

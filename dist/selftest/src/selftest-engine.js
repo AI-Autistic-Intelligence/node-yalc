@@ -1,4 +1,14 @@
+/**
+ * Ferrox Self-Test & Automated Audit Engine.
+ * Provides real-time introspection into the security posture of the running framework instance.
+ * Useful for health checks or CI/CD compliance validation.
+ */
 export class FerroxSelfTestEngine {
+    /**
+     * Executes a continuous automated self-test security benchmark across kernel and app layers.
+     *
+     * @returns An object containing detailed audit results and an aggregated overall score.
+     */
     runDiagnosticAudit() {
         const results = [
             {
@@ -36,6 +46,9 @@ export class FerroxSelfTestEngine {
         const overallScore = Math.round(totalScore / results.length);
         return { results, overallScore };
     }
+    /**
+     * Simulates/Triggers containerized Kali Red-Team Offensive Audit Runner
+     */
     runKaliRedTeamAudit(targetUrl) {
         return {
             targetUrl,

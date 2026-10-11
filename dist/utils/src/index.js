@@ -6,6 +6,7 @@ export * from './encryption.helper.js';
 export * from './enum.helper.js';
 export * from './env.helper.js';
 export * from './error.helper.js';
+// export * from './faker-helper.js';
 export * from './interval.helper.js';
 export * from './object.helper.js';
 export * from './object-mapper.helper.js';

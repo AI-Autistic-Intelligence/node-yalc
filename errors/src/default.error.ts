@@ -96,7 +96,7 @@ export interface ILogErrorPayload extends Omit<
   IErrorEventPayload,
   keyof IHttpExceptionArguments
 > {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 type loggerOptionType =
@@ -203,7 +203,7 @@ export interface IBetterResponseInterface {
   /**
    * Other properties that can be added dynamically to the response object.
    */
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**
@@ -227,7 +227,7 @@ interface IFormattedCause {
   message?: string;
   stack?: string;
   parentCause?: IFormattedCause;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export function formatCause(error?: any): IFormattedCause | undefined {
@@ -468,7 +468,7 @@ export const DefaultErrorMixin = <
       statusCode: number,
       response: string | Record<string, any>,
     ): IBetterResponseInterface {
-      let responseObj: Record<string, any> = {};
+      let responseObj: Record<string, unknown> = {};
       if (typeof response === 'string' || response instanceof String) {
         message = response as string;
       } else {

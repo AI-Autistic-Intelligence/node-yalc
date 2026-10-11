@@ -16,14 +16,14 @@ yarn add @node-yalc/resilience
 pnpm add @node-yalc/resilience
 ```
 
----
+<hr/>
 
 # 🛡️ Systems Resilience (`@node-yalc/resilience`)
 
 ## 💡 1. What It Is & Architectural Purpose
 The `@node-yalc/resilience` module provides core microservice stability patterns: Circuit Breakers, Token Bucket Rate Limiters, and Singleflight (Promise Coalescing). Its architectural purpose is to protect the application from cascading failures, mitigate heavy load via request throttling, and massively optimize concurrent identical operations to external APIs or databases.
 
----
+<hr/>
 
 ## ⚙️ 2. Comprehensive Taxonomy & Key Features
 
@@ -33,7 +33,7 @@ The `@node-yalc/resilience` module provides core microservice stability patterns
 | **`RateLimiter`** | Token-bucket throttling. | Limiting users to 100 API requests per minute to prevent DB exhaustion. |
 | **`Singleflight`** | Request coalescer. | If 100 concurrent requests ask for the exact same database row, Singleflight executes *one* DB query and shares the Promise with all 100 callers. |
 
----
+<hr/>
 
 ## 🔬 3. How It Works Under the Hood
 
@@ -61,7 +61,7 @@ sequenceDiagram
 
 By deduplicating simultaneous requests for the exact same key, Singleflight provides an astronomical performance boost during cache stampedes, without needing a Redis layer.
 
----
+<hr/>
 
 ## 🧠 4. Why It Was Designed This Way (Rationale)
 
@@ -71,7 +71,7 @@ Most Node.js applications solve API failures by indefinitely retrying, and solve
 
 `@node-yalc/resilience` provides lightweight, in-memory structures that solve these complex distributed systems problems natively in the Node.js process space.
 
----
+<hr/>
 
 ## 🚀 5. Practical Usage Guide & Extended Code Examples
 
@@ -116,7 +116,7 @@ export async function getUserProfile(userId: string) {
 }
 ```
 
----
+<hr/>
 
 ## ⚠️ 6. Anti-Patterns: How NOT to Use It
 
@@ -128,7 +128,7 @@ export async function getUserProfile(userId: string) {
 > **Anti-Pattern 2: Wrapping fast, local logic in Singleflight**
 > Singleflight introduces a tiny closure allocation overhead. Do not wrap local, instantaneous operations (like simple math or `Map` lookups) in `.do()`. Only wrap heavy async I/O tasks.
 
----
+<hr/>
 
 ## 💡 7. Pro-Tips & Best Practices
 
@@ -137,7 +137,7 @@ export async function getUserProfile(userId: string) {
 > Combine Singleflight with your Redis caching layer! Wrap your Redis `GET` inside a Singleflight. If the key is missing, fetch from DB, save to Redis, and return. This totally eliminates cache stampedes when your highest traffic keys expire.
 
 
----
+<hr/>
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 
