@@ -120,7 +120,7 @@ async function callInventoryService(req) {
 
 > [!CAUTION]
 > **Anti-Pattern 1: Logging unstructured text**
-> Do not use `logger.info(\`User ${id} trace: ${traceId}\`)`. The `FerroxLogger` expects stringified JSON out of the box. By concatenating variables into the string message, you defeat the purpose of structured logging, as Elasticsearch cannot index the `traceId` property if it's trapped inside a generic string message. Always pass variables in the `meta` object.
+> Do not use `logger.info('User ' + id + ' trace: ' + traceId)`. The `FerroxLogger` expects stringified JSON out of the box. By concatenating variables into the string message, you defeat the purpose of structured logging, as Elasticsearch cannot index the `traceId` property if it's trapped inside a generic string message. Always pass variables in the `meta` object.
 
 ---
 
