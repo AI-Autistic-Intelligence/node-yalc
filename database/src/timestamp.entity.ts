@@ -7,24 +7,38 @@ import { CreateDateColumn, UpdateDateColumn } from 'typeorm';
  * Database fields in a standardized way
  */
 export const YalcEntityWithTimestamps = <T extends ClassType>(base: T) => {
+  const isSqlite =
+    typeof process !== 'undefined' &&
+    (process.env.NODE_ENV === 'test' ||
+      process.env.DATABASE_TYPE === 'sqlite' ||
+      process.env.DB_TYPE === 'sqlite');
+
   class YalcEntityWithTimestamps extends base {
     /**
      * DB insert time.
      */
-    @CreateDateColumn({
-      type: 'timestamp',
-      default: returnValue('CURRENT_TIMESTAMP(6)'),
-    })
+    @CreateDateColumn(
+      isSqlite
+        ? {}
+        : {
+            type: 'timestamp',
+            default: returnValue('CURRENT_TIMESTAMP(6)'),
+          },
+    )
     public createdAt: Date;
 
     /**
      * DB last update time.
      */
-    @UpdateDateColumn({
-      type: 'timestamp',
-      default: returnValue('CURRENT_TIMESTAMP(6)'),
-      onUpdate: 'CURRENT_TIMESTAMP(6)',
-    })
+    @UpdateDateColumn(
+      isSqlite
+        ? {}
+        : {
+            type: 'timestamp',
+            default: returnValue('CURRENT_TIMESTAMP(6)'),
+            onUpdate: 'CURRENT_TIMESTAMP(6)',
+          },
+    )
     public updatedAt: Date;
   }
 

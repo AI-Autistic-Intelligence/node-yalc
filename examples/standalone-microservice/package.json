@@ -1,0 +1,31 @@
+{
+  "name": "@node-yalc/standalone-microservice",
+  "version": "1.0.0",
+  "description": "Pure TypeScript Standalone Enterprise Microservice without NestJS using @node-yalc/* packages",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "start:prod": "node dist/index.js",
+    "test": "jest --config jest.config.js"
+  },
+  "dependencies": {
+    "@node-yalc/auth": "workspace:*",
+    "@node-yalc/database": "workspace:*",
+    "@node-yalc/errors": "workspace:*",
+    "@node-yalc/cqrs": "workspace:*",
+    "@node-yalc/logger": "workspace:*",
+    "@node-yalc/tracing": "workspace:*",
+    "@node-yalc/resilience": "workspace:*",
+    "@node-yalc/storage": "workspace:*",
+    "@node-yalc/config": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

@@ -112,3 +112,30 @@ export declare class SagaOrchestrator {
      */
     private rollback;
 }
+/**
+ * Transaction context passed through each step of an AcidSagaCoordinator.
+ */
+export interface SagaTransaction<T = any> {
+    id: string;
+    payload: T;
+}
+export type SagaStepAction<T = any> = (tx: SagaTransaction<T>) => Promise<any>;
+export type SagaStepCompensate<T = any> = (tx: SagaTransaction<T>, result?: any) => Promise<void>;
+export interface AcidStep<T = any> {
+    name: string;
+    forward: SagaStepAction<T>;
+    compensate: SagaStepCompensate<T>;
+}
+/**
+ * ACID Saga Coordinator supporting structured step-by-step execution with automatic
+ * reverse compensation on failure and typed transactional context.
+ */
+export declare class AcidSagaCoordinator<T = any> {
+    private steps;
+    addStep(name: string, forward: SagaStepAction<T>, compensate: SagaStepCompensate<T>): this;
+    execute(tx: SagaTransaction<T>): Promise<{
+        success: boolean;
+        executedSteps: string[];
+        error?: string;
+    }>;
+}

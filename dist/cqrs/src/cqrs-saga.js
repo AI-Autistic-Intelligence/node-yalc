@@ -118,4 +118,45 @@ export class SagaOrchestrator {
         }
     }
 }
+/**
+ * ACID Saga Coordinator supporting structured step-by-step execution with automatic
+ * reverse compensation on failure and typed transactional context.
+ */
+export class AcidSagaCoordinator {
+    constructor() {
+        this.steps = [];
+    }
+    addStep(name, forward, compensate) {
+        this.steps.push({ name, forward, compensate });
+        return this;
+    }
+    async execute(tx) {
+        const executed = [];
+        for (const step of this.steps) {
+            try {
+                const result = await step.forward(tx);
+                executed.push({ step, result });
+            }
+            catch (err) {
+                for (let i = executed.length - 1; i >= 0; i--) {
+                    try {
+                        await executed[i].step.compensate(tx, executed[i].result);
+                    }
+                    catch (compErr) {
+                        console.error(`Rollback compensation failed in step [${executed[i].step.name}]:`, compErr);
+                    }
+                }
+                return {
+                    success: false,
+                    executedSteps: executed.map((e) => e.step.name),
+                    error: err.message,
+                };
+            }
+        }
+        return {
+            success: true,
+            executedSteps: executed.map((e) => e.step.name),
+        };
+    }
+}
 //# sourceMappingURL=cqrs-saga.js.map

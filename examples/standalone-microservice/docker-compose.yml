@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  standalone-service:
+    build:
+      context: ../..
+      dockerfile: examples/standalone-microservice/Dockerfile
+    container_name: node-yalc-standalone-microservice
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+      - HOST=0.0.0.0
+      - PASETO_SECRET=node-yalc-standalone-microservice-secret-32b
+      - PASETO_ISSUER=node-yalc-standalone
+    networks:
+      - yalc-net
+
+networks:
+  yalc-net:
+    driver: bridge

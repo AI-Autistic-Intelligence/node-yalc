@@ -170,3 +170,65 @@ export class SagaOrchestrator {
   }
 }
 
+/**
+ * Transaction context passed through each step of an AcidSagaCoordinator.
+ */
+export interface SagaTransaction<T = any> {
+  id: string;
+  payload: T;
+}
+
+export type SagaStepAction<T = any> = (tx: SagaTransaction<T>) => Promise<any>;
+export type SagaStepCompensate<T = any> = (tx: SagaTransaction<T>, result?: any) => Promise<void>;
+
+export interface AcidStep<T = any> {
+  name: string;
+  forward: SagaStepAction<T>;
+  compensate: SagaStepCompensate<T>;
+}
+
+/**
+ * ACID Saga Coordinator supporting structured step-by-step execution with automatic
+ * reverse compensation on failure and typed transactional context.
+ */
+export class AcidSagaCoordinator<T = any> {
+  private steps: AcidStep<T>[] = [];
+
+  public addStep(
+    name: string,
+    forward: SagaStepAction<T>,
+    compensate: SagaStepCompensate<T>,
+  ): this {
+    this.steps.push({ name, forward, compensate });
+    return this;
+  }
+
+  public async execute(tx: SagaTransaction<T>): Promise<{ success: boolean; executedSteps: string[]; error?: string }> {
+    const executed: { step: AcidStep<T>; result: any }[] = [];
+    for (const step of this.steps) {
+      try {
+        const result = await step.forward(tx);
+        executed.push({ step, result });
+      } catch (err: any) {
+        for (let i = executed.length - 1; i >= 0; i--) {
+          try {
+            await executed[i].step.compensate(tx, executed[i].result);
+          } catch (compErr: any) {
+            console.error(`Rollback compensation failed in step [${executed[i].step.name}]:`, compErr);
+          }
+        }
+        return {
+          success: false,
+          executedSteps: executed.map((e) => e.step.name),
+          error: err.message,
+        };
+      }
+    }
+    return {
+      success: true,
+      executedSteps: executed.map((e) => e.step.name),
+    };
+  }
+}
+
+
