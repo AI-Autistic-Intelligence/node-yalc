@@ -16,14 +16,14 @@ yarn add @node-yalc/storage
 pnpm add @node-yalc/storage
 ```
 
-<hr/>
+---
 
 # 🗄️ Universal Storage Engine (`@node-yalc/storage`)
 
 ## 💡 1. What It Is & Architectural Purpose
 The `@node-yalc/storage` module provides a universal, abstraction-driven wrapper around file storage (S3, GCS, Local Disk). Its architectural purpose is to strictly decouple the business logic of uploading and downloading files from the underlying cloud provider's SDK (e.g., `aws-sdk`).
 
-<hr/>
+---
 
 ## ⚙️ 2. Comprehensive Taxonomy & Key Features
 
@@ -33,7 +33,7 @@ The `@node-yalc/storage` module provides a universal, abstraction-driven wrapper
 | **`MemoryStorageAdapter`** | In-memory `Map`-based adapter. | Used natively during test suites or fast local development so developers do not need AWS credentials. |
 | **`StorageEngine`** | The dependency-injected orchestration class. | Exposes the universal API to the rest of the application. |
 
-<hr/>
+---
 
 ## 🔬 3. How It Works Under the Hood
 
@@ -53,7 +53,7 @@ flowchart TD
 
 This prevents the notorious "Vendor Lock-in". If a startup migrates from AWS to Google Cloud, they only need to write one `GcpStorageAdapter` rather than hunting down every single `s3.upload()` call in their codebase.
 
-<hr/>
+---
 
 ## 🧠 4. Why It Was Designed This Way (Rationale)
 
@@ -63,7 +63,7 @@ Most developers `npm install aws-sdk` directly into their User Service to upload
 
 The `StorageEngine` solves this by forcing all byte transfers through the `IStorageAdapter` contract, ensuring perfect testability via the `MemoryStorageAdapter`.
 
-<hr/>
+---
 
 ## 🚀 5. Practical Usage Guide & Extended Code Examples
 
@@ -99,7 +99,7 @@ export async function downloadFile(req, res) {
 }
 ```
 
-<hr/>
+---
 
 ## ⚠️ 6. Anti-Patterns: How NOT to Use It
 
@@ -107,7 +107,7 @@ export async function downloadFile(req, res) {
 > **Anti-Pattern 1: Buffering Huge Files in RAM**
 > The `IStorageAdapter` interface accepts `Buffer | string`. Do not read a 4GB ISO file into a `Buffer` and pass it to `engine.upload()`. Node's V8 heap maxes out at ~1.5GB by default and will crash. For massive files, utilize the `getPresignedUrl` flow to bypass Node.js entirely, or extend the interface to support Node `ReadStream` chunks.
 
-<hr/>
+---
 
 ## 💡 7. Pro-Tips & Best Practices
 
@@ -116,7 +116,7 @@ export async function downloadFile(req, res) {
 > Always keep your Cloud Buckets strictly private. If a user needs to view a PDF receipt, use `getPresignedUrl('receipt.pdf', 300)` to generate a URL that naturally expires in 5 minutes, preventing authorized users from sharing permanent links to private data.
 
 
-<hr/>
+---
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 

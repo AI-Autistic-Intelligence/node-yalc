@@ -16,14 +16,14 @@ yarn add @node-yalc/config
 pnpm add @node-yalc/config
 ```
 
-<hr/>
+---
 
 # ⚙️ Configuration Management (`@node-yalc/config`)
 
 ## 💡 1. What It Is & Architectural Purpose
 The `@node-yalc/config` module provides a centralized, robust `ConfigEngine` for managing application configuration. Its primary architectural purpose is to establish a strict hierarchy of configuration retrieval (Environment Variables > In-Memory Store > Default Fallbacks) while automatically casting string-based environment variables into their native TypeScript types (booleans, numbers) without external bloated dependencies.
 
-<hr/>
+---
 
 ## ⚙️ 2. Comprehensive Taxonomy & Key Features
 
@@ -33,7 +33,7 @@ The `@node-yalc/config` module provides a centralized, robust `ConfigEngine` for
 | **`.get<T>(key, fallback)`** | Type-safe retrieval mechanism. | Extracting `PORT`, `DEBUG_MODE`, or feature flags with automatic type casting. |
 | **`.set(key, value)`** | In-memory configuration override. | Changing configuration dynamically at runtime (without mutating `process.env`). |
 
-<hr/>
+---
 
 ## 🔬 3. How It Works Under the Hood
 
@@ -59,7 +59,7 @@ flowchart TD
 
 When an environment variable is found, the engine inherently understands that `process.env` only stores strings. It proactively casts `"true"` to `true`, `"false"` to `false`, and numeric strings (e.g. `"8080"`) to numbers before returning the value to the caller.
 
-<hr/>
+---
 
 ## 🧠 4. Why It Was Designed This Way (Rationale)
 
@@ -69,7 +69,7 @@ Most Node.js applications rely on scattered `process.env.MY_VAR || 'default'` ca
 
 `ConfigEngine` solves this by handling the type coercion internally and providing an isolated `.set()` method for overriding config in memory, heavily stabilizing the testing environment without touching the global `process.env` state.
 
-<hr/>
+---
 
 ## 🚀 5. Practical Usage Guide & Extended Code Examples
 
@@ -116,7 +116,7 @@ describe('MyService', () => {
 });
 ```
 
-<hr/>
+---
 
 ## ⚠️ 6. Anti-Patterns: How NOT to Use It
 
@@ -128,7 +128,7 @@ describe('MyService', () => {
 > **Anti-Pattern 2: Mutating process.env Directly**
 > If you need to change a configuration variable at runtime, use `config.set('KEY', 'VALUE')`. Do not execute `process.env.KEY = 'VALUE'` at runtime, as this can trigger performance penalties in Node.js worker threads and create race conditions.
 
-<hr/>
+---
 
 ## 💡 7. Pro-Tips & Best Practices
 
@@ -137,7 +137,7 @@ describe('MyService', () => {
 > When retrieving highly nested or specific configuration interfaces, pass the interface type to `.get<MyConfigInterface>('APP_CONFIG')` to ensure your editor retains full intellisense auto-completion on the returned object from the memory store.
 
 
-<hr/>
+---
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 

@@ -16,14 +16,14 @@ yarn add @node-yalc/tracing
 pnpm add @node-yalc/tracing
 ```
 
-<hr/>
+---
 
 # 🔍 Distributed Tracing & Logging (`@node-yalc/tracing`)
 
 ## 💡 1. What It Is & Architectural Purpose
 The `@node-yalc/tracing` module is the cornerstone of observability in the Ferrox Framework. Its architectural purpose is to generate, parse, and propagate **W3C Trace Context headers (`traceparent`)** across microservice boundaries, ensuring that every log entry, database query, and HTTP request belonging to a single user journey is cryptographically tied to a single `traceId`.
 
-<hr/>
+---
 
 ## ⚙️ 2. Comprehensive Taxonomy & Key Features
 
@@ -33,7 +33,7 @@ The `@node-yalc/tracing` module is the cornerstone of observability in the Ferro
 | **`TraceContext`** | Standardized interface. | Carrying tracing metadata through function calls (often stored in Node's `AsyncLocalStorage`). |
 | **`FerroxLogger`** | JSON-based structured logger. | Emitting logs to `stdout` that automatically serialize meta objects (including `traceId`), perfectly optimized for Elasticsearch or Datadog. |
 
-<hr/>
+---
 
 ## 🔬 3. How It Works Under the Hood
 
@@ -58,7 +58,7 @@ sequenceDiagram
 
 When logs from both `Gateway` and `Auth` are aggregated in Splunk or Datadog, searching for `abc123ff` immediately pulls up the entire sequential timeline across both services.
 
-<hr/>
+---
 
 ## 🧠 4. Why It Was Designed This Way (Rationale)
 
@@ -66,7 +66,7 @@ Without distributed tracing, debugging a failure in a microservices architecture
 
 By strictly adhering to the **W3C Trace Context specification**, `@node-yalc/tracing` ensures interoperability. If you inject a `traceparent` into a request bound for an AWS API Gateway or a Jaeger APM agent, they will natively understand it and stitch the trace together without needing vendor-specific (`X-B3-TraceId`, `X-Amzn-Trace-Id`) headers.
 
-<hr/>
+---
 
 ## 🚀 5. Practical Usage Guide & Extended Code Examples
 
@@ -114,7 +114,7 @@ async function callInventoryService(req) {
 }
 ```
 
-<hr/>
+---
 
 ## ⚠️ 6. Anti-Patterns: How NOT to Use It
 
@@ -122,7 +122,7 @@ async function callInventoryService(req) {
 > **Anti-Pattern 1: Logging unstructured text**
 > Do not use `logger.info(\`User ${id} trace: ${traceId}\`)`. The `FerroxLogger` expects stringified JSON out of the box. By concatenating variables into the string message, you defeat the purpose of structured logging, as Elasticsearch cannot index the `traceId` property if it's trapped inside a generic string message. Always pass variables in the `meta` object.
 
-<hr/>
+---
 
 ## 💡 7. Pro-Tips & Best Practices
 
@@ -131,7 +131,7 @@ async function callInventoryService(req) {
 > Manually passing `req.traceContext` down through 10 layers of nested functions is tedious. Instead, leverage Node's `AsyncLocalStorage` in your middleware to store the `TraceContext`. You can then retrieve the `traceId` anywhere in the call stack globally, automatically injecting it into every database call or outgoing HTTP request.
 
 
-<hr/>
+---
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 

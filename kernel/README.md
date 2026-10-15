@@ -16,14 +16,14 @@ yarn add @node-yalc/kernel
 pnpm add @node-yalc/kernel
 ```
 
-<hr/>
+---
 
 # 🛡️ OS Kernel Sandboxing (`@node-yalc/kernel`)
 
 ## 💡 1. What It Is & Architectural Purpose
 The `@node-yalc/kernel` module is an infrastructure-as-code (IaC) utility built into the Ferrox Security ecosystem. Its architectural purpose is to dynamically generate hardened OS-level policies (Linux Seccomp BPF, Landlock LSM, and Sysctl configs) that strictly sandbox the Node.js runtime. By restricting what the Node.js process is permitted to do at the kernel level, it effectively neutralizes zero-day Remote Code Execution (RCE) vulnerabilities.
 
-<hr/>
+---
 
 ## ⚙️ 2. Comprehensive Taxonomy & Key Features
 
@@ -34,7 +34,7 @@ The `@node-yalc/kernel` module is an infrastructure-as-code (IaC) utility built 
 | **`.generateLandlockPolicy()`** | Generates LSM filesystem rules. | Creates an unprivileged chroot-like filesystem sandbox, blocking unauthorized read/writes outside `/app`. |
 | **`.generateSysctlHardeningConfig()`** | Generates raw `sysctl.conf` blocks. | Mitigates network (SYN floods, IP spoofing) and filesystem (symlink) attacks. |
 
-<hr/>
+---
 
 ## 🔬 3. How It Works Under the Hood
 
@@ -56,7 +56,7 @@ flowchart LR
 
 By ensuring `execve` (execute file) is set to `SCMP_ACT_KILL`, even if an attacker successfully injects a reverse shell into your Express/Fastify routes, the kernel will kill the container before the shell can spawn.
 
-<hr/>
+---
 
 ## 🧠 4. Why It Was Designed This Way (Rationale)
 
@@ -64,7 +64,7 @@ Most Node.js applications rely purely on application-level defenses (like Helmet
 
 By pushing the defense perimeter to the Linux kernel via `@node-yalc/kernel`, Ferrox ensures that a compromise in user space does not result in a compromised server. The engine provides these profiles out-of-the-box so DevOps engineers don't have to manually learn and write complex BPF filters.
 
-<hr/>
+---
 
 ## 🚀 5. Practical Usage Guide & Extended Code Examples
 
@@ -98,7 +98,7 @@ const landlockRules = engine.generateLandlockPolicy([
 ]);
 ```
 
-<hr/>
+---
 
 ## ⚠️ 6. Anti-Patterns: How NOT to Use It
 
@@ -110,7 +110,7 @@ const landlockRules = engine.generateLandlockPolicy([
 > **Anti-Pattern 2: Disabling TCP Syncookies in Sysctl**
 > The engine strictly sets `net.ipv4.tcp_syncookies = 1`. Do not override this in production, as doing so makes the Node.js server highly vulnerable to TCP SYN flood DDoS attacks at the networking layer.
 
-<hr/>
+---
 
 ## 💡 7. Pro-Tips & Best Practices
 
@@ -119,7 +119,7 @@ const landlockRules = engine.generateLandlockPolicy([
 > Pass the generated `sysctl` strings into your Kubernetes Pod `securityContext.sysctls` array, and mount the `seccomp.json` into the Kubelet to fully lock down your Pods without requiring privileged mode.
 
 
-<hr/>
+---
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 

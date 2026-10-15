@@ -16,14 +16,14 @@ yarn add @node-yalc/guards
 pnpm add @node-yalc/guards
 ```
 
-<hr/>
+---
 
 # 🛡️ Application Security Guards (`@node-yalc/guards`)
 
 ## 💡 1. What It Is & Architectural Purpose
 The `@node-yalc/guards` module acts as the frontline defense mechanism for the Ferrox Framework. By providing pure TypeScript Guard classes (`MandatoryComplianceGuard` and `RbacGuard`), it enforces structural security constraints and Role-Based Access Control (RBAC) synchronously before any internal business logic or controllers are invoked. 
 
-<hr/>
+---
 
 ## ⚙️ 2. Comprehensive Taxonomy & Key Features
 
@@ -32,7 +32,7 @@ The `@node-yalc/guards` module acts as the frontline defense mechanism for the F
 | **`MandatoryComplianceGuard`** | Automatically injects security headers (HSTS, CSP, XSS) and blocks malicious User-Agents. | Globally bound to every HTTP server initialization to guarantee compliance with OWASP Top 10. |
 | **`RbacGuard`** | PASETO v4.local Token parser and Role Verifier. | Protects sensitive routes by decoding cryptography-safe tokens and evaluating `payload.roles`. |
 
-<hr/>
+---
 
 ## 🔬 3. How It Works Under the Hood
 
@@ -62,7 +62,7 @@ sequenceDiagram
 
 If any guard returns `false`, it immediately writes a `401 Unauthorized` or `403 Forbidden` response to the `res` object and terminates the execution lifecycle.
 
-<hr/>
+---
 
 ## 🧠 4. Why It Was Designed This Way (Rationale)
 
@@ -70,7 +70,7 @@ Many Node.js applications rely on Express/Fastify-specific middleware to handle 
 
 By using simple classes exposing a `canActivate(req, res): boolean` contract, the `@node-yalc/guards` are fully decoupled. They can be trivially adapted into NestJS Interceptors, Fastify Hooks, or AWS Lambda Wrappers by simply checking their boolean return value.
 
-<hr/>
+---
 
 ## 🚀 5. Practical Usage Guide & Extended Code Examples
 
@@ -121,7 +121,7 @@ export function adminRouteHandler(req: any, res: any) {
 }
 ```
 
-<hr/>
+---
 
 ## ⚠️ 6. Anti-Patterns: How NOT to Use It
 
@@ -133,7 +133,7 @@ export function adminRouteHandler(req: any, res: any) {
 > **Anti-Pattern 2: Manual Token Fallbacks**
 > `RbacGuard` strictly enforces the `Authorization: Bearer <PASETO-TOKEN>` header. Do not try to extract tokens from cookies, query parameters (`?token=`), or custom headers (`x-api-key`) inside this guard, as it bypasses CSRF protections.
 
-<hr/>
+---
 
 ## 💡 7. Pro-Tips & Best Practices
 
@@ -142,7 +142,7 @@ export function adminRouteHandler(req: any, res: any) {
 > In the `nestjs-yalc` monorepo, these pure Guards are extended by wrapping them inside NestJS's `@Injectable()` `CanActivate` interfaces. This allows you to leverage Nest's `@SetMetadata('roles', ['admin'])` reflector to dynamically pass `requiredRoles` to the `RbacGuard` engine constructor at runtime.
 
 
-<hr/>
+---
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 

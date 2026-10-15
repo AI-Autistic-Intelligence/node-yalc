@@ -16,11 +16,11 @@ yarn add @node-yalc/security
 pnpm add @node-yalc/security
 ```
 
-<hr/>
+---
 
 **@node-yalc/security** is a core module adhering to the 7-Layer Ferrox Architecture. Technical documentation is currently being upscaled.
 
-<hr/>
+---
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 

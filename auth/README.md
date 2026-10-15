@@ -16,14 +16,14 @@ yarn add @node-yalc/auth
 pnpm add @node-yalc/auth
 ```
 
-<hr/>
+---
 
 # 🛡️ Authentication Utilities (`@yalc/security/auth`)
 
 ## 💡 1. What It Is & Architectural Purpose
 The `@yalc/security/auth` module is a high-performance, strictly-typed security library designed specifically for Node.js microservices. Its purpose is to provide a unified, enterprise-grade abstraction for stateless authentication (like JWT validation) and permission verification (RBAC/ABAC) without the overhead of heavy web frameworks. It allows you to protect your endpoints directly at the Node.js level.
 
-<hr/>
+---
 
 ## ⚙️ 2. Comprehensive Taxonomy & Key Features
 
@@ -34,7 +34,7 @@ The `@yalc/security/auth` module is a high-performance, strictly-typed security 
 | **`RoleVerifier`** | Bitmask-based role verification engine. | High-speed multi-tenant role checking. |
 | **`CryptoNonce`** | Secure random generation for OAuth state & nonces. | Preventing CSRF and replay attacks. |
 
-<hr/>
+---
 
 ## 🔬 3. How It Works Under the Hood
 
@@ -55,7 +55,7 @@ sequenceDiagram
 
 The JWT validation leverages Node's native `crypto` bindings, avoiding pure-JavaScript fallbacks, which results in a 40% latency reduction under heavy load compared to standard libraries.
 
-<hr/>
+---
 
 ## 🧠 4. Why It Was Designed This Way (Rationale)
 
@@ -63,7 +63,7 @@ The JWT validation leverages Node's native `crypto` bindings, avoiding pure-Java
 
 Unlike standard Passport.js or express-jwt middlewares, `@yalc/security/auth` is **framework-agnostic**. It was designed to work seamlessly with Fastify, Express, or even raw Node.js HTTP servers. By decoupling the cryptographic validation from the HTTP transport layer, we ensure that the security logic can be tested in isolation and reused in WebSockets or gRPC channels.
 
-<hr/>
+---
 
 ## 🚀 5. Usage Guide & Code Examples
 
@@ -91,7 +91,7 @@ export async function authMiddleware(req: IncomingMessage, res: ServerResponse) 
 }
 ```
 
-<hr/>
+---
 
 ## ⚠️ 6. Anti-Patterns: How NOT to Use It
 
@@ -103,7 +103,7 @@ export async function authMiddleware(req: IncomingMessage, res: ServerResponse) 
 > **Anti-Pattern 2: Hardcoding Secrets**
 > Do not pass string literals to the validation engine. Always use injected secrets from a secure vault or `process.env`.
 
-<hr/>
+---
 
 ## 开启 7. Pro-Tips & Best Practices
 
@@ -112,7 +112,7 @@ export async function authMiddleware(req: IncomingMessage, res: ServerResponse) 
 > For microservice architectures, prefer using RS256 (Public/Private keypairs) instead of HS256. This allows downstream services to validate tokens using only the public key, preventing secret sprawl.
 
 
-<hr/>
+---
 
 ## 🔗 Cross-References
 
@@ -121,7 +121,7 @@ To see how this module integrates with the rest of the Ferrox architecture, refe
 - [Node-YALC Errors](https://ferrox-rust.dev/docs/node-yalc/fundamentals/errors)
 
 
-<hr/>
+---
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 

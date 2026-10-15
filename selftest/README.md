@@ -16,14 +16,14 @@ yarn add @node-yalc/selftest
 pnpm add @node-yalc/selftest
 ```
 
-<hr/>
+---
 
 # 🩺 Diagnostics & Red-Team Audit (`@node-yalc/selftest`)
 
 ## 💡 1. What It Is & Architectural Purpose
 The `@node-yalc/selftest` module provides an automated, built-in security diagnostics engine. Its architectural purpose is to allow the Node.js application to introspect its own runtime environment, ensuring that critical security headers, kernel sandboxes (Seccomp/Landlock), and AI guardrails are correctly configured before processing traffic. It also integrates a simulated Red-Team audit reporting layer (`KaliAuditReport`).
 
-<hr/>
+---
 
 ## ⚙️ 2. Comprehensive Taxonomy & Key Features
 
@@ -33,7 +33,7 @@ The `@node-yalc/selftest` module provides an automated, built-in security diagno
 | **`.runDiagnosticAudit()`** | Internal configuration verification. | Returning a 0-100 score on whether the PASETO encryption, headers, and Sysctl hardening are active. |
 | **`.runKaliRedTeamAudit()`** | Simulated offensive security report. | Generating formatted JSON reports documenting how the API holds up against Nmap, Gobuster, SQLMap, Commix, and Hydra. |
 
-<hr/>
+---
 
 ## 🔬 3. How It Works Under the Hood
 
@@ -55,7 +55,7 @@ flowchart TD
 ```
 If the overall score drops below an acceptable threshold (e.g., `< 100` in strict production environments), the microservice can be configured to halt startup (`process.exit(1)`) to prevent a misconfigured container from accepting traffic.
 
-<hr/>
+---
 
 ## 🧠 4. Why It Was Designed This Way (Rationale)
 
@@ -63,7 +63,7 @@ A common point of failure in cloud deployments is environment misconfiguration. 
 
 By building the self-test engine *directly into* the application code, the server can verify its own OS-level and HTTP-level security bindings at boot, eliminating entire categories of deployment-related vulnerabilities.
 
-<hr/>
+---
 
 ## 🚀 5. Practical Usage Guide & Extended Code Examples
 
@@ -104,7 +104,7 @@ export function securityHealthEndpoint(req, res) {
 }
 ```
 
-<hr/>
+---
 
 ## ⚠️ 6. Anti-Patterns: How NOT to Use It
 
@@ -112,7 +112,7 @@ export function securityHealthEndpoint(req, res) {
 > **Anti-Pattern 1: Exposing Audits Publicly**
 > Never expose the output of `runDiagnosticAudit()` or `runKaliRedTeamAudit()` on a public endpoint without `RbacGuard` protection. Providing an attacker with a detailed report of your exact security posture, open ports, and active mitigations is an unnecessary information leak.
 
-<hr/>
+---
 
 ## 💡 7. Pro-Tips & Best Practices
 
@@ -121,7 +121,7 @@ export function securityHealthEndpoint(req, res) {
 > Write a Jest test suite that instantiates `FerroxSelfTestEngine` and asserts `expect(overallScore).toBe(100)`. This guarantees that nobody accidentally disables a critical security module during a pull request, as the CI build will fail automatically.
 
 
-<hr/>
+---
 ## 📚 Ecosystem Documentation
 
 This module is a core component of the Ferrox enterprise microservice architecture. 
