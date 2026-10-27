@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/errors",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Errors",
   "main": "./dist/index.js",
   "exports": {
@@ -22,8 +22,8 @@
     "src"
   ],
   "dependencies": {
-    "@node-yalc/logger": "workspace:*",
-    "@node-yalc/utils": "workspace:*",
+    "@node-yalc/logger": "^0.3.8",
+    "@node-yalc/utils": "^0.3.10",
     "axios": "^1.20.0",
     "eventemitter2": "^6.4.9",
     "neverthrow": "^8.2.0",
