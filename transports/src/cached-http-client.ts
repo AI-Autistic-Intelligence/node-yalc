@@ -52,6 +52,11 @@ export const FOREVER = Number.POSITIVE_INFINITY;
 
 const defaultFetch: FetchLike = (url, init) => fetch(url, init);
 
+export interface ICachedHttpClient {
+  getJson<T>(pathAndQuery: string, ttlMs: number): Promise<T>;
+  statsSnapshot(): UpstreamStats;
+}
+
 /**
  * Rate-limited, cached, retrying JSON client used for real public or microservice APIs.
  * - cache-first with per-call TTL (Infinity for immutable historical data)
@@ -59,7 +64,7 @@ const defaultFetch: FetchLike = (url, init) => fetch(url, init);
  * - retries 429/5xx/network errors with exponential backoff
  * - stale-if-error: serves the last genuine payload when the upstream is down
  */
-export class CachedHttpClient {
+export class CachedHttpClient implements ICachedHttpClient {
   private readonly inflight = new Map<string, Promise<unknown>>();
   private readonly fetchFn: FetchLike;
   private readonly clock: Clock;

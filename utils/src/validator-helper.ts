@@ -1,12 +1,10 @@
-import { ErrorsEnum } from '../../errors/src/error.enum.js';
-
 export function stringIsInEnumOrThrow<
   T extends Record<string, string | number>,
 >(toCheck: string, enumName: T, message?: string): boolean {
   if (stringIsInEnum(toCheck, enumName)) {
     return true;
   }
-  const err = message ? message : `${ErrorsEnum.INVALID_VALUE} ${toCheck}`;
+  const err = message ? message : `Invalid value ${toCheck}`;
   throw new Error(err);
 }
 

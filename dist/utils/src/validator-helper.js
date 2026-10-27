@@ -1,9 +1,8 @@
-import { ErrorsEnum } from '../../errors/src/error.enum.js';
 export function stringIsInEnumOrThrow(toCheck, enumName, message) {
     if (stringIsInEnum(toCheck, enumName)) {
         return true;
     }
-    const err = message ? message : `${ErrorsEnum.INVALID_VALUE} ${toCheck}`;
+    const err = message ? message : `Invalid value ${toCheck}`;
     throw new Error(err);
 }
 export function stringIsInEnum(toCheck, enumName) {
