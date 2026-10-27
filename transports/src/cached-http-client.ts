@@ -111,50 +111,56 @@ export class CachedHttpClient implements ICachedHttpClient {
   }
 
   private async fetchWithRetry(url: string): Promise<unknown> {
+    const { source } = this.opts;
     const maxRetries = this.opts.maxRetries ?? 3;
     const backoff = this.opts.backoffMs ?? 400;
     const timeout = this.opts.timeoutMs ?? 15_000;
-    let attempt = 0;
+    let lastErr = new UpstreamError(source, 0, `${source}: no attempt made`);
 
-    for (;;) {
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      if (attempt > 0) {
+        await this.clock.sleep(backoff * 2 ** (attempt - 1));
+      }
       await this.opts.limiter.acquire();
       this.stats.networkRequests++;
-      attempt++;
       const ctrl = new AbortController();
       const timer = setTimeout(() => ctrl.abort(), timeout);
+      let res: FetchResponseLike;
 
       try {
-        const res = await this.fetchFn(url, {
+        res = await this.fetchFn(url, {
           headers: {
             Accept: 'application/json',
             'User-Agent': this.opts.userAgent ?? 'ferrox-client/1.0',
           },
           signal: ctrl.signal,
         });
-
-        if (res.ok) {
-          const text = await res.text();
-          return text ? JSON.parse(text) : null;
-        }
-
-        const retryable = res.status === 429 || res.status >= 500;
-        if (!retryable || attempt > maxRetries) {
-          throw new UpstreamError(this.opts.source, res.status, `HTTP ${res.status} from ${this.opts.source}`);
-        }
       } catch (err) {
-        if (err instanceof UpstreamError) throw err;
-        if (attempt > maxRetries) {
-          throw new UpstreamError(this.opts.source, 502, `${this.opts.source} network error: ${(err as Error).message}`);
-        }
+        lastErr = new UpstreamError(source, 0, `${source} network error: ${(err as Error).message}`);
+        continue;
       } finally {
         clearTimeout(timer);
       }
 
-      await this.clock.sleep(backoff * 2 ** (attempt - 1));
+      if (res.ok) {
+        try {
+          return await res.json();
+        } catch {
+          throw new UpstreamError(source, res.status, `${source} returned invalid JSON`);
+        }
+      }
+
+      const detail = (await res.text().catch(() => '')).slice(0, 300);
+      lastErr = new UpstreamError(source, res.status, `${source} HTTP ${res.status}: ${detail}`);
+      if (res.status !== 429 && res.status < 500) {
+        throw lastErr;
+      }
     }
+
+    throw lastErr;
   }
 
-  statsSnapshot(): UpstreamStats {
+  getStats(): UpstreamStats {
     return {
       source: this.opts.source,
       baseUrl: this.opts.baseUrl,
@@ -163,4 +169,9 @@ export class CachedHttpClient implements ICachedHttpClient {
       lastSuccessAt: this.lastSuccessAt,
     };
   }
+
+  statsSnapshot(): UpstreamStats {
+    return this.getStats();
+  }
 }
+
