@@ -15,4 +15,32 @@ export function stringIsInEnum(toCheck, enumName) {
     }
     return false;
 }
+export class ValidationError extends Error {
+    constructor(param, message) {
+        super(message);
+        this.param = param;
+        this.name = 'ValidationError';
+    }
+}
+/**
+ * Validates integer parameters within strict allow-listed bounds.
+ */
+export function parseBoundedInt(raw, name, min, max) {
+    if (raw === null || raw === undefined || raw.trim() === '') {
+        throw new ValidationError(name, `Parameter '${name}' is required.`);
+    }
+    if (!/^-?\d+$/.test(raw)) {
+        throw new ValidationError(name, `Parameter '${name}' must be an integer.`);
+    }
+    const val = Number.parseInt(raw, 10);
+    if (val < min || val > max) {
+        throw new ValidationError(name, `Parameter '${name}' must be between ${min} and ${max}.`);
+    }
+    return val;
+}
+export function parseOptionalInt(raw, name, min, max) {
+    if (raw === null || raw === undefined || raw.trim() === '')
+        return undefined;
+    return parseBoundedInt(raw, name, min, max);
+}
 //# sourceMappingURL=validator-helper.js.map

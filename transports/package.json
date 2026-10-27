@@ -1,6 +1,6 @@
 {
   "name": "@node-yalc/transports",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -16,6 +16,10 @@
     "typescript",
     "transports"
   ],
+  "dependencies": {
+    "@node-yalc/resilience": "^0.2.13",
+    "@node-yalc/storage": "^0.2.13"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

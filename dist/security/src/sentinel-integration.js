@@ -9,9 +9,41 @@ export class AiPromptGuardrailEngine {
 export class RagHallucinationGroundednessEngine {
 }
 /**
+ * Standalone Shannon Entropy calculation for input anomaly detection (OWASP WSTG Sentinel).
+ * Detects shellcode injection, encoded exploits or high-entropy anomalies.
+ */
+export function calculateShannonEntropy(str) {
+    if (!str || str.length === 0)
+        return 0;
+    const frequencies = new Map();
+    for (const char of str) {
+        frequencies.set(char, (frequencies.get(char) ?? 0) + 1);
+    }
+    let entropy = 0;
+    const len = str.length;
+    for (const count of frequencies.values()) {
+        const p = count / len;
+        entropy -= p * Math.log2(p);
+    }
+    return Number(entropy.toFixed(3));
+}
+/**
  * Analyzes payloads using Shannon Entropy to detect obfuscated attacks or encrypted payloads.
+ * Default maxEntropy threshold is 4.8 (Ferrox Sentinel Shannon entropy rule: H <= 4.8).
  */
 export class ShannonEntropyEngine {
+    constructor(maxEntropy = 4.8) {
+        this.maxEntropy = maxEntropy;
+    }
+    static calculate(str) {
+        return calculateShannonEntropy(str);
+    }
+    calculate(str) {
+        return calculateShannonEntropy(str);
+    }
+    isSuspicious(str, threshold = this.maxEntropy) {
+        return this.calculate(str) > threshold;
+    }
 }
 /**
  * Polymorphic Route Engine encrypts and mutates API routes at runtime to prevent automated scraping and deterministic attacks.
@@ -99,4 +131,14 @@ export class FerroxSentinelSecurityEngine {
         ].join('\n');
     }
 }
+/**
+ * Standard OWASP Sentinel production security headers.
+ */
+export const SECURITY_HEADERS = {
+    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; media-src *; img-src 'self' data: https://*; connect-src 'self' https://api.openf1.org https://api.jolpi.ca https://api.open-meteo.com",
+    'X-Content-Type-Options': 'nosniff',
+    'X-Frame-Options': 'DENY',
+    'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+};
 //# sourceMappingURL=sentinel-integration.js.map

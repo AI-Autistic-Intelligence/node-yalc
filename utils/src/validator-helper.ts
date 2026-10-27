@@ -24,3 +24,43 @@ export function stringIsInEnum<T extends Record<string, string | number>>(
   }
   return false;
 }
+
+export class ValidationError extends Error {
+  constructor(public readonly param: string, message: string) {
+    super(message);
+    this.name = 'ValidationError';
+  }
+}
+
+/**
+ * Validates integer parameters within strict allow-listed bounds.
+ */
+export function parseBoundedInt(
+  raw: string | null | undefined,
+  name: string,
+  min: number,
+  max: number
+): number {
+  if (raw === null || raw === undefined || raw.trim() === '') {
+    throw new ValidationError(name, `Parameter '${name}' is required.`);
+  }
+  if (!/^-?\d+$/.test(raw)) {
+    throw new ValidationError(name, `Parameter '${name}' must be an integer.`);
+  }
+  const val = Number.parseInt(raw, 10);
+  if (val < min || val > max) {
+    throw new ValidationError(name, `Parameter '${name}' must be between ${min} and ${max}.`);
+  }
+  return val;
+}
+
+export function parseOptionalInt(
+  raw: string | null | undefined,
+  name: string,
+  min: number,
+  max: number
+): number | undefined {
+  if (raw === null || raw === undefined || raw.trim() === '') return undefined;
+  return parseBoundedInt(raw, name, min, max);
+}
+

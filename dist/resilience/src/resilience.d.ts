@@ -95,3 +95,34 @@ export declare class Singleflight {
      */
     do<T>(key: string, fn: () => Promise<T>): Promise<T>;
 }
+/**
+ * Clock abstraction for deterministic time handling and testing.
+ */
+export interface Clock {
+    now(): number;
+    sleep(ms: number): Promise<void>;
+}
+export declare const systemClock: Clock;
+/**
+ * Quota window definition for sliding-window rate limiting.
+ */
+export interface RateWindow {
+    readonly limit: number;
+    readonly windowMs: number;
+}
+/**
+ * Multi-window sliding log rate limiter with Promise serialization.
+ * Protects downstream/upstream APIs against quota bursting across multiple intervals
+ * (e.g. 3 req/sec and 30 req/min).
+ */
+export declare class SlidingWindowRateLimiter {
+    private readonly windows;
+    private readonly clock;
+    private readonly stamps;
+    private chain;
+    private readonly horizon;
+    constructor(windows: readonly RateWindow[], clock?: Clock);
+    acquire(): Promise<void>;
+    requiredWait(now: number): number;
+    private waitForSlot;
+}

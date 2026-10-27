@@ -9,9 +9,20 @@ export declare class AiPromptGuardrailEngine {
 export declare class RagHallucinationGroundednessEngine {
 }
 /**
+ * Standalone Shannon Entropy calculation for input anomaly detection (OWASP WSTG Sentinel).
+ * Detects shellcode injection, encoded exploits or high-entropy anomalies.
+ */
+export declare function calculateShannonEntropy(str: string): number;
+/**
  * Analyzes payloads using Shannon Entropy to detect obfuscated attacks or encrypted payloads.
+ * Default maxEntropy threshold is 4.8 (Ferrox Sentinel Shannon entropy rule: H <= 4.8).
  */
 export declare class ShannonEntropyEngine {
+    readonly maxEntropy: number;
+    constructor(maxEntropy?: number);
+    static calculate(str: string): number;
+    calculate(str: string): number;
+    isSuspicious(str: string, threshold?: number): boolean;
 }
 /**
  * Polymorphic Route Engine encrypts and mutates API routes at runtime to prevent automated scraping and deterministic attacks.
@@ -73,3 +84,7 @@ export declare class FerroxSentinelSecurityEngine {
      */
     generateSysctlHardeningConfig(): string;
 }
+/**
+ * Standard OWASP Sentinel production security headers.
+ */
+export declare const SECURITY_HEADERS: Record<string, string>;

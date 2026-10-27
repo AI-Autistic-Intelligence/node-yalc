@@ -154,4 +154,52 @@ export class Singleflight {
         return promise;
     }
 }
+export const systemClock = {
+    now: () => Date.now(),
+    sleep: (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+};
+/**
+ * Multi-window sliding log rate limiter with Promise serialization.
+ * Protects downstream/upstream APIs against quota bursting across multiple intervals
+ * (e.g. 3 req/sec and 30 req/min).
+ */
+export class SlidingWindowRateLimiter {
+    constructor(windows, clock = systemClock) {
+        this.windows = windows;
+        this.clock = clock;
+        this.stamps = [];
+        this.chain = Promise.resolve();
+        this.horizon = Math.max(0, ...windows.map((w) => w.windowMs));
+    }
+    acquire() {
+        const next = this.chain.then(() => this.waitForSlot());
+        this.chain = next;
+        return next;
+    }
+    requiredWait(now) {
+        let wait = 0;
+        for (const w of this.windows) {
+            const recent = this.stamps.filter((t) => now - t < w.windowMs);
+            if (recent.length >= w.limit) {
+                const blocking = recent[recent.length - w.limit];
+                wait = Math.max(wait, blocking + w.windowMs - now);
+            }
+        }
+        return wait;
+    }
+    async waitForSlot() {
+        for (;;) {
+            const now = this.clock.now();
+            const wait = this.requiredWait(now);
+            if (wait <= 0) {
+                this.stamps.push(now);
+                while (this.stamps.length > 0 && now - this.stamps[0] >= this.horizon) {
+                    this.stamps.shift();
+                }
+                return;
+            }
+            await this.clock.sleep(wait);
+        }
+    }
+}
 //# sourceMappingURL=resilience.js.map
